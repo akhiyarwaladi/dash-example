@@ -101,7 +101,7 @@ def plot_plus_minus():
 	return fig
 
 def plot_oos_status():
-	fig = px.line(df_melt, x='month', y='value', template='presentation', \
+	fig = px.line(oos_status, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
 	fig.update_traces(texttemplate='%{text:.2d}', textposition='top center')
 	legend_dict = \
@@ -124,7 +124,7 @@ def plot_oos_status():
 	return fig
 
 def plot_oos_count():
-	fig = px.line(df_melt, x='month', y='value', template='presentation', \
+	fig = px.line(oos_count, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
 	fig.update_traces(texttemplate='%{text:.2d}', textposition='top center')
 	legend_dict = \
@@ -147,7 +147,7 @@ def plot_oos_count():
 	return fig
 
 def plot_oos_consecutive_order():
-	fig = px.line(df_melt, x='month', y='value', template='presentation', \
+	fig = px.line(oos_consecutive_order, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
 	fig.update_traces(texttemplate='%{text:.2f}', textposition='top center')
 	legend_dict = \
@@ -171,7 +171,7 @@ def plot_oos_consecutive_order():
 	return fig
 
 def plot_oos_time_spend():
-	fig = px.line(df_melt, x='month', y='value', template='presentation', \
+	fig = px.line(oos_time_spend, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
 	fig.update_traces(texttemplate='%{text:.2f}', textposition='top center')
 	legend_dict = \
