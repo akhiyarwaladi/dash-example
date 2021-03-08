@@ -27,7 +27,7 @@ oos_boxes_tab = dac.TabItem(id='content_oos_boxes',
                     dcc.Graph(
                         figure=plot_oos_status(),
                         config=dict(displayModeBar=False),
-                        style={'width': '72vw'}
+                        style={'width': '76vw'}
                     )
                 ]
             ),
@@ -38,7 +38,7 @@ oos_boxes_tab = dac.TabItem(id='content_oos_boxes',
                     dcc.Graph(
                         figure=plot_oos_count(),
                         config=dict(displayModeBar=False),
-                        style={'width': '72vw'}
+                        style={'width': '76vw'}
                     )
                 ]
             ),
@@ -49,7 +49,7 @@ oos_boxes_tab = dac.TabItem(id='content_oos_boxes',
                     dcc.Graph(
                         figure=plot_oos_consecutive_order(),
                         config=dict(displayModeBar=False),
-                        style={'width': '72vw'}
+                        style={'width': '76vw'}
                     )
                 ]
             ),
@@ -60,7 +60,7 @@ oos_boxes_tab = dac.TabItem(id='content_oos_boxes',
                     dcc.Graph(
                         id='oos-graph',
                         config=dict(displayModeBar=False),
-                        style={'width': '72vw'}
+                        style={'width': '76vw'}
                     )
                 ]
             )
