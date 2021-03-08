@@ -14,7 +14,7 @@ from apps.basic_boxes import basic_boxes_tab
 from apps.value_boxes import value_boxes_tab
 from apps.oos_boxes import oos_boxes_tab
 
-from example_plots import plot_scatter, plot_plus_minus
+from example_plots import plot_plus_minus, plot_oos_time_spend
 from apps.tab_cards import text_1, text_2, text_3
 
 # =============================================================================
@@ -263,7 +263,7 @@ def update_box_graph(value):
     Output('oos-graph', 'figure'),
     [Input('controlbar-slider', 'value')])
 def update_oos_graph(value):
-    return plot_plus_minus()
+    return plot_oos_time_spend()
     #return 0
 
 

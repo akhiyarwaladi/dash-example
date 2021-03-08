@@ -2,7 +2,7 @@ import dash_html_components as html
 import dash_core_components as dcc
 import dash_admin_components as dac
 
-from example_plots import plot_scatter, plot_pie, plot_table, plot_new_regular, plot_sapa_notsapa, plot_plus_minus
+from example_plots import plot_oos_status, plot_oos_count, plot_oos_consecutive_order, plot_oos_time_spend
 
 oos_boxes_tab = dac.TabItem(id='content_oos_boxes', 
                               
@@ -22,10 +22,10 @@ oos_boxes_tab = dac.TabItem(id='content_oos_boxes',
 #            ),
             dac.SimpleBox(
             	style = {'height': "600px", 'width':"900px"},
-                title = "SAPA vs non SAPA store sales",
+                title = "OOS position in order status",
                 children=[
                     dcc.Graph(
-                        figure=plot_sapa_notsapa(),
+                        figure=plot_oos_status(),
                         config=dict(displayModeBar=False),
                         style={'width': '72vw'}
                     )
@@ -33,10 +33,10 @@ oos_boxes_tab = dac.TabItem(id='content_oos_boxes',
             ),
             dac.SimpleBox(
                 style = {'height': "600px", 'width':"900px"},
-                title = "New vs Regular member sales",
+                title = "Order item attempt and Order item oos",
                 children=[
                     dcc.Graph(
-                        figure=plot_new_regular(),
+                        figure=plot_oos_count(),
                         config=dict(displayModeBar=False),
                         style={'width': '72vw'}
                     )
@@ -44,10 +44,21 @@ oos_boxes_tab = dac.TabItem(id='content_oos_boxes',
             ),
             dac.SimpleBox(
                 style = {'height': "600px", 'width':"900px"},
-                title = "Up and Down sales member",
+                title = "Consecutive order that user do in same item",
                 children=[
                     dcc.Graph(
-			id='oos-graph',
+                        figure=plot_oos_consecutive_order(),
+                        config=dict(displayModeBar=False),
+                        style={'width': '72vw'}
+                    )
+                ]
+            ),
+            dac.SimpleBox(
+                style = {'height': "600px", 'width':"900px"},
+                title = "User time spend on OOS event",
+                children=[
+                    dcc.Graph(
+                        id='oos-graph',
                         config=dict(displayModeBar=False),
                         style={'width': '72vw'}
                     )
