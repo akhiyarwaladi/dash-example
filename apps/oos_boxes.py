@@ -21,7 +21,7 @@ oos_boxes_tab = dac.TabItem(id='content_oos_boxes',
 #                ]
 #            ),
             dac.SimpleBox(
-            	style = {'height': "600px", 'width':"900px"},
+            	style = {'height': "600px", 'width':"1000px"},
                 title = "OOS position in order status",
                 children=[
                     dcc.Graph(
