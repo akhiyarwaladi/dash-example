@@ -244,7 +244,7 @@ def plot_table_filter():
 	        'textOverflow': 'ellipsis',
 	    })
 
-    return dash_table
+	return dash_table
 
 def plot_scatter(N=50):
     
