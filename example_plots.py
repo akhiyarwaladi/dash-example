@@ -229,7 +229,7 @@ def plot_table_example():
 	return fig
 
 def plot_table_filter():
-	dash_table.DataTable(
+	return dash_table.DataTable(
 	    columns=[
 	        {'name': 'Continent', 'id': 'continent', 'type': 'numeric'},
 	        {'name': 'Country', 'id': 'country', 'type': 'text'},
@@ -249,7 +249,7 @@ def plot_table_filter():
 	        'textOverflow': 'ellipsis',
 	    })
 
-	return dash_table
+	
 
 def plot_scatter(N=50):
     
