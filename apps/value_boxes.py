@@ -2,7 +2,7 @@ import dash_html_components as html
 import dash_core_components as dcc
 import dash_admin_components as dac
 
-from example_plots import (plot_scatter, plot_pie, plot_table, plot_new_regular, 
+from example_plots import (plot_scatter, plot_pie, plot_new_regular, 
 plot_sapa_notsapa, plot_plus_minus, plot_table_example)
 
 value_boxes_tab = dac.TabItem(id='content_value_boxes', 
