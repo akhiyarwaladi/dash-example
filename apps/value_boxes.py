@@ -80,7 +80,13 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
                     )
                 ]
             ),
-            plot_table_filter()
+            dac.SimpleBox(
+                style = {'height': "600px", 'width':"1100px"},
+                title = "New vs Regular member sales",
+                children=[
+                    plot_table_filter()
+                ]
+            )
         ], className='column')
     ]
 )
