@@ -79,17 +79,6 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
                         style={'width': '72vw'}
                     )
                 ]
-            ),
-            dac.SimpleBox(
-                style = {'height': "600px", 'width':"1100px"},
-                title = "Up and Down sales member",
-                children=[
-                    dcc.Graph(
-                        id='box-graph',
-                        config=dict(displayModeBar=False),
-                        style={'width': '72vw'}
-                    )
-                ]
             )
         ], className='row')
     ]
