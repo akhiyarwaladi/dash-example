@@ -230,22 +230,27 @@ def plot_table_example():
 
 def plot_table_filter():
 	return dash_table.DataTable(
-	    columns=[
-	        {'name': 'Continent', 'id': 'continent', 'type': 'numeric'},
-	        {'name': 'Country', 'id': 'country', 'type': 'text'},
-	        {'name': 'Population', 'id': 'pop', 'type': 'numeric'},
-	        {'name': 'Life Expectancy', 'id': 'lifeExp', 'type': 'numeric'},
-	        {'name': 'Mock Dates', 'id': 'Mock Date', 'type': 'datetime'}
-	    ],
-	    data=df.to_dict('records'),
-	    filter_action='native',
-	    page_size=20,
-	    style_table={'height': '300px', 'overflowY': 'auto'},
-	    style_data={
-	        'width': '150px', 'minWidth': '150px', 'maxWidth': '150px',
-	        'overflow': 'hidden',
-	        'textOverflow': 'ellipsis',
-	    })
+		columns=[
+		    {'name': 'Continent', 'id': 'continent', 'type': 'numeric'},
+		    {'name': 'Country', 'id': 'country', 'type': 'text'},
+		    {'name': 'Population', 'id': 'pop', 'type': 'numeric'},
+		    {'name': 'Life Expectancy', 'id': 'lifeExp', 'type': 'numeric'},
+		    {'name': 'Mock Dates', 'id': 'Mock Date', 'type': 'datetime'}
+		],
+		data=df.to_dict('records'),
+		filter_action='native',
+		page_size=20,
+		fixed_rows={'headers': True},
+		style_table={'height': '300px', 'overflowY': 'auto'},
+		style_data={
+		    'width': '150px', 'minWidth': '150px', 'maxWidth': '150px',
+		    'overflow': 'hidden',
+		    'textOverflow': 'ellipsis',
+		},
+		style_cell={
+		    'minWidth': 95, 'maxWidth': 95, 'width': 95
+		}
+	)
 
 	
 
