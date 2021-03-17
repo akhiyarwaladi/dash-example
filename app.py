@@ -64,10 +64,10 @@ subitems = [dac.SidebarMenuSubItem(id='tab_gallery_1',
 sidebar = dac.Sidebar(
 	dac.SidebarMenu(
 		[
-			dac.SidebarHeader(children="Cards"),
-			dac.SidebarMenuItem(id='tab_cards', label='Basic cards', icon='box'),
-            dac.SidebarMenuItem(id='tab_social_cards', label='Social cards', icon='id-card'),
-            dac.SidebarMenuItem(id='tab_tab_cards', label='Tab cards', icon='image'),
+			#dac.SidebarHeader(children="Cards"),
+			#dac.SidebarMenuItem(id='tab_cards', label='Basic cards', icon='box'),
+            #dac.SidebarMenuItem(id='tab_social_cards', label='Social cards', icon='id-card'),
+            #dac.SidebarMenuItem(id='tab_tab_cards', label='Tab cards', icon='image'),
 			dac.SidebarHeader(children="Boxes"),
 			dac.SidebarMenuItem(id='tab_basic_boxes', label='Member monitoring', icon='desktop'),
 			dac.SidebarMenuItem(id='tab_oos_boxes', label='Out of stock', icon='desktop'),
