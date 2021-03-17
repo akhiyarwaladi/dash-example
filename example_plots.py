@@ -2,6 +2,11 @@ import numpy as np
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objs as go
+import dash_table
+import dash_html_components as html
+import datetime
+
+
 df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/gapminder2007.csv')
 df = df[['continent', 'country', 'pop', 'lifeExp']]  # prune columns for example
 df['Mock Date'] = [
