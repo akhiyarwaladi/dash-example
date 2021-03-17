@@ -63,7 +63,7 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
                 title = "SAPA vs non SAPA store sales",
                 children=[
                     dcc.Graph(
-                        figure=plot_table_filter(),
+                        figure=plot_table_example(),
                         config=dict(displayModeBar=False),
                         style={'width': '72vw'}
                     )
