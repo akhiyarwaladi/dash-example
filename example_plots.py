@@ -2,6 +2,9 @@ import numpy as np
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objs as go
+df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2014_usa_states.csv')
+
+
 
 sapa_notsapa = pd.read_csv('../../out_plot/sapa_notsapa.csv', sep='\t')
 new_regular = pd.read_csv('../../out_plot/new_regular.csv', sep='\t')
@@ -194,6 +197,18 @@ def plot_oos_time_spend():
 
 	return fig
 
+
+
+def plot_table_example():
+	fig = go.Figure(data=[go.Table(
+	    header=dict(values=list(df.columns),
+	                fill_color='paleturquoise',
+	                align='left'),
+	    cells=dict(values=[df.Rank, df.State, df.Postal, df.Population],
+	               fill_color='lavender',
+	               align='left'))
+	])
+	return fig
 
 def plot_scatter(N=50):
     
