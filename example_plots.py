@@ -246,9 +246,6 @@ def plot_table_filter():
 		    'width': '150px', 'minWidth': '150px', 'maxWidth': '150px',
 		    'overflow': 'hidden',
 		    'textOverflow': 'ellipsis',
-		},
-		style_cell={
-		    'minWidth': 60, 'maxWidth': 60, 'width': 60
 		}
 	)
 
