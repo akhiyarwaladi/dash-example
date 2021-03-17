@@ -241,7 +241,7 @@ def plot_table_filter():
 		filter_action='native',
 		page_size=20,
 		fixed_rows={'headers': True},
-		style_table={'height': '300px', 'overflowY': 'auto'},
+		style_table={'height': '300px', 'overflowY': 'auto', 'width': '1000px', 'overflowX': 'auto'},
 		style_data={
 		    'width': '150px', 'minWidth': '150px', 'maxWidth': '150px',
 		    'overflow': 'hidden',
