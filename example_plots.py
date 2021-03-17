@@ -239,7 +239,7 @@ def plot_table_filter():
 	    ],
 	    data=df.to_dict('records'),
 	    filter_action='native',
-
+	    page_size=20,
 	    style_table={'height': '300px', 'overflowY': 'auto'},
 	    style_data={
 	        'width': '150px', 'minWidth': '150px', 'maxWidth': '150px',
