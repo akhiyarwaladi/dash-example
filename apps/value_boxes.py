@@ -81,7 +81,7 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
                 ]
             ),
             dac.SimpleBox(
-                style = {'height': "600px", 'width':"800px"},
+                style = {'height': "600px", 'width':"950px"},
                 title = "New vs Regular member sales",
                 children=[
 
