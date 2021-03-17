@@ -208,6 +208,8 @@ def plot_table_example():
 	               fill_color='lavender',
 	               align='left'))
 	])
+	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
+	                  {'l':70, 'r':20, 't':30, 'b':70},legend=legend_dict)
 	return fig
 
 def plot_scatter(N=50):
