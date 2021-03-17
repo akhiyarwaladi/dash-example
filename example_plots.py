@@ -248,7 +248,7 @@ def plot_table_filter():
 		    'textOverflow': 'ellipsis',
 		},
 		style_cell={
-		    'minWidth': 95, 'maxWidth': 95, 'width': 95
+		    'minWidth': 60, 'maxWidth': 60, 'width': 60
 		}
 	)
 
