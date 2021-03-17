@@ -208,6 +208,22 @@ def plot_table_example():
 	               fill_color='lavender',
 	               align='left'))
 	])
+	fig.update_traces(texttemplate='%{text:.2f}', textposition='top center')
+	legend_dict = \
+	    legend=dict(
+	            x=0,
+	            y=1,
+	            traceorder="reversed",
+	            title_font_family="Times New Roman",
+	            font=dict(
+	                family="Courier",
+	                size=12,
+	                color="black"
+	            ),
+	            bgcolor="LightSteelBlue",
+	            bordercolor="Black",
+	            borderwidth=2
+	        )
 	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
 	                  {'l':70, 'r':20, 't':30, 'b':70},legend=legend_dict)
 	return fig
