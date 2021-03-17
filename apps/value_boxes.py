@@ -3,7 +3,7 @@ import dash_core_components as dcc
 import dash_admin_components as dac
 
 from example_plots import (plot_scatter, plot_pie, plot_new_regular, 
-plot_sapa_notsapa, plot_plus_minus, plot_table_example)
+plot_sapa_notsapa, plot_plus_minus, plot_table_example, plot_table_filter)
 
 value_boxes_tab = dac.TabItem(id='content_value_boxes', 
                               
@@ -63,7 +63,7 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
                 title = "SAPA vs non SAPA store sales",
                 children=[
                     dcc.Graph(
-                        figure=plot_sapa_notsapa(),
+                        figure=plot_table_filter(),
                         config=dict(displayModeBar=False),
                         style={'width': '72vw'}
                     )

@@ -2,7 +2,17 @@ import numpy as np
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objs as go
-df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2014_usa_states.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/gapminder2007.csv')
+df = df[['continent', 'country', 'pop', 'lifeExp']]  # prune columns for example
+df['Mock Date'] = [
+    datetime.datetime(2020, 1, 1, 0, 0, 0) + i * datetime.timedelta(hours=13)
+    for i in range(len(df))
+]
+
+
+
+
+df_ex = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2014_usa_states.csv')
 
 
 
@@ -201,10 +211,10 @@ def plot_oos_time_spend():
 
 def plot_table_example():
 	fig = go.Figure(data=[go.Table(
-	    header=dict(values=list(df.columns),
+	    header=dict(values=list(df_ex.columns),
 	                fill_color='LightSteelBlue',
 	                align='left'),
-	    cells=dict(values=[df.Rank, df.State, df.Postal, df.Population],
+	    cells=dict(values=[df_ex.Rank, df_ex.State, df_ex.Postal, df_ex.Population],
 	               fill_color='lavender',
 	               align='left'))
 	])
@@ -212,6 +222,29 @@ def plot_table_example():
 	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
 	                  {'l':70, 'r':20, 't':30, 'b':70},template='presentation')
 	return fig
+
+def plot_table_filter():
+	dash_table.DataTable(
+	    columns=[
+	        {'name': 'Continent', 'id': 'continent', 'type': 'numeric'},
+	        {'name': 'Country', 'id': 'country', 'type': 'text'},
+	        {'name': 'Population', 'id': 'pop', 'type': 'numeric'},
+	        {'name': 'Life Expectancy', 'id': 'lifeExp', 'type': 'numeric'},
+	        {'name': 'Mock Dates', 'id': 'Mock Date', 'type': 'datetime'}
+	    ],
+	    data=df.to_dict('records'),
+	    filter_action='native',
+
+	    style_table={
+	        'height': 400,
+	    },
+	    style_data={
+	        'width': '150px', 'minWidth': '150px', 'maxWidth': '150px',
+	        'overflow': 'hidden',
+	        'textOverflow': 'ellipsis',
+	    })
+
+    return dash_table
 
 def plot_scatter(N=50):
     
