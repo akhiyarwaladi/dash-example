@@ -84,7 +84,12 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
                 style = {'height': "600px", 'width':"1100px"},
                 title = "New vs Regular member sales",
                 children=[
-                    plot_table_filter()
+                    dcc.Graph(
+                        figure=plot_table_filter(),
+                        config=dict(displayModeBar=False),
+                        style={'width': '72vw'}
+                    )
+                   
                 ]
             )
         ], className='column')
