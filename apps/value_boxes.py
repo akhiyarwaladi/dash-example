@@ -79,7 +79,8 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
                         style={'width': '72vw'}
                     )
                 ]
-            )
+            ),
+            plot_table_filter()
         ], className='column')
     ]
 )
