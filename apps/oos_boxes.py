@@ -21,7 +21,7 @@ oos_boxes_tab = dac.TabItem(id='content_oos_boxes',
 #                ]
 #            ),
             dac.SimpleBox(
-            	style = {'height': "600px", 'width':"1100px"},
+            	style = {'height': "600px", 'width':"900px"},
                 title = "OOS position in order status",
                 children=[
                     dcc.Graph(
@@ -32,7 +32,7 @@ oos_boxes_tab = dac.TabItem(id='content_oos_boxes',
                 ]
             ),
             dac.SimpleBox(
-                style = {'height': "600px", 'width':"1100px"},
+                style = {'height': "600px", 'width':"900px"},
                 title = "Order item attempt and Order item oos",
                 children=[
                     dcc.Graph(
@@ -43,7 +43,7 @@ oos_boxes_tab = dac.TabItem(id='content_oos_boxes',
                 ]
             ),
             dac.SimpleBox(
-                style = {'height': "600px", 'width':"1100px"},
+                style = {'height': "600px", 'width':"900px"},
                 title = "Consecutive order that user do in same item",
                 children=[
                     dcc.Graph(
@@ -54,7 +54,7 @@ oos_boxes_tab = dac.TabItem(id='content_oos_boxes',
                 ]
             ),
             dac.SimpleBox(
-                style = {'height': "600px", 'width':"1100px"},
+                style = {'height': "600px", 'width':"900px"},
                 title = "User time spend on OOS event",
                 children=[
                     dcc.Graph(

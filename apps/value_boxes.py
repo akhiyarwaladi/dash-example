@@ -59,7 +59,7 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
         ], className='row'),
         html.Div([
             dac.SimpleBox(
-              style = {'height': "600px", 'width':"1100px"},
+              style = {'height': "600px", 'width':"900px"},
                 title = "SAPA vs non SAPA store sales",
                 children=[
                     dcc.Graph(
@@ -70,7 +70,7 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
                 ]
             ),
             dac.SimpleBox(
-                style = {'height': "600px", 'width':"1100px"},
+                style = {'height': "600px", 'width':"900px"},
                 title = "New vs Regular member sales",
                 children=[
                     dcc.Graph(

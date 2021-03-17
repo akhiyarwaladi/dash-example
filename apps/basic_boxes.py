@@ -24,7 +24,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
 #                ]
 #            ),
             dac.SimpleBox(
-            	style = {'height': "600px", 'width':"1100px"},
+            	style = {'height': "600px", 'width':"900px"},
                 title = "SAPA vs non SAPA store sales",
                 children=[
                     dcc.Graph(
@@ -35,7 +35,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                 ]
             ),
             dac.SimpleBox(
-                style = {'height': "600px", 'width':"1100px"},
+                style = {'height': "600px", 'width':"900px"},
                 title = "New vs Regular member sales",
                 children=[
                     dcc.Graph(
@@ -46,7 +46,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                 ]
             ),
             dac.SimpleBox(
-                style = {'height': "600px", 'width':"1100px"},
+                style = {'height': "600px", 'width':"900px"},
                 title = "Up and Down sales member",
                 children=[
                     dcc.Graph(
