@@ -70,7 +70,7 @@ sidebar = dac.Sidebar(
             dac.SidebarMenuItem(id='tab_tab_cards', label='Tab cards', icon='image'),
 			dac.SidebarHeader(children="Boxes"),
 			dac.SidebarMenuItem(id='tab_basic_boxes', label='Member monitoring', icon='desktop'),
-			dac.SidebarMenuItem(id='tab_oos_boxes', label='Out Of Stock', icon='desktop'),
+			dac.SidebarMenuItem(id='tab_oos_boxes', label='Out of stock', icon='desktop'),
 			dac.SidebarMenuItem(id='tab_value_boxes', label='Value/Info boxes', icon='suitcase'),
 			dac.SidebarHeader(children="Gallery"),
 			dac.SidebarMenuItem(label='Galleries', icon='cubes', children=subitems),
