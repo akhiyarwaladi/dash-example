@@ -13,7 +13,7 @@ df['Mock Date'] = [
     datetime.datetime(2020, 1, 1, 0, 0, 0) + i * datetime.timedelta(hours=13)
     for i in range(len(df))
 ]
-
+df_c1 = pd.read_csv('../out_plot/voucher_refund/c_1.csv', sep='\t', index=False)
 
 
 
@@ -230,13 +230,13 @@ def plot_table_example():
 
 def plot_table_filter():
 	return dash_table.DataTable(
-		columns=[
-		    {'name': 'Continent', 'id': 'continent', 'type': 'numeric'},
-		    {'name': 'Country', 'id': 'country', 'type': 'text'},
-		    {'name': 'Population', 'id': 'pop', 'type': 'numeric'},
-		    {'name': 'Life Expectancy', 'id': 'lifeExp', 'type': 'numeric'},
-		    {'name': 'Mock Dates', 'id': 'Mock Date', 'type': 'datetime'}
-		],
+		# columns=[
+		#     {'name': 'Continent', 'id': 'continent', 'type': 'numeric'},
+		#     {'name': 'Country', 'id': 'country', 'type': 'text'},
+		#     {'name': 'Population', 'id': 'pop', 'type': 'numeric'},
+		#     {'name': 'Life Expectancy', 'id': 'lifeExp', 'type': 'numeric'},
+		#     {'name': 'Mock Dates', 'id': 'Mock Date', 'type': 'datetime'}
+		# ],
 		data=df.to_dict('records'),
 		filter_action='native',
 		page_size=20,
@@ -249,7 +249,28 @@ def plot_table_filter():
 		}
 	)
 
-	
+def plot_voucher_refund_c1():
+
+	return dash_table.DataTable(
+		# columns=[
+		#     {'name': 'Continent', 'id': 'continent', 'type': 'numeric'},
+		#     {'name': 'Country', 'id': 'country', 'type': 'text'},
+		#     {'name': 'Population', 'id': 'pop', 'type': 'numeric'},
+		#     {'name': 'Life Expectancy', 'id': 'lifeExp', 'type': 'numeric'},
+		#     {'name': 'Mock Dates', 'id': 'Mock Date', 'type': 'datetime'}
+		# ],
+		data=df_c1.to_dict('records'),
+		filter_action='native',
+		page_size=20,
+		fixed_rows={'headers': True},
+		style_table={'height': '300px', 'overflowY': 'scroll', 'overflowX': 'scroll'},
+		style_data={
+		    'width': '150px', 'minWidth': '150px', 'maxWidth': '150px',
+		    'overflow': 'hidden',
+		    'textOverflow': 'ellipsis',
+		}
+	)
+
 
 def plot_scatter(N=50):
     
