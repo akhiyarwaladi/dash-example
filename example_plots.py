@@ -252,13 +252,13 @@ def plot_table_filter():
 def plot_voucher_refund_c1():
 
 	return dash_table.DataTable(
-		# columns=[
-		#     {'name': 'Continent', 'id': 'continent', 'type': 'numeric'},
-		#     {'name': 'Country', 'id': 'country', 'type': 'text'},
-		#     {'name': 'Population', 'id': 'pop', 'type': 'numeric'},
-		#     {'name': 'Life Expectancy', 'id': 'lifeExp', 'type': 'numeric'},
-		#     {'name': 'Mock Dates', 'id': 'Mock Date', 'type': 'datetime'}
-		# ],
+		columns=[
+		    {'name': 'Continent', 'id': 'tbto_create_date', 'type': 'text'},
+		    {'name': 'Country', 'id': 'tbto_no', 'type': 'text'},
+		    {'name': 'Population', 'id': 'tbto_ponta_id', 'type': 'text'},
+		    {'name': 'Life Expectancy', 'id': 'WS_DESCRIPTION', 'type': 'text'},
+		    {'name': 'Mock Dates', 'id': 'tbtd_no', 'type': 'text'}
+		],
 		data=df_c1.to_dict('records'),
 		filter_action='native',
 		page_size=20,
