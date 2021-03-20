@@ -4,7 +4,8 @@ import dash_admin_components as dac
 
 from example_plots import (plot_scatter, plot_pie, plot_new_regular, 
 plot_sapa_notsapa, plot_plus_minus, plot_table_example, plot_table_filter,
-plot_voucher_refund_c1)
+plot_voucher_refund_c1, plot_voucher_refund_c2, plot_voucher_refund_c3,
+plot_voucher_refund_status)
 
 value_boxes_tab = dac.TabItem(id='content_value_boxes', 
                               
@@ -60,29 +61,35 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
         ], className='row'),
         html.Div([
             dac.SimpleBox(
+                style = {'height': "600px", 'width':"900px"},
+                title = "Alfagift SKI order status spread",
+                children=[
+                    dcc.Graph(
+                        figure=plot_voucher_refund_status(),
+                        config=dict(displayModeBar=False),
+                        style={'width': '76vw'}
+                    )
+                ]
+            ),
+            dac.SimpleBox(
               style = {'height': "600px", 'width':"900px"},
-                title = "SAPA vs non SAPA store sales",
+                title = "success order but not get voucher",
                 children=[
                     plot_voucher_refund_c1()
                 ]
             ),
             dac.SimpleBox(
                 style = {'height': "600px", 'width':"900px"},
-                title = "New vs Regular member sales",
+                title = "already receive order but submit refund",
                 children=[
-                    dcc.Graph(
-                        figure=plot_table_example(),
-                        config=dict(displayModeBar=False),
-                        style={'width': '72vw'}
-                    )
+                    plot_voucher_refund_c2()
                 ]
             ),
             dac.SimpleBox(
                 style = {'height': "600px", 'width':"900px"},
-                title = "New vs Regular member sales",
+                title = "get voucher but order not completed ",
                 children=[
-
-                    plot_table_filter()
+                    plot_voucher_refund_c3()
                 ]
             )
         ], className='column')
