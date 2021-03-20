@@ -281,7 +281,7 @@ def plot_voucher_refund_status():
 	               name=r, marker_color=c),
 	    )
 
-	status_count = res_vcr_oshop['WS_DESCRIPTION'].value_counts().to_dict()
+	status_count = res_vcr_oshop_g.groupby('WS_DESCRIPTION').agg({'status':'sum'}).to_dict()['status']
 	return fig, status_count
 
 
