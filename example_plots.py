@@ -24,7 +24,7 @@ res_vcr_oshop_g = pd.read_csv('../../out_plot/voucher_refund/res_vcr_oshop_g.csv
 
 df_c1 = pd.read_csv('../../out_plot/voucher_refund/c_1.csv', sep='\t')
 df_c2 = pd.read_csv('../../out_plot/voucher_refund/c_2.csv', sep='\t')
-df_c2 = pd.read_csv('../../out_plot/voucher_refund/c_3.csv', sep='\t')
+df_c3 = pd.read_csv('../../out_plot/voucher_refund/c_3.csv', sep='\t')
 
 
 ###
