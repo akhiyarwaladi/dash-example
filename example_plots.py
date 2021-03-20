@@ -229,14 +229,13 @@ def plot_table_example():
 	return fig
 
 def plot_table_filter():
+	df_init = pd.DataFrame()
+	df_init['name'] = list(df)
+	df_init['id'] = list(df)
+	df_init['type'] = 'text'
+	columns = df_init.to_dict(orient='records')
 	return dash_table.DataTable(
-		# columns=[
-		#     {'name': 'Continent', 'id': 'continent', 'type': 'numeric'},
-		#     {'name': 'Country', 'id': 'country', 'type': 'text'},
-		#     {'name': 'Population', 'id': 'pop', 'type': 'numeric'},
-		#     {'name': 'Life Expectancy', 'id': 'lifeExp', 'type': 'numeric'},
-		#     {'name': 'Mock Dates', 'id': 'Mock Date', 'type': 'datetime'}
-		# ],
+		columns=columns,
 		data=df.to_dict('records'),
 		filter_action='native',
 		page_size=20,
@@ -250,15 +249,15 @@ def plot_table_filter():
 	)
 
 def plot_voucher_refund_c1():
-
+	df_init = pd.DataFrame()
+	df_init['name'] = list(df_c1)
+	df_init['id'] = list(df_c1)
+	df_init['type'] = 'text'
+	columns = df_init.to_dict(orient='records')
 	return dash_table.DataTable(
-		columns=[
-		    {'name': 'Continent', 'id': 'tbto_create_date', 'type': 'text'},
-		    {'name': 'Country', 'id': 'tbto_no', 'type': 'text'},
-		    {'name': 'Population', 'id': 'tbto_ponta_id', 'type': 'text'},
-		    {'name': 'Life Expectancy', 'id': 'WS_DESCRIPTION', 'type': 'text'},
-		    {'name': 'Mock Dates', 'id': 'tbtd_no', 'type': 'text'}
-		],
+
+
+		columns=columns,
 		data=df_c1.to_dict('records'),
 		filter_action='native',
 		page_size=20,
