@@ -13,7 +13,7 @@ df['Mock Date'] = [
     datetime.datetime(2020, 1, 1, 0, 0, 0) + i * datetime.timedelta(hours=13)
     for i in range(len(df))
 ]
-df_c1 = pd.read_csv('../out_plot/voucher_refund/c_1.csv', sep='\t', index=False)
+df_c1 = pd.read_csv('../../out_plot/voucher_refund/c_1.csv', sep='\t')
 
 
 
