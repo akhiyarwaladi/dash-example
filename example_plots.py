@@ -281,7 +281,8 @@ def plot_voucher_refund_status():
 	               name=r, marker_color=c),
 	    )
 
-	return fig
+	status_count = res_vcr_oshop['WS_DESCRIPTION'].value_counts().to_dict()
+	return fig, status_count
 
 
 def plot_voucher_refund_c1():
@@ -315,7 +316,7 @@ def plot_voucher_refund_c2():
 
 
 		columns=columns,
-		data=df_c1.to_dict('records'),
+		data=df_c2.to_dict('records'),
 		filter_action='native',
 		page_size=20,
 		fixed_rows={'headers': True},
@@ -336,7 +337,7 @@ def plot_voucher_refund_c3():
 
 
 		columns=columns,
-		data=df_c1.to_dict('records'),
+		data=df_c3.to_dict('records'),
 		filter_action='native',
 		page_size=20,
 		fixed_rows={'headers': True},

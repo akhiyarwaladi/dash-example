@@ -7,35 +7,36 @@ plot_sapa_notsapa, plot_plus_minus, plot_table_example, plot_table_filter,
 plot_voucher_refund_c1, plot_voucher_refund_c2, plot_voucher_refund_c3,
 plot_voucher_refund_status)
 
+
+
+fig_status, status_count = plot_voucher_refund_status()
 value_boxes_tab = dac.TabItem(id='content_value_boxes', 
                               
     children=[
         html.H4('Value Boxes'),
         html.Div([
             dac.ValueBox(
-            	value=150,
-                subtitle="New orders",
-                color = "primary",
-                icon = "shopping-cart",
-                href = "#"
+            	value = status_count['Sudah di terima oleh customer'],
+              subtitle ='Sudah di terima oleh customer',
+              color = "info",
+              icon = "database"
             ),
             dac.ValueBox(
-              elevation = 4,
-              value = "53%",
-              subtitle = "New orders",
-              color = "danger",
-              icon = "cogs"
+              value = status_count['Autocancel By System'],
+              subtitle = 'Autocancel By System',
+              color = "info",
+              icon = "database"
             ),
             dac.ValueBox(
-              value = "44",
-              subtitle = "User Registrations",
-              color = "warning",
-              icon = "suitcase"
+              value = status_count['Dibatalkan oleh customer care'],
+              subtitle = 'Dibatalkan oleh customer care',
+              color = "info",
+              icon = "database"
             ),
             dac.ValueBox(
-              value = "53%",
-              subtitle = "Bounce rate",
-              color = "success",
+              value = status_count['Refund'],
+              subtitle = 'Refund',
+              color = "info",
               icon = "database"
             )
         ], className='row'),
@@ -65,7 +66,7 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
                 title = "Alfagift SKI order status spread",
                 children=[
                     dcc.Graph(
-                        figure=plot_voucher_refund_status(),
+                        figure=fig_status,
                         config=dict(displayModeBar=False),
                         style={'width': '76vw'}
                     )
