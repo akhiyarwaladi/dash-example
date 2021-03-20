@@ -305,7 +305,7 @@ def plot_voucher_refund_c1():
 		    'overflow': 'hidden',
 		    'textOverflow': 'ellipsis',
 		}
-	)
+	), len(df_1)
 def plot_voucher_refund_c2():
 	df_init = pd.DataFrame()
 	df_init['name'] = list(df_c2)
@@ -326,7 +326,7 @@ def plot_voucher_refund_c2():
 		    'overflow': 'hidden',
 		    'textOverflow': 'ellipsis',
 		}
-	)
+	), len(df_2)
 def plot_voucher_refund_c3():
 	df_init = pd.DataFrame()
 	df_init['name'] = list(df_c3)
@@ -347,7 +347,7 @@ def plot_voucher_refund_c3():
 		    'overflow': 'hidden',
 		    'textOverflow': 'ellipsis',
 		}
-	)
+	), len(df_3)
 
 
 def plot_scatter(N=50):

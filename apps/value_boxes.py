@@ -10,10 +10,13 @@ plot_voucher_refund_status)
 
 
 fig_status, status_count = plot_voucher_refund_status()
+fig_c1, c1_count =plot_voucher_refund_c1()
+fig_c2, c2_count =plot_voucher_refund_c2()
+fig_c3, c3_count =plot_voucher_refund_c3()
 value_boxes_tab = dac.TabItem(id='content_value_boxes', 
                               
     children=[
-        html.H4('Value Boxes'),
+        html.H4('Status order'),
         html.Div([
             dac.ValueBox(
             	value = status_count['Sudah di terima oleh customer'],
@@ -40,24 +43,24 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
               icon = "database"
             )
         ], className='row'),
-        html.H4('Info Boxes'),
+        html.H4('Cases'),
         html.Div([
             dac.InfoBox(
-              title = "Messages",
-              value = 1410,
-              icon = "envelope"
-            ),
-            dac.InfoBox(
-              title = "Bookmarks",
-              color = "info",
-              value = 240,
+              title = "Success not get voucher",
+              value = c1_count,
               icon = "bookmark"
             ),
             dac.InfoBox(
-              title = "Comments",
+              title = "Delivered but refund",
+              color = "info",
+              value = c2_count,
+              icon = "bookmark"
+            ),
+            dac.InfoBox(
+              title = "Get voucher but not completed",
               gradient_color = "danger",
-              value = 41410,
-              icon = "comments"
+              value = c3_count,
+              icon = "bookmark"
             )
         ], className='row'),
         html.Div([
@@ -76,21 +79,21 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
               style = {'height': "600px", 'width':"900px"},
                 title = "success order but not get voucher",
                 children=[
-                    plot_voucher_refund_c1()
+                    fig_c1
                 ]
             ),
             dac.SimpleBox(
                 style = {'height': "600px", 'width':"900px"},
                 title = "already receive order but submit refund",
                 children=[
-                    plot_voucher_refund_c2()
+                    fig_c2
                 ]
             ),
             dac.SimpleBox(
                 style = {'height': "600px", 'width':"900px"},
                 title = "get voucher but order not completed ",
                 children=[
-                    plot_voucher_refund_c3()
+                    fig_c3
                 ]
             )
         ], className='column')
