@@ -11,18 +11,31 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                               
     children=html.Div(
         [
-#            dac.SimpleBox(
-#            	style = {'height': "600px"},
-#                title = "Box 1",
-#                children=[
-#                    dcc.Graph(
-#			id='box-graph',
-#			figure=plot_new_regular(),
-#                        config=dict(displayModeBar=False),
-#                        style={'width': '38vw'}
-#                    )
-#                ]
-#            ),
+            dac.TabBox(
+                [
+                    dac.TabBoxHeader(
+                        dac.TabBoxMenu(
+                            [
+                                dac.TabBoxMenuItem(tab_id='tab_box_1_tab1',
+                                                   label='Tab 1'),
+                                dac.TabBoxMenuItem(tab_id='tab_box_1_tab2',
+                                                   label='Tab 2'),
+                                dac.TabBoxMenuItem(tab_id='tab_box_1_tab3',
+                                                   label='Tab 3') 
+                            ],
+                            id='tab_box_1_menu'
+                        ),
+                        collapsible = False,
+                        closable = True,
+                        title="A card with tabs"
+                    ),
+                    dac.TabBoxBody(
+                        id='tab_box_1'
+                    )       
+                ],
+                width=12,
+                elevation=2
+            ),
             dac.SimpleBox(
             	style = {'height': "600px", 'width':"900px"},
                 title = "SAPA vs non SAPA store sales",
@@ -39,7 +52,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                 title = "New vs Regular member sales",
                 children=[
                     dcc.Graph(
-                        figure=plot_table_example(),
+                        figure=plot_new_regular(),
                         config=dict(displayModeBar=False),
                         style={'width': '72vw'}
                     )
@@ -50,7 +63,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                 title = "Up and Down sales member",
                 children=[
                     dcc.Graph(
-			id='box-graph',
+                        id='box-graph',
                         config=dict(displayModeBar=False),
                         style={'width': '72vw'}
                     )
