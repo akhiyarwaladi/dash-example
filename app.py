@@ -162,8 +162,9 @@ def activate(input_id,
         return False, False, False, False, False, False, False, True, False
     elif input_id == 'tab_gallery_2' and n_gallery_2:
         return False, False, False, False, False, False, False, False, True
+    # initialization
     else:
-        return True, False, False, False, False, False, False, False # App init
+        return True, False, False, False, False, False, False, False, False 
     
 @app.callback([Output('content_cards', 'active'),
                Output('content_social_cards', 'active'),
