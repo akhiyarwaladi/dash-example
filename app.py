@@ -186,7 +186,7 @@ def activate(input_id,
                 Input('tab_gallery_2', 'n_clicks')]
 )
 def display_tab(n_cards, n_social_cards, n_tab_cards, n_basic_boxes, n_oos_boxes,
-                n_value_boxes, n_gallery_1, n_gallery_2):
+                n_value_boxes, n_value_behave, n_gallery_1, n_gallery_2):
     
     ctx = dash.callback_context # Callback context to recognize which input has been triggered
 
