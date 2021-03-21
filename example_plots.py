@@ -376,7 +376,7 @@ def plot_df_m_2802():
 
 
 		columns=columns,
-		data=df_c3.to_dict('records'),
+		data=df_m_2802.to_dict('records'),
 		filter_action='native',
 		page_size=20,
 		fixed_rows={'headers': True},
