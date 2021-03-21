@@ -29,6 +29,8 @@ df_c3 = pd.read_csv('../../out_plot/voucher_refund/c_3.csv', sep='\t')
 
 ###
 
+df_m_2802 = pd.read_csv('../../df_m_2802.csv', sep='\t', index=False)
+
 
 
 sapa_notsapa = pd.read_csv('../../out_plot/sapa_notsapa.csv', sep='\t')
@@ -357,6 +359,29 @@ def plot_voucher_refund_c3():
 		    'textOverflow': 'ellipsis',
 		}
 	), len(df_c3)
+
+
+def plot_df_m_2802():
+	df_init = pd.DataFrame()
+	df_init['name'] = list(df_m_2802)
+	df_init['id'] = list(df_m_2802)
+	df_init['type'] = 'text'
+	columns = df_init.to_dict(orient='records')
+	return dash_table.DataTable(
+
+
+		columns=columns,
+		data=df_c3.to_dict('records'),
+		filter_action='native',
+		page_size=20,
+		fixed_rows={'headers': True},
+		style_table={'height': '300px', 'overflowY': 'scroll', 'overflowX': 'scroll'},
+		style_data={
+		    'width': '150px', 'minWidth': '150px', 'maxWidth': '150px',
+		    'overflow': 'hidden',
+		    'textOverflow': 'ellipsis',
+		}
+	), len(df_m_2802)
 
 
 def plot_scatter(N=50):
