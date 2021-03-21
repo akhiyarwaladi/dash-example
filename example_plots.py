@@ -60,7 +60,10 @@ def plot_pie():
 def plot_sapa_notsapa():
 	fig = px.line(sapa_notsapa, x='tbto_create_date', y='net_amount', template='presentation', \
 	              text='tbto_amount_final_rp', color='sapa_enable')
-	fig.update_traces(texttemplate='%{text}', textposition='top center')
+	fig.update_traces(texttemplate='%{text}', textposition='top center', textfont_size=14)
+	fig.update_xaxes(
+	    dtick="M1",
+	    tickformat="%b\n%Y")
 	legend_dict = \
 	    legend=dict(
 	            x=0,
@@ -72,7 +75,7 @@ def plot_sapa_notsapa():
 	                size=12,
 	                color="black"
 	            ),
-	            bgcolor="LightSteelBlue",
+	            bgcolor="LightGrey",
 	            bordercolor="Black",
 	            borderwidth=2
 	        )
@@ -83,7 +86,10 @@ def plot_sapa_notsapa():
 def plot_new_regular():
 	fig = px.line(new_regular, x='tbto_create_date', y='tbto_amount_final', template='presentation', \
 	              text='net_amount', color='member_stat')
-	fig.update_traces(texttemplate='%{text}', textposition='top center')
+	fig.update_traces(texttemplate='%{text}', textposition='top center', textfont_size=14)
+	fig.update_xaxes(
+	    dtick="M1",
+	    tickformat="%b\n%Y")
 	legend_dict = \
 	    legend=dict(
 	            x=0,
@@ -95,18 +101,22 @@ def plot_new_regular():
 	                size=12,
 	                color="black"
 	            ),
-	            bgcolor="LightSteelBlue",
+	            bgcolor="LightGrey",
 	            bordercolor="Black",
 	            borderwidth=2
 	        )
 	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
-	                  {'l':70, 'r':20, 't':30, 'b':70},legend=legend_dict)
+	                  {'l':70, 'r':20, 't':30, 'b':70},legend=legend_dict)	
+	
 	return fig
 
 def plot_plus_minus():
 	fig = px.line(plus_minus, x='wom', y='count_member', template='presentation', \
 	              text='count_member', color='diff_sign')
-	fig.update_traces(texttemplate='%{text}', textposition='top center')
+	fig.update_traces(texttemplate='%{text}', textposition='top center', textfont_size=14)
+	fig.update_xaxes(
+	    dtick="M1",
+	    tickformat="%b\n%Y")
 	legend_dict = \
 	    legend=dict(
 	            x=0,
@@ -118,13 +128,12 @@ def plot_plus_minus():
 	                size=12,
 	                color="black"
 	            ),
-	            bgcolor="LightSteelBlue",
+	            bgcolor="LightGrey",
 	            bordercolor="Black",
 	            borderwidth=2
 	        )
 	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
 	                  {'l':70, 'r':20, 't':30, 'b':70},legend=legend_dict)
-	fig.show()
 
 	return fig
 
