@@ -12,6 +12,7 @@ from apps.social_cards import social_cards_tab
 from apps.tab_cards import tab_cards_tab
 from apps.basic_boxes import basic_boxes_tab
 from apps.value_boxes import value_boxes_tab
+from apps.value_behave import value_behave_tab
 from apps.oos_boxes import oos_boxes_tab
 
 from example_plots import plot_plus_minus, plot_oos_time_spend
@@ -96,6 +97,7 @@ body = dac.Body(
         basic_boxes_tab,
         oos_boxes_tab,
         value_boxes_tab,
+        value_behave_tab,
         dac.TabItem(html.P('Gallery 1 (You can add Dash Bootstrap Components!)'), 
                     id='content_gallery_1'),
         dac.TabItem(html.P('Gallery 2 (You can add Dash Bootstrap Components!)'), 
