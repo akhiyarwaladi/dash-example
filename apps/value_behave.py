@@ -46,7 +46,14 @@ value_behave_tab = dac.TabItem(id='content_value_behave',
                     "{}".format(unique_item_ag_3101)
                 ]
             ),
-
+            dac.SimpleBox(
+                style = {'height': "600px", 'width':"900px"},
+                title = "Detail dec20-jan21",
+                children=[
+                    fig_3101,
+                    "{}".format(unique_item_ag_3101)
+                ]
+            ),
         ], className='column')
     ]
 )
