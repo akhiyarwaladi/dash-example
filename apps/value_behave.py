@@ -32,14 +32,14 @@ value_behave_tab = dac.TabItem(id='content_value_behave',
 
             dac.SimpleBox(
               style = {'height': "600px", 'width':"900px"},
-                title = "success order but not get voucher",
+                title = "Detail jan21-feb21",
                 children=[
                     fig_
                 ]
             ),
             dac.SimpleBox(
                 style = {'height': "600px", 'width':"900px"},
-                title = "already receive order but submit refund",
+                title = "Detail dec20-jan21",
                 children=[
                     fig_
                 ]

@@ -5,6 +5,7 @@ import plotly.graph_objs as go
 import dash_table
 import dash_html_components as html
 import datetime
+from datetime import date, timedelta
 
 
 ### load example data
@@ -277,6 +278,15 @@ def plot_table_filter():
 
 def plot_voucher_refund_status():
 	df = res_vcr_oshop_g.copy()
+
+	
+	period_upper = date.today()
+	period_lower = (period_upper - timedelta(days=5)) 
+	period_upper = period_upper.strftime('%Y-%m-%d')
+	period_lower = period_lower.strftime('%Y-%m-%d')
+
+	df = df[(df['tbto_create_date'] >= period_lower) \
+			& (df['tbto_create_date'] <= period_upper)]
 
 	fig = go.Figure()
 
