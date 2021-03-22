@@ -5,7 +5,7 @@ import dash_admin_components as dac
 from example_plots import (plot_scatter, plot_pie, plot_new_regular, 
 plot_sapa_notsapa, plot_plus_minus, plot_table_example, plot_table_filter,
 plot_voucher_refund_c1, plot_voucher_refund_c2, plot_voucher_refund_c3,
-plot_voucher_refund_status, plot_df_m_2802)
+plot_voucher_refund_status, plot_df_m_2802, plot_df_m_3101)
 
 
 fig_, unique_item_ag, change_to_online = plot_df_m_2802()
