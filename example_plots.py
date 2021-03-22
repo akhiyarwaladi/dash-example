@@ -300,7 +300,7 @@ def plot_voucher_refund_status():
 	colors = ["#B6E2D3", "#e4bad4", '#E7D2CC', '#FFA384', '#D6AD60', '#18A558']
 	colors = colors[0:len(df.WS_DESCRIPTION.unique())]
 	for r, c in zip(df.WS_DESCRIPTION.unique(), colors):
-	    plot_df = df[df.WS_DESCRIPTION == r].sort_values('status', ascending=True)
+	    plot_df = df[df.WS_DESCRIPTION == r]
 	    #display(plot_df)
 	    fig.add_trace(
 	        go.Bar(x=[plot_df.tbto_create_date, plot_df.tbtpp_name], y=plot_df.status, \
