@@ -8,14 +8,7 @@ plot_voucher_refund_c1, plot_voucher_refund_c2, plot_voucher_refund_c3,
 plot_voucher_refund_status, plot_df_m_2802)
 
 
-
-fig_status, status_count = plot_voucher_refund_status()
-fig_c1, c1_count =plot_voucher_refund_c1()
-fig_c2, c2_count =plot_voucher_refund_c2()
-fig_c3, c3_count =plot_voucher_refund_c3()
-
-
-fig_, _count = plot_df_m_2802()
+fig_, unique_item_ag, change_to_online = plot_df_m_2802()
 
 value_behave_tab = dac.TabItem(id='content_value_behave', 
                               
@@ -23,29 +16,17 @@ value_behave_tab = dac.TabItem(id='content_value_behave',
         html.H4('Status order'),
         html.Div([
             dac.ValueBox(
-            	value = status_count['Sudah di terima oleh customer'],
-              subtitle ='Sudah di terima oleh customer',
+            	value = unique_item_ag,
+              subtitle ='Number of user always buy different item on alfagift transaction',
               color = "info",
               icon = "database"
             ),
             dac.ValueBox(
-              value = status_count['Autocancel By System'],
-              subtitle = 'Autocancel By System',
+              value = change_to_online,
+              subtitle = 'Number of user change their item buy from offline to online',
               color = "info",
               icon = "database"
             ),
-            dac.ValueBox(
-              value = status_count['Dibatalkan oleh customer care'],
-              subtitle = 'Dibatalkan oleh customer care',
-              color = "info",
-              icon = "database"
-            ),
-            dac.ValueBox(
-              value = status_count['Refund'],
-              subtitle = 'Refund',
-              color = "info",
-              icon = "database"
-            )
         ], className='row'),
         html.Div([
 
