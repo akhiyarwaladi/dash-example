@@ -372,6 +372,8 @@ def plot_df_m_2802():
 	df_init['id'] = list(df_m_2802)
 	df_init['type'] = 'text'
 	columns = df_init.to_dict(orient='records')
+	unique_item_ag = df_m_2802[df_m_2802['m_item_ag_len'] > 0].shape[0]
+	change_to_online = df_m_2802[df_m_2802['m_online_len'] > 0].shape[0]
 	return dash_table.DataTable(
 
 
@@ -386,7 +388,7 @@ def plot_df_m_2802():
 		    'overflow': 'hidden',
 		    'textOverflow': 'ellipsis',
 		}
-	), len(df_m_2802)
+	), unique_item_ag, change_to_online
 
 
 def plot_scatter(N=50):
