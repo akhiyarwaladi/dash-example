@@ -98,7 +98,7 @@ def plot_new_regular():
 	fig.update_xaxes(
 		dtick="M1",
 		tickformat="%b\n%Y")
-		legend_dict = \
+	legend_dict = \
 		legend=dict(
 		        x=0,
 		        y=1,
