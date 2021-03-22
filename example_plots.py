@@ -27,12 +27,12 @@ df_c1 = pd.read_csv('../../out_plot/voucher_refund/c_1.csv', sep='\t')
 df_c2 = pd.read_csv('../../out_plot/voucher_refund/c_2.csv', sep='\t')
 df_c3 = pd.read_csv('../../out_plot/voucher_refund/c_3.csv', sep='\t')
 
-
 ###
 
 ###
 
 df_m_2802 = pd.read_csv('../../out_plot/df_m_2802.csv', sep='\t')
+df_m_3101 = pd.read_csv('../../out_plot/df_m_3101.csv', sep='\t')
 
 ###
 
@@ -98,7 +98,7 @@ def plot_new_regular():
 	fig.update_xaxes(
 	    dtick="M1",
 	    tickformat="%b\n%Y")
-	legend_dict = \
+		legend_dict = \
 	    legend=dict(
 	            x=0,
 	            y=1,
@@ -148,7 +148,7 @@ def plot_plus_minus():
 def plot_oos_status():
 	fig = px.line(oos_status, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
-	fig.update_traces(texttemplate='%{text:.2d}', textposition='top center')
+	fig.update_traces(texttemplate='%{text:.2d}', textposition='top center', textfont_size=14)
 	legend_dict = \
 	    legend=dict(
 	            x=0,
@@ -160,7 +160,7 @@ def plot_oos_status():
 	                size=12,
 	                color="black"
 	            ),
-	            bgcolor="LightSteelBlue",
+	            bgcolor="LightGrey",
 	            bordercolor="Black",
 	            borderwidth=2
 	        )
@@ -171,7 +171,7 @@ def plot_oos_status():
 def plot_oos_count():
 	fig = px.line(oos_count, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
-	fig.update_traces(texttemplate='%{text:.2d}', textposition='top center')
+	fig.update_traces(texttemplate='%{text:.2d}', textposition='top center', textfont_size=14)
 	legend_dict = \
 	    legend=dict(
 	            x=0,
@@ -183,7 +183,7 @@ def plot_oos_count():
 	                size=12,
 	                color="black"
 	            ),
-	            bgcolor="LightSteelBlue",
+	            bgcolor="LightGrey",
 	            bordercolor="Black",
 	            borderwidth=2
 	        )
@@ -194,7 +194,7 @@ def plot_oos_count():
 def plot_oos_consecutive_order():
 	fig = px.line(oos_consecutive_order, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
-	fig.update_traces(texttemplate='%{text:.2f}', textposition='top center')
+	fig.update_traces(texttemplate='%{text:.2f}', textposition='top center', textfont_size=14)
 	legend_dict = \
 	    legend=dict(
 	            x=0,
@@ -206,7 +206,7 @@ def plot_oos_consecutive_order():
 	                size=12,
 	                color="black"
 	            ),
-	            bgcolor="LightSteelBlue",
+	            bgcolor="LightGrey",
 	            bordercolor="Black",
 	            borderwidth=2
 	        )
@@ -218,7 +218,7 @@ def plot_oos_consecutive_order():
 def plot_oos_time_spend():
 	fig = px.line(oos_time_spend, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
-	fig.update_traces(texttemplate='%{text:.2f}', textposition='top center')
+	fig.update_traces(texttemplate='%{text:.2f}', textposition='top center', textfont_size=14)
 	legend_dict = \
 	    legend=dict(
 	            x=0,
@@ -230,7 +230,7 @@ def plot_oos_time_spend():
 	                size=12,
 	                color="black"
 	            ),
-	            bgcolor="LightSteelBlue",
+	            bgcolor="LightGrey",
 	            bordercolor="Black",
 	            borderwidth=2
 	        )
@@ -238,7 +238,6 @@ def plot_oos_time_spend():
 	                  {'l':70, 'r':20, 't':30, 'b':70},legend=legend_dict)
 
 	return fig
-
 
 
 def plot_table_example():
@@ -399,6 +398,30 @@ def plot_df_m_2802():
 		    'textOverflow': 'ellipsis',
 		}
 	), unique_item_ag, change_to_online
+
+def plot_df_m_3101():
+	df_init = pd.DataFrame()
+	df_init['name'] = list(df_m_3101)
+	df_init['id'] = list(df_m_3101)
+	df_init['type'] = 'text'
+	columns = df_init.to_dict(orient='records')
+	unique_item_ag = df_m_3101[df_m_3101['m_item_ag_len'] > 0].shape[0]
+	change_to_online = df_m_3101[df_m_3101['m_online_len'] > 0].shape[0]
+	return dash_table.DataTable(
+
+
+		columns=columns,
+		data=df_m_3101.to_dict('records'),
+		filter_action='native',
+		page_size=20,
+		fixed_rows={'headers': True},
+		style_table={'height': '300px', 'overflowY': 'scroll', 'overflowX': 'scroll'},
+		style_data={
+		    'width': '150px', 'minWidth': '150px', 'maxWidth': '150px',
+		    'overflow': 'hidden',
+		    'textOverflow': 'ellipsis',
+		}
+	), unique_item_ag, change_to_online	
 
 
 def plot_scatter(N=50):

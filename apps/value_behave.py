@@ -9,6 +9,7 @@ plot_voucher_refund_status, plot_df_m_2802)
 
 
 fig_, unique_item_ag, change_to_online = plot_df_m_2802()
+fig_3101, unique_item_ag_3101, change_to_online_3101 = plot_df_m_3101()
 
 value_behave_tab = dac.TabItem(id='content_value_behave', 
                               
@@ -41,7 +42,8 @@ value_behave_tab = dac.TabItem(id='content_value_behave',
                 style = {'height': "600px", 'width':"900px"},
                 title = "Detail dec20-jan21",
                 children=[
-                    fig_
+                    fig_3101,
+                    "{}".format(unique_item_ag_3101)
                 ]
             ),
 
