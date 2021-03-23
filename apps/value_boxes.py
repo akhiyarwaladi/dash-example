@@ -65,32 +65,32 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
         ], className='row'),
         html.Div([
             dac.SimpleBox(
-                style = {'height': "600px", 'width':"900px"},
+                # style = {'height': "600px", 'width':"900px"},
                 title = "Alfagift SKI order status spread",
                 children=[
                     dcc.Graph(
                         figure=fig_status,
                         config=dict(displayModeBar=False),
-                        style={'width': '76vw'}
+                        # style={'width': '76vw'}
                     )
                 ]
             ),
             dac.SimpleBox(
-              style = {'height': "600px", 'width':"900px"},
+                # style = {'height': "600px", 'width':"900px"},
                 title = "success order but not get voucher",
                 children=[
                     fig_c1
                 ]
             ),
             dac.SimpleBox(
-                style = {'height': "600px", 'width':"900px"},
+                # style = {'height': "600px", 'width':"900px"},
                 title = "already receive order but submit refund",
                 children=[
                     fig_c2
                 ]
             ),
             dac.SimpleBox(
-                style = {'height': "600px", 'width':"900px"},
+                # style = {'height': "600px", 'width':"900px"},
                 title = "get voucher but order not completed ",
                 children=[
                     fig_c3
