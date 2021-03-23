@@ -72,7 +72,7 @@ def plot_sapa_notsapa():
 	fig.update_xaxes(
 	    dtick="M1",
 	    tickformat="%b\n%Y",
-	    ticklabelmode="period")
+	    ticklabelmode="instant")
 	legend_dict = \
 	    legend=dict(
 	            x=0,
@@ -99,7 +99,7 @@ def plot_new_regular():
 	fig.update_xaxes(
 		dtick="M1",
 		tickformat="%b\n%Y",
-		ticklabelmode="period")
+		ticklabelmode="instant")
 	legend_dict = \
 		legend=dict(
 		        x=0,
@@ -127,7 +127,7 @@ def plot_plus_minus():
 	fig.update_xaxes(
 	    dtick="M1",
 	    tickformat="%b\n%Y",
-	    ticklabelmode="period")
+	    ticklabelmode="instant")
 	legend_dict = \
 	    legend=dict(
 	            x=0,
