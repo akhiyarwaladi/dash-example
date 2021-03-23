@@ -1,6 +1,8 @@
 import dash_html_components as html
 import dash_core_components as dcc
 import dash_admin_components as dac
+import dash_bootstrap_components as dbc
+
 
 from example_plots import plot_oos_status, plot_oos_count, plot_oos_consecutive_order, plot_oos_time_spend
 
