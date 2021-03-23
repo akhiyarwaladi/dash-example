@@ -6,67 +6,74 @@ from example_plots import plot_oos_status, plot_oos_count, plot_oos_consecutive_
 
 oos_boxes_tab = dac.TabItem(id='content_oos_boxes', 
                               
-    children=html.Div(
-        [
-#            dac.SimpleBox(
-#            	style = {'height': "600px"},
-#                title = "Box 1",
-#                children=[
-#                    dcc.Graph(
-#			id='box-graph',
-#			figure=plot_new_regular(),
-#                        config=dict(displayModeBar=False),
-#                        style={'width': '38vw'}
-#                    )
-#                ]
-#            ),
-            dac.SimpleBox(
-            	style = {'height': "600px", 'width':"900px"},
-                title = "OOS position in order status",
-                children=[
-                    dcc.Graph(
-                        figure=plot_oos_status(),
-                        config=dict(displayModeBar=False),
-                        style={'width': '76vw'}
-                    )
-                ]
-            ),
-            dac.SimpleBox(
-                style = {'height': "600px", 'width':"900px"},
-                title = "Order item attempt and Order item oos",
-                children=[
-                    dcc.Graph(
-                        figure=plot_oos_count(),
-                        config=dict(displayModeBar=False),
-                        style={'width': '76vw'}
-                    )
-                ]
-            ),
-            dac.SimpleBox(
-                style = {'height': "600px", 'width':"900px"},
-                title = "Consecutive order that user do in same item",
-                children=[
-                    dcc.Graph(
-                        figure=plot_oos_consecutive_order(),
-                        config=dict(displayModeBar=False),
-                        style={'width': '76vw'}
-                    )
-                ]
-            ),
-            dac.SimpleBox(
-                style = {'height': "600px", 'width':"900px"},
-                title = "User time spend on OOS event",
-                children=[
-                    dcc.Graph(
-                        id='oos-graph',
-                        config=dict(displayModeBar=False),
-                        style={'width': '76vw'}
-                    )
-                ]
-            )
+    children=html.Div([
+            dbc.Row([
+              dbc.Col(
+                dbc.Card(
+                  [
+                      dbc.CardHeader("OOS position in order status"),
+                      dbc.CardBody(
+                          [
+                              # html.H5("Card title", className="card-title"),
+                              html.P(
+                                    dcc.Graph(
+                                      figure=plot_oos_status(),
+                                      config=dict(displayModeBar=False),
+                       
+                                      ),className="card-text",
+                              ),
+                          ]),
+                  ])),
+              dbc.Col(
+                dbc.Card(
+                  [
+                      dbc.CardHeader("Order item attempt and Order item oos"),
+                      dbc.CardBody(
+                          [
+                              # html.H5("Card title", className="card-title"),
+                              html.P(
+                                    dcc.Graph(
+                                      figure=plot_oos_count(),
+                                      config=dict(displayModeBar=False),
+                       
+                                      ),className="card-text",
+                              ),
+                          ]),
+                  ])),
+              dbc.Col(
+                dbc.Card(
+                  [
+                      dbc.CardHeader("Consecutive order that user do in same item"),
+                      dbc.CardBody(
+                          [
+                              # html.H5("Card title", className="card-title"),
+                              html.P(
+                                    dcc.Graph(
+                                      figure=plot_oos_consecutive_order(),
+                                      config=dict(displayModeBar=False),
+                       
+                                      ),className="card-text",
+                              ),
+                          ]),
+                  ])),
+              dbc.Col(
+                dbc.Card(
+                  [
+                      dbc.CardHeader("User time spend on OOS event"),
+                      dbc.CardBody(
+                          [
+                              # html.H5("Card title", className="card-title"),
+                              html.P(
+                                    dcc.Graph(
+                                      id='oos-graph',
+                                      config=dict(displayModeBar=False),
+                       
+                                      ),className="card-text",
+                              ),
+                          ]),
+                  ])),
 
-
-        ], 
-        className='column'
+            ],className="mb-12")
+        ], className='column'
     )
 )
