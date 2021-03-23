@@ -98,14 +98,17 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
                 ]
             ),
             dbc.Card(
+                dbc.CardHeader("Alfagift SKI order status spread"),
                 dbc.CardBody(
                     [
-                        html.H5("75% width card", className="card-title"),
+                        html.H5("put yout summary here", className="card-title"),
                         html.P(
                             [
-                                "This card uses the ",
-                                html.Code("w-75"),
-                                " class to set the width to 75%",
+                                dcc.Graph(
+                                    figure=fig_status,
+                                    config=dict(displayModeBar=False),
+                                    # style={'width': '76vw'}
+                                )   
                             ],
                             className="card-text",
                         ),
