@@ -18,36 +18,32 @@ df['Mock Date'] = [
 df_ex = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2014_usa_states.csv')
 ###
 
-
+parent_path = '/home/server/gli-data-science/akhiyar'
 ### place for ski data
 
 res_vcr_oshop_g = pd.read_csv('../../out_plot/voucher_refund/res_vcr_oshop_g.csv', sep='\t')
 
-df_c1 = pd.read_csv('../../out_plot/voucher_refund/c_1.csv', sep='\t')
-df_c2 = pd.read_csv('../../out_plot/voucher_refund/c_2.csv', sep='\t')
-df_c3 = pd.read_csv('../../out_plot/voucher_refund/c_3.csv', sep='\t')
+df_c1 = pd.read_csv(os.path.join(parent_path, 'out_plot/voucher_refund/c_1.csv'), sep='\t')
+df_c2 = pd.read_csv(os.path.join(parent_path, 'out_plot/voucher_refund/c_2.csv'), sep='\t')
+df_c3 = pd.read_csv(os.path.join(parent_path, 'out_plot/voucher_refund/c_3.csv'), sep='\t')
 
 ###
 
 ###
 
-df_m_2802 = pd.read_csv('../../out_plot/df_m_2802.csv', sep='\t')
-df_m_3101 = pd.read_csv('../../out_plot/df_m_3101.csv', sep='\t')
+df_m_2802 = pd.read_csv(os.path.join(parent_path, 'out_plot/df_m_2802.csv'), sep='\t')
+df_m_3101 = pd.read_csv(os.path.join(parent_path, 'out_plot/df_m_3101.csv'), sep='\t')
 
 ###
+sapa_notsapa = pd.read_csv(os.path.join(parent_path, 'out_plot/sapa_notsapa.csv'), sep='\t')
+new_regular = pd.read_csv(os.path.join(parent_path, 'out_plot/new_regular.csv'), sep='\t')
+plus_minus = pd.read_csv(os.path.join(parent_path, 'out_plot/plus_minus.csv'), sep='\t')
 
 
-
-
-sapa_notsapa = pd.read_csv('../../out_plot/sapa_notsapa.csv', sep='\t')
-new_regular = pd.read_csv('../../out_plot/new_regular.csv', sep='\t')
-plus_minus = pd.read_csv('../../out_plot/plus_minus.csv', sep='\t')
-
-
-oos_status = pd.read_csv('../../out_plot/oos_status_spread.csv', sep='\t')
-oos_count = pd.read_csv('../../out_plot/order_oos_count.csv', sep='\t')
-oos_consecutive_order = pd.read_csv('../../out_plot/consecutive_order_item.csv', sep='\t')
-oos_time_spend = pd.read_csv('../../out_plot/time_spend_oos.csv', sep='\t')
+oos_status = pd.read_csv(os.path.join(parent_path, 'out_plot/oos_status_spread.csv'), sep='\t')
+oos_count = pd.read_csv(os.path.join(parent_path, 'out_plot/order_oos_count.csv'), sep='\t')
+oos_consecutive_order = pd.read_csv(os.path.join(parent_path, 'out_plot/consecutive_order_item.csv'), sep='\t')
+oos_time_spend = pd.read_csv(os.path.join(parent_path, 'out_plot/time_spend_oos.csv'), sep='\t')
 
 
 plus_minus['diff_sign'] = plus_minus['diff_sign'].astype('str')
