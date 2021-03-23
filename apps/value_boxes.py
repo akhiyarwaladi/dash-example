@@ -113,7 +113,25 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
                                       ),className="card-text",
                               ),
                           ]),
+                  ])),
+              dbc.Col(
+                dbc.Card(
+                  [
+                      dbc.CardHeader("Alfagift SKI order status spread"),
+                      dbc.CardBody(
+                          [
+                              # html.H5("Card title", className="card-title"),
+                              html.P(
+                                    dcc.Graph(
+                                      figure=fig_status,
+                                      config=dict(displayModeBar=False),
+                       
+                                      ),className="card-text",
+                              ),
+                          ]),
                   ]))
+
+
             ])
         ], className='column')
     ]
