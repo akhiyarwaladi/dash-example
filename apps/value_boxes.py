@@ -65,38 +65,6 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
             )
         ], className='row'),
         html.Div([
-            dac.SimpleBox(
-                # style = {'height': "600px", 'width':"900px"},
-                title = "Alfagift SKI order status spread",
-                children=[
-                    dcc.Graph(
-                        figure=fig_status,
-                        config=dict(displayModeBar=False),
-                        # style={'width': '76vw'}
-                    )
-                ]
-            ),
-            dac.SimpleBox(
-                # style = {'height': "600px", 'width':"900px"},
-                title = "success order but not get voucher",
-                children=[
-                    fig_c1
-                ]
-            ),
-            dac.SimpleBox(
-                # style = {'height': "600px", 'width':"900px"},
-                title = "already receive order but submit refund",
-                children=[
-                    fig_c2
-                ]
-            ),
-            dac.SimpleBox(
-                # style = {'height': "600px", 'width':"900px"},
-                title = "get voucher but order not completed ",
-                children=[
-                    fig_c3
-                ]
-            ),
             dbc.Row([
               dbc.Col(
                 dbc.Card(
@@ -117,20 +85,39 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
               dbc.Col(
                 dbc.Card(
                   [
-                      dbc.CardHeader("Alfagift SKI order status spread"),
+                      dbc.CardHeader("success order but not get voucher"),
                       dbc.CardBody(
                           [
                               # html.H5("Card title", className="card-title"),
                               html.P(
-                                    dcc.Graph(
-                                      figure=fig_status,
-                                      config=dict(displayModeBar=False),
-                       
-                                      ),className="card-text",
+                                    fig_c1,className="card-text",
                               ),
                           ]),
-                  ]))
-
+                  ])),
+              dbc.Col(
+                dbc.Card(
+                  [
+                      dbc.CardHeader("already receive order but submit refund"),
+                      dbc.CardBody(
+                          [
+                              # html.H5("Card title", className="card-title"),
+                              html.P(
+                                    fig_c2,className="card-text",
+                              ),
+                          ]),
+                  ])),
+              dbc.Col(
+                dbc.Card(
+                  [
+                      dbc.CardHeader("get voucher but order not completed "),
+                      dbc.CardBody(
+                          [
+                              # html.H5("Card title", className="card-title"),
+                              html.P(
+                                    fig_c3,className="card-text",
+                              ),
+                          ]),
+                  ])),
 
             ],className="mb-12")
         ], className='column')
