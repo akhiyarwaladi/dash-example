@@ -30,30 +30,34 @@ value_behave_tab = dac.TabItem(id='content_value_behave',
             ),
         ], className='row'),
         html.Div([
+            dbc.Row([
+              dbc.Col(
+                dbc.Card(
+                  [
+                      dbc.CardHeader("Detail jan21-feb21"),
+                      dbc.CardBody(
+                          [
+                              # html.H5("Card title", className="card-title"),
+                              html.P(
+                                    fig_,className="card-text",
+                              ),
+                          ]),
+                  ])),
+              dbc.Col(
+                dbc.Card(
+                  [
+                      dbc.CardHeader("Detail dec20-jan21"),
+                      dbc.CardBody(
+                          [
+                              # html.H5("Card title", className="card-title"),
+                              html.P(
+                                    fig_3101,className="card-text",
+                              ),
+                          ]),
+                  ])),
 
-            dac.SimpleBox(
-              style = {'height': "600px", 'width':"900px"},
-                title = "Detail jan21-feb21",
-                children=[
-                    fig_
-                ]
-            ),
-            dac.SimpleBox(
-                style = {'height': "600px", 'width':"900px"},
-                title = "Detail dec20-jan21",
-                children=[
-                    fig_3101,
-                    "{}".format(unique_item_ag_3101)
-                ]
-            ),
-            dac.SimpleBox(
-                style = {'height': "600px", 'width':"900px"},
-                title = "Detail dec20-jan21",
-                children=[
-                    fig_3101,
-                    "{}".format(unique_item_ag_3101)
-                ]
-            ),
+
+            ],className="md-12")
         ], className='column')
     ]
 )
