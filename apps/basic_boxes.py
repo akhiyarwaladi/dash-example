@@ -9,45 +9,58 @@ plot_sapa_notsapa, plot_plus_minus, plot_table_example)
 
 basic_boxes_tab = dac.TabItem(id='content_basic_boxes', 
                               
-    children=html.Div(
-        [
+    children=html.Div([
+            dbc.Row([
+              dbc.Col(
+                dbc.Card(
+                  [
+                      dbc.CardHeader("SAPA vs non SAPA store sales"),
+                      dbc.CardBody(
+                          [
+                              # html.H5("Card title", className="card-title"),
+                              html.P(
+                                    dcc.Graph(
+                                      figure=plot_sapa_notsapa(),
+                                      config=dict(displayModeBar=False),
+                       
+                                      ),className="card-text",
+                              ),
+                          ]),
+                  ])),
+              dbc.Col(
+                dbc.Card(
+                  [
+                      dbc.CardHeader("New vs Regular member sales"),
+                      dbc.CardBody(
+                          [
+                              # html.H5("Card title", className="card-title"),
+                              html.P(
+                                    dcc.Graph(
+                                      figure=plot_new_regular(),
+                                      config=dict(displayModeBar=False),
+                       
+                                      ),className="card-text",
+                              ),
+                          ]),
+                  ])),
+              dbc.Col(
+                dbc.Card(
+                  [
+                      dbc.CardHeader("Up and Down sales member"),
+                      dbc.CardBody(
+                          [
+                              # html.H5("Card title", className="card-title"),
+                              html.P(
+                                    dcc.Graph(
+                                      id='box-graph',
+                                      config=dict(displayModeBar=False),
+                       
+                                      ),className="card-text",
+                              ),
+                          ]),
+                  ])),
 
-            dac.SimpleBox(
-            	style = {'height': "600px", 'width':"900px"},
-                title = "SAPA vs non SAPA store sales",
-                children=[
-                    dcc.Graph(
-                        figure=plot_sapa_notsapa(),
-                        config=dict(displayModeBar=False),
-                        style={'width': '72vw'}
-                    )
-                ]
-            ),
-            dac.SimpleBox(
-                style = {'height': "600px", 'width':"900px"},
-                title = "New vs Regular member sales",
-                children=[
-                    dcc.Graph(
-                        figure=plot_new_regular(),
-                        config=dict(displayModeBar=False),
-                        style={'width': '72vw'}
-                    )
-                ]
-            ),
-            dac.SimpleBox(
-                style = {'height': "600px", 'width':"900px"},
-                title = "Up and Down sales member",
-                children=[
-                    dcc.Graph(
-                        id='box-graph',
-                        config=dict(displayModeBar=False),
-                        style={'width': '72vw'}
-                    )
-                ]
-            )
-
-
-        ], 
-        className='column'
+            ],className="mb-12")
+        ], className='column'
     )
 )
