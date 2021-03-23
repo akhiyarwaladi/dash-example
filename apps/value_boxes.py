@@ -1,6 +1,7 @@
 import dash_html_components as html
 import dash_core_components as dcc
 import dash_admin_components as dac
+import dash_bootstrap_components as dbc
 
 from example_plots import (plot_scatter, plot_pie, plot_new_regular, 
 plot_sapa_notsapa, plot_plus_minus, plot_table_example, plot_table_filter,
@@ -96,6 +97,22 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
                     fig_c3
                 ]
             )
-        ], className='row')
+            dbc.Card(
+                dbc.CardBody(
+                    [
+                        html.H5("75% width card", className="card-title"),
+                        html.P(
+                            [
+                                "This card uses the ",
+                                html.Code("w-75"),
+                                " class to set the width to 75%",
+                            ],
+                            className="card-text",
+                        ),
+                    ]
+                ),
+                className="w-100 mb-3",
+            ),
+        ], className='column')
     ]
 )
