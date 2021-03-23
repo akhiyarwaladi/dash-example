@@ -96,6 +96,6 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
                     fig_c3
                 ]
             )
-        ], className='column')
+        ], className='row')
     ]
 )
