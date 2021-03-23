@@ -100,8 +100,18 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
             dbc.Row([
               dbc.Col(
                 dbc.Card(
-
-                        fig_c1, body=True
+                  [
+                      dbc.CardHeader("Card header"),
+                      dbc.CardBody(
+                          [
+                              html.H5("Card title", className="card-title"),
+                              html.P(
+                                  fig_c1,
+                                  className="card-text",
+                              ),
+                          ]
+                      ),
+                  ]
                 ), width = 12
               )
             ])
