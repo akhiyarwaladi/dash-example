@@ -96,7 +96,7 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
                 children=[
                     fig_c3
                 ]
-            )
+            ),
             dbc.Card(
                 dbc.CardBody(
                     [
@@ -112,7 +112,7 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
                     ]
                 ),
                 className="w-100 mb-3",
-            ),
+            )
         ], className='column')
     ]
 )
