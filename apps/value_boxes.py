@@ -132,7 +132,7 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
                   ]))
 
 
-            ])
+            ],className="mb-12")
         ], className='column')
     ]
 )
