@@ -65,10 +65,10 @@ subitems = [dac.SidebarMenuSubItem(id='tab_gallery_1',
 sidebar = dac.Sidebar(
 	dac.SidebarMenu(
 		[
-			dac.SidebarHeader(children="Cards"),
-			dac.SidebarMenuItem(id='tab_cards', label='Basic cards', icon='box'),
-            dac.SidebarMenuItem(id='tab_social_cards', label='Social cards', icon='id-card'),
-            dac.SidebarMenuItem(id='tab_tab_cards', label='Tab cards', icon='image'),
+			#dac.SidebarHeader(children="Cards"),
+			#dac.SidebarMenuItem(id='tab_cards', label='Basic cards', icon='box'),
+            #dac.SidebarMenuItem(id='tab_social_cards', label='Social cards', icon='id-card'),
+            #dac.SidebarMenuItem(id='tab_tab_cards', label='Tab cards', icon='image'),
 			dac.SidebarHeader(children="Boxes"),
 			dac.SidebarMenuItem(id='tab_basic_boxes', label='Member monitoring', icon='desktop'),
 			dac.SidebarMenuItem(id='tab_oos_boxes', label='Out of stock', icon='desktop'),
@@ -91,9 +91,9 @@ sidebar = dac.Sidebar(
 # Body
 body = dac.Body(
     dac.TabItems([
-        cards_tab,
-        social_cards_tab,
-        tab_cards_tab,
+        #cards_tab,
+        #social_cards_tab,
+        #tab_cards_tab,
         basic_boxes_tab,
         oos_boxes_tab,
         value_boxes_tab,
@@ -140,44 +140,35 @@ app.layout = dac.Page([navbar, sidebar, body, controlbar, footer])
 # Callbacks
 # =============================================================================
 def activate(input_id, 
-             n_cards, n_social_cards, n_tab_cards, n_basic_boxes, n_oos_boxes,
+             n_basic_boxes, n_oos_boxes,
              n_value_boxes, n_value_behave, n_gallery_1, n_gallery_2):
     
     # Depending on tab which triggered a callback, show/hide contents of app
-    if input_id == 'tab_cards' and n_cards:
-        return True, False, False, False, False, False, False, False, False
-    elif input_id == 'tab_social_cards' and n_social_cards:
-        return False, True, False, False, False, False, False, False, False
-    elif input_id == 'tab_tab_cards' and n_tab_cards:
-        return False, False, True, False, False, False, False, False, False
-    elif input_id == 'tab_basic_boxes' and n_basic_boxes:
-        return False, False, False, True, False, False, False, False, False
+
+    if input_id == 'tab_basic_boxes' and n_basic_boxes:
+        return True, False, False, False, False, False
     elif input_id == 'tab_oos_boxes' and n_oos_boxes:
-        return False, False, False, False, True, False, False, False, False
+        return False, True, False, False, False, False
     elif input_id == 'tab_value_boxes' and n_value_boxes:
-        return False, False, False, False, False, True, False, False, False
+        return False, False, True, False, False, False
     elif input_id == 'tab_value_behave' and n_value_behave:
-        return False, False, False, False, False, False, True, False, False
+        return False, False, False, True, False, False
     elif input_id == 'tab_gallery_1' and n_gallery_1:
-        return False, False, False, False, False, False, False, True, False
+        return False, False, False, False, True, False
     elif input_id == 'tab_gallery_2' and n_gallery_2:
-        return False, False, False, False, False, False, False, False, True
+        return False, False, False, False, False, True
     # initialization
     else:
-        return True, False, False, False, False, False, False, False, False 
+        return False, False, False, False, False, False 
     
-@app.callback([Output('content_cards', 'active'),
-               Output('content_social_cards', 'active'),
-               Output('content_tab_cards', 'active'),
+@app.callback([
                Output('content_basic_boxes', 'active'),
                Output('content_oos_boxes', 'active'),
                Output('content_value_boxes', 'active'),
                Output('content_value_behave', 'active'),
                Output('content_gallery_1', 'active'),
                Output('content_gallery_2', 'active')],
-               [Input('tab_cards', 'n_clicks'),
-                Input('tab_social_cards', 'n_clicks'),
-                Input('tab_tab_cards', 'n_clicks'),
+               [
                 Input('tab_basic_boxes', 'n_clicks'),
                 Input('tab_oos_boxes', 'n_clicks'),
                 Input('tab_value_boxes', 'n_clicks'),
@@ -185,7 +176,7 @@ def activate(input_id,
                 Input('tab_gallery_1', 'n_clicks'),
                 Input('tab_gallery_2', 'n_clicks')]
 )
-def display_tab(n_cards, n_social_cards, n_tab_cards, n_basic_boxes, n_oos_boxes,
+def display_tab(n_basic_boxes, n_oos_boxes,
                 n_value_boxes, n_value_behave, n_gallery_1, n_gallery_2):
     
     ctx = dash.callback_context # Callback context to recognize which input has been triggered
@@ -197,21 +188,17 @@ def display_tab(n_cards, n_social_cards, n_tab_cards, n_basic_boxes, n_oos_boxes
         input_id = ctx.triggered[0]['prop_id'].split('.')[0]   
 
     return activate(input_id, 
-                    n_cards, n_social_cards, n_tab_cards, n_basic_boxes, n_oos_boxes,
+                    n_basic_boxes, n_oos_boxes,
                     n_value_boxes, n_value_behave, n_gallery_1, n_gallery_2)
 
-@app.callback([Output('tab_cards', 'active'),
-               Output('tab_social_cards', 'active'),
-               Output('tab_tab_cards', 'active'),
+@app.callback([
                Output('tab_basic_boxes', 'active'),
                Output('tab_oos_boxes', 'active'),
                Output('tab_value_boxes', 'active'),
                Output('tab_value_behave', 'active'),
                Output('tab_gallery_1', 'active'),
                Output('tab_gallery_2', 'active')],
-               [Input('tab_cards', 'n_clicks'),
-                Input('tab_social_cards', 'n_clicks'),
-                Input('tab_tab_cards', 'n_clicks'),
+               [
                 Input('tab_basic_boxes', 'n_clicks'),
                 Input('tab_oos_boxes', 'n_clicks'),
                 Input('tab_value_boxes', 'n_clicks'),
@@ -219,7 +206,7 @@ def display_tab(n_cards, n_social_cards, n_tab_cards, n_basic_boxes, n_oos_boxes
                 Input('tab_gallery_1', 'n_clicks'),
                 Input('tab_gallery_2', 'n_clicks')]
 )
-def activate_tab(n_cards, n_social_cards, n_tab_cards, n_basic_boxes, n_oos_boxes,
+def activate_tab(n_basic_boxes, n_oos_boxes,
                 n_value_boxes, n_value_behave, n_gallery_1, n_gallery_2):
     
     ctx = dash.callback_context # Callback context to recognize which input has been triggered
@@ -231,34 +218,40 @@ def activate_tab(n_cards, n_social_cards, n_tab_cards, n_basic_boxes, n_oos_boxe
         input_id = ctx.triggered[0]['prop_id'].split('.')[0] 
 
     return activate(input_id, 
-                    n_cards, n_social_cards, n_tab_cards, n_basic_boxes, n_oos_boxes,
+                    n_basic_boxes, n_oos_boxes,
                     n_value_boxes, n_value_behave, n_gallery_1, n_gallery_2)
     
-@app.callback(Output('tab_box_1', 'children'),
-              [Input('tab_box_1_menu', 'active_tab')]
-)
-def display_tabbox1(active_tab):
 
-    # Depending on tab which triggered a callback, show/hide contents of app
-    if active_tab == 'tab_box_1_tab1':
-        return text_1
-    elif active_tab == 'tab_box_1_tab2':
-        return text_2
-    elif active_tab == 'tab_box_1_tab3':
-        return text_3
 
-@app.callback(Output('tab_box_2', 'children'),
-              [Input('tab_box_2_menu', 'active_tab')]
-)
-def display_tabbox2(active_tab):
 
-    # Depending on tab which triggered a callback, show/hide contents of app
-    if active_tab == 'tab_box_2_tab1':
-        return text_1
-    elif active_tab == 'tab_box_2_tab2':
-        return text_2
-    elif active_tab == 'tab_box_2_tab3':
-        return text_3
+# @app.callback(Output('tab_box_1', 'children'),
+#               [Input('tab_box_1_menu', 'active_tab')]
+# )
+# def display_tabbox1(active_tab):
+
+#     # Depending on tab which triggered a callback, show/hide contents of app
+#     if active_tab == 'tab_box_1_tab1':
+#         return text_1
+#     elif active_tab == 'tab_box_1_tab2':
+#         return text_2
+#     elif active_tab == 'tab_box_1_tab3':
+#         return text_3
+
+# @app.callback(Output('tab_box_2', 'children'),
+#               [Input('tab_box_2_menu', 'active_tab')]
+# )
+# def display_tabbox2(active_tab):
+
+#     # Depending on tab which triggered a callback, show/hide contents of app
+#     if active_tab == 'tab_box_2_tab1':
+#         return text_1
+#     elif active_tab == 'tab_box_2_tab2':
+#         return text_2
+#     elif active_tab == 'tab_box_2_tab3':
+#         return text_3
+
+
+
 
 # Update figure on slider change
 @app.callback(
