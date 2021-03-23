@@ -29,22 +29,22 @@ server = app.server
 # =============================================================================
 # Navbar
 
-# right_ui = dac.NavbarDropdown(
-# 	badge_label = "!",
-#     badge_color= "danger",
-#     src = "https://quantee.ai",
-# 	header_text="2 Items",
-#     children= [
-# 		dac.NavbarDropdownItem(
-# 			children = "message 1",
-# 			date = "today"
-# 		),
-# 		dac.NavbarDropdownItem(
-# 			children = "message 2",
-# 			date = "yesterday"
-# 		),
-# 	]
-# )
+right_ui = dac.NavbarDropdown(
+	# badge_label = "!",
+ #    badge_color= "danger",
+ #    src = "https://quantee.ai",
+	# header_text="2 Items",
+ #    children= [
+	# 	dac.NavbarDropdownItem(
+	# 		children = "message 1",
+	# 		date = "today"
+	# 	),
+	# 	dac.NavbarDropdownItem(
+	# 		children = "message 2",
+	# 		date = "yesterday"
+	# 	),
+	# ]
+)
                               
 navbar = dac.Navbar(color = "white", 
                     text="Please navigate to one of the sidebar on the left", 
