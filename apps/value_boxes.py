@@ -104,11 +104,7 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
                         html.H5("put yout summary here", className="card-title"),
                         html.P(
                             [
-                                dcc.Graph(
-                                    figure=fig_status,
-                                    config=dict(displayModeBar=False),
-                                    # style={'width': '76vw'}
-                                )   
+                                fig_c1 
                             ],
                             className="card-text",
                         ),
