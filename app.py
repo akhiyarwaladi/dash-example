@@ -78,12 +78,12 @@ sidebar = dac.Sidebar(
 			dac.SidebarMenuItem(label='Galleries', icon='cubes', children=subitems),
 		]
 	),
-    title='Dash Admin',
+    title='Alfagift Admin',
 	skin="light",
     color="primary",
 	brand_color="primary",
-    url="https://quantee.ai",
-    src="https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg",
+    url="",
+    src="",
     elevation=3,
     opacity=0.8
 )
