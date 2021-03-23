@@ -46,7 +46,7 @@ right_ui = dac.NavbarDropdown(
 )
                               
 navbar = dac.Navbar(color = "white", 
-                    text="I can write text in the navbar!", 
+                    text="Please navigate to one of the sidebar on the left", 
                     children=right_ui)
 
 # Sidebar
