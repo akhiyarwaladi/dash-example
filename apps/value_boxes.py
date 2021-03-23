@@ -101,7 +101,7 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
                 dbc.CardHeader("Alfagift SKI order status spread"),
                 dbc.Row([
                     fig_c1
-                ])
+                ]),
 
                 className="w-100 mb-3",
             )
