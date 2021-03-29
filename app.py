@@ -22,6 +22,7 @@ from apps.tab_cards import text_1, text_2, text_3
 # Dash App and Flask Server
 # =============================================================================
 app = dash.Dash(__name__)
+app.title = "Alfagift"
 server = app.server 
 
 # =============================================================================
