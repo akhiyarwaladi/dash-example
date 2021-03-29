@@ -24,7 +24,7 @@ df_ex = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/20
 parent_path = '/home/server/gli-data-science/akhiyar'
 ### place for ski data
 
-res_vcr_oshop_g = pd.read_csv('../../out_plot/voucher_refund/res_vcr_oshop_g.csv', sep='\t')
+res_vcr_oshop_g = pd.read_csv(os.path.join(parent_path, 'out_plot/voucher_refund/res_vcr_oshop_g.csv'), sep='\t')
 
 df_c1 = pd.read_csv(os.path.join(parent_path, 'out_plot/voucher_refund/c_1.csv'), sep='\t')
 df_c2 = pd.read_csv(os.path.join(parent_path, 'out_plot/voucher_refund/c_2.csv'), sep='\t')
