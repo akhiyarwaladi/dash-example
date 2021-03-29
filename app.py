@@ -71,7 +71,7 @@ sidebar = dac.Sidebar(
 			#dac.SidebarMenuItem(id='tab_cards', label='Basic cards', icon='box'),
             #dac.SidebarMenuItem(id='tab_social_cards', label='Social cards', icon='id-card'),
             #dac.SidebarMenuItem(id='tab_tab_cards', label='Tab cards', icon='image'),
-			dac.SidebarHeader(children="Boxes"),
+			dac.SidebarHeader(children="Menu"),
 			dac.SidebarMenuItem(id='tab_basic_boxes', label='Member monitoring', icon='desktop'),
 			dac.SidebarMenuItem(id='tab_oos_boxes', label='Out of stock', icon='desktop'),
 			dac.SidebarMenuItem(id='tab_value_boxes', label='SKI Voucher', icon='suitcase'),

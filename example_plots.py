@@ -1,7 +1,7 @@
 import numpy as np 
 import pandas as pd
 import os
-
+import textwrap
 
 import plotly.express as px
 import plotly.graph_objs as go
@@ -9,6 +9,12 @@ import dash_table
 import dash_html_components as html
 import datetime
 from datetime import date, timedelta
+
+
+def split_label(list_label):
+    list_label = list(list_label)
+    list_label = ["<br>".join(textwrap.wrap(t, width=8)) for t in list_label ]
+    return list_label
 
 
 ### load example data
@@ -279,7 +285,8 @@ def plot_table_filter():
 
 def plot_voucher_refund_status():
 	df = res_vcr_oshop_g.copy()
-
+	df['WS_DESCRIPTION'] = pd.Series(split_label(df['WS_DESCRIPTION']))
+	df['tbtpp_name'] = pd.Series(split_label(df['tbtpp_name']))
 	
 	period_upper = date.today()
 	period_lower = (period_upper - timedelta(days=5)) 
