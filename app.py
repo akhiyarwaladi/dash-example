@@ -22,7 +22,7 @@ from apps.tab_cards import text_1, text_2, text_3
 # Dash App and Flask Server
 # =============================================================================
 app = dash.Dash(__name__)
-app.title = "Alfagift"
+app.title = "Alfagift Dashboard"
 server = app.server 
 
 # =============================================================================
@@ -80,7 +80,7 @@ sidebar = dac.Sidebar(
 			dac.SidebarMenuItem(label='Galleries', icon='cubes', children=subitems),
 		]
 	),
-    title='Alfagift Admin',
+    title='Alfagift Dashboard',
 	skin="light",
     color="primary",
 	brand_color="primary",
