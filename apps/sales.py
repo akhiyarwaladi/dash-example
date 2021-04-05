@@ -39,8 +39,6 @@ sales_tab = dac.TabItem(id='content_sales',
                               ),
                           ]),
                   ])),
-
-
             ],className="mb-12")
         ], className='column')
     ]
