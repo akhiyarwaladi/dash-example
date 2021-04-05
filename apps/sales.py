@@ -57,6 +57,6 @@ sales_tab = dac.TabItem(id='content_sales',
 
 
             ],className="md-12")
-        ], className='column')
+        ], className='row')
     ]
 )

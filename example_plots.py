@@ -107,7 +107,7 @@ def multi_plot(df, addAll = True):
             )
         ])
     
-    fig.show()
+    return fig
 
 
 def plot_sales_train():
