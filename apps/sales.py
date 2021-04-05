@@ -23,7 +23,11 @@ sales_tab = dac.TabItem(id='content_sales',
                           [
                               # html.H5("Card title", className="card-title"),
                               html.P(
-                                    fig_sales_train,className="card-text",
+                                    dcc.Graph(
+                                      figure=fig_sales_train(),
+                                      config=dict(displayModeBar=False),
+                       
+                                      ),className="card-text",
                               ),
                           ]),
                   ])),
@@ -35,7 +39,11 @@ sales_tab = dac.TabItem(id='content_sales',
                           [
                               # html.H5("Card title", className="card-title"),
                               html.P(
-                                    fig_sales_test,className="card-text",
+                                    dcc.Graph(
+                                      figure=fig_sales_test(),
+                                      config=dict(displayModeBar=False),
+                       
+                                      ),className="card-text",
                               ),
                           ]),
                   ])),
