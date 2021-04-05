@@ -58,8 +58,8 @@ oos_time_spend = pd.read_csv(os.path.join(parent_path, 'out_plot/time_spend_oos.
 
 
 ###
-res_g = pd.read_csv(os.path.join(parent_path, '/out_plot/res_g.csv'), sep='\t')
-all_df_pred = pd.read_csv(os.path.join(parent_path, '/out_plot/all_df_pred.csv'), sep='\t')
+res_g = pd.read_csv(os.path.join(parent_path, 'out_plot/res_g.csv'), sep='\t')
+all_df_pred = pd.read_csv(os.path.join(parent_path, 'out_plot/all_df_pred.csv'), sep='\t')
 
 
 
