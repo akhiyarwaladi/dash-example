@@ -47,7 +47,7 @@ df_m_3101 = pd.read_csv(os.path.join(parent_path, 'out_plot/df_m_3101.csv'), sep
 sapa_notsapa = pd.read_csv(os.path.join(parent_path, 'out_plot/sapa_notsapa.csv'), sep='\t')
 new_regular = pd.read_csv(os.path.join(parent_path, 'out_plot/new_regular.csv'), sep='\t')
 plus_minus = pd.read_csv(os.path.join(parent_path, 'out_plot/plus_minus.csv'), sep='\t')
-
+plus_minus['diff_sign'] = plus_minus['diff_sign'].astype('str')
 
 oos_status = pd.read_csv(os.path.join(parent_path, 'out_plot/oos_status_spread.csv'), sep='\t')
 oos_count = pd.read_csv(os.path.join(parent_path, 'out_plot/order_oos_count.csv'), sep='\t')
@@ -55,7 +55,69 @@ oos_consecutive_order = pd.read_csv(os.path.join(parent_path, 'out_plot/consecut
 oos_time_spend = pd.read_csv(os.path.join(parent_path, 'out_plot/time_spend_oos.csv'), sep='\t')
 
 
-plus_minus['diff_sign'] = plus_minus['diff_sign'].astype('str')
+
+
+###
+res_g = pd.read_csv(os.path.join(parent_path, '/out_plot/res_g.csv'), sep='\t')
+all_df_pred = pd.read_csv(os.path.join(parent_path, '/out_plot/all_df_pred.csv'), sep='\t')
+
+
+
+res_unstack = res_g.set_index(["TRO_DATE", "DESCP_DEPT"])['TRO_NET'].unstack(level=1).fillna(0)
+pred_unstack = all_df_pred.set_index(["TRO_DATE", "DESCP_DEPT"])['TRO_NET'].unstack(level=1).fillna(0)
+
+
+
+###
+
+def multi_plot(df, addAll = True):
+    fig = go.Figure()
+
+    for column in df.columns.to_list():
+
+        fig.add_trace(
+            go.Scatter(
+                x = df.index,
+                y = df[column],
+                name = column
+            )
+        )
+
+    button_all = dict(label = 'All',
+                      method = 'update',
+                      args = [{'visible': df.columns.isin(df.columns),
+                               'title': 'All',
+                               'showlegend':True}])
+
+    def create_layout_button(column):
+        return dict(label = column,
+                    method = 'update',
+                    args = [{'visible': df.columns.isin([column,column]),
+                             'title': column,
+                             'showlegend': True}])
+
+    fig.update_layout(
+        updatemenus=[go.layout.Updatemenu(
+            active = 0,
+            buttons = ([button_all] * addAll) + list(df.columns.map(lambda column: create_layout_button(column))),
+            x = 0.3,
+            xanchor = 'left',
+            y = 1.2,
+            yanchor = 'top',
+            )
+        ])
+    
+    fig.show()
+
+
+def plot_sales_train():
+	return multi_plot(res_unstack)
+
+def plot_sales_test():
+	return multi_plot(pred_unstack)
+
+
+
 def plot_pie():
     
     labels = ['Oxygen','Hydrogen','Carbon_Dioxide','Nitrogen']
