@@ -105,7 +105,7 @@ def multi_plot(df, addAll = True):
             y = 1.2,
             yanchor = 'top',
             )
-        ])
+        ], template='presentation')
     
     return fig
 
