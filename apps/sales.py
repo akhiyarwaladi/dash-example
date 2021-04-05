@@ -11,23 +11,8 @@ fig_sales_train, fig_sales_test = plot_sales_train(), plot_sales_test()
 sales_tab = dac.TabItem(id='content_sales', 
                               
     children=[
-        html.H4('Status order'),
-        html.Div([
-            dbc.Row([
-              dbc.Col(
-                dbc.Card(
-                  [
-                      dbc.CardHeader("Fitur apa yang digunakan "),
-                      dbc.CardBody(
-                          [
-                              # html.H5("Card title", className="card-title"),
-                              html.P(
-                                    'yeay',className="card-text",
-                              ),
-                          ]),
-                  ])),
-            ],className="md-12")
-        ], className='row'),
+        html.H4('Alfagift per Department Sales'),
+
         html.Div([
             dbc.Row([
               dbc.Col(
@@ -56,7 +41,7 @@ sales_tab = dac.TabItem(id='content_sales',
                   ])),
 
 
-            ],className="md-12")
-        ], className='row')
+            ],className="mb-12")
+        ], className='column')
     ]
 )
