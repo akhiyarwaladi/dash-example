@@ -15,17 +15,17 @@ fig_3101, unique_item_ag_3101, change_to_online_3101 = plot_df_m_3101()
 value_behave_tab = dac.TabItem(id='content_value_behave', 
                               
     children=[
-        html.H4('Status order'),
+        html.H4('Online-offline switching behavior'),
         html.Div([
             dac.ValueBox(
             	value = unique_item_ag,
-              subtitle ='Number of user always buy different item on alfagift transaction',
+              subtitle ='User always buy different item on online (alfagift) transaction',
               color = "info",
               icon = "database"
             ),
             dac.ValueBox(
               value = change_to_online,
-              subtitle = 'Number of user change their item buy from offline to online',
+              subtitle = 'User change their item buy from offline to online (alfagift)',
               color = "info",
               icon = "database"
             ),
