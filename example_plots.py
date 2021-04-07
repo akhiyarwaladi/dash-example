@@ -44,10 +44,11 @@ df_m_2802 = pd.read_csv(os.path.join(parent_path, 'out_plot/df_m_2802.csv'), sep
 df_m_3101 = pd.read_csv(os.path.join(parent_path, 'out_plot/df_m_3101.csv'), sep='\t')
 
 ###
+## member monitoring
 sapa_notsapa = pd.read_csv(os.path.join(parent_path, 'out_plot/sapa_notsapa.csv'), sep='\t')
 new_regular = pd.read_csv(os.path.join(parent_path, 'out_plot/new_regular.csv'), sep='\t')
 plus_minus = pd.read_csv(os.path.join(parent_path, 'out_plot/plus_minus.csv'), sep='\t')
-plus_minus['diff_sign'] = plus_minus['diff_sign'].astype('str')
+
 
 oos_status = pd.read_csv(os.path.join(parent_path, 'out_plot/oos_status_spread.csv'), sep='\t')
 oos_count = pd.read_csv(os.path.join(parent_path, 'out_plot/order_oos_count.csv'), sep='\t')
@@ -135,11 +136,16 @@ def plot_pie():
 def plot_sapa_notsapa():
 	fig = px.line(sapa_notsapa, x='tbto_create_date', y='net_amount', template='presentation', \
 	              text='tbto_amount_final_rp', color='sapa_enable')
-	fig.update_traces(texttemplate='%{text}', textposition='top center', textfont_size=14)
+	fig.update_traces(texttemplate='%{text}', textposition='top center', textfont_size=11)
 	fig.update_xaxes(
 	    dtick="M1",
 	    tickformat="%b\n%Y",
-	    ticklabelmode="instant")
+	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	)
+	fig.update_yaxes(
+
+	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	)
 	legend_dict = \
 	    legend=dict(
 	            x=0,
@@ -162,39 +168,49 @@ def plot_sapa_notsapa():
 def plot_new_regular():
 	fig = px.line(new_regular, x='tbto_create_date', y='tbto_amount_final', template='presentation', \
 	              text='net_amount', color='member_stat')
-	fig.update_traces(texttemplate='%{text}', textposition='top center', textfont_size=14)
+	fig.update_traces(texttemplate='%{text}', textposition='top center', textfont_size=11)
 	fig.update_xaxes(
-		dtick="M1",
-		tickformat="%b\n%Y",
-		ticklabelmode="instant")
+	    dtick="M1",
+	    tickformat="%b\n%Y",
+	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	)
+	fig.update_yaxes(
+
+	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	)
 	legend_dict = \
-		legend=dict(
-		        x=0,
-		        y=1,
-		        traceorder="reversed",
-		        title_font_family="Times New Roman",
-		        font=dict(
-		            family="Courier",
-		            size=12,
-		            color="black"
-		        ),
-		        bgcolor="LightGrey",
-		        bordercolor="Black",
-		        borderwidth=2
-		    )
+	    legend=dict(
+	        x=0,
+	        y=1,
+	        traceorder="reversed",
+	        title_font_family="Times New Roman",
+	        font=dict(
+	            family="Courier",
+	            size=12,
+	            color="black"
+	        ),
+	        bgcolor="LightGrey",
+	        bordercolor="Black",
+	        borderwidth=2
+	    )
 	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
 	                  {'l':70, 'r':20, 't':30, 'b':70},legend=legend_dict)	
 	
 	return fig
 
 def plot_plus_minus():
-	fig = px.line(plus_minus, x='wom', y='count_member', template='presentation', \
-	              text='count_member', color='diff_sign')
-	fig.update_traces(texttemplate='%{text}', textposition='top center', textfont_size=14)
+	fig = px.line(plus_minus, x='date', y='count_member', template='presentation', \
+	                color='diff_sign')
+	fig.update_traces(texttemplate='%{text}', textposition='top center', textfont_size=9)
 	fig.update_xaxes(
 	    dtick="M1",
 	    tickformat="%b\n%Y",
-	    ticklabelmode="instant")
+	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	)
+	fig.update_yaxes(
+
+	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	)
 	legend_dict = \
 	    legend=dict(
 	            x=0,
@@ -212,6 +228,7 @@ def plot_plus_minus():
 	        )
 	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
 	                  {'l':70, 'r':20, 't':30, 'b':70},legend=legend_dict)
+
 
 	return fig
 
