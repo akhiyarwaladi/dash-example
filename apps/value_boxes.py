@@ -44,21 +44,21 @@ value_boxes_tab = dac.TabItem(id='content_value_boxes',
               icon = "database"
             )
         ], className='row'),
-        html.H4('Cases'),
+        html.H4('Observation'),
         html.Div([
             dac.InfoBox(
-              title = "Success not get voucher",
+              title = "Success delivered but didn't voucher",
               value = c1_count,
               icon = "bookmark"
             ),
             dac.InfoBox(
-              title = "Delivered but refund",
+              title = "Success delivered but submit refund",
               color = "info",
               value = c2_count,
               icon = "bookmark"
             ),
             dac.InfoBox(
-              title = "Get voucher but not completed",
+              title = "Get voucher but not success delivered",
               gradient_color = "danger",
               value = c3_count,
               icon = "bookmark"
