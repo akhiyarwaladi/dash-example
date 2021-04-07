@@ -235,7 +235,16 @@ def plot_plus_minus():
 def plot_oos_status():
 	fig = px.line(oos_status, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
-	fig.update_traces(texttemplate='%{text:.2d}', textposition='top center', textfont_size=14)
+	fig.update_traces(texttemplate='%{text:.2d}', textposition='top center', textfont_size=12)
+	fig.update_xaxes(
+	    dtick="M1",
+	    tickformat="%b\n%Y",
+	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	)
+	fig.update_yaxes(
+
+	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	)
 	legend_dict = \
 	    legend=dict(
 	            x=0,
@@ -258,7 +267,16 @@ def plot_oos_status():
 def plot_oos_count():
 	fig = px.line(oos_count, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
-	fig.update_traces(texttemplate='%{text:.2d}', textposition='top center', textfont_size=14)
+	fig.update_traces(texttemplate='%{text:.2d}', textposition='top center', textfont_size=12)
+	fig.update_xaxes(
+	    dtick="M1",
+	    tickformat="%b\n%Y",
+	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	)
+	fig.update_yaxes(
+
+	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	)
 	legend_dict = \
 	    legend=dict(
 	            x=0,
@@ -281,11 +299,20 @@ def plot_oos_count():
 def plot_oos_consecutive_order():
 	fig = px.line(oos_consecutive_order, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
-	fig.update_traces(texttemplate='%{text:.2f}', textposition='top center', textfont_size=14)
+	fig.update_traces(texttemplate='%{text:.2f}', textposition='top center', textfont_size=12)
+	fig.update_xaxes(
+	    dtick="M1",
+	    tickformat="%b\n%Y",
+	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	)
+	fig.update_yaxes(
+
+	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	)
 	legend_dict = \
 	    legend=dict(
 	            x=0,
-	            y=0.5,
+	            y=1,
 	            traceorder="reversed",
 	            title_font_family="Times New Roman",
 	            font=dict(
@@ -305,7 +332,16 @@ def plot_oos_consecutive_order():
 def plot_oos_time_spend():
 	fig = px.line(oos_time_spend, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
-	fig.update_traces(texttemplate='%{text:.2f}', textposition='top center', textfont_size=14)
+	fig.update_traces(texttemplate='%{text:.2f}', textposition='top center', textfont_size=12)
+	fig.update_xaxes(
+	    dtick="M1",
+	    tickformat="%b\n%Y",
+	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	)
+	fig.update_yaxes(
+
+	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	)
 	legend_dict = \
 	    legend=dict(
 	            x=0,
