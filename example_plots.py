@@ -56,7 +56,10 @@ oos_consecutive_order = pd.read_csv(os.path.join(parent_path, 'out_plot/consecut
 oos_time_spend = pd.read_csv(os.path.join(parent_path, 'out_plot/time_spend_oos.csv'), sep='\t')
 
 
-
+oos_status['month'] = pd.to_datetime(oos_status['month']).dt.strftime('%b%y')
+oos_count['month'] = pd.to_datetime(oos_count['month']).dt.strftime('%b%y')
+oos_consecutive_order['month'] = pd.to_datetime(oos_consecutive_order['month']).dt.strftime('%b%y')
+oos_time_spend['month'] = pd.to_datetime(oos_time_spend['month']).dt.strftime('%b%y')
 
 ###
 res_g = pd.read_csv(os.path.join(parent_path, 'out_plot/res_g.csv'), sep='\t')
@@ -238,7 +241,6 @@ def plot_plus_minus():
 	return fig
 
 def plot_oos_status():
-	oos_status['month'] = pd.to_datetime(oos_status['month']).dt.strftime('%b%y')
 
 	fig = px.line(oos_status, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
@@ -274,7 +276,6 @@ def plot_oos_status():
 	return fig
 
 def plot_oos_count():
-	oos_count['month'] = pd.to_datetime(oos_count['month']).dt.strftime('%b%y')
 
 
 	fig = px.line(oos_count, x='month', y='value', template='presentation', \
@@ -310,7 +311,6 @@ def plot_oos_count():
 	return fig
 
 def plot_oos_consecutive_order():
-	oos_consecutive_order['month'] = pd.to_datetime(oos_consecutive_order['month']).dt.strftime('%b%y')
 	fig = px.line(oos_consecutive_order, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
 	fig.update_traces(texttemplate='%{text:.2f}', textposition='top center')
@@ -345,7 +345,7 @@ def plot_oos_consecutive_order():
 	return fig
 
 def plot_oos_time_spend():
-	oos_time_spend['month'] = pd.to_datetime(oos_time_spend['month']).dt.strftime('%b%y')
+	
 	fig = px.line(oos_time_spend, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
 	fig.update_traces(texttemplate='%{text}', textposition='top center', textfont_size=11)
