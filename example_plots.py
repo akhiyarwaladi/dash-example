@@ -142,7 +142,10 @@ def plot_sapa_notsapa():
 	sapa_notsapa['sapa_enable'] = sapa_notsapa['sapa_enable'].replace({'not_sapa':'non_sapa'})
 	fig = px.line(sapa_notsapa, x='tbto_create_date', y='net_amount', template='presentation', \
 	              text='tbto_amount_final_rp', color='sapa_enable')
-	fig.update_traces(texttemplate='%{text}', textposition='top center', textfont_size=11)
+	fig.update_traces(texttemplate='%{text}', 
+		textposition='top center', 
+		textfont_size=11,
+		hovertemplate='%{x}<br>%{y}')
 	fig.update_xaxes(
 	    dtick="M1",
 	    tickformat="%b%y",
@@ -176,7 +179,10 @@ def plot_new_regular():
 	new_regular['member_stat'] = new_regular['member_stat'].replace({'regular':'existing'})
 	fig = px.line(new_regular, x='tbto_create_date', y='tbto_amount_final', template='presentation', \
 	              text='net_amount', color='member_stat')
-	fig.update_traces(texttemplate='%{text}', textposition='top center', textfont_size=11)
+	fig.update_traces(texttemplate='%{text}', 
+		textposition='top center', 
+		textfont_size=11,
+		hovertemplate='%{x}<br>%{y}')
 	fig.update_xaxes(
 	    dtick="M1",
 	    tickformat="%b%y",
@@ -212,7 +218,10 @@ def plot_plus_minus():
 	fig = px.line(plus_minus, x='date', y='count_member', template='presentation', \
 	                color='diff_sign', text='count_member')
 
-	fig.update_traces(texttemplate='%{text}', textposition='top center', textfont_size=11)
+	fig.update_traces(texttemplate='%{text}', 
+		textposition='top center', 
+		textfont_size=11,
+		hovertemplate='%{x}<br>%{y}')
 	for ix, trace in enumerate(fig.data):
 	    if ix == 1:
 	        trace.update(textposition='bottom center')
@@ -250,7 +259,10 @@ def plot_oos_status():
 
 	fig = px.line(oos_status, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
-	fig.update_traces(texttemplate='%{text:.2d}', textposition='top center', textfont_size=12)
+	fig.update_traces(texttemplate='%{text:.2d}', 
+		textposition='top center', 
+		textfont_size=12,
+		hovertemplate='%{x}<br>%{y}')
 	fig.update_xaxes(
 	    dtick="M1",
 	    tickformat="%b%Y",
@@ -286,7 +298,10 @@ def plot_oos_count():
 
 	fig = px.line(oos_count, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
-	fig.update_traces(texttemplate='%{text:.2d}', textposition='top center', textfont_size=12)
+	fig.update_traces(texttemplate='%{text:.2d}', 
+		textposition='top center', 
+		textfont_size=12,
+		hovertemplate='%{x}<br>%{y}')
 	fig.update_xaxes(
 	    dtick="M1",
 	    tickformat="%b%y",
@@ -319,7 +334,10 @@ def plot_oos_count():
 def plot_oos_consecutive_order():
 	fig = px.line(oos_consecutive_order, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
-	fig.update_traces(texttemplate='%{text:.2f}', textposition='top center', textfont_size=12)
+	fig.update_traces(texttemplate='%{text:.2f}', 
+		textposition='top center', 
+		textfont_size=12,
+		hovertemplate='%{x}<br>%{y}')
 	fig.update_xaxes(
 	    dtick="M1",
 	    tickformat="%b%Y",
@@ -354,7 +372,10 @@ def plot_oos_time_spend():
 	
 	fig = px.line(oos_time_spend, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
-	fig.update_traces(texttemplate='%{text}', textposition='top center', textfont_size=12)
+	fig.update_traces(texttemplate='%{text}', 
+		textposition='top center', 
+		textfont_size=12,
+		hovertemplate='%{x}<br>%{y}')
 	fig.update_xaxes(
 	    dtick="M1",
 	    tickformat="%b%Y",
