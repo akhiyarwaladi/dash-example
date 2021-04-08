@@ -477,25 +477,28 @@ def plot_table_filter():
 
 def plot_voucher_refund_status():
 	df = res_vcr_oshop_g.copy()
-	df['WS_DESCRIPTION'] = pd.Series(split_label(df['WS_DESCRIPTION']))
-	df['tbtpp_name'] = pd.Series(split_label(df['tbtpp_name']))
-	
+	df['tbto_create_date'] = pd.to_datetime(df['tbto_create_date'])
+	df = df.groupby([pd.Grouper(key='tbto_create_date',freq='D'), 'WS_DESCRIPTION'])\
+	        .agg({'status':'sum'}).reset_index()
+	df['tbtpp_name'] = 'SKI'
+	df['tbto_create_date'] = df['tbto_create_date'].dt.strftime('%Y-%m-%d')
+	# display(df)
+	# df['WS_DESCRIPTION'] = pd.Series(split_label(df['WS_DESCRIPTION']))
+	df['tbtpp_name'] = pd.Series(split_label(df['tbtpp_name'])).str.split('&').str[0]
+
+
 	period_upper = date.today()
 	period_lower = (period_upper - timedelta(days=5)) 
 	period_upper = period_upper.strftime('%Y-%m-%d')
 	period_lower = period_lower.strftime('%Y-%m-%d')
 
+
 	df = df[(df['tbto_create_date'] >= period_lower) \
-			& (df['tbto_create_date'] <= period_upper)]
+	   & (df['tbto_create_date'] <= period_upper)]
 
 	fig = go.Figure()
 
-	fig.update_layout(
-	    template="presentation",
-	    xaxis=dict(title_text="Week"),
-	    yaxis=dict(title_text="Count"),
-	    barmode="stack",
-	)
+
 
 	colors = ["#B6E2D3", "#e4bad4", '#E7D2CC', '#FFA384', '#D6AD60', '#18A558']
 	colors = colors[0:len(df.WS_DESCRIPTION.unique())]
@@ -506,6 +509,37 @@ def plot_voucher_refund_status():
 	        go.Bar(x=[plot_df.tbto_create_date, plot_df.tbtpp_name], y=plot_df.status, \
 	               name=r, marker_color=c),
 	    )
+
+
+	legend=dict(
+	    x = 0,
+	    xanchor = 'left',
+	    y = 1.2,
+	    yanchor = 'top',
+	    traceorder="normal",
+	    title_font_family="Roboto",
+	    font=dict(
+	        family="Courier",
+	        size=14,
+	        color="black"
+	    ),
+	    bgcolor="LightSteelBlue",
+	    bordercolor="Black",
+	    borderwidth=1,
+	    tracegroupgap=0
+	)
+	fig.update_layout(
+	    template="presentation",
+	    xaxis=dict(
+	        title_text="Week",title='',
+	        dtick="M1",
+	        tickformat="%b%y",
+	        showgrid=True, gridwidth=1, gridcolor='LightPink'),
+	    yaxis=dict(title_text="#Order",showgrid=True, gridwidth=1),
+	    barmode="stack",
+	    legend=legend,
+	    margin={'l':70, 'r':30, 't':30, 'b':70}
+	)
 
 	status_count = res_vcr_oshop_g.groupby('WS_DESCRIPTION').agg({'status':'sum'}).to_dict()['status']
 	return fig, status_count
