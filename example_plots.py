@@ -115,7 +115,18 @@ def multi_plot(df, addAll = True):
         ),
         bgcolor="LightSteelBlue",
         bordercolor="Black",
-        borderwidth=1
+        borderwidth=1,
+        tracegroupgap=0
+    )
+    
+    fig.update_xaxes(
+        dtick="M1",
+        tickformat="%b%y",
+        showgrid=True, gridwidth=1, gridcolor='LightPink', title=''
+    )
+    fig.update_yaxes(
+
+        showgrid=True, gridwidth=1, gridcolor='LightPink'
     )
     
     fig.update_layout(
@@ -133,7 +144,6 @@ def multi_plot(df, addAll = True):
             ),
             )
         ], template='presentation', legend=legend)
-
     
     return fig
 
