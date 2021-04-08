@@ -134,13 +134,15 @@ def plot_pie():
     return dict(data=[trace]) 
 
 def plot_sapa_notsapa():
+	
+	sapa_notsapa['sapa_enable'] = sapa_notsapa['sapa_enable'].replace({'not_sapa':'non_sapa'})
 	fig = px.line(sapa_notsapa, x='tbto_create_date', y='net_amount', template='presentation', \
 	              text='tbto_amount_final_rp', color='sapa_enable')
 	fig.update_traces(texttemplate='%{text}', textposition='top center', textfont_size=11)
 	fig.update_xaxes(
 	    dtick="M1",
-	    tickformat="%b\n%Y",
-	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	    tickformat="%b%y",
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title=''
 	)
 	fig.update_yaxes(
 
@@ -150,7 +152,8 @@ def plot_sapa_notsapa():
 	    legend=dict(
 	            x=0,
 	            y=1,
-	            traceorder="reversed",
+	            traceorder="normal",
+	            title='',
 	            title_font_family="Times New Roman",
 	            font=dict(
 	                family="Courier",
@@ -159,53 +162,55 @@ def plot_sapa_notsapa():
 	            ),
 	            bgcolor="LightGrey",
 	            bordercolor="Black",
-	            borderwidth=2
+	            borderwidth=1
 	        )
 	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
-	                  {'l':70, 'r':20, 't':30, 'b':70},legend=legend_dict)
+	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
 	return fig
 
 def plot_new_regular():
+	new_regular['member_stat'] = new_regular['member_stat'].replace({'regular':'existing'})
 	fig = px.line(new_regular, x='tbto_create_date', y='tbto_amount_final', template='presentation', \
 	              text='net_amount', color='member_stat')
 	fig.update_traces(texttemplate='%{text}', textposition='top center', textfont_size=11)
 	fig.update_xaxes(
 	    dtick="M1",
-	    tickformat="%b\n%Y",
-	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	    tickformat="%b%y",
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title=''
 	)
 	fig.update_yaxes(
 
-	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='net_amount'
 	)
 	legend_dict = \
 	    legend=dict(
-	        x=0,
-	        y=1,
-	        traceorder="reversed",
-	        title_font_family="Times New Roman",
-	        font=dict(
-	            family="Courier",
-	            size=12,
-	            color="black"
-	        ),
-	        bgcolor="LightGrey",
-	        bordercolor="Black",
-	        borderwidth=2
-	    )
+	            x=0,
+	            y=1,
+	            traceorder="normal",
+	            title='',
+	            title_font_family="Times New Roman",
+	            font=dict(
+	                family="Courier",
+	                size=12,
+	                color="black"
+	            ),
+	            bgcolor="LightGrey",
+	            bordercolor="Black",
+	            borderwidth=1
+	        )
 	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
-	                  {'l':70, 'r':20, 't':30, 'b':70},legend=legend_dict)	
+	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
 	
 	return fig
 
 def plot_plus_minus():
 	fig = px.line(plus_minus, x='date', y='count_member', template='presentation', \
 	                color='diff_sign')
-	fig.update_traces(texttemplate='%{text}', textposition='top center', textfont_size=9)
+	fig.update_traces(texttemplate='%{text}', textposition='top center', textfont_size=11)
 	fig.update_xaxes(
 	    dtick="M1",
-	    tickformat="%b\n%Y",
-	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	    tickformat="%b%y",
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title=''
 	)
 	fig.update_yaxes(
 
@@ -216,6 +221,7 @@ def plot_plus_minus():
 	            x=0,
 	            y=1,
 	            traceorder="reversed",
+	            title = '',
 	            title_font_family="Times New Roman",
 	            font=dict(
 	                family="Courier",
@@ -227,8 +233,7 @@ def plot_plus_minus():
 	            borderwidth=2
 	        )
 	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
-	                  {'l':70, 'r':20, 't':30, 'b':70},legend=legend_dict)
-
+	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
 
 	return fig
 
