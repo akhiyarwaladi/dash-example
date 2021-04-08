@@ -14,7 +14,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
               dbc.Col(
                 dbc.Card(
                   [
-                      dbc.CardHeader("SAPA vs non SAPA store sales"),
+                      dbc.CardHeader("SAPA vs non-SAPA Store Sales"),
                       dbc.CardBody(
                           [
                               # html.H5("Card title", className="card-title"),
@@ -30,7 +30,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
               dbc.Col(
                 dbc.Card(
                   [
-                      dbc.CardHeader("New vs Regular member sales"),
+                      dbc.CardHeader("Existing vs New Member Sales"),
                       dbc.CardBody(
                           [
                               # html.H5("Card title", className="card-title"),
@@ -46,7 +46,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
               dbc.Col(
                 dbc.Card(
                   [
-                      dbc.CardHeader("Up and Down sales member"),
+                      dbc.CardHeader("Increase and Decrease Sales Member"),
                       dbc.CardBody(
                           [
                               # html.H5("Card title", className="card-title"),
