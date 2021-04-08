@@ -383,7 +383,7 @@ def plot_oos_time_spend():
 	)
 	fig.update_yaxes(
 
-	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='how long'
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='#amount of time'
 	)
 	legend_dict = \
 	    legend=dict(
