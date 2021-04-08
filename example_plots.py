@@ -87,6 +87,7 @@ def multi_plot(df, addAll = True):
                 name = column
             )
         )
+        
 
     button_all = dict(label = 'All',
                       method = 'update',
@@ -100,17 +101,39 @@ def multi_plot(df, addAll = True):
                     args = [{'visible': df.columns.isin([column,column]),
                              'title': column,
                              'showlegend': True}])
-
+    legend=dict(
+        x = 0,
+        xanchor = 'left',
+        y = 1.2,
+        yanchor = 'top',
+        traceorder="normal",
+        title_font_family="Roboto",
+        font=dict(
+            family="Courier",
+            size=14,
+            color="black"
+        ),
+        bgcolor="LightSteelBlue",
+        bordercolor="Black",
+        borderwidth=1
+    )
+    
     fig.update_layout(
         updatemenus=[go.layout.Updatemenu(
             active = 0,
             buttons = ([button_all] * addAll) + list(df.columns.map(lambda column: create_layout_button(column))),
-            x = 0.3,
+            x = 0.5,
             xanchor = 'left',
             y = 1.2,
             yanchor = 'top',
+            font=dict(
+                family="Courier",
+                size=14,
+                color="black"
+            ),
             )
-        ], template='presentation')
+        ], template='presentation', legend=legend)
+
     
     return fig
 
