@@ -48,7 +48,8 @@ df_m_3101 = pd.read_csv(os.path.join(parent_path, 'out_plot/df_m_3101.csv'), sep
 sapa_notsapa = pd.read_csv(os.path.join(parent_path, 'out_plot/sapa_notsapa.csv'), sep='\t')
 new_regular = pd.read_csv(os.path.join(parent_path, 'out_plot/new_regular.csv'), sep='\t')
 plus_minus = pd.read_csv(os.path.join(parent_path, 'out_plot/plus_minus.csv'), sep='\t')
-
+plus_minus = pd.concat([pd.DataFrame([['2020-10','decrease sales','0','Rp 0'],['2020-10','increase sales','0','Rp 0']],\
+            columns=list(plus_minus)),plus_minus])
 
 oos_status = pd.read_csv(os.path.join(parent_path, 'out_plot/oos_status_spread.csv'), sep='\t')
 oos_count = pd.read_csv(os.path.join(parent_path, 'out_plot/order_oos_count.csv'), sep='\t')
@@ -207,9 +208,14 @@ def plot_new_regular():
 	return fig
 
 def plot_plus_minus():
+
 	fig = px.line(plus_minus, x='date', y='count_member', template='presentation', \
-	                color='diff_sign')
+	                color='diff_sign', text='count_member')
+
 	fig.update_traces(texttemplate='%{text}', textposition='top center', textfont_size=11)
+	for ix, trace in enumerate(fig.data):
+	    if ix == 1:
+	        trace.update(textposition='bottom center')
 	fig.update_xaxes(
 	    dtick="M1",
 	    tickformat="%b%y",
@@ -280,7 +286,7 @@ def plot_oos_count():
 
 	fig = px.line(oos_count, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
-	fig.update_traces(texttemplate='%{text:.2d}', textposition='top center')
+	fig.update_traces(texttemplate='%{text:.2d}', textposition='top center', textfont_size=12)
 	fig.update_xaxes(
 	    dtick="M1",
 	    tickformat="%b%y",
@@ -313,7 +319,7 @@ def plot_oos_count():
 def plot_oos_consecutive_order():
 	fig = px.line(oos_consecutive_order, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
-	fig.update_traces(texttemplate='%{text:.2f}', textposition='top center')
+	fig.update_traces(texttemplate='%{text:.2f}', textposition='top center', textfont_size=12)
 	fig.update_xaxes(
 	    dtick="M1",
 	    tickformat="%b%Y",
@@ -348,7 +354,7 @@ def plot_oos_time_spend():
 	
 	fig = px.line(oos_time_spend, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
-	fig.update_traces(texttemplate='%{text}', textposition='top center', textfont_size=11)
+	fig.update_traces(texttemplate='%{text}', textposition='top center', textfont_size=12)
 	fig.update_xaxes(
 	    dtick="M1",
 	    tickformat="%b%Y",
