@@ -238,23 +238,26 @@ def plot_plus_minus():
 	return fig
 
 def plot_oos_status():
+	oos_status['month'] = pd.to_datetime(oos_status['month']).dt.strftime('%b%y')
+
 	fig = px.line(oos_status, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
 	fig.update_traces(texttemplate='%{text:.2d}', textposition='top center', textfont_size=12)
 	fig.update_xaxes(
 	    dtick="M1",
-	    tickformat="%b\n%Y",
-	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	    tickformat="%b%Y",
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title=''
 	)
 	fig.update_yaxes(
 
-	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='#trx'
 	)
 	legend_dict = \
 	    legend=dict(
 	            x=0,
 	            y=1,
 	            traceorder="reversed",
+	            title = '',
 	            title_font_family="Times New Roman",
 	            font=dict(
 	                family="Courier",
@@ -263,30 +266,35 @@ def plot_oos_status():
 	            ),
 	            bgcolor="LightGrey",
 	            bordercolor="Black",
-	            borderwidth=2
+	            borderwidth=1
 	        )
 	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
-	                  {'l':70, 'r':20, 't':30, 'b':70},legend=legend_dict)
+	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
+
 	return fig
 
 def plot_oos_count():
+	oos_count['month'] = pd.to_datetime(oos_count['month']).dt.strftime('%b%y')
+
+
 	fig = px.line(oos_count, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
-	fig.update_traces(texttemplate='%{text:.2d}', textposition='top center', textfont_size=12)
+	fig.update_traces(texttemplate='%{text:.2d}', textposition='top center')
 	fig.update_xaxes(
 	    dtick="M1",
-	    tickformat="%b\n%Y",
-	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	    tickformat="%b%y",
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title=''
 	)
 	fig.update_yaxes(
 
-	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='#attempt'
 	)
 	legend_dict = \
 	    legend=dict(
 	            x=0,
 	            y=1,
 	            traceorder="reversed",
+	            title = '',
 	            title_font_family="Times New Roman",
 	            font=dict(
 	                family="Courier",
@@ -295,30 +303,32 @@ def plot_oos_count():
 	            ),
 	            bgcolor="LightGrey",
 	            bordercolor="Black",
-	            borderwidth=2
+	            borderwidth=1
 	        )
 	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
-	                  {'l':70, 'r':20, 't':30, 'b':70},legend=legend_dict)
+	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
 	return fig
 
 def plot_oos_consecutive_order():
+	oos_consecutive_order['month'] = pd.to_datetime(oos_consecutive_order['month']).dt.strftime('%b%y')
 	fig = px.line(oos_consecutive_order, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
-	fig.update_traces(texttemplate='%{text:.2f}', textposition='top center', textfont_size=12)
+	fig.update_traces(texttemplate='%{text:.2f}', textposition='top center')
 	fig.update_xaxes(
 	    dtick="M1",
-	    tickformat="%b\n%Y",
-	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	    tickformat="%b%Y",
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title=''
 	)
 	fig.update_yaxes(
 
-	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='#order'
 	)
 	legend_dict = \
 	    legend=dict(
 	            x=0,
 	            y=1,
 	            traceorder="reversed",
+	            title = '',
 	            title_font_family="Times New Roman",
 	            font=dict(
 	                family="Courier",
@@ -327,31 +337,33 @@ def plot_oos_consecutive_order():
 	            ),
 	            bgcolor="LightGrey",
 	            bordercolor="Black",
-	            borderwidth=2
+	            borderwidth=1
 	        )
 	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
-	                  {'l':70, 'r':20, 't':30, 'b':70},legend=legend_dict)
+	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
 
 	return fig
 
 def plot_oos_time_spend():
+	oos_time_spend['month'] = pd.to_datetime(oos_time_spend['month']).dt.strftime('%b%y')
 	fig = px.line(oos_time_spend, x='month', y='value', template='presentation', \
 	              text='value', color='variable')
-	fig.update_traces(texttemplate='%{text:.2f}', textposition='top center', textfont_size=12)
+	fig.update_traces(texttemplate='%{text}', textposition='top center', textfont_size=11)
 	fig.update_xaxes(
 	    dtick="M1",
-	    tickformat="%b\n%Y",
-	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	    tickformat="%b%Y",
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title=''
 	)
 	fig.update_yaxes(
 
-	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='how long'
 	)
 	legend_dict = \
 	    legend=dict(
 	            x=0,
 	            y=1,
 	            traceorder="reversed",
+	            title='',
 	            title_font_family="Times New Roman",
 	            font=dict(
 	                family="Courier",
@@ -360,10 +372,10 @@ def plot_oos_time_spend():
 	            ),
 	            bgcolor="LightGrey",
 	            bordercolor="Black",
-	            borderwidth=2
+	            borderwidth=1
 	        )
 	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
-	                  {'l':70, 'r':20, 't':30, 'b':70},legend=legend_dict)
+	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
 
 	return fig
 
