@@ -346,7 +346,7 @@ def plot_new_regular():
 def plot_plus_minus():
 
 	fig = px.line(plus_minus, x='date', y='count_member', template='presentation', \
-	                color='diff_sign', text='count_member_rp')
+	                color='diff_sign', text='count_member_format')
 
 	fig.update_traces(texttemplate='%{text}', 
 		textposition='top center', 
