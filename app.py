@@ -189,6 +189,7 @@ def activate(input_id,
                 Input('tab_gallery_1', 'n_clicks'),
                 Input('tab_gallery_2', 'n_clicks')]
 )
+
 def display_tab(n_general_monitor, n_basic_boxes, n_oos_boxes, n_value_boxes, n_value_behave, 
                 n_sales, n_gallery_1, n_gallery_2):
     
@@ -221,6 +222,7 @@ def display_tab(n_general_monitor, n_basic_boxes, n_oos_boxes, n_value_boxes, n_
                 Input('tab_gallery_1', 'n_clicks'),
                 Input('tab_gallery_2', 'n_clicks')]
 )
+
 def activate_tab(n_general_monitor, n_basic_boxes, n_oos_boxes, n_value_boxes, n_value_behave, 
                 n_sales, n_gallery_1, n_gallery_2):
     
@@ -266,15 +268,13 @@ def activate_tab(n_general_monitor, n_basic_boxes, n_oos_boxes, n_value_boxes, n
 #         return text_3
 
 
-
-
 # Update figure on slider change
 @app.callback(
     Output('box-graph', 'figure'),
     [Input('controlbar-slider', 'value')])
 def update_box_graph(value):
     return plot_plus_minus()
-    #return 0
+    
 
 # Update figure on slider change
 @app.callback(
@@ -282,7 +282,7 @@ def update_box_graph(value):
     [Input('controlbar-slider', 'value')])
 def update_oos_graph(value):
     return plot_oos_time_spend()
-    #return 0
+    
 
 
 # =============================================================================

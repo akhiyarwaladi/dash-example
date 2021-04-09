@@ -187,11 +187,14 @@ def plot_store_type_sales():
 	
 
 	fig = px.line(store_type_sales, x='tbto_create_date', y='sales_amount', template='presentation', \
-	              text='sales_amount', color='store_type')
+	              text='sales_amount_rp', color='store_type')
 	fig.update_traces(texttemplate='%{text}', 
 	    textposition='top center', 
 	    textfont_size=11,
-	    hovertemplate='%{x}<br>%{y}')
+	    hovertemplate='%{x}<br>%{text}')
+	for ix, trace in enumerate(fig.data):
+	    if ix == 1:
+	        trace.update(textposition='bottom center')
 	fig.update_xaxes(
 	    dtick="M1",
 	    tickformat="%b%y",
@@ -201,6 +204,7 @@ def plot_store_type_sales():
 
 	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='sales_amount'
 	)
+
 	legend_dict = \
 	    legend=dict(
 	            x=0,
@@ -220,13 +224,12 @@ def plot_store_type_sales():
 	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
 	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
 
-
 	return fig
 
 
 def plot_application_type_sales():
 	fig = px.line(application_type_sales, x='tbto_create_date', y='sales_amount', template='presentation', \
-	              text='sales_amount', color='store_type')
+	              text='sales_amount_rp', color='store_type')
 	fig.update_traces(texttemplate='%{text}', 
 	    textposition='top center', 
 	    textfont_size=11,
