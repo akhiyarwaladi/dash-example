@@ -152,7 +152,7 @@ def activate(input_id,
              n_sales, n_gallery_1, n_gallery_2):
     
     # Depending on tab which triggered a callback, show/hide contents of app
-    if input_id == 'tab_general_monitor' and n_basic_boxes:
+    if input_id == 'tab_general_monitor' and n_general_monitor:
         return True, False, False, False, False, False, False, False
     elif input_id == 'tab_basic_boxes' and n_basic_boxes:
         return False, True, False, False, False, False, False, False
