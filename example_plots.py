@@ -44,6 +44,13 @@ df_m_2802 = pd.read_csv(os.path.join(parent_path, 'out_plot/df_m_2802.csv'), sep
 df_m_3101 = pd.read_csv(os.path.join(parent_path, 'out_plot/df_m_3101.csv'), sep='\t')
 
 ###
+
+## general monitoring
+store_type_sales = pd.read_csv(os.path.join(parent_path, 'out_plot/store_type_sales.csv'), sep='\t')
+
+##
+
+
 ## member monitoring
 sapa_notsapa = pd.read_csv(os.path.join(parent_path, 'out_plot/sapa_notsapa.csv'), sep='\t')
 new_regular = pd.read_csv(os.path.join(parent_path, 'out_plot/new_regular.csv'), sep='\t')
@@ -156,6 +163,9 @@ def plot_sales_test():
 
 
 
+
+
+
 def plot_pie():
     
     labels = ['Oxygen','Hydrogen','Carbon_Dioxide','Nitrogen']
@@ -169,6 +179,51 @@ def plot_pie():
                                line=dict(color='#000000', width=2)))
                                          
     return dict(data=[trace]) 
+
+
+
+
+def plot_store_type_sales():
+	
+
+	fig = px.line(store_type_sales, x='tbto_create_date', y='sales_amount', template='presentation', \
+	              text='sales_amount', color='store_type')
+	fig.update_traces(texttemplate='%{text}', 
+	    textposition='top center', 
+	    textfont_size=11,
+	    hovertemplate='%{x}<br>%{y}')
+	fig.update_xaxes(
+	    dtick="M1",
+	    tickformat="%b%y",
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title=''
+	)
+	fig.update_yaxes(
+
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='sales_amount'
+	)
+	legend_dict = \
+	    legend=dict(
+	            x=0,
+	            y=1,
+	            traceorder="normal",
+	            title='',
+	            title_font_family="Times New Roman",
+	            font=dict(
+	                family="Courier",
+	                size=12,
+	                color="black"
+	            ),
+	            bgcolor="LightGrey",
+	            bordercolor="Black",
+	            borderwidth=1
+	        )
+	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
+	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
+
+
+	return fig
+
+
 
 def plot_sapa_notsapa():
 	
@@ -186,7 +241,7 @@ def plot_sapa_notsapa():
 	)
 	fig.update_yaxes(
 
-	    showgrid=True, gridwidth=1, gridcolor='LightPink'
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='sales_amount'
 	)
 	legend_dict = \
 	    legend=dict(
@@ -223,7 +278,7 @@ def plot_new_regular():
 	)
 	fig.update_yaxes(
 
-	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='net_amount'
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='sales_amount'
 	)
 	legend_dict = \
 	    legend=dict(
@@ -281,7 +336,7 @@ def plot_plus_minus():
 	            ),
 	            bgcolor="LightGrey",
 	            bordercolor="Black",
-	            borderwidth=2
+	            borderwidth=1
 	        )
 	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
 	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
