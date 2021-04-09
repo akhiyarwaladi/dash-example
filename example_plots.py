@@ -54,7 +54,7 @@ application_type_sales = pd.read_csv(os.path.join(parent_path, 'out_plot/applica
 ## member monitoring
 sapa_notsapa = pd.read_csv(os.path.join(parent_path, 'out_plot/sapa_notsapa.csv'), sep='\t')
 new_regular = pd.read_csv(os.path.join(parent_path, 'out_plot/new_regular.csv'), sep='\t')
-plus_minus = pd.read_csv(os.path.join(parent_path, 'out_plot/plus_minus.csv'), sep='\t')
+plus_minus = pd.read_csv(os.path.join(parent_path, 'out_plot/plus_minus.csv'), sep='\t', dtype='object')
 plus_minus = pd.concat([pd.DataFrame([['2020-10','decrease sales','0','Rp 0','0'],\
 										['2020-10','increase sales','0','Rp 0','0']],\
             columns=list(plus_minus)),plus_minus])
@@ -346,7 +346,7 @@ def plot_new_regular():
 def plot_plus_minus():
 
 	fig = px.line(plus_minus, x='date', y='count_member', template='presentation', \
-	                color='diff_sign', text='count_member')
+	                color='diff_sign', text='count_member_rp')
 
 	fig.update_traces(texttemplate='%{text}', 
 		textposition='top center', 
