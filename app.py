@@ -100,7 +100,7 @@ body = dac.Body(
         #cards_tab,
         #social_cards_tab,
         #tab_cards_tab,
-        general_monitor_tab
+        general_monitor_tab,
         basic_boxes_tab,
         oos_boxes_tab,
         value_boxes_tab,
