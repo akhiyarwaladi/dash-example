@@ -6,7 +6,7 @@ from example_plots import (plot_store_type_sales, plot_new_regular)
 
 
 
-general_monitor_tab = dac.TabItem(id='content_basic_boxes', 
+general_monitor_tab = dac.TabItem(id='content_general_monitor', 
                               
     children=html.Div([
             dbc.Row([
