@@ -2,8 +2,7 @@ import dash_html_components as html
 import dash_core_components as dcc
 import dash_admin_components as dac
 import dash_bootstrap_components as dbc
-from example_plots import (plot_scatter, plot_pie, plot_new_regular, 
-plot_sapa_notsapa, plot_plus_minus, plot_table_example)
+from example_plots import (plot_store_type_sales)
 
 
 
