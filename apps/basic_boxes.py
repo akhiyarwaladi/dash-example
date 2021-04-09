@@ -14,22 +14,6 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
               dbc.Col(
                 dbc.Card(
                   [
-                      dbc.CardHeader("SAPA vs non-SAPA Store Sales"),
-                      dbc.CardBody(
-                          [
-                              # html.H5("Card title", className="card-title"),
-                              html.P(
-                                    dcc.Graph(
-                                      figure=plot_sapa_notsapa(),
-                                      config=dict(displayModeBar=False),
-                       
-                                      ),className="card-text",
-                              ),
-                          ]),
-                  ])),
-              dbc.Col(
-                dbc.Card(
-                  [
                       dbc.CardHeader("Existing vs New Member Sales"),
                       dbc.CardBody(
                           [
