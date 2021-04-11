@@ -71,9 +71,11 @@ pred_unstack = all_df_pred.set_index(["TRO_DATE", "DESCP_DEPT"])['TRO_NET'].unst
 
 sales_plot = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/sales_plot.csv', \
 					sep='\t')
+lower_bond = datetime.today() - timedelta(days=90)
+lower_bond = lower_bond.strftime('%Y-%m-d')
 
-
-
+sales_plot = sales_plot[sales_plot['index'] > lower_bond]
+sales_plot['index'] = pd.to_datetime(sales_plot['index'])
 ###
 
 def multi_plot(df, addAll = True):
@@ -157,11 +159,7 @@ def plot_sales_test():
 
 def plot_sales_all():
 
-	lower_bond = datetime.today() - timedelta(days=90)
-	lower_bond = lower_bond.strftime('%Y-%m-d')
 
-	sales_plot = sales_plot[sales_plot['index'] > lower_bond]
-	sales_plot['index'] = pd.to_datetime(sales_plot['index'])
 	fig = px.line(sales_plot, x='index', y='tbtop_amount_final', template='presentation', \
 	              color='type')
 	fig.update_traces(
