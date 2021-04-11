@@ -7,8 +7,7 @@ import plotly.express as px
 import plotly.graph_objs as go
 import dash_table
 import dash_html_components as html
-import datetime
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 
 
 def split_label(list_label):
@@ -16,16 +15,6 @@ def split_label(list_label):
     list_label = ["<br>".join(textwrap.wrap(t, width=8)) for t in list_label ]
     return list_label
 
-
-### load example data
-df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/gapminder2007.csv')
-df = df[['continent', 'country', 'pop', 'lifeExp']]  # prune columns for example
-df['Mock Date'] = [
-    datetime.datetime(2020, 1, 1, 0, 0, 0) + i * datetime.timedelta(hours=13)
-    for i in range(len(df))
-]
-df_ex = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2014_usa_states.csv')
-###
 
 parent_path = '/home/server/gli-data-science/akhiyar'
 ### place for ski data
@@ -212,22 +201,6 @@ def plot_sales_all():
 	return fig
 
 
-
-
-
-def plot_pie():
-    
-    labels = ['Oxygen','Hydrogen','Carbon_Dioxide','Nitrogen']
-    values = [4500,2000,1053,500]
-    colors = ['#FEBFB3', '#E1396C', '#96D38C', '#D0F9B1']
-    
-    trace = go.Pie(labels=labels, values=values,
-                   hoverinfo='label+percent', textinfo='value', 
-                   textfont=dict(size=20),
-                   marker=dict(colors=colors, 
-                               line=dict(color='#000000', width=2)))
-                                         
-    return dict(data=[trace]) 
 
 
 
@@ -585,40 +558,6 @@ def plot_oos_time_spend():
 	return fig
 
 
-def plot_table_example():
-	fig = go.Figure(data=[go.Table(
-	    header=dict(values=list(df_ex.columns),
-	                fill_color='LightSteelBlue',
-	                align='left'),
-	    cells=dict(values=[df_ex.Rank, df_ex.State, df_ex.Postal, df_ex.Population],
-	               fill_color='lavender',
-	               align='left'))
-	])
-
-	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
-	                  {'l':70, 'r':20, 't':30, 'b':70},template='presentation')
-	return fig
-
-def plot_table_filter():
-	df_init = pd.DataFrame()
-	df_init['name'] = list(df)
-	df_init['id'] = list(df)
-	df_init['type'] = 'text'
-	columns = df_init.to_dict(orient='records')
-	return dash_table.DataTable(
-		columns=columns,
-		data=df.to_dict('records'),
-		filter_action='native',
-		page_size=20,
-		fixed_rows={'headers': True},
-		style_table={'height': '300px', 'overflowY': 'scroll', 'overflowX': 'scroll'},
-		style_data={
-		    'width': '150px', 'minWidth': '150px', 'maxWidth': '150px',
-		    'overflow': 'hidden',
-		    'textOverflow': 'ellipsis',
-		}
-	)
-
 
 def plot_voucher_refund_status():
 	df = res_vcr_oshop_g.copy()
@@ -803,49 +742,4 @@ def plot_df_m_3101():
 		}
 	), unique_item_ag, change_to_online	
 
-
-def plot_scatter(N=50):
-    
-    trace1 = go.Scatter(
-        y = np.random.randn(N),
-        mode='markers',
-        marker=dict(
-            size=16,
-            color = np.random.randn(N), #set color equal to a variable
-            colorscale='Viridis',
-            showscale=True
-        )
-    )
-        
-    return dict(data=[trace1])
-
-def plot_surface():
-    z_data = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/api_docs/mt_bruno_elevation.csv')
-    
-    data = [
-        go.Surface(
-            z=z_data.values,
-            contours=go.surface.Contours(
-                z=go.surface.contours.Z(
-                  show=True,
-                  usecolormap=True,
-                  highlightcolor="#42f462",
-                  project=dict(z=True)
-                )
-            )
-        )
-    ]
-    layout = go.Layout(
-        title='Mt Bruno Elevation',
-        scene=dict(camera=dict(eye=dict(x=1.87, y=0.88, z=-0.64))),
-        paper_bgcolor='rgba(0,0,0,0)',
-        plot_bgcolor='rgba(0,0,0,0)',
-        margin=dict(
-            l=35,
-            r=20,
-            b=35,
-            t=45
-        )
-    )
-    return go.Figure(data=data, layout=layout)
 
