@@ -72,6 +72,10 @@ res_unstack = res_g.set_index(["TRO_DATE", "DESCP_DEPT"])['TRO_NET'].unstack(lev
 pred_unstack = all_df_pred.set_index(["TRO_DATE", "DESCP_DEPT"])['TRO_NET'].unstack(level=1).fillna(0)
 
 
+sales_plot = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/sales_plot.csv', \
+					sep='\t')
+
+
 
 ###
 
@@ -154,6 +158,50 @@ def plot_sales_train():
 def plot_sales_test():
 	return multi_plot(pred_unstack)
 
+def plot_sales_all():
+
+	lower_bond = datetime.today() - timedelta(days=90)
+	lower_bond = lower_bond.strftime('%Y-%m-d')
+
+	sales_plot = sales_plot[sales_plot['index'] > lower_bond]
+	sales_plot['index'] = pd.to_datetime(sales_plot['index'])
+	fig = px.line(sales_plot, x='index', y='tbtop_amount_final', template='presentation', \
+	              color='type')
+	fig.update_traces(
+	#     texttemplate='%{text}', 
+	#     textposition='top center', 
+	#     textfont_size=11,
+	    hovertemplate='%{x}<br>%{y}')
+
+	fig.update_xaxes(
+	#     dtick="M1",
+	#     tickformat="%b%y",
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title=''
+	)
+	fig.update_yaxes(
+
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='sales_amount'
+	)
+
+	legend_dict = \
+	    legend=dict(
+	            x=0,
+	            y=1,
+	            traceorder="normal",
+	            title='',
+	            title_font_family="Times New Roman",
+	            font=dict(
+	                family="Courier",
+	                size=12,
+	                color="black"
+	            ),
+	            bgcolor="LightGrey",
+	            bordercolor="Black",
+	            borderwidth=1
+	        )
+	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
+	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
+	return fig
 
 
 def plot_pie():

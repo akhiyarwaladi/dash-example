@@ -3,10 +3,11 @@ import dash_core_components as dcc
 import dash_admin_components as dac
 import dash_bootstrap_components as dbc
 
-from example_plots import (plot_sales_train, plot_sales_test)
+from example_plots import (plot_sales_train, plot_sales_test, plot_sales_all)
 
 
 fig_sales_train, fig_sales_test = plot_sales_train(), plot_sales_test()
+fig_sales_all = plot_sales_all()
 
 sales_tab = dac.TabItem(id='content_sales', 
                               
@@ -15,6 +16,22 @@ sales_tab = dac.TabItem(id='content_sales',
 
         html.Div([
             dbc.Row([
+             dbc.Col(
+                dbc.Card(
+                  [
+                      dbc.CardHeader("Sales overall actual and prediction"),
+                      dbc.CardBody(
+                          [
+                              # html.H5("Card title", className="card-title"),
+                              html.P(
+                                    dcc.Graph(
+                                      figure=fig_sales_all,
+                                      config=dict(displayModeBar=False),
+                       
+                                      ),className="card-text",
+                              ),
+                          ]),
+                  ])),
               dbc.Col(
                 dbc.Card(
                   [
