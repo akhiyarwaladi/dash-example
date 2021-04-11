@@ -7,7 +7,7 @@ import dash_admin_components as dac
 
 from dash.exceptions import PreventUpdate
 
-from apps.cards import cards_tab
+# from apps.cards import cards_tab
 from apps.social_cards import social_cards_tab
 from apps.tab_cards import tab_cards_tab
 from apps.basic_boxes import basic_boxes_tab
