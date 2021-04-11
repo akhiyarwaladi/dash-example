@@ -11,6 +11,7 @@ from apps.cards import cards_tab
 from apps.social_cards import social_cards_tab
 from apps.tab_cards import tab_cards_tab
 from apps.basic_boxes import basic_boxes_tab
+from apps.general_monitor import general_monitor_tab
 from apps.value_boxes import value_boxes_tab
 from apps.value_behave import value_behave_tab
 from apps.sales import sales_tab
@@ -73,6 +74,7 @@ sidebar = dac.Sidebar(
             #dac.SidebarMenuItem(id='tab_social_cards', label='Social cards', icon='id-card'),
             #dac.SidebarMenuItem(id='tab_tab_cards', label='Tab cards', icon='image'),
 			dac.SidebarHeader(children="Menu"),
+            dac.SidebarMenuItem(id='tab_general_monitor', label='General monitor', icon='desktop'),
 			dac.SidebarMenuItem(id='tab_basic_boxes', label='Member growth', icon='desktop'),
 			dac.SidebarMenuItem(id='tab_oos_boxes', label='Out of stock', icon='desktop'),
 			dac.SidebarMenuItem(id='tab_value_boxes', label='Voucher usage', icon='suitcase'),
@@ -98,6 +100,7 @@ body = dac.Body(
         #cards_tab,
         #social_cards_tab,
         #tab_cards_tab,
+        general_monitor_tab,
         basic_boxes_tab,
         oos_boxes_tab,
         value_boxes_tab,
@@ -145,30 +148,31 @@ app.layout = dac.Page([navbar, sidebar, body, controlbar, footer])
 # Callbacks
 # =============================================================================
 def activate(input_id, 
-             n_basic_boxes, n_oos_boxes, n_value_boxes, n_value_behave,
+             n_general_monitor, n_basic_boxes, n_oos_boxes, n_value_boxes, n_value_behave,
              n_sales, n_gallery_1, n_gallery_2):
     
     # Depending on tab which triggered a callback, show/hide contents of app
-
-    if input_id == 'tab_basic_boxes' and n_basic_boxes:
-        return True, False, False, False, False, False, False
+    if input_id == 'tab_general_monitor' and n_general_monitor:
+        return True, False, False, False, False, False, False, False
+    elif input_id == 'tab_basic_boxes' and n_basic_boxes:
+        return False, True, False, False, False, False, False, False
     elif input_id == 'tab_oos_boxes' and n_oos_boxes:
-        return False, True, False, False, False, False, False
+        return False, False, True, False, False, False, False, False
     elif input_id == 'tab_value_boxes' and n_value_boxes:
-        return False, False, True, False, False, False, False
+        return False, False, False, True, False, False, False, False
     elif input_id == 'tab_value_behave' and n_value_behave:
-        return False, False, False, True, False, False, False
+        return False, False, False, False, True, False, False, False
     elif input_id == 'tab_sales' and n_sales:
-        return False, False, False, False, True, False, False       
+        return False, False, False, False, False, True, False, False       
     elif input_id == 'tab_gallery_1' and n_gallery_1:
-        return False, False, False, False, False, True, False
+        return False, False, False, False, False, False, True, False
     elif input_id == 'tab_gallery_2' and n_gallery_2:
-        return False, False, False, False, False, False, True
+        return False, False, False, False, False, False, False, True
     # initialization
     else:
-        return False, False, False, False, False, False, False
+        return False, False, False, False, False, False, False, False
     
-@app.callback([
+@app.callback([Output('content_general_monitor', 'active'),
                Output('content_basic_boxes', 'active'),
                Output('content_oos_boxes', 'active'),
                Output('content_value_boxes', 'active'),
@@ -176,7 +180,7 @@ def activate(input_id,
                Output('content_sales', 'active'),
                Output('content_gallery_1', 'active'),
                Output('content_gallery_2', 'active')],
-               [
+               [Input('tab_general_monitor', 'n_clicks'),
                 Input('tab_basic_boxes', 'n_clicks'),
                 Input('tab_oos_boxes', 'n_clicks'),
                 Input('tab_value_boxes', 'n_clicks'),
@@ -185,7 +189,8 @@ def activate(input_id,
                 Input('tab_gallery_1', 'n_clicks'),
                 Input('tab_gallery_2', 'n_clicks')]
 )
-def display_tab(n_basic_boxes, n_oos_boxes, n_value_boxes, n_value_behave, 
+
+def display_tab(n_general_monitor, n_basic_boxes, n_oos_boxes, n_value_boxes, n_value_behave, 
                 n_sales, n_gallery_1, n_gallery_2):
     
     ctx = dash.callback_context # Callback context to recognize which input has been triggered
@@ -197,10 +202,10 @@ def display_tab(n_basic_boxes, n_oos_boxes, n_value_boxes, n_value_behave,
         input_id = ctx.triggered[0]['prop_id'].split('.')[0]   
 
     return activate(input_id, 
-                    n_basic_boxes, n_oos_boxes, n_value_boxes, n_value_behave, 
+                    n_general_monitor, n_basic_boxes, n_oos_boxes, n_value_boxes, n_value_behave, 
                     n_sales, n_gallery_1, n_gallery_2)
 
-@app.callback([
+@app.callback([Output('tab_general_monitor', 'active'),
                Output('tab_basic_boxes', 'active'),
                Output('tab_oos_boxes', 'active'),
                Output('tab_value_boxes', 'active'),
@@ -208,7 +213,7 @@ def display_tab(n_basic_boxes, n_oos_boxes, n_value_boxes, n_value_behave,
                Output('tab_sales', 'active'),
                Output('tab_gallery_1', 'active'),
                Output('tab_gallery_2', 'active')],
-               [
+               [Input('tab_general_monitor', 'n_clicks'),
                 Input('tab_basic_boxes', 'n_clicks'),
                 Input('tab_oos_boxes', 'n_clicks'),
                 Input('tab_value_boxes', 'n_clicks'),
@@ -217,7 +222,8 @@ def display_tab(n_basic_boxes, n_oos_boxes, n_value_boxes, n_value_behave,
                 Input('tab_gallery_1', 'n_clicks'),
                 Input('tab_gallery_2', 'n_clicks')]
 )
-def activate_tab(n_basic_boxes, n_oos_boxes, n_value_boxes, n_value_behave, 
+
+def activate_tab(n_general_monitor, n_basic_boxes, n_oos_boxes, n_value_boxes, n_value_behave, 
                 n_sales, n_gallery_1, n_gallery_2):
     
     ctx = dash.callback_context # Callback context to recognize which input has been triggered
@@ -229,7 +235,7 @@ def activate_tab(n_basic_boxes, n_oos_boxes, n_value_boxes, n_value_behave,
         input_id = ctx.triggered[0]['prop_id'].split('.')[0] 
 
     return activate(input_id, 
-                    n_basic_boxes, n_oos_boxes, n_value_boxes, n_value_behave, 
+                    n_general_monitor, n_basic_boxes, n_oos_boxes, n_value_boxes, n_value_behave, 
                     n_sales, n_gallery_1, n_gallery_2)
     
 
@@ -262,15 +268,13 @@ def activate_tab(n_basic_boxes, n_oos_boxes, n_value_boxes, n_value_behave,
 #         return text_3
 
 
-
-
 # Update figure on slider change
 @app.callback(
     Output('box-graph', 'figure'),
     [Input('controlbar-slider', 'value')])
 def update_box_graph(value):
     return plot_plus_minus()
-    #return 0
+    
 
 # Update figure on slider change
 @app.callback(
@@ -278,7 +282,7 @@ def update_box_graph(value):
     [Input('controlbar-slider', 'value')])
 def update_oos_graph(value):
     return plot_oos_time_spend()
-    #return 0
+    
 
 
 # =============================================================================
