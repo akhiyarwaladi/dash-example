@@ -37,6 +37,7 @@ df_m_3101 = pd.read_csv(os.path.join(parent_path, 'out_plot/df_m_3101.csv'), sep
 ## general monitoring
 store_type_sales = pd.read_csv(os.path.join(parent_path, 'out_plot/store_type_sales.csv'), sep='\t')
 application_type_sales = pd.read_csv(os.path.join(parent_path, 'out_plot/application_type_sales.csv'), sep='\t')
+order_status = pd.read_csv(os.path.join(parent_path, 'out_plot/order_status.csv'), sep='\t')
 ##
 
 
@@ -284,6 +285,45 @@ def plot_application_type_sales():
 
 	return fig
 
+def plot_order_status():
+	fig = px.line(order_status, x='tbto_create_date', y='final_stat_count', template='presentation', \
+	              text='final_stat_count', color='final_stat')
+	fig.update_traces(texttemplate='%{text}', 
+	    textposition='top center', 
+	    textfont_size=11,
+	    hovertemplate='%{x}<br>%{text}')
+	for ix, trace in enumerate(fig.data):
+	    if ix == 1:
+	        trace.update(textposition='bottom center')
+	fig.update_xaxes(
+	    dtick="M1",
+	    tickformat="%b%y",
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title=''
+	)
+	fig.update_yaxes(
+
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='#order'
+	)
+
+	legend_dict = \
+	    legend=dict(
+	            x=0,
+	            y=1,
+	            traceorder="normal",
+	            title='',
+	            title_font_family="Times New Roman",
+	            font=dict(
+	                family="Courier",
+	                size=12,
+	                color="black"
+	            ),
+	            bgcolor="LightGrey",
+	            bordercolor="Black",
+	            borderwidth=1
+	        )
+	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
+	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
+	return fig
 
 
 def plot_sapa_notsapa():

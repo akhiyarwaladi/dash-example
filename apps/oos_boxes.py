@@ -10,22 +10,22 @@ oos_boxes_tab = dac.TabItem(id='content_oos_boxes',
                               
     children=html.Div([
             dbc.Row([
-              dbc.Col(
-                dbc.Card(
-                  [
-                      dbc.CardHeader("OOS position in order status"),
-                      dbc.CardBody(
-                          [
-                              # html.H5("Card title", className="card-title"),
-                              html.P(
-                                    dcc.Graph(
-                                      figure=plot_oos_status(),
-                                      config=dict(displayModeBar=False),
+              # dbc.Col(
+              #   dbc.Card(
+              #     [
+              #         dbc.CardHeader("OOS position in order status"),
+              #         dbc.CardBody(
+              #             [
+              #                 # html.H5("Card title", className="card-title"),
+              #                 html.P(
+              #                       dcc.Graph(
+              #                         figure=plot_oos_status(),
+              #                         config=dict(displayModeBar=False),
                        
-                                      ),className="card-text",
-                              ),
-                          ]),
-                  ])),
+              #                         ),className="card-text",
+              #                 ),
+              #             ]),
+              #     ])),
               dbc.Col(
                 dbc.Card(
                   [
