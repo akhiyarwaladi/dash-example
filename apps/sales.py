@@ -12,14 +12,14 @@ fig_sales_all = plot_sales_all()
 sales_tab = dac.TabItem(id='content_sales', 
                               
     children=[
-        html.H4('Alfagift per Department Sales'),
+        html.H4('Alfagift Sales'),
 
         html.Div([
             dbc.Row([
              dbc.Col(
                 dbc.Card(
                   [
-                      dbc.CardHeader("Sales overall actual and prediction"),
+                      dbc.CardHeader("Overall sales, actual and prediction"),
                       dbc.CardBody(
                           [
                               # html.H5("Card title", className="card-title"),
