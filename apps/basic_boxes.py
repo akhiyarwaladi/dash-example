@@ -29,7 +29,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                                     #initial_visible_month=dt(2020, 1, 1),
                                     start_date=dt(2020, 1, 1),
                                     end_date=dt(2021, 12, 1)
-                                ),width=4]
+                                )],width=4
                             ),   
                         ],justify="justify",),
 
