@@ -30,7 +30,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                           ]),
 
                       dbc.CardFooter(
-                        html.P('select date range (mm/dd/yyy)',className='mb-4')
+                        html.P('select date range (mm/dd/yyy)',className='mb-4'),
                         dbc.Col(
                           dcc.DatePickerRange(
                             id='exist_new_picker',
