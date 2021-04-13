@@ -185,7 +185,7 @@ def activate(input_id,
         return False, False, False, False, False, False, False, True
     # initialization
     else:
-        return True, False, False, False, False, False, False, False
+        return False, True, False, False, False, False, False, False
     
 @app.callback([Output('content_general_monitor', 'active'),
                Output('content_basic_boxes', 'active'),
