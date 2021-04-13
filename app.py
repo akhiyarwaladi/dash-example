@@ -21,6 +21,8 @@ from example_plots import plot_plus_minus, plot_oos_time_spend, plot_new_regular
 from apps.tab_cards import text_1, text_2, text_3
 
 import pandas as pd
+import os
+parent_path = '/home/server/gli-data-science/akhiyar'
 new_regular = pd.read_csv(os.path.join(parent_path, 'out_plot/new_regular.csv'), sep='\t')
 
 # =============================================================================
