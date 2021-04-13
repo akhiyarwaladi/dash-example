@@ -21,6 +21,7 @@ from example_plots import plot_plus_minus, plot_oos_time_spend, plot_new_regular
 from apps.tab_cards import text_1, text_2, text_3
 
 import pandas as pd
+new_regular = pd.read_csv(os.path.join(parent_path, 'out_plot/new_regular.csv'), sep='\t')
 
 # =============================================================================
 # Dash App and Flask Server
@@ -311,7 +312,7 @@ def update_oos_graph(value):
 )
 def make_plot_callback(date_start, date_end):
     #print(date_start, date_end)
-    fig = plot_new_regular(date_start, date_end) # define this for creating yr plot
+    fig = plot_new_regular(new_regular, date_start, date_end) # define this for creating yr plot
 
     return fig
 

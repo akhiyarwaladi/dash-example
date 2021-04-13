@@ -357,9 +357,9 @@ def plot_sapa_notsapa():
 	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
 	return fig
 
-def plot_new_regular(start_date, end_date):
+def plot_new_regular(new_regular, start_date, end_date):
 
-	new_regular = pd.read_csv(os.path.join(parent_path, 'out_plot/new_regular.csv'), sep='\t')
+
 	new_regular['tbto_create_date'] = pd.to_datetime(new_regular['tbto_create_date'])
 	new_regular = new_regular[(new_regular['tbto_create_date'] > start_date) &
 								(new_regular['tbto_create_date'] < end_date) ]
