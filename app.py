@@ -80,6 +80,8 @@ sidebar = dac.Sidebar(
 			dac.SidebarMenuItem(id='tab_value_boxes', label='Voucher usage', icon='suitcase'),
             dac.SidebarMenuItem(id='tab_value_behave', label='Online-offline compare', icon='suitcase'),
             dac.SidebarMenuItem(id='tab_sales', label='Sales prediction', icon='suitcase'),
+            dac.SidebarHeader(children="Member DNA"),
+            dac.SidebarMenuItem(label='soon to be updated ...', icon='cubes', children=subitems),
 			dac.SidebarHeader(children="Gallery"),
 			dac.SidebarMenuItem(label='soon to be updated ...', icon='cubes', children=subitems),
 		]
