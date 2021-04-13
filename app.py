@@ -300,6 +300,19 @@ def update_oos_graph(value):
     
 
 
+@application.callback(
+    Output('exist_new_fig', 'figure'),
+    [
+        Input('exist_new_picker', 'start_date'),
+        Input('exist_new_picker', 'end_date'),
+    ]
+)
+def make_plot_callback(date_start, date_end):
+    #print(date_start, date_end)
+    fig = plot_new_regular(date_start, date_end) # define this for creating yr plot
+
+    return fig
+
 # =============================================================================
 # Run app    
 # =============================================================================
