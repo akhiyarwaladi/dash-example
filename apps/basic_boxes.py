@@ -19,7 +19,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
 
                         dbc.Row([
                             dbc.Col(html.P('"Existing vs New Member Sales"'), width=4),
-                            dbc.Col(html.P('select date range (mm/dd/yyy)'), {"size": 6, "offset": 3}),
+                            dbc.Col(html.P('select date range (mm/dd/yyy)'), {"size": 3, "offset": 8}),
                             dbc.Col(
                                 dcc.DatePickerRange(
                                     id='exist_new_picker',
