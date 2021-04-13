@@ -29,7 +29,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                               ),
                           ]),
 
-                      dbc.CardFooter(
+                      dbc.CardFooter([
                         html.P('select date range (mm/dd/yyy)',className='mb-4'),
                         dbc.Col(
                           dcc.DatePickerRange(
@@ -42,7 +42,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                           ),className='mb-4'
                         ),
 
-                        ),
+                    ]),
                   ])),
               dbc.Col(
                 dbc.Card(
