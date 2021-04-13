@@ -17,7 +17,7 @@ from apps.value_behave import value_behave_tab
 from apps.sales import sales_tab
 from apps.oos_boxes import oos_boxes_tab
 
-from example_plots import plot_plus_minus, plot_oos_time_spend
+from example_plots import plot_plus_minus, plot_oos_time_spend, plot_new_regular
 from apps.tab_cards import text_1, text_2, text_3
 
 # =============================================================================

@@ -22,7 +22,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                               # html.H5("Card title", className="card-title"),
                               html.P(
                                     dcc.Graph(
-                                      figure=plot_new_regular(),
+                                      id='exist_new_fig',
                                       config=dict(displayModeBar=False),
                        
                                       ),className="card-text",
