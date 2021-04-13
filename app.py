@@ -24,7 +24,7 @@ from apps.tab_cards import text_1, text_2, text_3
 # Dash App and Flask Server
 # =============================================================================
 app = dash.Dash(__name__)
-app.title = "Alfagift Dashboard"
+app.title = "Data Science Dashboard"
 server = app.server 
 
 # =============================================================================
@@ -73,7 +73,7 @@ sidebar = dac.Sidebar(
 			#dac.SidebarMenuItem(id='tab_cards', label='Basic cards', icon='box'),
             #dac.SidebarMenuItem(id='tab_social_cards', label='Social cards', icon='id-card'),
             #dac.SidebarMenuItem(id='tab_tab_cards', label='Tab cards', icon='image'),
-			dac.SidebarHeader(children="Menu"),
+			dac.SidebarHeader(children="Alfagift"),
             dac.SidebarMenuItem(id='tab_general_monitor', label='General monitor', icon='desktop'),
 			dac.SidebarMenuItem(id='tab_basic_boxes', label='Member growth', icon='desktop'),
 			dac.SidebarMenuItem(id='tab_oos_boxes', label='Out of stock', icon='desktop'),
@@ -84,7 +84,7 @@ sidebar = dac.Sidebar(
 			dac.SidebarMenuItem(label='soon to be updated ...', icon='cubes', children=subitems),
 		]
 	),
-    title='Alfagift Dashboard',
+    title='Data Science Dashboard',
 	skin="light",
     color="primary",
 	brand_color="primary",
@@ -170,7 +170,7 @@ def activate(input_id,
         return False, False, False, False, False, False, False, True
     # initialization
     else:
-        return False, False, False, False, False, False, False, False
+        return True, False, False, False, False, False, False, False
     
 @app.callback([Output('content_general_monitor', 'active'),
                Output('content_basic_boxes', 'active'),

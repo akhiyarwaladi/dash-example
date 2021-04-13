@@ -15,6 +15,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                 dbc.Card(
                   [
                       dbc.CardHeader("Existing vs New Member Sales"),
+
                       dbc.CardBody(
                           [
                               # html.H5("Card title", className="card-title"),
@@ -26,6 +27,17 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                                       ),className="card-text",
                               ),
                           ]),
+                      dbc.CardFooter(
+                          dcc.DatePickerRange(
+                            id='my-date-picker-range',
+                            min_date_allowed=dt(2019, 1, 1),
+                            max_date_allowed=dt(2019, 1, 4),
+                            initial_visible_month=dt(2019, 1, 1),
+                            end_date=dt(2019, 1, 4)
+                          ),
+
+
+                        ),
                   ])),
               dbc.Col(
                 dbc.Card(
