@@ -300,7 +300,7 @@ def update_oos_graph(value):
     
 
 
-@application.callback(
+@app.callback(
     Output('exist_new_fig', 'figure'),
     [
         Input('exist_new_picker', 'start_date'),
