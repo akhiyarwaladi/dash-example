@@ -31,7 +31,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                                     end_date=dt(2021, 12, 1)
                                 ),width=4
                             ),   
-                        ],justify="justify",),
+                        ],justify="between",),
 
 
                         ),
