@@ -43,7 +43,6 @@ order_status = pd.read_csv(os.path.join(parent_path, 'out_plot/order_status.csv'
 
 ## member monitoring
 sapa_notsapa = pd.read_csv(os.path.join(parent_path, 'out_plot/sapa_notsapa.csv'), sep='\t')
-new_regular = pd.read_csv(os.path.join(parent_path, 'out_plot/new_regular.csv'), sep='\t')
 plus_minus = pd.read_csv(os.path.join(parent_path, 'out_plot/plus_minus.csv'), sep='\t', dtype='object')
 plus_minus = pd.concat([pd.DataFrame([['2020-10','decrease sales','0','Rp 0','0'],\
 										['2020-10','increase sales','0','Rp 0','0']],\
@@ -159,8 +158,6 @@ def plot_sales_test():
 	return multi_plot(pred_unstack)
 
 def plot_sales_all():
-
-
 	fig = px.line(sales_plot, x='index', y='tbtop_amount_final', template='presentation', \
 	              color='type')
 	fig.update_traces(
@@ -198,10 +195,6 @@ def plot_sales_all():
 	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
 	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
 	return fig
-
-
-
-
 
 
 def plot_store_type_sales():
@@ -365,6 +358,8 @@ def plot_sapa_notsapa():
 	return fig
 
 def plot_new_regular(start_date, end_date):
+
+	new_regular = pd.read_csv(os.path.join(parent_path, 'out_plot/new_regular.csv'), sep='\t')
 	new_regular['tbto_create_date'] = pd.to_datetime(new_regular['tbto_create_date'])
 	new_regular = new_regular[(new_regular['tbto_create_date'] > start_date) &
 								(new_regular['tbto_create_date'] < end_date) ]
