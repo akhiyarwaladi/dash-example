@@ -67,7 +67,7 @@ subitems = [dac.SidebarMenuSubItem(id='tab_gallery_1',
             ]
 
 # Sidebar
-subitems = [dac.SidebarMenuSubItem(id='tab_gallery_3', 
+subitems2 = [dac.SidebarMenuSubItem(id='tab_gallery_3', 
                             label='Gallery 1', 
                             icon='arrow-circle-right', 
                             badge_label='Soon',
@@ -96,7 +96,7 @@ sidebar = dac.Sidebar(
             dac.SidebarHeader(children="Member DNA"),
             dac.SidebarMenuItem(label='soon to be updated ...', icon='cubes', children=subitems),
 			dac.SidebarHeader(children="Gallery"),
-			dac.SidebarMenuItem(label='soon to be updated ...', icon='cubes', children=subitems),
+			dac.SidebarMenuItem(label='soon to be updated ...', icon='cubes', children=subitems2),
 		]
 	),
     title='Data Science Dashboard',
