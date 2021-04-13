@@ -66,6 +66,19 @@ subitems = [dac.SidebarMenuSubItem(id='tab_gallery_1',
                             badge_color='success')
             ]
 
+# Sidebar
+subitems = [dac.SidebarMenuSubItem(id='tab_gallery_3', 
+                            label='Gallery 1', 
+                            icon='arrow-circle-right', 
+                            badge_label='Soon',
+                            badge_color='success'), 
+            dac.SidebarMenuSubItem(id='tab_gallery_4', 
+                            label='Gallery 2', 
+                            icon='arrow-circle-right', 
+                            badge_label='Soon', 
+                            badge_color='success')
+            ]
+
 sidebar = dac.Sidebar(
 	dac.SidebarMenu(
 		[
