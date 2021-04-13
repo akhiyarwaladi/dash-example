@@ -59,7 +59,7 @@ navbar = dac.Navbar(color = "white",
                     children=right_ui)
 
 # Sidebar
-subitems = [dac.SidebarMenuSubItem(id='tab_gallery_1', 
+subitems1 = [dac.SidebarMenuSubItem(id='tab_gallery_1', 
                             label='Gallery 1', 
                             icon='arrow-circle-right', 
                             badge_label='Soon',
@@ -99,9 +99,9 @@ sidebar = dac.Sidebar(
             dac.SidebarMenuItem(id='tab_value_behave', label='Online-offline compare', icon='suitcase'),
             dac.SidebarMenuItem(id='tab_sales', label='Sales prediction', icon='suitcase'),
             dac.SidebarHeader(children="Member DNA"),
-            dac.SidebarMenuItem(label='soon to be updated ...', icon='cubes', children=subitems),
-			dac.SidebarHeader(children="Gallery"),
-			dac.SidebarMenuItem(label='soon to be updated ...', icon='cubes', children=subitems2),
+            dac.SidebarMenuItem(label='soon to be updated ...', icon='cubes', children=subitems1),
+			# dac.SidebarHeader(children="Gallery"),
+			# dac.SidebarMenuItem(label='soon to be updated ...', icon='cubes', children=subitems2),
 		]
 	),
     title='Data Science Dashboard',
@@ -117,9 +117,7 @@ sidebar = dac.Sidebar(
 # Body
 body = dac.Body(
     dac.TabItems([
-        #cards_tab,
-        #social_cards_tab,
-        #tab_cards_tab,
+
         general_monitor_tab,
         basic_boxes_tab,
         oos_boxes_tab,
@@ -190,7 +188,7 @@ def activate(input_id,
         return False, False, False, False, False, False, False, True
     # initialization
     else:
-        return False, True, False, False, False, False, False, False
+        return True, False, False, False, False, False, False, False
     
 @app.callback([Output('content_general_monitor', 'active'),
                Output('content_basic_boxes', 'active'),
@@ -257,35 +255,7 @@ def activate_tab(n_general_monitor, n_basic_boxes, n_oos_boxes, n_value_boxes, n
     return activate(input_id, 
                     n_general_monitor, n_basic_boxes, n_oos_boxes, n_value_boxes, n_value_behave, 
                     n_sales, n_gallery_1, n_gallery_2)
-    
 
-
-
-# @app.callback(Output('tab_box_1', 'children'),
-#               [Input('tab_box_1_menu', 'active_tab')]
-# )
-# def display_tabbox1(active_tab):
-
-#     # Depending on tab which triggered a callback, show/hide contents of app
-#     if active_tab == 'tab_box_1_tab1':
-#         return text_1
-#     elif active_tab == 'tab_box_1_tab2':
-#         return text_2
-#     elif active_tab == 'tab_box_1_tab3':
-#         return text_3
-
-# @app.callback(Output('tab_box_2', 'children'),
-#               [Input('tab_box_2_menu', 'active_tab')]
-# )
-# def display_tabbox2(active_tab):
-
-#     # Depending on tab which triggered a callback, show/hide contents of app
-#     if active_tab == 'tab_box_2_tab1':
-#         return text_1
-#     elif active_tab == 'tab_box_2_tab2':
-#         return text_2
-#     elif active_tab == 'tab_box_2_tab3':
-#         return text_3
 
 
 # Update figure on slider change
@@ -304,7 +274,6 @@ def update_oos_graph(value):
     return plot_oos_time_spend()
     
 
-
 @app.callback(
     Output('exist_new_fig', 'figure'),
     [
@@ -313,9 +282,8 @@ def update_oos_graph(value):
     ]
 )
 def make_plot_callback(date_start, date_end):
-    #print(date_start, date_end)
-    fig = plot_new_regular(new_regular, date_start, date_end) # define this for creating yr plot
-
+    
+    fig = plot_new_regular(new_regular, date_start, date_end)
     return fig
 
 # =============================================================================
