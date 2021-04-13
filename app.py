@@ -38,20 +38,20 @@ server = app.server
 # Navbar
 
 right_ui = dac.NavbarDropdown(
-	# badge_label = "!",
- #    badge_color= "danger",
- #    src = "https://quantee.ai",
-	# header_text="2 Items",
- #    children= [
-	# 	dac.NavbarDropdownItem(
-	# 		children = "message 1",
-	# 		date = "today"
-	# 	),
-	# 	dac.NavbarDropdownItem(
-	# 		children = "message 2",
-	# 		date = "yesterday"
-	# 	),
-	# ]
+    # badge_label = "!",
+    # badge_color= "danger",
+    # src = "https://quantee.ai",
+    # header_text="2 Items",
+    # children= [
+    # 	dac.NavbarDropdownItem(
+    # 		children = "message 1",
+    # 		date = "today"
+    # 	),
+    # 	dac.NavbarDropdownItem(
+    # 		children = "message 2",
+    # 		date = "yesterday"
+    # 	),
+    # ]
 )
                               
 navbar = dac.Navbar(color = "white", 
@@ -91,7 +91,7 @@ sidebar = dac.Sidebar(
 			#dac.SidebarMenuItem(id='tab_cards', label='Basic cards', icon='box'),
             #dac.SidebarMenuItem(id='tab_social_cards', label='Social cards', icon='id-card'),
             #dac.SidebarMenuItem(id='tab_tab_cards', label='Tab cards', icon='image'),
-			dac.SidebarHeader(children="Alfagift"),
+			dac.SidebarHeader(children="Alfagift Insight"),
             dac.SidebarMenuItem(id='tab_general_monitor', label='General monitor', icon='desktop'),
 			dac.SidebarMenuItem(id='tab_basic_boxes', label='Member growth', icon='desktop'),
 			dac.SidebarMenuItem(id='tab_oos_boxes', label='Out of stock', icon='desktop'),
