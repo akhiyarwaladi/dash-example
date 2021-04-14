@@ -36,8 +36,14 @@ df_m_3101 = pd.read_csv(os.path.join(parent_path, 'out_plot/df_m_3101.csv'), sep
 
 ## general monitoring
 store_type_sales = pd.read_csv(os.path.join(parent_path, 'out_plot/store_type_sales.csv'), sep='\t')
+store_type_sales['tbto_create_date'] = pd.to_datetime(store_type_sales['tbto_create_date']).dt.strftime('%Y-%m')
+
 application_type_sales = pd.read_csv(os.path.join(parent_path, 'out_plot/application_type_sales.csv'), sep='\t')
+application_type_sales['tbto_create_date'] = pd.to_datetime(application_type_sales['tbto_create_date']).dt.strftime('%Y-%m')
+
 order_status = pd.read_csv(os.path.join(parent_path, 'out_plot/order_status.csv'), sep='\t')
+order_status['tbto_create_date'] = pd.to_datetime(order_status['tbto_create_date']).dt.strftime('%Y-%m')
+
 ##
 
 

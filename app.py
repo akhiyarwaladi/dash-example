@@ -96,7 +96,7 @@ sidebar = dac.Sidebar(
 			dac.SidebarMenuItem(id='tab_basic_boxes', label='Member growth', icon='desktop'),
 			dac.SidebarMenuItem(id='tab_oos_boxes', label='Out of stock', icon='desktop'),
 			dac.SidebarMenuItem(id='tab_value_boxes', label='Voucher usage', icon='suitcase'),
-            dac.SidebarMenuItem(id='tab_value_behave', label='Online-offline compare', icon='suitcase'),
+            dac.SidebarMenuItem(id='tab_value_behave', label='Online-offline trx', icon='suitcase'),
             dac.SidebarMenuItem(id='tab_sales', label='Sales prediction', icon='suitcase'),
             dac.SidebarHeader(children="Member DNA"),
             dac.SidebarMenuItem(label='soon to be updated ...', icon='cubes', children=subitems1),
