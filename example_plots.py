@@ -59,7 +59,7 @@ plus_minus = pd.concat([pd.DataFrame([['2020-10','decrease sales','0','Rp 0','0'
 
 oos_status = pd.read_csv(os.path.join(parent_path, 'out_plot/oos_status_spread.csv'), sep='\t')
 oos_count = pd.read_csv(os.path.join(parent_path, 'out_plot/order_oos_count.csv'), sep='\t')
-oos_count['value_str_str'] = oos_count['value_str_count'].astype('float').apply(transform_format)
+oos_count['value_str'] = oos_count['value'].astype('float').apply(transform_format)
 
 
 oos_consecutive_order = pd.read_csv(os.path.join(parent_path, 'out_plot/consecutive_order_item.csv'), sep='\t')
