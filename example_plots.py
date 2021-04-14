@@ -498,7 +498,7 @@ def plot_oos_count():
 
 	fig = px.line(oos_count, x='month', y='value', template='presentation', \
 	              text='value_str', color='variable')
-	fig.update_traces(texttemplate='%{text:.2d}', 
+	fig.update_traces(texttemplate='%{text}', 
 		textposition='top center', 
 		textfont_size=12,
 		hovertemplate='%{x}<br>%{y}')
