@@ -9,6 +9,8 @@ import dash_table
 import dash_html_components as html
 from datetime import date, timedelta, datetime
 
+from helper import transform_to_rupiah_format,transform_format
+
 
 def split_label(list_label):
     list_label = list(list_label)
@@ -41,8 +43,9 @@ store_type_sales['tbto_create_date'] = pd.to_datetime(store_type_sales['tbto_cre
 application_type_sales = pd.read_csv(os.path.join(parent_path, 'out_plot/application_type_sales.csv'), sep='\t')
 application_type_sales['tbto_create_date'] = pd.to_datetime(application_type_sales['tbto_create_date']).dt.strftime('%Y-%m')
 
-order_status = pd.read_csv(os.path.join(parent_path, 'out_plot/order_status.csv'), sep='\t', dtype='object')
-# order_status['tbto_create_date'] = pd.to_datetime(order_status['tbto_create_date']).dt.strftime('%Y-%m')
+order_status = pd.read_csv(os.path.join(parent_path, 'out_plot/order_status.csv'), sep='\t')
+order_status['tbto_create_date'] = pd.to_datetime(order_status['tbto_create_date']).dt.strftime('%Y-%m')
+order_status['final_stat_count_str'] = order_status['final_stat_count'].astype('float').apply(transform_format)
 
 ##
 
@@ -56,6 +59,9 @@ plus_minus = pd.concat([pd.DataFrame([['2020-10','decrease sales','0','Rp 0','0'
 
 oos_status = pd.read_csv(os.path.join(parent_path, 'out_plot/oos_status_spread.csv'), sep='\t')
 oos_count = pd.read_csv(os.path.join(parent_path, 'out_plot/order_oos_count.csv'), sep='\t')
+oos_count['value_str_str'] = oos_count['value_str_count'].astype('float').apply(transform_format)
+
+
 oos_consecutive_order = pd.read_csv(os.path.join(parent_path, 'out_plot/consecutive_order_item.csv'), sep='\t')
 oos_time_spend = pd.read_csv(os.path.join(parent_path, 'out_plot/time_spend_oos.csv'), sep='\t')
 
@@ -490,7 +496,7 @@ def plot_oos_count():
 
 
 	fig = px.line(oos_count, x='month', y='value', template='presentation', \
-	              text='value', color='variable')
+	              text='value_str', color='variable')
 	fig.update_traces(texttemplate='%{text:.2d}', 
 		textposition='top center', 
 		textfont_size=12,
