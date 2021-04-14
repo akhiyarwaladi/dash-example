@@ -29,7 +29,7 @@ general_monitor_tab = dac.TabItem(id='content_general_monitor',
               dbc.Col(
                 dbc.Card(
                   [
-                      dbc.CardHeader("Alfagift vs WebOrder(Whatsapp) Sales"),
+                      dbc.CardHeader(html.H5("Alfagift vs WebOrder(Whatsapp) Sales")),
                       dbc.CardBody(
                           [
                               # html.H5("Card title", className="card-title"),
@@ -45,7 +45,7 @@ general_monitor_tab = dac.TabItem(id='content_general_monitor',
               dbc.Col(
                 dbc.Card(
                   [
-                      dbc.CardHeader("Alfagift Order Status"),
+                      dbc.CardHeader(html.H5("Alfagift Order Status")),
                       dbc.CardBody(
                           [
                               # html.H5("Card title", className="card-title"),

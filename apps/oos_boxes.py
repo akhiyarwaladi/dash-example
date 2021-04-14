@@ -29,7 +29,7 @@ oos_boxes_tab = dac.TabItem(id='content_oos_boxes',
               dbc.Col(
                 dbc.Card(
                   [
-                      dbc.CardHeader("Order item attempt and Order item oos"),
+                      dbc.CardHeader(html.H5("Order item attempt and Order item oos")),
                       dbc.CardBody(
                           [
                               # html.H5("Card title", className="card-title"),
@@ -45,7 +45,7 @@ oos_boxes_tab = dac.TabItem(id='content_oos_boxes',
               dbc.Col(
                 dbc.Card(
                   [
-                      dbc.CardHeader("Consecutive order that user do in same item"),
+                      dbc.CardHeader(html.H5("Consecutive order that user do in same item")),
                       dbc.CardBody(
                           [
                               # html.H5("Card title", className="card-title"),
@@ -61,7 +61,7 @@ oos_boxes_tab = dac.TabItem(id='content_oos_boxes',
               dbc.Col(
                 dbc.Card(
                   [
-                      dbc.CardHeader("User time spend on OOS event"),
+                      dbc.CardHeader(html.H5("User time spend on OOS event")),
                       dbc.CardBody(
                           [
                               # html.H5("Card title", className="card-title"),
