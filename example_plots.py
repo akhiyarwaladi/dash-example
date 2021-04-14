@@ -41,8 +41,8 @@ store_type_sales['tbto_create_date'] = pd.to_datetime(store_type_sales['tbto_cre
 application_type_sales = pd.read_csv(os.path.join(parent_path, 'out_plot/application_type_sales.csv'), sep='\t')
 application_type_sales['tbto_create_date'] = pd.to_datetime(application_type_sales['tbto_create_date']).dt.strftime('%Y-%m')
 
-order_status = pd.read_csv(os.path.join(parent_path, 'out_plot/order_status.csv'), sep='\t')
-order_status['tbto_create_date'] = pd.to_datetime(order_status['tbto_create_date']).dt.strftime('%Y-%m')
+order_status = pd.read_csv(os.path.join(parent_path, 'out_plot/order_status.csv'), sep='\t', dtype='object')
+# order_status['tbto_create_date'] = pd.to_datetime(order_status['tbto_create_date']).dt.strftime('%Y-%m')
 
 ##
 
@@ -286,7 +286,7 @@ def plot_application_type_sales():
 
 def plot_order_status():
 	fig = px.line(order_status, x='tbto_create_date', y='final_stat_count', template='presentation', \
-	              text='final_stat_count', color='final_stat')
+	              text='final_stat_count_str', color='final_stat')
 	fig.update_traces(texttemplate='%{text}', 
 	    textposition='top center', 
 	    textfont_size=11,
