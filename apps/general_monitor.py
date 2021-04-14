@@ -13,7 +13,7 @@ general_monitor_tab = dac.TabItem(id='content_general_monitor',
               dbc.Col(
                 dbc.Card(
                   [
-                      dbc.CardHeader("SAPA vs non-SAPA Store Sales"),
+                      dbc.CardHeader(html.H3("SAPA vs non-SAPA Store Sales")),
                       dbc.CardBody(
                           [
                               # html.H5("Card title", className="card-title"),
