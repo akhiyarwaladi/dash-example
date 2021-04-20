@@ -181,7 +181,7 @@ def activate(input_id,
         return False, False, True, False, False, False, False, False, False
     elif input_id == 'tab_value_boxes' and n_value_boxes:
         return False, False, False, True, False, False, False, False, False
-    elif input_id == 'tab_value_behave' and n_value_behave:1
+    elif input_id == 'tab_value_behave' and n_value_behave:
         return False, False, False, False, True, False, False, False, False
     elif input_id == 'tab_sales' and n_sales:
         return False, False, False, False, False, True, False, False, False
