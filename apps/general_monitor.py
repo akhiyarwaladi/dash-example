@@ -3,7 +3,12 @@ import dash_core_components as dcc
 import dash_admin_components as dac
 import dash_bootstrap_components as dbc
 from example_plots import (plot_store_type_sales, plot_application_type_sales, plot_order_status)
-
+from IPython.core.display import HTML
+HTML("""
+<style>
+g.pointtext {display: none;}
+</style>
+""")
 
 
 general_monitor_tab = dac.TabItem(id='content_general_monitor', 
