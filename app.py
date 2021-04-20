@@ -184,7 +184,7 @@ def activate(input_id,
     elif input_id == 'tab_value_behave' and n_value_behave:1
         return False, False, False, False, True, False, False, False, False
     elif input_id == 'tab_sales' and n_sales:
-        return False, False, False, False, False, True, False, False, False     
+        return False, False, False, False, False, True, False, False, False
     elif input_id == 'tab_events' and n_events:
         return False, False, False, False, False, False, True, False, False
     elif input_id == 'tab_gallery_1' and n_gallery_1:
