@@ -99,7 +99,7 @@ sidebar = dac.Sidebar(
 			dac.SidebarMenuItem(id='tab_value_boxes', label='Voucher usage', icon='desktop'),
             dac.SidebarMenuItem(id='tab_value_behave', label='Online-offline trx', icon='desktop'),
             dac.SidebarMenuItem(id='tab_sales', label='Sales prediction', icon='desktop'),
-            dac.SidebarMenuItem(id='tab_events', label='Sales prediction', icon='desktop'),
+            dac.SidebarMenuItem(id='tab_events', label='App events', icon='desktop'),
             dac.SidebarHeader(children="Member DNA"),
             dac.SidebarMenuItem(label='soon to be updated ...', icon='cubes', children=subitems1),
 			# dac.SidebarHeader(children="Gallery"),
