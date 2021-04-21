@@ -23,11 +23,10 @@ sales_tab = dac.TabItem(id='content_sales',
                               dcc.Dropdown(
                                   id='demo-dropdown',
                                   options=[
-                                      {'label': 'New York City', 'value': 'NYC'},
-                                      {'label': 'Montreal', 'value': 'MTL'},
-                                      {'label': 'San Francisco', 'value': 'SF'}
+                                      {'label': 'Monthly', 'value': 'Monthly'},
+                                      {'label': 'Daily', 'value': 'Daily'}
                                   ],
-                                  value='NYC'
+                                  value='Daily'
                               ),]
 
                         ),
@@ -36,9 +35,11 @@ sales_tab = dac.TabItem(id='content_sales',
                               # html.H5("Card title", className="card-title"),
                               html.P(
                                     dcc.Graph(
-                                      figure=fig_sales_all,
+                                      # figure=fig_sales_all,
+                                      # config=dict(displayModeBar=False),
+                                      id='sales_fig',
                                       config=dict(displayModeBar=False),
-                       
+
                                       ),className="card-text",
                               ),
                           ]),

@@ -80,13 +80,7 @@ res_unstack = res_g.set_index(["TRO_DATE", "DESCP_DEPT"])['TRO_NET'].unstack(lev
 pred_unstack = all_df_pred.set_index(["TRO_DATE", "DESCP_DEPT"])['TRO_NET'].unstack(level=1).fillna(0)
 
 
-sales_plot = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/sales_plot.csv', \
-					sep='\t')
-lower_bond = datetime.today() - timedelta(days=90)
-lower_bond = lower_bond.strftime('%Y-%m-d')
 
-sales_plot = sales_plot[sales_plot['index'] > lower_bond]
-sales_plot['index'] = pd.to_datetime(sales_plot['index'])
 ###
 
 
@@ -186,7 +180,11 @@ def plot_sales_train():
 def plot_sales_test():
 	return multi_plot(pred_unstack)
 
-def plot_sales_all():
+def plot_sales_all(sales_plot, value):
+
+	if value == 'Monthly':
+		sales_plot.groupby([pd.Grouper(key='index',freq='M'), 'type']).agg({'tbtop_amount_final':'sum'}).reset_index()
+		sales_plot_g['index'] = sales_plot_g['index'].dt.strftime('%Y-%m')
 	fig = px.line(sales_plot, x='index', y='tbtop_amount_final', template='presentation', \
 	              color='type')
 	fig.update_traces(
