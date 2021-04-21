@@ -28,7 +28,7 @@ def fill_card(header, content):
         dbc.CardHeader(header),
         dbc.CardBody(
             [
-              'content'
+              content
             ]
         ),
     ]
@@ -48,11 +48,15 @@ for idx, row in general_inapp_sel.iterrows():
         ],
         className="mb-4",
     )
-    li_row.append(row_x)
+    row_y = dbc.Row(
+        [
+            dbc.Col(dbc.Card(fill_card(campaign_name, row_x), color="primary", outline=True)),
+        ],
+        className="mb-12",
+    )
+    li_row.append(row_y)
 
 cards = html.Div(li_row)
-
-
 events_tab = dac.TabItem(id='content_tab_events', 
                               
     children=cards
