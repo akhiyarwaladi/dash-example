@@ -18,7 +18,7 @@ from apps.sales import sales_tab
 from apps.oos_boxes import oos_boxes_tab
 from apps.tab_events import events_tab
 
-from example_plots import plot_plus_minus, plot_oos_time_spend, plot_new_regular
+from example_plots import plot_plus_minus, plot_oos_time_spend, plot_new_regular, plot_sales_all
 from apps.tab_cards import text_1, text_2, text_3
 
 from datetime import date, timedelta, datetime
