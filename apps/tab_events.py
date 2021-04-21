@@ -13,14 +13,14 @@ def fill_card_content(header, content):
             [
                 #html.H5("Card title", className="card-title"),
                 html.P(
-                    content,
+                    content[header],
                     className="card-text",
                 ),
                 dbc.ListGroup(
                     [
-                        dbc.ListGroupItem("Item 1"),
-                        dbc.ListGroupItem("Item 2"),
-                        dbc.ListGroupItem("Item 3"),
+                        dbc.ListGroupItem("ANDROID: {}".format(content['{}_{}'.format(header,'ANDROID')])),
+                        dbc.ListGroupItem("IOS: {}".format(content['{}_{}'.format(header,'IOS')])),
+                        dbc.ListGroupItem("WEB: {}".format(content['{}_{}'.format(header,'WEB')])),
                     ],
                     flush=True,
                 ),
@@ -47,11 +47,11 @@ for idx, row in general_inapp_sel.iterrows():
     row_x = dbc.Row(
         [
 
-            dbc.Col(dbc.Card(fill_card_content('impressions', row['impressions'])\
+            dbc.Col(dbc.Card(fill_card_content('impressions', row)\
               , color="dark", outline=True)),
-            dbc.Col(dbc.Card(fill_card_content('clicks', row['clicks'])\
+            dbc.Col(dbc.Card(fill_card_content('clicks', row)\
               , color="dark", outline=True)),
-            dbc.Col(dbc.Card(fill_card_content('closed', row['closed'])\
+            dbc.Col(dbc.Card(fill_card_content('closed', row)\
               , color="dark", outline=True)),
 
         ],
