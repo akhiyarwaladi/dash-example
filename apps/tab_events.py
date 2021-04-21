@@ -5,8 +5,6 @@ import dash_bootstrap_components as dbc
 
 from example_plots import (plot_general_inapp)
 
-
-
 general_inapp_sel = plot_general_inapp()
 def fill_card_content(header, content):
     card_content = [
@@ -25,7 +23,7 @@ def fill_card_content(header, content):
 
 def fill_card(header, content):
     card_content = [
-        dbc.CardHeader(html.H4(header)),
+        dbc.CardHeader(html.H5(header)),
         dbc.CardBody(
             [
               content
@@ -37,20 +35,23 @@ def fill_card(header, content):
 li_row = []
 for idx, row in general_inapp_sel.iterrows():
     campaign_name = row['Campaign Name'].strip()
-    print(campaign_name)
+    
     row_x = dbc.Row(
         [
 
-            dbc.Col(dbc.Card(fill_card_content('impressions', row['impressions']), color="primary", outline=True)),
-            dbc.Col(dbc.Card(fill_card_content('clicks', row['clicks']), color="primary", outline=True)),
-            dbc.Col(dbc.Card(fill_card_content('closed', row['closed']), color="primary", outline=True)),
+            dbc.Col(dbc.Card(fill_card_content('impressions', row['impressions'])\
+              , color="dark", outline=True)),
+            dbc.Col(dbc.Card(fill_card_content('clicks', row['clicks'])\
+              , color="dark", outline=True)),
+            dbc.Col(dbc.Card(fill_card_content('closed', row['closed'])\
+              , color="dark", outline=True)),
 
         ],
         className="mb-4",
     )
     row_y = dbc.Row(
         [
-            dbc.Col(dbc.Card(fill_card(campaign_name, row_x), color="primary", outline=True)),
+            dbc.Col(dbc.Card(fill_card(campaign_name, row_x), color="dark", outline=True)),
         ],
         className="mb-12",
     )
