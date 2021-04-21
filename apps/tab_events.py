@@ -29,11 +29,12 @@ def fill_card_content(header, content):
     ]
     return card_content
 
-def fill_card(header, content):
+def fill_card(header, content, row):
     card_content = [
         dbc.CardHeader(html.H5(header)),
         dbc.CardBody(
             [
+              html.H5("Target {} Users".format(row['Targets']), className="card-title"),
               content
             ]
         ),
@@ -59,7 +60,7 @@ for idx, row in general_push.iterrows():
     )
     row_y = dbc.Row(
         [
-            dbc.Col(dbc.Card(fill_card(campaign_name, row_x), color="dark", outline=True)),
+            dbc.Col(dbc.Card(fill_card(campaign_name, row_x, row), color="dark", outline=True)),
         ],
         className="mb-12",
     )
