@@ -19,7 +19,18 @@ sales_tab = dac.TabItem(id='content_sales',
              dbc.Col(
                 dbc.Card(
                   [
-                      dbc.CardHeader("Overall sales, actual and prediction"),
+                      dbc.CardHeader(["Overall sales, actual and prediction",
+                              dcc.Dropdown(
+                                  id='demo-dropdown',
+                                  options=[
+                                      {'label': 'New York City', 'value': 'NYC'},
+                                      {'label': 'Montreal', 'value': 'MTL'},
+                                      {'label': 'San Francisco', 'value': 'SF'}
+                                  ],
+                                  value='NYC'
+                              ),]
+
+                        ),
                       dbc.CardBody(
                           [
                               # html.H5("Card title", className="card-title"),
