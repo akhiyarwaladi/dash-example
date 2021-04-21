@@ -76,8 +76,6 @@ oos_time_spend['month'] = pd.to_datetime(oos_time_spend['month']).dt.strftime('%
 res_g = pd.read_csv(os.path.join(parent_path, 'out_plot/res_g.csv'), sep='\t')
 all_df_pred = pd.read_csv(os.path.join(parent_path, 'out_plot/all_df_pred.csv'), sep='\t')
 
-
-
 res_unstack = res_g.set_index(["TRO_DATE", "DESCP_DEPT"])['TRO_NET'].unstack(level=1).fillna(0)
 pred_unstack = all_df_pred.set_index(["TRO_DATE", "DESCP_DEPT"])['TRO_NET'].unstack(level=1).fillna(0)
 
@@ -90,6 +88,19 @@ lower_bond = lower_bond.strftime('%Y-%m-d')
 sales_plot = sales_plot[sales_plot['index'] > lower_bond]
 sales_plot['index'] = pd.to_datetime(sales_plot['index'])
 ###
+
+
+###
+general_inapp = pd.read_csv(os.path.join(parent_path, \
+	'data_req/event/General_In-App_alfagift_2020-11-20_03_56_29.742901.csv'))
+general_inapp_sel = general_inapp[['Campaign Name','impressions', 'clicks', 'closed', 'conversions']]
+
+
+
+def plot_general_inapp():
+	return general_inapp_sel
+
+
 
 def multi_plot(df, addAll = True):
     fig = go.Figure()
