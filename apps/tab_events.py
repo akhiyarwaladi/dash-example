@@ -28,7 +28,7 @@ def fill_card(header, content):
         dbc.CardHeader(header),
         dbc.CardBody(
             [
-              content
+              'content'
             ]
         ),
     ]
