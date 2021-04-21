@@ -99,7 +99,7 @@ general_inapp_sel = general_inapp.copy()
 
 
 general_push = pd.read_csv(os.path.join(parent_path, \
-	'data_req/event/general_push.csv', sep='\t'))
+	'data_req/event/general_push.csv'), sep='\t')
 ###
 
 def plot_general_inapp():
