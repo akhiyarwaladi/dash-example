@@ -25,7 +25,7 @@ def fill_card_content(header, content):
 
 def fill_card(header, content):
     card_content = [
-        dbc.CardHeader(header),
+        dbc.CardHeader(html.H4(header)),
         dbc.CardBody(
             [
               content
