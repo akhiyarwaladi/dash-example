@@ -12,9 +12,9 @@ def fill_card_content(header, content):
         dbc.CardBody(
             [
                 #html.H5("Card title", className="card-title"),
-                html.P(
+                html.B(
                     content[header],
-                    className="card-text",
+                    className="card-title",
                 ),
                 dbc.ListGroup(
                     [
