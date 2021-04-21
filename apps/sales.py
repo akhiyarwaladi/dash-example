@@ -7,7 +7,7 @@ from example_plots import (plot_sales_train, plot_sales_test, plot_sales_all)
 
 
 fig_sales_train, fig_sales_test = plot_sales_train(), plot_sales_test()
-fig_sales_all = plot_sales_all()
+# fig_sales_all = plot_sales_all()
 
 sales_tab = dac.TabItem(id='content_sales', 
                               
