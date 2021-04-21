@@ -187,6 +187,7 @@ def plot_sales_all(sales_plot, value):
 							.agg({'tbtop_amount_final':'sum'})\
 							.reset_index()
 		sales_plot['index'] = sales_plot['index'].dt.strftime('%Y-%m')
+		
 	fig = px.line(sales_plot, x='index', y='tbtop_amount_final', template='presentation', \
 	              color='type')
 	fig.update_traces(
