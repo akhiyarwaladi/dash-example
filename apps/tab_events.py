@@ -15,7 +15,7 @@ def fill_card_content(header, content):
             [
                 #html.H5("Card title", className="card-title"),
                 html.P(
-                    "This is some card content that we'll reuse",
+                    content,
                     className="card-text",
                 ),
             ]
