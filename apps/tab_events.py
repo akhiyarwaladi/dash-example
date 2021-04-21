@@ -5,7 +5,7 @@ import dash_bootstrap_components as dbc
 
 from example_plots import (plot_general_inapp)
 
-general_inapp_sel = plot_general_inapp()
+general_inapp_sel, general_push = plot_general_inapp()
 def fill_card_content(header, content):
     card_content = [
         dbc.CardHeader(header),
@@ -13,14 +13,14 @@ def fill_card_content(header, content):
             [
                 #html.H5("Card title", className="card-title"),
                 html.B(
-                    content[header],
+                    "{} ({})".format(content[header],content['%{}'.format(header)]),
                     className="card-title",
                 ),
                 dbc.ListGroup(
                     [
-                        dbc.ListGroupItem("ANDROID: {}".format(content['{}_{}'.format(header,'ANDROID')])),
-                        dbc.ListGroupItem("IOS: {}".format(content['{}_{}'.format(header,'IOS')])),
-                        dbc.ListGroupItem("WEB: {}".format(content['{}_{}'.format(header,'WEB')])),
+                        dbc.ListGroupItem("Android: {}".format(content['{}_{}'.format('Android',header)])),
+                        dbc.ListGroupItem("IOS: {}".format(content['{}_{}'.format('IOS',header)])),
+
                     ],
                     flush=True,
                 ),
@@ -41,17 +41,17 @@ def fill_card(header, content):
     return card_content
 
 li_row = []
-for idx, row in general_inapp_sel.iterrows():
+for idx, row in general_push.iterrows():
     campaign_name = row['Campaign Name'].strip()
     
     row_x = dbc.Row(
         [
 
-            dbc.Col(dbc.Card(fill_card_content('impressions', row)\
+            dbc.Col(dbc.Card(fill_card_content('Impressions', row)\
               , color="dark", outline=True)),
-            dbc.Col(dbc.Card(fill_card_content('clicks', row)\
+            dbc.Col(dbc.Card(fill_card_content('Clicks', row)\
               , color="dark", outline=True)),
-            dbc.Col(dbc.Card(fill_card_content('closed', row)\
+            dbc.Col(dbc.Card(fill_card_content('Conversions', row)\
               , color="dark", outline=True)),
 
         ],

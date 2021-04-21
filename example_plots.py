@@ -92,14 +92,18 @@ sales_plot['index'] = pd.to_datetime(sales_plot['index'])
 
 ###
 general_inapp = pd.read_csv(os.path.join(parent_path, \
-	'data_req/event/General_In-App_alfagift_2020-11-20_03_56_29.742901.csv'))
+	'data_req/event/General_In-App_alfagift_2021-04-21_05_55_38.678487'))
 # general_inapp_sel = general_inapp[['Campaign Name','impressions', \
 # 								'clicks', 'closed', 'conversions']]
 general_inapp_sel = general_inapp.copy()
+
+
+general_push = pd.read_csv(os.path.join(parent_path, \
+	'data_req/event/general_push.csv', sep='\t'))
 ###
 
 def plot_general_inapp():
-	return general_inapp_sel
+	return general_inapp_sel, general_push
 
 
 
