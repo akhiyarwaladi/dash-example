@@ -319,8 +319,11 @@ def make_plot_callback(date_start, date_end):
     return fig
 
 @app.callback(
-    dash.dependencies.Output('sales_fig', 'children'),
-    [dash.dependencies.Input('demo-dropdown', 'value')])
+    Output('sales_fig', 'figure'),
+    [
+        Input('demo-dropdown', 'value')
+    ]
+)
 def update_plot_sales(value):
     fig = plot_sales_all(sales_plot, value)
     return fig
