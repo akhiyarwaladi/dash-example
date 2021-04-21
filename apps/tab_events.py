@@ -24,7 +24,6 @@ def fill_card_content(header, content):
                     ],
                     flush=True,
                 ),
-                style={"width": "18rem"}
             ],
         ),
     ]
