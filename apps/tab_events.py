@@ -7,7 +7,7 @@ from example_plots import (plot_general_inapp)
 
 
 
-general_inapp_sel = plot_general_inapp.copy()
+general_inapp_sel = plot_general_inapp()
 def fill_card_content(header, content):
     card_content = [
         dbc.CardHeader(header),
