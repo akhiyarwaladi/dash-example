@@ -36,15 +36,16 @@ def fill_card(header, content):
 
 li_row = []
 for idx, row in general_inapp_sel.iterrows():
-    print(row['Campaign Name'].strip())
+    campaign_name = row['Campaign Name'].strip()
+    print(campaign_name)
     row_x = dbc.Row(
         [
           dbc.Row([
-            dbc.Col(dbc.Card(fill_card, [
+            dbc.Col(dbc.Card(fill_card(campaign_name, [
             dbc.Col(dbc.Card(fill_card_content('impressions', row['impressions']), color="primary", outline=True)),
             dbc.Col(dbc.Card(fill_card_content('clicks', row['clicks']), color="primary", outline=True)),
             dbc.Col(dbc.Card(fill_card_content('closed', row['closed']), color="primary", outline=True)),
-            ], color="primary", outline=True)
+            ]), color="primary", outline=True)
             )
             
           ],
