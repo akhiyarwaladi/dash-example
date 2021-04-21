@@ -34,7 +34,7 @@ def fill_card(header, content, row):
         dbc.CardHeader(html.H5(header)),
         dbc.CardBody(
             [
-              html.H5("Target {} users, goal conversion ({})".format(row['Targets'], \
+              html.H5("Target {} users, goal conversion ({}) <br>".format(row['Targets'], \
                 row['Primary Conversion Goal']), className="card-title"),
               content
             ]
