@@ -8,12 +8,12 @@ from example_plots import (plot_general_inapp)
 general_inapp_sel, general_push = plot_general_inapp()
 def fill_card_content(header, content):
     card_content = [
-        dbc.CardHeader(header),
+        dbc.CardHeader(html.center(header)),
         dbc.CardBody(
             [
                 #html.H5("Card title", className="card-title"),
                 html.B(
-                    "{} ({})".format(content[header],content['%{}'.format(header)]),
+                    "{} ({}%)".format(content[header],content['%{}'.format(header)]),
                     className="card-title",
                 ),
                 dbc.ListGroup(
