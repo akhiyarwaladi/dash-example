@@ -183,8 +183,10 @@ def plot_sales_test():
 def plot_sales_all(sales_plot, value):
 
 	if value == 'Monthly':
-		sales_plot.groupby([pd.Grouper(key='index',freq='M'), 'type']).agg({'tbtop_amount_final':'sum'}).reset_index()
-		sales_plot_g['index'] = sales_plot_g['index'].dt.strftime('%Y-%m')
+		sales_plot.groupby([pd.Grouper(key='index',freq='M'), 'type'])\
+							.agg({'tbtop_amount_final':'sum'})\
+							.reset_index()
+		sales_plot['index'] = sales_plot['index'].dt.strftime('%Y-%m')
 	fig = px.line(sales_plot, x='index', y='tbtop_amount_final', template='presentation', \
 	              color='type')
 	fig.update_traces(
