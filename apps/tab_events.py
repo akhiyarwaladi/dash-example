@@ -3,7 +3,7 @@ import dash_core_components as dcc
 import dash_admin_components as dac
 import dash_bootstrap_components as dbc
 
-from example_plots import (plot_general_inapp)
+from example_plots import (plot_general_inapp, plot_order_status)
 
 general_inapp_sel, general_push = plot_general_inapp()
 def fill_card_content(header, content):
@@ -62,6 +62,22 @@ for idx, row in general_push.iterrows():
     )
     row_y = dbc.Row(
         [
+            dbc.Col(
+                dbc.Card(
+                [
+                  dbc.CardHeader(html.H5("Alfagift Order Status")),
+                  dbc.CardBody(
+                      [
+                          # html.H5("Card title", className="card-title"),
+                          html.P(
+                                dcc.Graph(
+                                  figure=plot_order_status(),
+                                  config=dict(displayModeBar=False),
+                   
+                                  ),className="card-text",
+                          ),
+                      ]),
+                ])),
             dbc.Col(dbc.Card(fill_card(campaign_name, row_x, row), color="dark", outline=True)),
         ],
         className="mb-12",
