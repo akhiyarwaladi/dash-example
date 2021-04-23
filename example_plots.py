@@ -103,8 +103,24 @@ def click_general_push():
 
 	fig = px.bar(top_click, x="Campaign Name", y="Clicks", color = 'Primary Conversion Goal')
 
+	legend_dict = \
+	    legend=dict(
+	            x=0,
+	            y=1,
+	            traceorder="normal",
+	            title='',
+	            title_font_family="Times New Roman",
+	            font=dict(
+	                family="Courier",
+	                size=12,
+	                color="black"
+	            ),
+	            bgcolor="LightGrey",
+	            bordercolor="Black",
+	            borderwidth=1
+	        )
 	fig.update_layout(font={'size': 16}, width=1000,template='presentation',
-	                plot_bgcolor = '#FFFFFF',
+	                plot_bgcolor = '#FFFFFF', legend = legend_dict,
 	                xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
 	                       'showgrid': True, 'automargin': True, 'title':'Campaign'},
 	                yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
@@ -120,8 +136,25 @@ def conversion_general_push():
 
 	fig = px.bar(top_click, x="Campaign Name", y="Conversions", color='Primary Conversion Goal')
 
+	legend_dict = \
+	    legend=dict(
+	            x=0,
+	            y=1,
+	            traceorder="normal",
+	            title='',
+	            title_font_family="Times New Roman",
+	            font=dict(
+	                family="Courier",
+	                size=12,
+	                color="black"
+	            ),
+	            bgcolor="LightGrey",
+	            bordercolor="Black",
+	            borderwidth=1
+	        )
+
 	fig.update_layout(font={'size': 16}, width=1000,template='presentation',
-	            plot_bgcolor = '#FFFFFF',
+	            plot_bgcolor = '#FFFFFF', legend = legend_dict,
 	            xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
 	                   'showgrid': True, 'automargin': True, 'title':'Campaign'},
 	            yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
