@@ -63,6 +63,15 @@ for idx, row in general_push.iterrows():
     )
     row_y = dbc.Row(
         [
+            dbc.Col(dbc.Card(fill_card(campaign_name, row_x, row), color="dark", outline=True)),
+        ],
+        className="mb-12",
+    )
+    li_row.append(row_y)
+
+
+row_top = dbc.Row(
+        [
             dbc.Col(
                 dbc.Card(
                 [
@@ -95,11 +104,13 @@ for idx, row in general_push.iterrows():
                           ),
                       ]),
                 ])),
-            dbc.Col(dbc.Card(fill_card(campaign_name, row_x, row), color="dark", outline=True)),
+
         ],
-        className="mb-12",
+        className="mb-12"
     )
-    li_row.append(row_y)
+
+li_row.append(row_top)
+li_row = li_row[::-1]
 
 cards = html.Div(li_row)
 events_tab = dac.TabItem(id='content_tab_events', 
