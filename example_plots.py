@@ -14,7 +14,7 @@ from helper import transform_to_rupiah_format,transform_format
 
 def split_label(list_label):
     list_label = list(list_label)
-    list_label = ["<br>".join(textwrap.wrap(t, width=8)) for t in list_label ]
+    list_label = ["<br>".join(textwrap.wrap(t, width=12)) for t in list_label ]
     return list_label
 
 
@@ -96,10 +96,45 @@ general_push = pd.read_csv(os.path.join(parent_path, \
 	'data_req/event/general_push.csv'), sep='\t')
 ###
 
+def click_general_push():
+	top_click = general_push.sort_values(by=['Clicks'], ascending=False).head(7)\
+	            [['Campaign Name', 'Clicks', 'Primary Conversion Goal']].reset_index(drop=True)
+	top_click['Campaign Name'] = pd.Series(split_label(top_click['Campaign Name']))
+
+	fig = px.bar(top_click, x="Campaign Name", y="Clicks", color = 'Primary Conversion Goal')
+
+	fig.update_layout(font={'size': 16}, width=1000,template='presentation',
+	                plot_bgcolor = '#FFFFFF',
+	                xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
+	                       'showgrid': True, 'automargin': True, 'title':'Campaign'},
+	                yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
+	                       'showgrid': True,  'automargin': True, 'title':'Clicks'},
+	                bargap=0.3, title="Most clicks campaign notif", title_x=0.5)
+
+	return fig
+
+def conversion_general_push():
+	top_click = general_push.sort_values(by=['Conversions'], ascending=False).head(7)\
+	        [['Campaign Name', 'Conversions', 'Primary Conversion Goal']].reset_index(drop=True)
+	top_click['Campaign Name'] = pd.Series(split_label(top_click['Campaign Name']))
+
+	fig = px.bar(top_click, x="Campaign Name", y="Conversions", color='Primary Conversion Goal')
+
+	fig.update_layout(font={'size': 16}, width=1000,template='presentation',
+	            plot_bgcolor = '#FFFFFF',
+	            xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
+	                   'showgrid': True, 'automargin': True, 'title':'Campaign'},
+	            yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
+	                   'showgrid': True,  'automargin': True, 'title':'Conversions'},
+	            bargap=0.3, title="Most conversions campaign notif", title_x=0.5)
+
+	return fig
+
+
+
+
 def plot_general_inapp():
 	return general_inapp_sel, general_push
-
-
 
 def multi_plot(df, addAll = True):
     fig = go.Figure()
