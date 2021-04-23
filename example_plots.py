@@ -125,7 +125,7 @@ def click_general_push():
 	                       'showgrid': True, 'automargin': True, 'title':'Campaign'},
 	                yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
 	                       'showgrid': True,  'automargin': True, 'title':'Clicks'},
-	                bargap=0.3, title="Most clicks campaign notif", title_x=0.5)
+	                bargap=0.3, title="", title_x=0.5)
 
 	return fig
 
@@ -159,7 +159,7 @@ def conversion_general_push():
 	                   'showgrid': True, 'automargin': True, 'title':'Campaign'},
 	            yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
 	                   'showgrid': True,  'automargin': True, 'title':'Conversions'},
-	            bargap=0.3, title="Most conversions campaign notif", title_x=0.5)
+	            bargap=0.3, title="", title_x=0.5)
 
 	return fig
 
