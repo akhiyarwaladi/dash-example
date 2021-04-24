@@ -3,9 +3,9 @@ import dash_core_components as dcc
 import dash_admin_components as dac
 import dash_bootstrap_components as dbc
 
-from example_plots import (plot_general_push, conversion_general_push, click_general_push)
+from example_plots import (plot_general_inapp, conversion_general_inapp, click_general_inapp)
 
-general_push = plot_general_push()
+general_inapp = plot_general_inapp()
 
 
 def fill_card_content(header, content):
@@ -18,14 +18,7 @@ def fill_card_content(header, content):
                     "{} ({}%)".format(content[header],content['%{}'.format(header)]),
                     className="card-title",
                 ),
-                dbc.ListGroup(
-                    [
-                        dbc.ListGroupItem("Android: {}".format(content['{}_{}'.format('Android',header)])),
-                        dbc.ListGroupItem("IOS: {}".format(content['{}_{}'.format('IOS',header)])),
-
-                    ],
-                    flush=True,
-                ),
+               
             ],
         ),
     ]
@@ -95,11 +88,11 @@ for idx, row in general_push.iterrows():
     row_x = dbc.Row(
         [
 
-            dbc.Col(dbc.Card(fill_card_content('Impressions', row)\
+            dbc.Col(dbc.Card(fill_card_content('impressions', row)\
               , color="dark", outline=True)),
-            dbc.Col(dbc.Card(fill_card_content('Clicks', row)\
+            dbc.Col(dbc.Card(fill_card_content('clicks', row)\
               , color="dark", outline=True)),
-            dbc.Col(dbc.Card(fill_card_content('Conversions', row)\
+            dbc.Col(dbc.Card(fill_card_content('conversions (unique)', row)\
               , color="dark", outline=True)),
 
         ],
