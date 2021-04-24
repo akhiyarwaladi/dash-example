@@ -82,7 +82,7 @@ row_top = dbc.Row(
 li_row.append(row_top)
 
 
-for idx, row in general_push.iterrows():
+for idx, row in general_inapp.iterrows():
     campaign_name = row['Campaign Name'].strip()
     
     row_x = dbc.Row(
