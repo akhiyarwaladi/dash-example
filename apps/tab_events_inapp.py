@@ -15,7 +15,7 @@ def fill_card_content(header, content):
             [
                 #html.H5("Card title", className="card-title"),
                 html.B(
-                    "{} ({}%)".format(content[header],content['%{}'.format(header)]),
+                    "{}".format(content[header]),
                     className="card-title",
                 ),
                
@@ -29,8 +29,8 @@ def fill_card(header, content, row):
         dbc.CardHeader(html.H5(header)),
         dbc.CardBody(
             [
-              html.H5("Target {} users, goal conversion ({})".format(row['Targets'], \
-                row['Primary Conversion Goal']), className="card-title"),
+              html.H5("goal conversion ({})".format(\
+                row['Conversion Goal']), className="card-title"),
               html.Br(),
               content
             ]
