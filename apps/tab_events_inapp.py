@@ -8,7 +8,6 @@ from example_plots import (plot_general_push, conversion_general_push, click_gen
 general_push = plot_general_push()
 
 
-
 def fill_card_content(header, content):
     card_content = [
         dbc.CardHeader(html.Center(header)),
@@ -119,7 +118,7 @@ for idx, row in general_push.iterrows():
 # li_row = li_row[::-1]
 
 cards = html.Div(li_row)
-events_tab = dac.TabItem(id='content_tab_events', 
+events_inapp = dac.TabItem(id='content_inapp_events', 
                               
     children=cards
 

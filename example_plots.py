@@ -85,21 +85,21 @@ pred_unstack = all_df_pred.set_index(["TRO_DATE", "DESCP_DEPT"])['TRO_NET'].unst
 
 
 ###
-general_inapp = pd.read_csv(os.path.join(parent_path, \
-	'data_req/event/General_In-App_alfagift_2021-04-21_05_55_38.678487.csv'))
-# general_inapp_sel = general_inapp[['Campaign Name','impressions', \
-# 								'clicks', 'closed', 'conversions']]
-general_inapp_sel = general_inapp.copy()
-
-
 general_push = pd.read_csv(os.path.join(parent_path, \
 	'data_req/event/general_push.csv'), sep='\t')
+
+general_inapp = pd.read_csv(os.path.join(parent_path, \
+	'data_req/event/MOBILE_INAPP_alfagift_2021-04-21_04_37_38.555413.csv')).fillna(0)
 ###
+
+def plot_general_push():
+
+	return general_push
 
 def click_general_push():
 	top_click = general_push.sort_values(by=['Clicks'], ascending=False).head(7)\
 	            [['Campaign Name', 'Clicks', 'Primary Conversion Goal']].reset_index(drop=True)
-	top_click['Campaign Name'] = pd.Series(split_label(top_click['Campaign Name']))
+	top_click['Campaign Name'] = pd.Series(split_label(top_click['Campaign Name'].str[10:]))
 
 	fig = px.bar(top_click, x="Campaign Name", y="Clicks", color = 'Primary Conversion Goal')
 
@@ -131,8 +131,8 @@ def click_general_push():
 
 def conversion_general_push():
 	top_click = general_push.sort_values(by=['Conversions'], ascending=False).head(7)\
-	        [['Campaign Name', 'Conversions', 'Primary Conversion Goal']].reset_index(drop=True)
-	top_click['Campaign Name'] = pd.Series(split_label(top_click['Campaign Name']))
+	            [['Campaign Name', 'Conversions', 'Primary Conversion Goal']].reset_index(drop=True)
+	top_click['Campaign Name'] = pd.Series(split_label(top_click['Campaign Name'].str[10:]))
 
 	fig = px.bar(top_click, x="Campaign Name", y="Conversions", color='Primary Conversion Goal')
 
@@ -164,10 +164,81 @@ def conversion_general_push():
 	return fig
 
 
-
-
 def plot_general_inapp():
-	return general_inapp_sel, general_push
+
+	return general_inapp
+
+def click_general_inapp():
+	top_click = general_inapp.sort_values(by=['clicks'], ascending=False).head(7)\
+	            [['Campaign Name', 'clicks', 'Conversion Goal']].reset_index(drop=True)
+	top_click['Campaign Name'] = pd.Series(split_label(top_click['Campaign Name']\
+	                                .str[7:]))
+
+	fig = px.bar(top_click, x="Campaign Name", y="clicks", color = 'Conversion Goal')
+
+	legend_dict = \
+	    legend=dict(
+	            x=0,
+	            y=1,
+	            traceorder="normal",
+	            title='',
+	            title_font_family="Times New Roman",
+	            font=dict(
+	                family="Courier",
+	                size=12,
+	                color="black"
+	            ),
+	            bgcolor="LightGrey",
+	            bordercolor="Black",
+	            borderwidth=1
+	        )
+
+	fig.update_layout(font={'size': 16}, width=1000,template='presentation',
+	                plot_bgcolor = '#FFFFFF', legend=legend_dict,
+	                xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
+	                       'showgrid': True, 'automargin': True, 'title':'Campaign'},
+	                yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
+	                       'showgrid': True,  'automargin': True, 'title':'Clicks'},
+	                bargap=0.3, title="Most clicks campaign notif", title_x=0.5)
+
+	return fig
+
+def conversion_general_inapp():
+
+	top_click = general_inapp.sort_values(by=['conversions (unique)'], ascending=False).head(7)\
+	            [['Campaign Name', 'conversions (unique)', 'Conversion Goal']].reset_index(drop=True)
+	top_click['Campaign Name'] = pd.Series(split_label(top_click['Campaign Name']\
+	                                .str[7:]))
+
+	fig = px.bar(top_click, x="Campaign Name", y="conversions (unique)", color = 'Conversion Goal')
+
+	legend_dict = \
+	    legend=dict(
+	            x=0,
+	            y=1,
+	            traceorder="normal",
+	            title='',
+	            title_font_family="Times New Roman",
+	            font=dict(
+	                family="Courier",
+	                size=12,
+	                color="black"
+	            ),
+	            bgcolor="LightGrey",
+	            bordercolor="Black",
+	            borderwidth=1
+	        )
+
+	fig.update_layout(font={'size': 16}, width=1000,template='presentation',
+	                plot_bgcolor = '#FFFFFF', legend=legend_dict,
+	                xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
+	                       'showgrid': True, 'automargin': True, 'title':'Campaign'},
+	                yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
+	                       'showgrid': True,  'automargin': True, 'title':'Clicks'},
+	                bargap=0.3, title="Most clicks campaign notif", title_x=0.5)
+
+	return fig
+
 
 def multi_plot(df, addAll = True):
     fig = go.Figure()
