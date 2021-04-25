@@ -19,7 +19,8 @@ from apps.oos_boxes import oos_boxes_tab
 from apps.tab_events import events_tab
 from apps.tab_events_inapp import events_inapp
 
-from example_plots import plot_plus_minus, plot_oos_time_spend, plot_new_regular, plot_sales_all
+from example_plots import (plot_plus_minus, plot_oos_time_spend, plot_new_regular, 
+    plot_sales_all, plot_table_sales)
 from apps.tab_cards import text_1, text_2, text_3
 
 from datetime import date, timedelta, datetime
@@ -323,14 +324,18 @@ def make_plot_callback(date_start, date_end):
     return fig
 
 @app.callback(
-    Output('sales_fig', 'figure'),
+    [
+        Output('sales_fig', 'figure'),
+        Output('sales_table', 'data')
+    ],
     [
         Input('demo-dropdown', 'value')
     ]
 )
 def update_plot_sales(value):
     fig = plot_sales_all(sales_plot, value)
-    return fig
+    table = plot_table_sales(sales_plot, value)
+    return fig, table
 
 # =============================================================================
 # Run app    

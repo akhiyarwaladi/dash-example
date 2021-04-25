@@ -834,7 +834,7 @@ def plot_voucher_refund_status():
 	return fig, status_count
 
 
-def plot_table_sales():
+def plot_table_sales(sales_plot, value):
 	df_init = pd.DataFrame()
 	df_init['name'] = list(sales_plot)
 	df_init['id'] = list(sales_plot)
