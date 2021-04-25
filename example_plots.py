@@ -382,7 +382,7 @@ def plot_table_sales(sales_plot, value):
 		fixed_rows={'headers': True},
 		style_table={'overflowY': 'scroll', 'overflowX': 'scroll'},
 		style_data={
-		    'maxWidth': '100px',
+		    'width': '120px', 'minWidth': '120px', 'maxWidth': '150px',
 		    'overflow': 'hidden',
 		    'textOverflow': 'ellipsis',
 		}
