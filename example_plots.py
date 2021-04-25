@@ -848,7 +848,7 @@ def plot_table_sales(sales_plot, value):
 		filter_action='native',
 		page_size=20,
 		fixed_rows={'headers': True},
-		style_table={'height': '300px', 'overflowY': 'scroll', 'overflowX': 'scroll'},
+		style_table={'overflowY': 'scroll', 'overflowX': 'scroll'},
 		style_data={
 		    'width': '150px', 'minWidth': '150px', 'maxWidth': '150px',
 		    'overflow': 'hidden',
