@@ -326,7 +326,7 @@ def make_plot_callback(date_start, date_end):
 @app.callback(
     [
         Output('sales_fig', 'figure'),
-        Output('sales_table', 'data')
+        Output('sales_table', 'rows')
     ],
     [
         Input('demo-dropdown', 'value')

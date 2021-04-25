@@ -48,7 +48,7 @@ sales_tab = dac.TabItem(id='content_sales',
               dbc.Col(
                 dbc.Card(
                   [
-                      dbc.CardHeader("Detail jan21-feb21"),
+                      # dbc.CardHeader("Detail jan21-feb21"),
                       dbc.CardBody(
                           [
                               # html.H5("Card title", className="card-title"),
