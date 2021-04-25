@@ -43,7 +43,7 @@ sales_tab = dac.TabItem(id='content_sales',
                                       ),className="card-text",
                               ),
                           ]),
-                  ],className="mb-8")),
+                  ],className="w-75")),
               dbc.Col(
                 dbc.Card(
                   [
