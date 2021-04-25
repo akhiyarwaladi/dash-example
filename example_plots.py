@@ -370,7 +370,7 @@ def plot_table_sales(sales_plot_table, value):
 
 	if value == 'Monthly':
 		sales_plot_table['index'] = pd.to_datetime(sales_plot_table['index'])
-		sales_plot_table = sales_plot_table.groupby([pd.Grouper(key='index',freq='M'), 'type'])\
+		sales_plot_table = sales_plot_table.groupby([pd.Grouper(key='index',freq='M')])\
 							.agg({'actual':'sum', 'prediction':'sum'})\
 							.reset_index()
 		
