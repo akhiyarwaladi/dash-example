@@ -5,10 +5,7 @@ def transform_to_rupiah_format(value):
     #print(len(str_value))
     unit = ''
 
-    if len(str_value) >= 8:
-        unit = 'jt'
-    elif len(str_value) >= 5:
-        unit = 'rb'
+
     separate_decimal = str_value.split(".")
     after_decimal = separate_decimal[0]
     before_decimal = separate_decimal[1]
@@ -24,10 +21,17 @@ def transform_to_rupiah_format(value):
 
     temp_result = temp_reverse_value[::-1]
 
-    #return "Rp " + temp_result + "," + before_decimal
-    #print(len(temp_result))
-    #print(temp_result)
-    return "Rp " + temp_result.split('.')[0] + unit
+    if len(str_value) >= 12:
+        unit = 'jt'
+        show_result = temp_result.split('.')[0] + "." + temp_result.split('.')[1] 
+    elif len(str_value) >= 8:
+        unit = 'jt'
+        show_result = temp_result.split('.')[0]
+    elif len(str_value) >= 5:
+        unit = 'rb'
+        show_result = temp_result.split('.')[0]
+        
+    return "Rp " + show_result + unit
 
 def transform_format(value):
     str_value = str(value)
