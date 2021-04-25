@@ -362,7 +362,7 @@ def plot_sales_all(sales_plot, value):
 	            borderwidth=1
 	        )
 	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
-	                  {'l':70, 'r':30, 't':30, 'b':0},legend=legend_dict)
+	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
 	return fig
 
 
@@ -382,7 +382,7 @@ def plot_table_sales(sales_plot, value):
 		fixed_rows={'headers': True},
 		style_table={'overflowY': 'scroll', 'overflowX': 'scroll'},
 		style_data={
-		    'width': '150px', 'minWidth': '150px', 'maxWidth': '150px',
+		    'maxWidth': '100px',
 		    'overflow': 'hidden',
 		    'textOverflow': 'ellipsis',
 		}
