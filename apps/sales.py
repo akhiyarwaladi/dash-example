@@ -49,7 +49,7 @@ sales_tab = dac.TabItem(id='content_sales',
                                         ),className="card-text",
                                 ),
                             ]),
-                    ], ), md=8, style={"height": "200px"} ),
+                    ], ), md=8, style={"height": "700px"} ),
               dbc.Col(
                 dbc.Card(
                   [
@@ -63,7 +63,7 @@ sales_tab = dac.TabItem(id='content_sales',
 
                               ),
                           ]),
-                  ], ), md=4, style={"height": "200px"} ),
+                  ], ), md=4, style={"height": "700px"} ),
 
             ]),
             dbc.Row([
