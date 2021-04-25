@@ -4,6 +4,7 @@ def transform_to_rupiah_format(value):
     str_value = str(value)
     #print(len(str_value))
     unit = ''
+    show_result = ''
 
 
     separate_decimal = str_value.split(".")
@@ -30,7 +31,7 @@ def transform_to_rupiah_format(value):
     elif len(str_value) >= 5:
         unit = 'rb'
         show_result = temp_result.split('.')[0]
-        
+
     return "Rp " + show_result + unit
 
 def transform_format(value):
