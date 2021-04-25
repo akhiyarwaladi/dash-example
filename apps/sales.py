@@ -16,7 +16,7 @@ sales_tab = dac.TabItem(id='content_sales',
         html.Div([
            
             dbc.Row([
-              dbc.CardGroup(
+              dbc.CardDeck(
               [
                dbc.Col(
                 
