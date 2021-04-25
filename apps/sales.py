@@ -7,7 +7,6 @@ from example_plots import (plot_sales_train, plot_sales_test, plot_sales_all, pl
 
 
 fig_sales_train, fig_sales_test = plot_sales_train(), plot_sales_test()
-table_sales = plot_table_sales()
 
 sales_tab = dac.TabItem(id='content_sales', 
                               
@@ -54,7 +53,13 @@ sales_tab = dac.TabItem(id='content_sales',
                           [
                               # html.H5("Card title", className="card-title"),
                               html.P(
-                                    table_sales,className="card-text",
+                                      dcc.Graph(
+                                        # figure=fig_sales_all,
+                                        # config=dict(displayModeBar=False),
+                                        id='sales_table',
+                                        config=dict(displayModeBar=False),
+
+                                        ),className="card-text",
                               ),
                           ]),
                   ], className="w-30")),
