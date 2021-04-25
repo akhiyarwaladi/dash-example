@@ -44,6 +44,34 @@ sales_plot_table = sales_plot.copy()
 sales_plot_table = sales_plot_table.set_index(["index", "type"])['tbtop_amount_final'].unstack(level=1).fillna(0)\
         .reset_index().sort_values(by='index', ascending=False).reset_index(drop=True)
 
+############################
+sales_plot_table_daily = sales_plot_table.copy()
+sales_plot_table_daily['index'] = pd.to_datetime(sales_plot_table_daily['index'])
+
+
+## formatting view
+sales_plot_table_daily['index'] = sales_plot_table_daily['index'].dt.strftime('%d%b%y')
+
+sales_plot_table_daily['prediction'] = sales_plot_table_daily['prediction'].astype('float').apply(transform_to_rupiah_format)
+sales_plot_table_daily['actual'] = sales_plot_table_daily['actual'].astype('float').apply(transform_to_rupiah_format)
+sales_plot_table_daily = sales_plot_table_daily.rename(columns={'index':'date', 'type':''})
+############################
+
+
+############################
+sales_plot_table['index'] = pd.to_datetime(sales_plot_table['index'])
+sales_plot_table = sales_plot_table.groupby([pd.Grouper(key='index',freq='M')])\
+                    .agg({'actual':'sum', 'prediction':'sum'})\
+                    .reset_index()
+
+## formatting view
+sales_plot_table['index'] = sales_plot_table['index'].dt.strftime('%d%b%y')
+
+sales_plot_table['prediction'] = sales_plot_table['prediction'].astype('float').apply(transform_to_rupiah_format)
+sales_plot_table['actual'] = sales_plot_table['actual'].astype('float').apply(transform_to_rupiah_format)
+sales_plot_table = sales_plot_table.rename(columns={'index':'date', 'type':''})
+############################
+
 
 
 # =============================================================================
@@ -342,7 +370,11 @@ def make_plot_callback(date_start, date_end):
 )
 def update_plot_sales(value):
     fig = plot_sales_all(sales_plot, value)
-    table = plot_table_sales(sales_plot_table, value)
+    if value == 'Monthly':
+
+        table = plot_table_sales(sales_plot_table, value)
+    else:
+        table = plot_table_sales(sales_plot_table_daily, value)
     return fig, table
 
 # =============================================================================
