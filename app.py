@@ -34,7 +34,7 @@ new_regular = pd.read_csv(os.path.join(parent_path, 'out_plot/new_regular.csv'),
 sales_plot = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/sales_plot.csv', \
                     sep='\t')
 lower_bond = datetime.today() - timedelta(days=90)
-lower_bond = lower_bond.strftime('%Y-%m-d')
+lower_bond = lower_bond.strftime('%Y-%m-%d')
 
 sales_plot = sales_plot[sales_plot['index'] > lower_bond]
 sales_plot['index'] = pd.to_datetime(sales_plot['index'])
