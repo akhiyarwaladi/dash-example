@@ -60,7 +60,7 @@ sales_tab = dac.TabItem(id='content_sales',
                             ]),
                     ], ), md=4),
 
-               ]),
+               ], className="md-12"),
               dbc.Col(
                 dbc.Card(
                   [
