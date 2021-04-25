@@ -374,14 +374,22 @@ def plot_table_sales(sales_plot_table, value):
 							.agg({'actual':'sum', 'prediction':'sum'})\
 							.reset_index()
 		
-	## formatting view
-	sales_plot_table['index'] = sales_plot_table['index'].dt.strftime('%d%b%y')
-	from helper import transform_to_rupiah_format
+		## formatting view
+		sales_plot_table['index'] = sales_plot_table['index'].dt.strftime('%d%b%y')
 
-	sales_plot_table['prediction'] = sales_plot_table['prediction'].astype('float').apply(transform_to_rupiah_format)
-	sales_plot_table['actual'] = sales_plot_table['actual'].astype('float').apply(transform_to_rupiah_format)
-	sales_plot_table = sales_plot_table.rename(columns={'index':'date', 'type':''})
-	##
+		sales_plot_table['prediction'] = sales_plot_table['prediction'].astype('float').apply(transform_to_rupiah_format)
+		sales_plot_table['actual'] = sales_plot_table['actual'].astype('float').apply(transform_to_rupiah_format)
+		sales_plot_table = sales_plot_table.rename(columns={'index':'date', 'type':''})
+		##
+	else:
+		## formatting view
+		sales_plot_table['index'] = sales_plot_table['index'].dt.strftime('%d%b%y')
+
+		sales_plot_table['prediction'] = sales_plot_table['prediction'].astype('float').apply(transform_to_rupiah_format)
+		sales_plot_table['actual'] = sales_plot_table['actual'].astype('float').apply(transform_to_rupiah_format)
+		sales_plot_table = sales_plot_table.rename(columns={'index':'date', 'type':''})
+		##
+
 
 	df_init = pd.DataFrame()
 	df_init['name'] = list(sales_plot_table)
