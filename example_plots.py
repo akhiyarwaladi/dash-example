@@ -366,7 +366,7 @@ def plot_sales_all(sales_plot, value):
 	return fig
 
 
-def plot_table_sales(sales_plot, value):
+def plot_table_sales(sales_plot_table, value):
 
 	if value == 'Monthly':
 		sales_plot_table = sales_plot_table.groupby([pd.Grouper(key='index',freq='M'), 'type'])\
@@ -383,15 +383,15 @@ def plot_table_sales(sales_plot, value):
 	##
 
 	df_init = pd.DataFrame()
-	df_init['name'] = list(sales_plot)
-	df_init['id'] = list(sales_plot)
+	df_init['name'] = list(sales_plot_table)
+	df_init['id'] = list(sales_plot_table)
 	df_init['type'] = 'text'
 	columns = df_init.to_dict(orient='records')
 	return dash_table.DataTable(
 
 
 		columns=columns,
-		data=sales_plot.to_dict('records'),
+		data=sales_plot_table.to_dict('records'),
 		filter_action='native',
 		page_size=20,
 		fixed_rows={'headers': True},
