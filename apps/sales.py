@@ -20,7 +20,11 @@ sales_tab = dac.TabItem(id='content_sales',
                 
                   dbc.Card(
                     [
-                        dbc.CardHeader(["Overall sales, actual and prediction",
+                        dbc.CardHeader(
+                          [
+                            dbc.Row([
+                              dbc.Col(html.Div("Overall sales, actual and prediction"), md=8),
+                              dbc.Col(
                                 dcc.Dropdown(
                                     id='demo-dropdown',
                                     options=[
@@ -28,9 +32,10 @@ sales_tab = dac.TabItem(id='content_sales',
                                         {'label': 'Daily', 'value': 'Daily'}
                                     ],
                                     value='Daily'
-                                ),]
-
-                          ),
+                                ), md=4),
+                            ])
+                          ]
+                        ),
                         dbc.CardBody(
                             [
                                 # html.H5("Card title", className="card-title"),
