@@ -16,8 +16,6 @@ sales_tab = dac.TabItem(id='content_sales',
         html.Div([
            
             dbc.Row([
-              dbc.CardGroup(
-              [
                dbc.Col(
                 
                   dbc.Card(
@@ -51,7 +49,7 @@ sales_tab = dac.TabItem(id='content_sales',
                                         ),className="card-text",
                                 ),
                             ]),
-                    ], ),),
+                    ], style={'height':'100vh'}), md=8),
               dbc.Col(
                 dbc.Card(
                   [
@@ -65,8 +63,8 @@ sales_tab = dac.TabItem(id='content_sales',
 
                               ),
                           ]),
-                  ], ),),
-              ])
+                  ], style={'height':'100vh'}), md=4),
+
             ]),
             dbc.Row([
               dbc.Col(
