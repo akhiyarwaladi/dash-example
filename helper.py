@@ -4,9 +4,8 @@ def transform_to_rupiah_format(value):
     str_value = str(value)
     #print(len(str_value))
     unit = ''
-    if len(str_value) >= 12:
-        unit = 'M'
-    elif len(str_value) >= 8:
+
+    if len(str_value) >= 8:
         unit = 'jt'
     elif len(str_value) >= 5:
         unit = 'rb'
