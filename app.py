@@ -30,7 +30,7 @@ import os
 parent_path = '/home/server/gli-data-science/akhiyar'
 new_regular = pd.read_csv(os.path.join(parent_path, 'out_plot/new_regular.csv'), sep='\t')
 
-
+## ploting figure
 sales_plot = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/sales_plot.csv', \
                     sep='\t')
 lower_bond = datetime.today() - timedelta(days=90)
@@ -38,6 +38,19 @@ lower_bond = lower_bond.strftime('%Y-%m-d')
 
 sales_plot = sales_plot[sales_plot['index'] > lower_bond]
 sales_plot['index'] = pd.to_datetime(sales_plot['index'])
+
+## ploting table
+sales_plot_table = sales_plot.copy()
+sales_plot_table = sales_plot_table.set_index(["index", "type"])['tbtop_amount_final'].unstack(level=1).fillna(0)\
+        .reset_index().sort_values(by='index', ascending=False).reset_index(drop=True)
+
+sales_plot_table['index'] = sales_plot_table['index'].dt.strftime('%d%b%y')
+
+from helper import transform_to_rupiah_format
+
+sales_plot_table['prediction'] = sales_plot_table['prediction'].astype('float').apply(transform_to_rupiah_format)
+sales_plot_table['actual'] = sales_plot_table['actual'].astype('float').apply(transform_to_rupiah_format)
+sales_plot_table = sales_plot_table.rename(columns={'index':'date', 'type':''})
 # =============================================================================
 # Dash App and Flask Server
 # =============================================================================
@@ -334,7 +347,7 @@ def make_plot_callback(date_start, date_end):
 )
 def update_plot_sales(value):
     fig = plot_sales_all(sales_plot, value)
-    table = plot_table_sales(sales_plot, value)
+    table = plot_table_sales(sales_plot_table, value)
     return fig, table
 
 # =============================================================================
