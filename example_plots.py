@@ -769,10 +769,10 @@ def plot_voucher_refund_status():
 	df['tbto_create_date'] = pd.to_datetime(df['tbto_create_date'])
 	df = df.groupby([pd.Grouper(key='tbto_create_date',freq='D'), 'WS_DESCRIPTION'])\
 	        .agg({'status':'sum'}).reset_index()
+
+	# formatting for beauty
 	df['tbtpp_name'] = 'SKI'
 	df['tbto_create_date'] = df['tbto_create_date'].dt.strftime('%Y-%m-%d')
-	# display(df)
-	# df['WS_DESCRIPTION'] = pd.Series(split_label(df['WS_DESCRIPTION']))
 	df['tbtpp_name'] = pd.Series(split_label(df['tbtpp_name'])).str.split('&').str[0]
 
 
@@ -834,6 +834,28 @@ def plot_voucher_refund_status():
 	return fig, status_count
 
 
+def plot_table_sales()
+	df_init = pd.DataFrame()
+	df_init['name'] = list(sales_plot)
+	df_init['id'] = list(sales_plot)
+	df_init['type'] = 'text'
+	columns = df_init.to_dict(orient='records')
+	return dash_table.DataTable(
+
+
+		columns=columns,
+		data=sales_plot.to_dict('records'),
+		filter_action='native',
+		page_size=20,
+		fixed_rows={'headers': True},
+		style_table={'height': '300px', 'overflowY': 'scroll', 'overflowX': 'scroll'},
+		style_data={
+		    'width': '150px', 'minWidth': '150px', 'maxWidth': '150px',
+		    'overflow': 'hidden',
+		    'textOverflow': 'ellipsis',
+		}
+	)
+
 def plot_voucher_refund_c1():
 	df_init = pd.DataFrame()
 	df_init['name'] = list(df_c1)
@@ -855,6 +877,7 @@ def plot_voucher_refund_c1():
 		    'textOverflow': 'ellipsis',
 		}
 	), len(df_c1)
+
 def plot_voucher_refund_c2():
 	df_init = pd.DataFrame()
 	df_init['name'] = list(df_c2)

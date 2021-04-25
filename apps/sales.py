@@ -3,11 +3,11 @@ import dash_core_components as dcc
 import dash_admin_components as dac
 import dash_bootstrap_components as dbc
 
-from example_plots import (plot_sales_train, plot_sales_test, plot_sales_all)
+from example_plots import (plot_sales_train, plot_sales_test, plot_sales_all, plot_table_sales)
 
 
 fig_sales_train, fig_sales_test = plot_sales_train(), plot_sales_test()
-# fig_sales_all = plot_sales_all()
+table_sales = plot_table_sales()
 
 sales_tab = dac.TabItem(id='content_sales', 
                               
@@ -16,34 +16,49 @@ sales_tab = dac.TabItem(id='content_sales',
 
         html.Div([
             dbc.Row([
-             dbc.Col(
+              dbc.Row([
+               dbc.Col(
+                
+                  dbc.Card(
+                    [
+                        dbc.CardHeader(["Overall sales, actual and prediction",
+                                dcc.Dropdown(
+                                    id='demo-dropdown',
+                                    options=[
+                                        {'label': 'Monthly', 'value': 'Monthly'},
+                                        {'label': 'Daily', 'value': 'Daily'}
+                                    ],
+                                    value='Daily'
+                                ),]
+
+                          ),
+                        dbc.CardBody(
+                            [
+                                # html.H5("Card title", className="card-title"),
+                                html.P(
+                                      dcc.Graph(
+                                        # figure=fig_sales_all,
+                                        # config=dict(displayModeBar=False),
+                                        id='sales_fig',
+                                        config=dict(displayModeBar=False),
+
+                                        ),className="card-text",
+                                ),
+                            ]),
+                    ],className="w-70")),
+              dbc.Col(
                 dbc.Card(
                   [
-                      dbc.CardHeader(["Overall sales, actual and prediction",
-                              dcc.Dropdown(
-                                  id='demo-dropdown',
-                                  options=[
-                                      {'label': 'Monthly', 'value': 'Monthly'},
-                                      {'label': 'Daily', 'value': 'Daily'}
-                                  ],
-                                  value='Daily'
-                              ),]
-
-                        ),
+                      dbc.CardHeader("Detail jan21-feb21"),
                       dbc.CardBody(
                           [
                               # html.H5("Card title", className="card-title"),
                               html.P(
-                                    dcc.Graph(
-                                      # figure=fig_sales_all,
-                                      # config=dict(displayModeBar=False),
-                                      id='sales_fig',
-                                      config=dict(displayModeBar=False),
-
-                                      ),className="card-text",
+                                    fig_,className="card-text",
                               ),
                           ]),
-                  ],className="w-75")),
+                  ], className="w-30")),
+               ])
               dbc.Col(
                 dbc.Card(
                   [
