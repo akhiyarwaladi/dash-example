@@ -52,14 +52,10 @@ sales_tab = dac.TabItem(id='content_sales',
                       dbc.CardBody(
                           [
                               # html.H5("Card title", className="card-title"),
-                              html.P(
-                                      dcc.Graph(
-                                        # figure=fig_sales_all,
-                                        # config=dict(displayModeBar=False),
-                                        id='sales_table',
-                                        config=dict(displayModeBar=False),
+                              html.Div(
+                                      
+                                  id='sales_table',
 
-                                        ),className="card-text",
                               ),
                           ]),
                   ], className="w-30")),
