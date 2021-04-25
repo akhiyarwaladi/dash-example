@@ -835,7 +835,6 @@ def plot_voucher_refund_status():
 
 
 def plot_table_sales(sales_plot, value):
-	sales_plot = sales_plot.set_index(["index", "type"])['tbtop_amount_final'].unstack(level=1).fillna(0)
 	df_init = pd.DataFrame()
 	df_init['name'] = list(sales_plot)
 	df_init['id'] = list(sales_plot)
