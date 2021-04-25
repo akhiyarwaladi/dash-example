@@ -31,6 +31,10 @@ def transform_to_rupiah_format(value):
     elif len(str_value) >= 5:
         unit = 'rb'
         show_result = temp_result.split('.')[0]
+    else
+        unit = ''
+        show_result = temp_result.split('.')[0]
+
 
     return "Rp " + show_result + unit
 

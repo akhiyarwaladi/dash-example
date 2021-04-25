@@ -14,53 +14,54 @@ sales_tab = dac.TabItem(id='content_sales',
         html.H4('Alfagift Sales'),
 
         html.Div([
+           
             dbc.Row([
-              dbc.Row([
-                 dbc.Col(
-                  
-                    dbc.Card(
-                      [
-                          dbc.CardHeader(["Overall sales, actual and prediction",
-                                  dcc.Dropdown(
-                                      id='demo-dropdown',
-                                      options=[
-                                          {'label': 'Monthly', 'value': 'Monthly'},
-                                          {'label': 'Daily', 'value': 'Daily'}
-                                      ],
-                                      value='Daily'
-                                  ),]
-
-                            ),
-                          dbc.CardBody(
-                              [
-                                  # html.H5("Card title", className="card-title"),
-                                  html.P(
-                                        dcc.Graph(
-                                          # figure=fig_sales_all,
-                                          # config=dict(displayModeBar=False),
-                                          id='sales_fig',
-                                          config=dict(displayModeBar=False),
-
-                                          ),className="card-text",
-                                  ),
-                              ]),
-                      ], ), md=8),
-                dbc.Col(
+               dbc.Col(
+                
                   dbc.Card(
                     [
-                        # dbc.CardHeader("Detail jan21-feb21"),
+                        dbc.CardHeader(["Overall sales, actual and prediction",
+                                dcc.Dropdown(
+                                    id='demo-dropdown',
+                                    options=[
+                                        {'label': 'Monthly', 'value': 'Monthly'},
+                                        {'label': 'Daily', 'value': 'Daily'}
+                                    ],
+                                    value='Daily'
+                                ),]
+
+                          ),
                         dbc.CardBody(
                             [
                                 # html.H5("Card title", className="card-title"),
-                                html.Div(
-                                        
-                                    id='sales_table',
+                                html.P(
+                                      dcc.Graph(
+                                        # figure=fig_sales_all,
+                                        # config=dict(displayModeBar=False),
+                                        id='sales_fig',
+                                        config=dict(displayModeBar=False),
 
+                                        ),className="card-text",
                                 ),
                             ]),
-                    ], ), md=4),
+                    ], ), md=8),
+              dbc.Col(
+                dbc.Card(
+                  [
+                      # dbc.CardHeader("Detail jan21-feb21"),
+                      dbc.CardBody(
+                          [
+                              # html.H5("Card title", className="card-title"),
+                              html.Div(
+                                      
+                                  id='sales_table',
 
-               ], className="md-12"),
+                              ),
+                          ]),
+                  ], ), md=4),
+
+            ]),
+            dbc.Row([
               dbc.Col(
                 dbc.Card(
                   [
@@ -77,6 +78,8 @@ sales_tab = dac.TabItem(id='content_sales',
                               ),
                           ]),
                   ]), md=12),
+            ]),
+            dbc.Row([
               dbc.Col(
                 dbc.Card(
                   [
@@ -93,7 +96,7 @@ sales_tab = dac.TabItem(id='content_sales',
                               ),
                           ]),
                   ]), md=12),
-            ],)
+            ]),
         ])
     ]
 )
