@@ -54,11 +54,11 @@ sales_tab = dac.TabItem(id='content_sales',
                           [
                               # html.H5("Card title", className="card-title"),
                               html.P(
-                                    fig_,className="card-text",
+                                    table_sales,className="card-text",
                               ),
                           ]),
                   ], className="w-30")),
-               ])
+               ]),
               dbc.Col(
                 dbc.Card(
                   [
