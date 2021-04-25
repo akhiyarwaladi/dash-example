@@ -27,6 +27,11 @@ from datetime import date, timedelta, datetime
 
 import pandas as pd
 import os
+from helper import transform_to_rupiah_format,transform_format
+
+
+
+
 parent_path = '/home/server/gli-data-science/akhiyar'
 new_regular = pd.read_csv(os.path.join(parent_path, 'out_plot/new_regular.csv'), sep='\t')
 
