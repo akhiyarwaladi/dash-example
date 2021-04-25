@@ -44,13 +44,8 @@ sales_plot_table = sales_plot.copy()
 sales_plot_table = sales_plot_table.set_index(["index", "type"])['tbtop_amount_final'].unstack(level=1).fillna(0)\
         .reset_index().sort_values(by='index', ascending=False).reset_index(drop=True)
 
-sales_plot_table['index'] = sales_plot_table['index'].dt.strftime('%d%b%y')
 
-from helper import transform_to_rupiah_format
 
-sales_plot_table['prediction'] = sales_plot_table['prediction'].astype('float').apply(transform_to_rupiah_format)
-sales_plot_table['actual'] = sales_plot_table['actual'].astype('float').apply(transform_to_rupiah_format)
-sales_plot_table = sales_plot_table.rename(columns={'index':'date', 'type':''})
 # =============================================================================
 # Dash App and Flask Server
 # =============================================================================
