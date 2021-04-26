@@ -92,6 +92,55 @@ general_inapp = pd.read_csv(os.path.join(parent_path, \
 	'data_req/event/MOBILE_INAPP_alfagift_2021-04-21_04_37_38.555413.csv')).fillna(0)
 ###
 
+
+
+view_product1 = pd.read_csv(os.path.join(parent_path,'out_plot/view_1.csv'),sep='\t')
+view_product2 = pd.read_csv(os.path.join(parent_path,'out_plot/view_2.csv'),sep='\t')
+def plot_view_product1():
+	df_init = pd.DataFrame()
+	df_init['name'] = list(view_product1)
+	df_init['id'] = list(view_product1)
+	df_init['type'] = 'text'
+	columns = df_init.to_dict(orient='records')
+	return dash_table.DataTable(
+
+
+		columns=columns,
+		data=view_product1.to_dict('records'),
+		filter_action='native',
+		page_size=20,
+		fixed_rows={'headers': True},
+		style_table={'overflowY': 'scroll', 'overflowX': 'scroll'},
+		style_data={
+		    'width': '120px', 'minWidth': '120px', 'maxWidth': '150px',
+		    'overflow': 'hidden',
+		    'textOverflow': 'ellipsis',
+		}
+	)
+
+def plot_view_product2():
+	df_init = pd.DataFrame()
+	df_init['name'] = list(view_product2)
+	df_init['id'] = list(view_product2)
+	df_init['type'] = 'text'
+	columns = df_init.to_dict(orient='records')
+	return dash_table.DataTable(
+
+
+		columns=columns,
+		data=view_product2.to_dict('records'),
+		filter_action='native',
+		page_size=20,
+		fixed_rows={'headers': True},
+		style_table={'overflowY': 'scroll', 'overflowX': 'scroll'},
+		style_data={
+		    'width': '120px', 'minWidth': '120px', 'maxWidth': '150px',
+		    'overflow': 'hidden',
+		    'textOverflow': 'ellipsis',
+		}
+	)
+
+
 def plot_general_push():
 
 	return general_push
