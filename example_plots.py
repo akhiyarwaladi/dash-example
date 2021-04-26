@@ -96,8 +96,6 @@ general_inapp = pd.read_csv(os.path.join(parent_path, \
 
 view_product1 = pd.read_csv(os.path.join(parent_path,'out_plot/view_1.csv'),sep='\t')
 view_product2 = pd.read_csv(os.path.join(parent_path,'out_plot/view_2.csv'),sep='\t')
-
-
 def plot_view_product1():
 	df_init = pd.DataFrame()
 	df_init['name'] = list(view_product1)
@@ -117,8 +115,7 @@ def plot_view_product1():
 		    'width': '120px', 'minWidth': '120px', 'maxWidth': '150px',
 		    'overflow': 'hidden',
 		    'textOverflow': 'ellipsis',
-		},
-		fill_width=False
+		}
 	)
 
 def plot_view_product2():
