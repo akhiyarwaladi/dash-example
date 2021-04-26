@@ -114,7 +114,7 @@ def plot_view_product1():
 		fixed_rows={'headers': True},
 		style_table={'overflowY': 'scroll', 'overflowX': 'scroll'},
 		style_data={
-		    # 'width': '120px', 'minWidth': '120px', 'maxWidth': '150px',
+		    'width': '120px', 'minWidth': '120px', 'maxWidth': '150px',
 		    'overflow': 'hidden',
 		    'textOverflow': 'ellipsis',
 		},
@@ -137,11 +137,10 @@ def plot_view_product2():
 		fixed_rows={'headers': True},
 		style_table={'overflowY': 'scroll', 'overflowX': 'scroll'},
 		style_data={
-		    # 'width': '120px', 'minWidth': '120px', 'maxWidth': '150px',
+		    'width': '120px', 'minWidth': '120px', 'maxWidth': '150px',
 		    'overflow': 'hidden',
 		    'textOverflow': 'ellipsis',
-		},
-		fill_width=False
+		}
 	)
 
 
