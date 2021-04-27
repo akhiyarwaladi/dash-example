@@ -3,7 +3,8 @@ import dash_core_components as dcc
 import dash_admin_components as dac
 import dash_bootstrap_components as dbc
 
-from example_plots import (plot_general_inapp, conversion_general_inapp, click_general_inapp)
+from example_plots import (plot_general_inapp, conversion_general_inapp, 
+                        click_general_inapp, g_general_inapp)
 
 general_inapp = plot_general_inapp()
 
@@ -42,6 +43,23 @@ li_row = []
 
 row_top = dbc.Row(
         [
+
+            dbc.Col(
+                dbc.Card(
+                [
+                  dbc.CardHeader(html.H5("In general stat")),
+                  dbc.CardBody(
+                      [
+                          # html.H5("Card title", className="card-title"),
+                          html.P(
+                                dcc.Graph(
+                                  figure=g_general_inapp(),
+                                  config=dict(displayModeBar=False),
+                   
+                                  ),className="card-text",
+                          ),
+                      ]),
+                ])),
             dbc.Col(
                 dbc.Card(
                 [

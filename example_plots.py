@@ -217,6 +217,53 @@ def plot_general_inapp():
 
 	return general_inapp
 
+def g_general_inapp():
+	general_inapp['Created At'] = pd.to_datetime(general_inapp['Created At'])
+	g_inapp = general_inapp.groupby([pd.Grouper(key='Created At',freq='M')])\
+	                    .agg({'impressions':'sum', 'clicks':'sum', 'conversions (unique)':'sum'})\
+	                    .reset_index()
+	g_inapp = pd.melt(g_inapp, ['Created At'])
+
+	fig = px.line(g_inapp, x='Created At', y='value', template='presentation', \
+	              text='value', color='variable')
+	fig.update_traces(texttemplate='%{text}', 
+	    textposition='top center', 
+	    textfont_size=11,
+	    hovertemplate='%{x}<br>%{text}')
+	for ix, trace in enumerate(fig.data):
+	    if ix == 1:
+	        trace.update(textposition='bottom center')
+	fig.update_xaxes(
+	    dtick="M1",
+	    tickformat="%b%y",
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title=''
+	)
+	fig.update_yaxes(
+
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='#order'
+	)
+
+	legend_dict = \
+	    legend=dict(
+	            x=0,
+	            y=1,
+	            traceorder="normal",
+	            title='',
+	            title_font_family="Times New Roman",
+	            font=dict(
+	                family="Courier",
+	                size=12,
+	                color="black"
+	            ),
+	            bgcolor="LightGrey",
+	            bordercolor="Black",
+	            borderwidth=1
+	        )
+	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
+	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
+	return fig
+
+
 def click_general_inapp():
 	top_click = general_inapp.sort_values(by=['clicks'], ascending=False).head(7)\
 	            [['Campaign Name', 'clicks', 'Conversion Goal']].reset_index(drop=True)
