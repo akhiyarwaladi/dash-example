@@ -171,7 +171,7 @@ def click_general_push():
 	fig.update_layout(font={'size': 16}, width=1000,template='presentation',
 	                plot_bgcolor = '#FFFFFF', legend = legend_dict,
 	                xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
-	                       'showgrid': True, 'automargin': True, 'title':'Campaign'},
+	                       'showgrid': True, 'automargin': True, 'title':''},
 	                yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
 	                       'showgrid': True,  'automargin': True, 'title':'Clicks'},
 	                bargap=0.3, title="", title_x=0.5)
@@ -205,7 +205,7 @@ def conversion_general_push():
 	fig.update_layout(font={'size': 16}, width=1000,template='presentation',
 	            plot_bgcolor = '#FFFFFF', legend = legend_dict,
 	            xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
-	                   'showgrid': True, 'automargin': True, 'title':'Campaign'},
+	                   'showgrid': True, 'automargin': True, 'title':''},
 	            yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
 	                   'showgrid': True,  'automargin': True, 'title':'Conversions'},
 	            bargap=0.3, title="", title_x=0.5)
@@ -292,7 +292,7 @@ def click_general_inapp():
 	fig.update_layout(font={'size': 16}, width=1000,template='presentation',
 	                plot_bgcolor = '#FFFFFF', legend=legend_dict,
 	                xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
-	                       'showgrid': True, 'automargin': True, 'title':'Campaign'},
+	                       'showgrid': True, 'automargin': True, 'title':''},
 	                yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
 	                       'showgrid': True,  'automargin': True, 'title':'Clicks'},
 	                bargap=0.3, title="", title_x=0.5)
@@ -328,7 +328,7 @@ def conversion_general_inapp():
 	fig.update_layout(font={'size': 16}, width=1000,template='presentation',
 	                plot_bgcolor = '#FFFFFF', legend=legend_dict,
 	                xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
-	                       'showgrid': True, 'automargin': True, 'title':'Campaign'},
+	                       'showgrid': True, 'automargin': True, 'title':''},
 	                yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
 	                       'showgrid': True,  'automargin': True, 'title':'Clicks'},
 	                bargap=0.3, title="", title_x=0.5)
