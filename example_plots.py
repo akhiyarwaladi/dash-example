@@ -222,6 +222,7 @@ def g_general_inapp():
 	g_inapp = general_inapp.groupby([pd.Grouper(key='Created At',freq='M')])\
 	                    .agg({'impressions':'sum', 'clicks':'sum', 'conversions (unique)':'sum'})\
 	                    .reset_index()
+	g_inapp['Created At'] = g_inapp['Created At'].dt.strftime('%Y-%m')
 	g_inapp = pd.melt(g_inapp, ['Created At'])
 
 	fig = px.line(g_inapp, x='Created At', y='value', template='presentation', \
