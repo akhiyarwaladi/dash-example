@@ -40,7 +40,7 @@ view_product_tab = dac.TabItem(id='content_view_product',
 
 
             ],className="md-12")
-        ], className='column')
+        ], className='column'),
 
         html.H5('Search Product Event'),
 
