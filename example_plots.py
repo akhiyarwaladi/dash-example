@@ -108,6 +108,21 @@ def plot_view_product1():
 
 		columns=columns,
 		data=view_product1.to_dict('records'),
+		tooltip_data=[
+		    {
+		        column: {'value': str(value), 'type': 'markdown'}
+		        for column, value in row.items()
+		    } for row in view_product1.to_dict('records')
+		],
+
+		# Overflow into ellipsis
+		style_cell={
+		    'overflow': 'hidden',
+		    'textOverflow': 'ellipsis',
+		    'maxWidth': 0,
+		},
+		tooltip_delay=0,
+		tooltip_duration=None,
 		filter_action='native',
 		page_size=20,
 		fixed_rows={'headers': True},
@@ -168,6 +183,21 @@ def plot_search_product():
 
 		columns=columns,
 		data=search_product.to_dict('records'),
+		tooltip_data=[
+		    {
+		        column: {'value': str(value), 'type': 'markdown'}
+		        for column, value in row.items()
+		    } for row in search_product.to_dict('records')
+		],
+
+		# Overflow into ellipsis
+		style_cell={
+		    'overflow': 'hidden',
+		    'textOverflow': 'ellipsis',
+		    'maxWidth': 0,
+		},
+		tooltip_delay=0,
+		tooltip_duration=None,
 		filter_action='native',
 		page_size=20,
 		fixed_rows={'headers': True},
