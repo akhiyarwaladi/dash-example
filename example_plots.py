@@ -125,11 +125,27 @@ def plot_view_product2():
 	df_init['id'] = list(view_product2)
 	df_init['type'] = 'text'
 	columns = df_init.to_dict(orient='records')
+
 	return dash_table.DataTable(
 
 
 		columns=columns,
 		data=view_product2.to_dict('records'),
+		tooltip_data=[
+		    {
+		        column: {'value': str(value), 'type': 'markdown'}
+		        for column, value in row.items()
+		    } for row in view_product2.to_dict('records')
+		],
+
+		# Overflow into ellipsis
+		style_cell={
+		    'overflow': 'hidden',
+		    'textOverflow': 'ellipsis',
+		    'maxWidth': 0,
+		},
+		tooltip_delay=0,
+		tooltip_duration=None,
 		filter_action='native',
 		page_size=20,
 		fixed_rows={'headers': True},

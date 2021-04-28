@@ -136,7 +136,7 @@ sub_event = [
                             label='Mobile in-app', 
                             icon='arrow-circle-right'),
             dac.SidebarMenuSubItem(id='tab_view_product', 
-                            label='View product', 
+                            label='Event on product', 
                             icon='arrow-circle-right')
             ]
 
