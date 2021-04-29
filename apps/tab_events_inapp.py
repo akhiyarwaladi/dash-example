@@ -47,7 +47,7 @@ row_top = dbc.Row(
             dbc.Col(
                 dbc.Card(
                 [
-                  dbc.CardHeader(html.H5("In general stat")),
+                  dbc.CardHeader(html.H5("In general stat mobile inapp")),
                   dbc.CardBody(
                       [
                           # html.H5("Card title", className="card-title"),

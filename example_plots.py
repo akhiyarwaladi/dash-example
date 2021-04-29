@@ -90,6 +90,8 @@ general_push = pd.read_csv(os.path.join(parent_path, \
 
 g_push = pd.read_csv(os.path.join(parent_path, \
 	'out_plot/g_push.csv'), sep='\t')
+g_email = pd.read_csv(os.path.join(parent_path, \
+	'out_plot/g_push.csv'), sep='\t')
 
 general_inapp = pd.read_csv(os.path.join(parent_path, \
 	'data_req/event/MOBILE_INAPP_alfagift_2021-04-21_04_37_38.555413.csv')).fillna(0)
@@ -220,13 +222,54 @@ def plot_general_push():
 def g_general_push():
 
 	fig = px.line(g_push, x='Campaign Sent Time', y='value', template='presentation', \
-	              text='value', color='variable')
+	              text='value_format', color='variable')
 	fig.update_traces(texttemplate='%{text}', 
 	    textposition='top center', 
 	    textfont_size=11,
 	    hovertemplate='%{x}<br>%{text}')
 	for ix, trace in enumerate(fig.data):
-	    if ix == 1:
+	    if ix == 3:
+	        trace.update(textposition='bottom center')
+	fig.update_xaxes(
+	    dtick="M1",
+	    tickformat="%b%y",
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title=''
+	)
+	fig.update_yaxes(
+
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='#order'
+	)
+
+	legend_dict = \
+	    legend=dict(
+	            x=0,
+	            y=1,
+	            traceorder="normal",
+	            title='',
+	            title_font_family="Times New Roman",
+	            font=dict(
+	                family="Courier",
+	                size=12,
+	                color="black"
+	            ),
+	            bgcolor="LightGrey",
+	            bordercolor="Black",
+	            borderwidth=1
+	        )
+	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
+	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
+
+	return fig
+
+def g_general_email():
+	fig = px.line(g_email, x='Date', y='value', template='presentation', \
+	              text='value_format', color='variable')
+	fig.update_traces(texttemplate='%{text}', 
+	    textposition='top center', 
+	    textfont_size=11,
+	    hovertemplate='%{x}<br>%{text}')
+	for ix, trace in enumerate(fig.data):
+	    if ix == 3:
 	        trace.update(textposition='bottom center')
 	fig.update_xaxes(
 	    dtick="M1",
