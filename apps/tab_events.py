@@ -3,7 +3,7 @@ import dash_core_components as dcc
 import dash_admin_components as dac
 import dash_bootstrap_components as dbc
 
-from example_plots import (plot_general_push, conversion_general_push, click_general_push)
+from example_plots import (plot_general_push, conversion_general_push, click_general_push, g_general_push)
 
 general_push = plot_general_push()
 
@@ -53,13 +53,29 @@ row_top = dbc.Row(
             dbc.Col(
                 dbc.Card(
                 [
-                  dbc.CardHeader(html.H5("Most click campaign")),
+                  dbc.CardHeader(html.H5("In general stat push notif")),
                   dbc.CardBody(
                       [
                           # html.H5("Card title", className="card-title"),
                           html.P(
                                 dcc.Graph(
                                   figure=click_general_push(),
+                                  config=dict(displayModeBar=False),
+                   
+                                  ),className="card-text",
+                          ),
+                      ]),
+                ])),
+            dbc.Col(
+                dbc.Card(
+                [
+                  dbc.CardHeader(html.H5("Most click campaign")),
+                  dbc.CardBody(
+                      [
+                          # html.H5("Card title", className="card-title"),
+                          html.P(
+                                dcc.Graph(
+                                  figure=g_general_push(),
                                   config=dict(displayModeBar=False),
                    
                                   ),className="card-text",
