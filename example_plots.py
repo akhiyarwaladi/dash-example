@@ -9,7 +9,7 @@ import dash_table
 import dash_html_components as html
 from datetime import date, timedelta, datetime
 
-from helper import transform_to_rupiah_format,transform_format
+from helper import transform_to_rupiah_format,transform_to_format,transform_format
 
 
 def split_label(list_label):
@@ -237,7 +237,7 @@ def g_general_push():
 	)
 	fig.update_yaxes(
 
-	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='#order'
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='#'
 	)
 
 	legend_dict = \
@@ -278,7 +278,7 @@ def g_general_email():
 	)
 	fig.update_yaxes(
 
-	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='#order'
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='#'
 	)
 
 	legend_dict = \
@@ -383,9 +383,11 @@ def g_general_inapp():
 	                    .reset_index()
 	g_inapp['Created At'] = g_inapp['Created At'].dt.strftime('%Y-%m')
 	g_inapp = pd.melt(g_inapp, ['Created At'])
+	g_inapp['value_format'] = g_inapp['value'].astype('float')\
+								.apply(transform_to_format)
 
 	fig = px.line(g_inapp, x='Created At', y='value', template='presentation', \
-	              text='value', color='variable')
+	              text='value_format', color='variable')
 	fig.update_traces(texttemplate='%{text}', 
 	    textposition='top center', 
 	    textfont_size=11,
@@ -400,7 +402,7 @@ def g_general_inapp():
 	)
 	fig.update_yaxes(
 
-	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='#order'
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='#'
 	)
 
 	legend_dict = \
