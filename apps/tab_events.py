@@ -59,7 +59,7 @@ row_top = dbc.Row(
                           # html.H5("Card title", className="card-title"),
                           html.P(
                                 dcc.Graph(
-                                  figure=click_general_push(),
+                                  figure=g_general_push(),
                                   config=dict(displayModeBar=False),
                    
                                   ),className="card-text",
@@ -75,7 +75,7 @@ row_top = dbc.Row(
                           # html.H5("Card title", className="card-title"),
                           html.P(
                                 dcc.Graph(
-                                  figure=g_general_push(),
+                                  figure=click_general_push(),
                                   config=dict(displayModeBar=False),
                    
                                   ),className="card-text",
