@@ -10,6 +10,7 @@ from dash.exceptions import PreventUpdate
 # from apps.cards import cards_tab
 from apps.social_cards import social_cards_tab
 from apps.tab_cards import tab_cards_tab
+from apps.tab_cards import text_1, text_2, text_3
 from apps.basic_boxes import basic_boxes_tab
 from apps.general_monitor import general_monitor_tab
 from apps.value_boxes import value_boxes_tab
@@ -23,16 +24,15 @@ from apps.event_view_product import view_product_tab
 
 from example_plots import (plot_plus_minus, plot_oos_time_spend, plot_new_regular, 
     plot_sales_all, plot_table_sales)
-from apps.tab_cards import text_1, text_2, text_3
 
-from datetime import date, timedelta, datetime
 
 import pandas as pd
 import os
+from datetime import date, timedelta, datetime
 from helper import transform_to_rupiah_format,transform_format
 
 
-
+## importing data in here to enable callback
 
 parent_path = '/home/server/gli-data-science/akhiyar'
 new_regular = pd.read_csv(os.path.join(parent_path, 'out_plot/new_regular.csv'), sep='\t')
@@ -140,6 +140,20 @@ sub_event = [
                             icon='arrow-circle-right')
             ]
 
+sub_monitor = [
+            dac.SidebarMenuSubItem(id='tab_general_monitor', label='General monitor', icon='desktop'),
+            dac.SidebarMenuSubItem(id='tab_basic_boxes', label='Member growth', icon='desktop'),
+            dac.SidebarMenuSubItem(id='tab_oos_boxes', label='Out of stock', icon='desktop')
+]
+
+sub_research = [
+            dac.SidebarMenuSubItem(id='tab_value_boxes', label='Voucher usage', icon='desktop'),
+            dac.SidebarMenuSubItem(id='tab_value_behave', label='Online-offline trx', icon='desktop'),
+            dac.SidebarMenuSubItem(id='tab_sales', label='Sales prediction', icon='desktop')
+]
+
+
+
 sidebar = dac.Sidebar(
 	dac.SidebarMenu(
 		[
@@ -148,12 +162,8 @@ sidebar = dac.Sidebar(
             #dac.SidebarMenuItem(id='tab_social_cards', label='Social cards', icon='id-card'),
             #dac.SidebarMenuItem(id='tab_tab_cards', label='Tab cards', icon='image'),
 			dac.SidebarHeader(children="Alfagift Insight"),
-            dac.SidebarMenuItem(id='tab_general_monitor', label='General monitor', icon='desktop'),
-			dac.SidebarMenuItem(id='tab_basic_boxes', label='Member growth', icon='desktop'),
-			dac.SidebarMenuItem(id='tab_oos_boxes', label='Out of stock', icon='desktop'),
-			dac.SidebarMenuItem(id='tab_value_boxes', label='Voucher usage', icon='desktop'),
-            dac.SidebarMenuItem(id='tab_value_behave', label='Online-offline trx', icon='desktop'),
-            dac.SidebarMenuItem(id='tab_sales', label='Sales prediction', icon='desktop'),
+            dac.SidebarMenuItem(label='Monitoring general', icon='cubes', children=sub_monitor),
+            dac.SidebarMenuItem(label='Research prototype', icon='cubes', children=sub_research),
             dac.SidebarHeader(children="Campaign user behavior"),
             dac.SidebarMenuItem(label='report', icon='cubes', children=sub_event),
             dac.SidebarHeader(children="Member DNA"),
