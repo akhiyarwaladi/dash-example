@@ -164,10 +164,10 @@ sidebar = dac.Sidebar(
 			dac.SidebarHeader(children="Alfagift Insight"),
             dac.SidebarMenuItem(label='Monitoring general', icon='cubes', children=sub_monitor),
             dac.SidebarMenuItem(label='Research prototype', icon='cubes', children=sub_research),
-            dac.SidebarHeader(children="Campaign user behavior"),
-            dac.SidebarMenuItem(label='report', icon='cubes', children=sub_event),
+            dac.SidebarHeader(children="User Behavior"),
+            dac.SidebarMenuItem(label='Moengage exploration', icon='cubes', children=sub_event),
             dac.SidebarHeader(children="Member DNA"),
-            dac.SidebarMenuItem(label='soon to be updated ...', icon='cubes', children=subitems1),
+            dac.SidebarMenuItem(label='Soon ...', icon='cubes', children=subitems1),
 		]
 	),
     title='Data Science Dashboard',
