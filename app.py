@@ -303,7 +303,8 @@ def display_tab(n_general_monitor, n_basic_boxes, n_oos_boxes, n_value_boxes, n_
 
     # Get id of input which triggered callback  
     if not ctx.triggered:
-        raise PreventUpdate
+        # raise PreventUpdate
+        input_id = 'tab_general_monitor'
     else:
         input_id = ctx.triggered[0]['prop_id'].split('.')[0]   
 
@@ -348,7 +349,8 @@ def activate_tab(n_general_monitor, n_basic_boxes, n_oos_boxes, n_value_boxes, n
 
     # Get id of input which triggered callback
     if not ctx.triggered:
-        raise PreventUpdate
+        # raise PreventUpdate
+        input_id = 'tab_general_monitor'
     else:
         input_id = ctx.triggered[0]['prop_id'].split('.')[0] 
 
