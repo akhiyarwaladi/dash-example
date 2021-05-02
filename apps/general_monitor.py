@@ -30,7 +30,9 @@ general_monitor_tab = dac.TabItem(id='content_general_monitor',
                                       ),className="card-text",
                               ),
                           ]),
-                  ])),
+                  ]) ,md=12),
+              ]),
+            dbc.Row([
               dbc.Col(
                 dbc.Card(
                   [
@@ -46,7 +48,9 @@ general_monitor_tab = dac.TabItem(id='content_general_monitor',
                                       ),className="card-text",
                               ),
                           ]),
-                  ])),
+                  ]) ,md=12),
+              ]),
+            dbc.Row([
               dbc.Col(
                 dbc.Card(
                   [
@@ -62,10 +66,8 @@ general_monitor_tab = dac.TabItem(id='content_general_monitor',
                                       ),className="card-text",
                               ),
                           ]),
-                  ])),
+                  ]) ,md=12),
+              ]),
 
-
-            ],className="mb-12")
-        ], className='column'
-    )
+       ])
 )
