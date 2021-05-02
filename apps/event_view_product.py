@@ -54,7 +54,7 @@ view_product_tab = dac.TabItem(id='content_view_product',
                         ]),
               ]), md=12),
             ])
-          ])
+        ]),
 
         html.H5('Search Product Event'),
 
