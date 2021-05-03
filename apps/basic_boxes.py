@@ -19,21 +19,24 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                         dbc.Card([
                             dbc.CardHeader(
                                 dbc.Row([
-                                    dbc.Col(html.H5("Existing vs New Member Sales"), width=6, lg=3),
-                                    dbc.Col(html.P(""), width=6, lg=3),
-                                    dbc.Col(html.P("select date (dd-mm-yy)"), width=6, lg=3),
+                                    dbc.Col(html.H5("Existing vs New Member Sales"), width=4),
+
                                     dbc.Col(
-                                        dcc.DatePickerRange(
-                                            id='exist_new_picker',
-                                            min_date_allowed=dt(2020, 1, 1),
-                                            max_date_allowed=dt(2021, 12, 1),
-                                            start_date_placeholder_text="Start Date",
-                                            end_date_placeholder_text="End Date",
-                                            #initial_visible_month=dt(2020, 1, 1),
-                                            display_format='DD-MM-Y',
-                                            start_date=start_picker,
-                                            end_date=end_picker
-                                        ), width=8, lg=3
+                                        html.Div([
+                                            html.Div(["DATE: ",
+                                            dcc.DatePickerRange(
+                                                id='exist_new_picker',
+                                                min_date_allowed=dt(2020, 1, 1),
+                                                max_date_allowed=dt(2021, 12, 1),
+                                                start_date_placeholder_text="Start Date",
+                                                end_date_placeholder_text="End Date",
+                                                #initial_visible_month=dt(2020, 1, 1),
+                                                display_format='DD-MM-Y',
+                                                start_date=start_picker,
+                                                end_date=end_picker
+                                            ),width=4],
+                                        style={'width': '49%', 'display': 'inline-block'}), 
+                                        html.Div(id='output-container-date-picker-range')])
                                     ),   
                                 ],justify="between",),
                             ),
