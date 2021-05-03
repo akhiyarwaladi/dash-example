@@ -28,7 +28,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                                             start_date_placeholder_text="Start Date",
                                             end_date_placeholder_text="End Date",
                                             #initial_visible_month=dt(2020, 1, 1),
-                                            display_format='DD MMMM Y',
+                                            display_format='DD-MM-Y',
                                             start_date=start_picker,
                                             end_date=end_picker
                                         ),width=4
