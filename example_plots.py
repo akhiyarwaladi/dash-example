@@ -110,7 +110,7 @@ usp = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/user_search_pr
 
 def plot_vp():
 	# vp['view_product - product_name'] = pd.to_datetime(vp['view_product - product_name']).dt.strftime('%Y-%m')
-	fig = px.line(vp, x='view_product - product_name', y=vp.columns[1:5], template='presentation')
+	fig = px.line(vp, x='view_product - product_name', y=vp.columns[1:7], template='presentation')
 	fig.update_traces(
 	#     texttemplate='%{text}', 
 	#     textposition='top center', 
@@ -150,7 +150,7 @@ def plot_vp():
 
 
 def plot_sp():
-	fig = px.line(sp, x='search_products - keyword', y=sp.columns[1:5], template='presentation')
+	fig = px.line(sp, x='search_products - keyword', y=sp.columns[1:7], template='presentation')
 	fig.update_traces(
 	#     texttemplate='%{text}', 
 	#     textposition='top center', 
@@ -190,7 +190,7 @@ def plot_sp():
 	return fig, round(sp.mean(axis=1).mean(), 2)
 
 def plot_uvp():
-	fig = px.line(uvp, x='view_product - uid', y=uvp.columns[1:5], template='presentation')
+	fig = px.line(uvp, x='view_product - uid', y=uvp.columns[1:7], template='presentation')
 	fig.update_traces(
 	#     texttemplate='%{text}', 
 	#     textposition='top center', 
@@ -230,7 +230,7 @@ def plot_uvp():
 	return fig, round(uvp.mean(axis=1).mean(),2)
 
 def plot_usp():
-	fig = px.line(usp, x='search_products - uid', y=usp.columns[1:5], template='presentation')
+	fig = px.line(usp, x='search_products - uid', y=usp.columns[1:7], template='presentation')
 	fig.update_traces(
 	#     texttemplate='%{text}', 
 	#     textposition='top center', 
