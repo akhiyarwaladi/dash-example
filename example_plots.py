@@ -146,7 +146,7 @@ def plot_vp():
 	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
 	# Show plot 
 	#fig.show()
-	return fig
+	return fig, round(vp.mean(axis=1).mean(), 2)
 
 
 def plot_sp():
@@ -187,7 +187,7 @@ def plot_sp():
 	# Show plot 
 	# fig.show()
 
-	return fig
+	return fig, round(sp.mean(axis=1).mean(), 2)
 
 def plot_uvp():
 	fig = px.line(uvp, x='view_product - uid', y=uvp.columns[1:5], template='presentation')
