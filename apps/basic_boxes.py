@@ -35,7 +35,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                                                 start_date=start_picker,
                                                 end_date=end_picker
                                             )],
-                                        style={'width': '49%', 'display': 'inline-block'}), 
+                                        style={'width': '70%', 'display': 'inline-block'}), 
                                         html.Div(id='output-container-date-picker-range')])
                                     ,width=6),   
                                 ],justify="between",),
