@@ -47,6 +47,7 @@ view_product_tab = dac.TabItem(id='content_view_product',
                                   ),className="card-text",
                             ),
                         ]),
+                    dbc.CardFooter("Mean search product each user {} times".format(plot_uvp()[1])),
               ]), md=12),
             ]),
             dbc.Row([
