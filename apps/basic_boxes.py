@@ -19,7 +19,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                         dbc.Card([
                             dbc.CardHeader(
                                 dbc.Row([
-                                    dbc.Col(html.H5("Existing vs New Member Sales"), width=4),
+                                    dbc.Col(html.H5("Existing vs New Member Sales"), width=6),
 
                                     dbc.Col(
                                         html.Div([
@@ -37,7 +37,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                                             )],
                                         style={'width': '49%', 'display': 'inline-block'}), 
                                         html.Div(id='output-container-date-picker-range')])
-                                    ,width=4),   
+                                    ,width=6),   
                                 ],justify="between",),
                             ),
 
