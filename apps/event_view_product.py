@@ -41,7 +41,7 @@ view_product_tab = dac.TabItem(id='content_view_product',
                             html.H5("User view product (total event)", className="card-title"),
                             html.P(
                                 dcc.Graph(
-                                  figure=plot_uvp(),
+                                  figure=plot_uvp()[0],
                                   config=dict(displayModeBar=False),
                    
                                   ),className="card-text",
