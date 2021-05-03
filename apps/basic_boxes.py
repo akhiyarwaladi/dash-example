@@ -6,6 +6,9 @@ from example_plots import (plot_new_regular,
 plot_sapa_notsapa, plot_plus_minus)
 from datetime import datetime as dt
 
+from dateutil.relativedelta import relativedelta
+end_picker = dt.today().date().replace(day=1)
+start_picker = end_picker - relativedelta(months=6)
 
 
 basic_boxes_tab = dac.TabItem(id='content_basic_boxes', 
@@ -26,8 +29,8 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                                             end_date_placeholder_text="End Date",
                                             #initial_visible_month=dt(2020, 1, 1),
                                             display_format='DD MMMM Y',
-                                            #start_date=dt(2020, 1, 1),
-                                            #end_date=dt(2021, 12, 1)
+                                            start_date=start_picker,
+                                            end_date=end_picker
                                         ),width=4
                                     ),   
                                 ],justify="between",),

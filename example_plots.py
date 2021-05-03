@@ -1000,8 +1000,8 @@ def plot_new_regular(new_regular, start_date, end_date):
 
 
 	new_regular['tbto_create_date'] = pd.to_datetime(new_regular['tbto_create_date'])
-	new_regular = new_regular[(new_regular['tbto_create_date'] > start_date) &
-								(new_regular['tbto_create_date'] < end_date) ]
+	new_regular = new_regular[(new_regular['tbto_create_date'] >= start_date) &
+								(new_regular['tbto_create_date'] <= end_date) ]
 	new_regular['member_stat'] = new_regular['member_stat'].replace({'regular':'existing'})
 	fig = px.line(new_regular, x='tbto_create_date', y='tbto_amount_final', template='presentation', \
 	              text='net_amount', color='member_stat')
