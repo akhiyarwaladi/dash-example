@@ -20,8 +20,8 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                             dbc.CardHeader(
                                 dbc.Row([
                                     dbc.Col(html.H5("Existing vs New Member Sales"), width=6, lg=3),
-                                    dbc.Col(html.P("select date (dd-mm-yy)"), width=6, lg=3),
                                     dbc.Col(html.P(""), width=6, lg=3),
+                                    dbc.Col(html.P("select date (dd-mm-yy)"), width=6, lg=3),
                                     dbc.Col(
                                         dcc.DatePickerRange(
                                             id='exist_new_picker',
@@ -33,7 +33,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                                             display_format='DD-MM-Y',
                                             start_date=start_picker,
                                             end_date=end_picker
-                                        ), width=6, lg=3
+                                        ), width=8, lg=3
                                     ),   
                                 ],justify="between",),
                             ),
