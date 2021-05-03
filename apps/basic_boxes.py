@@ -8,7 +8,7 @@ from datetime import datetime as dt
 
 from dateutil.relativedelta import relativedelta
 end_picker = dt.today().date().replace(day=1)
-start_picker = end_picker - relativedelta(months=6)
+start_picker = end_picker - relativedelta(months=7)
 
 
 basic_boxes_tab = dac.TabItem(id='content_basic_boxes', 
@@ -20,6 +20,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                             dbc.CardHeader(
                                 dbc.Row([
                                     dbc.Col(html.H5("Existing vs New Member Sales"), width=4),
+                                    dbc.Col(html.P("select date (dd-mm-yy)"), width=4),
                                     dbc.Col(
                                         dcc.DatePickerRange(
                                             id='exist_new_picker',
