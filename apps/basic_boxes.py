@@ -36,9 +36,10 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                                                 end_date=end_picker
                                             )],
                                         style={'width': '100%', 'display': 'inline-block'}), 
-                                        html.Div(id='output-container-date-picker-range')])
-                                    ,width=8),   
-                                ],justify="between",),
+                                        html.Div(id='output-container-date-picker-range')
+                                        ])
+                                    , width=4),   
+                                ], justify="between",),
                             ),
 
                             dbc.CardBody([
