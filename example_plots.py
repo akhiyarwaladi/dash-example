@@ -104,6 +104,7 @@ view_product2 = pd.read_csv(os.path.join(parent_path,'out_plot/view_2.csv'),sep=
 search_product = pd.read_csv(os.path.join(parent_path, 'out_plot/search_event.csv'), sep='\t')
 
 vp = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/view_product.csv')
+sp = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/search_product.csv')
 
 def plot_vp():
 	# vp['view_product - product_name'] = pd.to_datetime(vp['view_product - product_name']).dt.strftime('%Y-%m')
@@ -145,6 +146,46 @@ def plot_vp():
 	#fig.show()
 	return fig
 
+
+def plot_sp():
+	fig = px.line(sp, x='search_products - keyword', y=sp.columns[1:5], template='presentation')
+	fig.update_traces(
+	#     texttemplate='%{text}', 
+	#     textposition='top center', 
+	#     textfont_size=11,
+	    hovertemplate='%{x}<br>%{y}')
+
+	fig.update_xaxes(
+	#     dtick="M1",
+	#     tickformat="%b%y",
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title=''
+	)
+	fig.update_yaxes(
+
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='total_event'
+	)
+	legend_dict = \
+	    legend=dict(
+	            x=0,
+	            y=-0.4,
+	            traceorder="normal",
+	            title='',
+	            title_font_family="Times New Roman",
+	            font=dict(
+	                family="Courier",
+	                size=12,
+	                color="black"
+	            ),
+	            bgcolor="LightGrey",
+	            bordercolor="Black",
+	            borderwidth=1
+	        )
+	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
+	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
+	# Show plot 
+	# fig.show()
+
+	return fig
 
 def plot_view_product1():
 	df_init = pd.DataFrame()

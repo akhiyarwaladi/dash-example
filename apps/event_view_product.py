@@ -3,7 +3,7 @@ import dash_core_components as dcc
 import dash_admin_components as dac
 import dash_bootstrap_components as dbc
 
-from example_plots import (plot_view_product1, plot_view_product2, plot_search_product, plot_vp)
+from example_plots import (plot_view_product1, plot_view_product2, plot_search_product, plot_vp, plot_sp)
 
 
 view_product_tab = dac.TabItem(id='content_view_product', 
@@ -67,6 +67,24 @@ view_product_tab = dac.TabItem(id='content_view_product',
               dbc.Col(
                 dbc.Card(
                   [
+                    dbc.CardHeader(""),
+                    dbc.CardBody(
+                        [
+                            html.H5("Search product (total event)", className="card-title"),
+                            html.P(
+                                dcc.Graph(
+                                  figure=plot_sp(),
+                                  config=dict(displayModeBar=False),
+                   
+                                  ),className="card-text",
+                            ),
+                        ]),
+              ]), md=12),
+            ]),
+            dbc.Row([
+              dbc.Col(
+                dbc.Card(
+                  [
                       dbc.CardHeader(""),
                       dbc.CardBody(
                           [
@@ -75,11 +93,7 @@ view_product_tab = dac.TabItem(id='content_view_product',
                                     plot_search_product(),className="card-text",
                               ),
                           ]),
-                  ])),
-
-
-
-            ],className="md-12")
-        ], className='column')
-    ]
-)
+                  ]), md=12),
+            ])
+        ])
+    ])
