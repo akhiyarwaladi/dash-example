@@ -227,7 +227,7 @@ def plot_uvp():
 	# Show plot 
 	#fig.show()
 
-	return fig
+	return fig, uvp.mean(axis=1).mean()
 
 def plot_usp():
 	fig = px.line(usp, x='search_products - uid', y=usp.columns[1:5], template='presentation')
@@ -266,7 +266,7 @@ def plot_usp():
 	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
 	# Show plot 
 	#fig.show()
-	return fig
+	return fig, usp.mean(axis=1).mean()
 
 
 def plot_view_product1():

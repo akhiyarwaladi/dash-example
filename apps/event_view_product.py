@@ -98,6 +98,7 @@ view_product_tab = dac.TabItem(id='content_view_product',
                                   ),className="card-text",
                             ),
                         ]),
+
               ]), md=12),
             ]),
             dbc.Row([
@@ -110,12 +111,13 @@ view_product_tab = dac.TabItem(id='content_view_product',
                             html.H5("User search product (total event)", className="card-title"),
                             html.P(
                                 dcc.Graph(
-                                  figure=plot_usp(),
+                                  figure=plot_usp()[0],
                                   config=dict(displayModeBar=False),
                    
                                   ),className="card-text",
                             ),
                         ]),
+                    dbc.CardFooter("Mean search product each user {} times".format(plot_usp[1])),
               ]), md=12),
             ]),
             dbc.Row([
