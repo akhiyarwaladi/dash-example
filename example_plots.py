@@ -103,14 +103,15 @@ view_product1 = pd.read_csv(os.path.join(parent_path,'out_plot/view_1.csv'),sep=
 view_product2 = pd.read_csv(os.path.join(parent_path,'out_plot/view_2.csv'),sep='\t')
 search_product = pd.read_csv(os.path.join(parent_path, 'out_plot/search_event.csv'), sep='\t')
 
-vp = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/view_product.csv')
+
 sp = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/search_product.csv')
 uvp = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/user_view_product.csv')
 usp = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/user_search_product.csv')
 
-def plot_vp():
+def plot_vp(vp, value):
 	# vp['view_product - product_name'] = pd.to_datetime(vp['view_product - product_name']).dt.strftime('%Y-%m')
-	fig = px.line(vp, x='view_product - product_name', y=vp.columns[1:7], template='presentation')
+	
+	fig = px.line(vp, x='view_product - product_name', y=vp[str(value)], template='presentation')
 	fig.update_traces(
 	#     texttemplate='%{text}', 
 	#     textposition='top center', 

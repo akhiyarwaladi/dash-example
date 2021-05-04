@@ -85,6 +85,11 @@ sales_plot_table = sales_plot_table.rename(columns={'index':'date', 'type':''})
 
 
 #     return vp, [{'label': x, 'value': x} for x in vp.columns[1:]]
+
+vp = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/view_product.csv')
+vp['All'] = vp.sum(axis=1)
+
+
 # =============================================================================
 # Dash App and Flask Server
 # =============================================================================
@@ -409,6 +414,22 @@ def update_plot_sales(value):
     else:
         table = plot_table_sales(sales_plot_table_daily, value)
     return fig, table
+
+@app.callback(
+    [
+        Output('vp_fig', 'figure'),
+    ],
+    [
+        Input('vp_dropdown', 'value')
+    ]
+)
+def update_plot_vp(value):
+    fig = plot_vp(vp, value)
+
+    return fig
+
+
+
 
 # =============================================================================
 # Run app    

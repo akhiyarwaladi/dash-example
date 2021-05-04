@@ -28,7 +28,7 @@ view_product_tab = dac.TabItem(id='content_view_product',
                             dcc.Dropdown(
                                 id='vp_dropdown',
                                 options=plot_vp()[2],
-                                value='Daily'
+                                value='All'
                             ), md=4),
                         ])
                       ]
@@ -38,7 +38,8 @@ view_product_tab = dac.TabItem(id='content_view_product',
                             html.H5("View product (total event)", className="card-title"),
                             html.P(
                                 dcc.Graph(
-                                  figure=plot_vp()[0],
+                                  # figure=plot_vp()[0],
+                                  id='vp_fig',
                                   config=dict(displayModeBar=False),
                    
                                   ),className="card-text",
