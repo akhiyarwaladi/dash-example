@@ -27,7 +27,7 @@ view_product_tab = dac.TabItem(id='content_view_product',
                           dbc.Col(
                             dcc.Dropdown(
                                 id='vp_dropdown',
-                                options=plot_vp()[2],
+                                options=plot_vp('a','b')[2],
                                 value='All'
                             ), md=4),
                         ])
@@ -45,7 +45,7 @@ view_product_tab = dac.TabItem(id='content_view_product',
                                   ),className="card-text",
                             ),
                         ]),
-                    dbc.CardFooter("Mean view product event {}".format(plot_vp()[1])),
+                    dbc.CardFooter("Mean view product event {}".format(plot_vp('a','b')[1])),
               ]), md=12),
             ]),
             dbc.Row([
