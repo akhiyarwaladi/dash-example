@@ -80,8 +80,9 @@ sales_plot_table = sales_plot_table.rename(columns={'index':'date', 'type':''})
 ############################
 
 
-from data_loader import get_vp
+from data_loader import get_vp, get_sp
 vp = get_vp()[0]
+sp = get_sp()[0]
 
 # =============================================================================
 # Dash App and Flask Server
@@ -419,6 +420,17 @@ def update_plot_vp(value):
 
     return fig
 
+
+@app.callback(
+    Output('sp_fig', 'figure'),
+    [
+        Input('sp_dropdown', 'value')
+    ]
+)
+def update_plot_sp(value):
+    fig = plot_sp(sp, value)
+
+    return fig
 
 
 

@@ -104,7 +104,6 @@ view_product2 = pd.read_csv(os.path.join(parent_path,'out_plot/view_2.csv'),sep=
 search_product = pd.read_csv(os.path.join(parent_path, 'out_plot/search_event.csv'), sep='\t')
 
 
-sp = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/search_product.csv')
 uvp = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/user_view_product.csv')
 usp = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/user_search_product.csv')
 
@@ -149,8 +148,8 @@ def plot_vp(vp, value):
 	#fig.show()
 	return fig
 
-def plot_sp():
-	fig = px.line(sp, x='search_products - keyword', y=sp.columns[1:7], template='presentation')
+def plot_sp(sp, value):
+	fig = px.line(sp, x='search_products - keyword', y=sp[str(value)], template='presentation')
 	fig.update_traces(
 	#     texttemplate='%{text}', 
 	#     textposition='top center', 
@@ -187,7 +186,7 @@ def plot_sp():
 	# Show plot 
 	# fig.show()
 
-	return fig, round(sp.mean(axis=1).mean(), 2)
+	return fig
 
 def plot_uvp():
 	fig = px.line(uvp, x='view_product - uid', y=uvp.columns[1:7], template='presentation')
