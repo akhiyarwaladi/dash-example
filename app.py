@@ -23,8 +23,8 @@ from apps.event_view_product import view_product_tab
 
 
 from example_plots import (plot_plus_minus, plot_oos_time_spend, plot_new_regular, 
-    plot_sales_all, plot_table_sales, plot_vp)
-
+    plot_sales_all, plot_table_sales, plot_vp, plot_sp)
+from data_loader import get_vp, get_sp
 
 import pandas as pd
 import os
@@ -80,7 +80,7 @@ sales_plot_table = sales_plot_table.rename(columns={'index':'date', 'type':''})
 ############################
 
 
-from data_loader import get_vp, get_sp
+
 vp = get_vp()[0]
 sp = get_sp()[0]
 
