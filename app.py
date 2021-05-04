@@ -409,9 +409,7 @@ def update_plot_sales(value):
     return fig, table
 
 @app.callback(
-    [
-        Output('vp_fig', 'figure'),
-    ],
+    Output('vp_fig', 'figure'),
     [
         Input('vp_dropdown', 'value')
     ]
