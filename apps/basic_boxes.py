@@ -62,7 +62,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                                         html.Div([
                                             html.Div(["date range: ",
                                             dcc.DatePickerRange(
-                                                id='exist_new_picker',
+                                                id='increase_decrease_picker',
                                                 min_date_allowed=dt(2020, 1, 1),
                                                 max_date_allowed=dt(2021, 12, 1),
                                                 start_date_placeholder_text="Start Date",
