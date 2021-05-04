@@ -80,11 +80,11 @@ sales_plot_table = sales_plot_table.rename(columns={'index':'date', 'type':''})
 ############################
 
 
-def get_data_vp():
-    vp = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/view_product.csv')
+# def get_data_vp():
+#     vp = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/view_product.csv')
 
 
-    return vp, [{'label': x, 'value': x} for x in vp.columns[1:]]
+#     return vp, [{'label': x, 'value': x} for x in vp.columns[1:]]
 # =============================================================================
 # Dash App and Flask Server
 # =============================================================================

@@ -146,7 +146,7 @@ def plot_vp():
 	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
 	# Show plot 
 	#fig.show()
-	return fig, round(vp.mean(axis=1).mean(), 2)
+	return fig, round(vp.mean(axis=1).mean(), 2), [{'label': x, 'value': x} for x in vp.columns[1:]]
 
 
 def plot_sp():

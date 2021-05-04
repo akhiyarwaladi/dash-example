@@ -6,8 +6,10 @@ import dash_bootstrap_components as dbc
 from example_plots import (plot_view_product1, plot_view_product2, plot_search_product, plot_vp, plot_sp,
   plot_uvp, plot_usp)
 
-from app import get_data_vp
-data_vp, options_vp = data_vp()
+# from app import get_data_vp
+# data_vp, options_vp = data_vp()
+
+
 view_product_tab = dac.TabItem(id='content_view_product', 
                               
     children=[
@@ -25,7 +27,7 @@ view_product_tab = dac.TabItem(id='content_view_product',
                           dbc.Col(
                             dcc.Dropdown(
                                 id='demo-dropdown',
-                                options=options_vp,
+                                options=plot_vp()[2],
                                 value='Daily'
                             ), md=4),
                         ])
