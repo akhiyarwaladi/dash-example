@@ -110,6 +110,7 @@ usp = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/user_search_pr
 
 def plot_vp(vp, value):
 	# vp['view_product - product_name'] = pd.to_datetime(vp['view_product - product_name']).dt.strftime('%Y-%m')
+	fig=''
 	try:
 		fig = px.line(vp, x='view_product - product_name', y=vp[str(value)], template='presentation')
 		fig.update_traces(
