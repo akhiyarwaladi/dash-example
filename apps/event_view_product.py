@@ -6,8 +6,8 @@ import dash_bootstrap_components as dbc
 from example_plots import (plot_view_product1, plot_view_product2, plot_search_product, plot_vp, plot_sp,
   plot_uvp, plot_usp)
 
-# from app import get_data_vp
-# data_vp, options_vp = data_vp()
+from data_loader import get_vp
+
 
 
 view_product_tab = dac.TabItem(id='content_view_product', 
@@ -27,7 +27,7 @@ view_product_tab = dac.TabItem(id='content_view_product',
                           dbc.Col(
                             dcc.Dropdown(
                                 id='vp_dropdown',
-                                options=plot_vp('a','b')[2],
+                                options=get_vp()[2],
                                 value='All'
                             ), md=4),
                         ])
@@ -45,7 +45,7 @@ view_product_tab = dac.TabItem(id='content_view_product',
                                   ),className="card-text",
                             ),
                         ]),
-                    dbc.CardFooter("Mean view product event {}".format(plot_vp('a','b')[1])),
+                    dbc.CardFooter("Mean view product event {}".format(get_vp()[1])),
               ]), md=12),
             ]),
             dbc.Row([

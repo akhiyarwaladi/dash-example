@@ -110,49 +110,44 @@ usp = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/user_search_pr
 
 def plot_vp(vp, value):
 	# vp['view_product - product_name'] = pd.to_datetime(vp['view_product - product_name']).dt.strftime('%Y-%m')
-	fig=''
-	try:
-		fig = px.line(vp, x='view_product - product_name', y=vp[str(value)], template='presentation')
-		fig.update_traces(
-		#     texttemplate='%{text}', 
-		#     textposition='top center', 
-		#     textfont_size=11,
-		    hovertemplate='%{x}<br>%{y}')
+	
+	fig = px.line(vp, x='view_product - product_name', y=vp[str(value)], template='presentation')
+	fig.update_traces(
+	#     texttemplate='%{text}', 
+	#     textposition='top center', 
+	#     textfont_size=11,
+	    hovertemplate='%{x}<br>%{y}')
 
-		fig.update_xaxes(
-		#     dtick="M1",
-		#     tickformat="%b%y",
-		    showgrid=True, gridwidth=1, gridcolor='LightPink', title=''
-		)
-		fig.update_yaxes(
+	fig.update_xaxes(
+	#     dtick="M1",
+	#     tickformat="%b%y",
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title=''
+	)
+	fig.update_yaxes(
 
-		    showgrid=True, gridwidth=1, gridcolor='LightPink', title='total_event'
-		)
-		legend_dict = \
-		    legend=dict(
-		            x=0,
-		            y=-0.4,
-		            traceorder="normal",
-		            title='',
-		            title_font_family="Times New Roman",
-		            font=dict(
-		                family="Courier",
-		                size=12,
-		                color="black"
-		            ),
-		            bgcolor="LightGrey",
-		            bordercolor="Black",
-		            borderwidth=1
-		        )
-		fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
-		                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
-		
-	except Exception as e:
-		raise e
-	finally:
-		return fig, round(vp.mean(axis=1).mean(), 2), [{'label': x, 'value': x} for x in vp.columns[1:]]
-
-
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='total_event'
+	)
+	legend_dict = \
+	    legend=dict(
+	            x=0,
+	            y=-0.4,
+	            traceorder="normal",
+	            title='',
+	            title_font_family="Times New Roman",
+	            font=dict(
+	                family="Courier",
+	                size=12,
+	                color="black"
+	            ),
+	            bgcolor="LightGrey",
+	            bordercolor="Black",
+	            borderwidth=1
+	        )
+	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
+	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
+	# Show plot 
+	#fig.show()
+	return fig
 
 def plot_sp():
 	fig = px.line(sp, x='search_products - keyword', y=sp.columns[1:7], template='presentation')

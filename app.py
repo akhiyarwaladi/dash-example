@@ -80,15 +80,8 @@ sales_plot_table = sales_plot_table.rename(columns={'index':'date', 'type':''})
 ############################
 
 
-# def get_data_vp():
-#     vp = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/view_product.csv')
-
-
-#     return vp, [{'label': x, 'value': x} for x in vp.columns[1:]]
-
-vp = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/view_product.csv')
-vp['All'] = vp.sum(axis=1)
-
+from data_loader import get_vp
+vp = get_vp()[0]
 
 # =============================================================================
 # Dash App and Flask Server
