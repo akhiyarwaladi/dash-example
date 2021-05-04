@@ -26,7 +26,7 @@ view_product_tab = dac.TabItem(id='content_view_product',
                           dbc.Col(html.Div(""), md=8),
                           dbc.Col(
                             dcc.Dropdown(
-                                id='demo-dropdown',
+                                id='vp_dropdown',
                                 options=plot_vp()[2],
                                 value='Daily'
                             ), md=4),
