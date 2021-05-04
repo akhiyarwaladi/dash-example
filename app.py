@@ -23,7 +23,7 @@ from apps.event_view_product import view_product_tab
 
 
 from example_plots import (plot_plus_minus, plot_oos_time_spend, plot_new_regular, 
-    plot_sales_all, plot_table_sales)
+    plot_sales_all, plot_table_sales, plot_vp)
 
 
 import pandas as pd
