@@ -48,7 +48,7 @@ def fill_card(header, content, row):
 
 li_row = []
 
-row_top = [ 
+row_top = 
         dbc.Row(
         [
           dbc.Col(
@@ -86,8 +86,7 @@ row_top = [
                         ),
                     ]),
           ]), md=12),
-        ]),
-    ]
+        ])
 
 li_row.append(row_top)
 
