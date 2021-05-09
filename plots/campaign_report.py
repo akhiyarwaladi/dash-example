@@ -151,7 +151,7 @@ def w_general_inapp(campaign_inapp, value):
     return fig
 
 
-def g_general_email(campaign_push):
+def g_general_email(campaign_email):
     g_email = campaign_email.groupby([pd.Grouper(key='Date',freq='M')])\
             .agg({'Targets':'sum', 'Impressions':'sum', 'Clicks':'sum', 'Conversions':'sum'}).reset_index()
 
