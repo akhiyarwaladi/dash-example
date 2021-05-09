@@ -1,4 +1,7 @@
 import pandas as pd
+import os
+
+parent_path = '/home/server/gli-data-science/akhiyar'
 
 def get_vp():
 	vp = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/view_product.csv')
