@@ -48,60 +48,46 @@ def fill_card(header, content, row):
 
 li_row = []
 
-row_top = dbc.Row(
+row_top = [ 
+        dbc.Row(
         [
-            dbc.Col(
-                dbc.Card(
-                [
-                  dbc.CardHeader(html.H5("In general stat push notif")),
-                  dbc.CardBody(
-                      [
-                          # html.H5("Card title", className="card-title"),
-                          html.P(
-                                dcc.Graph(
-                                  figure=g_general_push(),
-                                  config=dict(displayModeBar=False),
-                   
-                                  ),className="card-text",
-                          ),
-                      ]),
-                ])),
-            dbc.Col(
-                dbc.Card(
-                [
-                  dbc.CardHeader(html.H5("Most click campaign")),
-                  dbc.CardBody(
-                      [
-                          # html.H5("Card title", className="card-title"),
-                          html.P(
-                                dcc.Graph(
-                                  figure=click_general_push(),
-                                  config=dict(displayModeBar=False),
-                   
-                                  ),className="card-text",
-                          ),
-                      ]),
-                ])),
-            dbc.Col(
-                dbc.Card(
-                [
-                  dbc.CardHeader(html.H5("Most conversion campaign")),
-                  dbc.CardBody(
-                      [
-                          # html.H5("Card title", className="card-title"),
-                          html.P(
-                                dcc.Graph(
-                                  figure=conversion_general_push(),
-                                  config=dict(displayModeBar=False),
-                   
-                                  ),className="card-text",
-                          ),
-                      ]),
-                ])),
-
-        ],
-        className="mb-12"
-    )
+          dbc.Col(
+            dbc.Card(
+            [
+              dbc.CardHeader(html.H5("In general stat push notif")),
+              dbc.CardBody(
+                  [
+                      # html.H5("Card title", className="card-title"),
+                      html.P(
+                            dcc.Graph(
+                              figure=g_general_push(),
+                              config=dict(displayModeBar=False),
+               
+                              ),className="card-text",
+                      ),
+                  ]),
+          ]), md=12),
+        ]),
+        dbc.Row(
+        [
+          dbc.Col(
+              dbc.Card(
+              [
+                dbc.CardHeader(html.H5("Most click campaign")),
+                dbc.CardBody(
+                    [
+                        # html.H5("Card title", className="card-title"),
+                        html.P(
+                              dcc.Graph(
+                                figure=click_general_push(),
+                                config=dict(displayModeBar=False),
+                 
+                                ),className="card-text",
+                        ),
+                    ]),
+          ]), md=12),
+        ]),
+    ]
 
 li_row.append(row_top)
 
