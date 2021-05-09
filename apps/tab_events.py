@@ -83,8 +83,8 @@ row_top = [
                                 id='cpn_dropdown',
                                 options=get_cpn()[1],
                                 value='2021-04'
-                            ), md=8),
-                        ])
+                            ), md=4),
+                        ],justify="between",)
                       ]
                     ),
                   dbc.CardBody(
