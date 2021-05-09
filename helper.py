@@ -62,21 +62,9 @@ def transform_format(value):
 def transform_to_format(value):
     
     str_value = str(value)
-    #print(len(str_value))
     unit = ''
-    if len(str_value) >= 12:
-        unit = 'jt'
-        show_result = temp_result.split('.')[0] + "." + temp_result.split('.')[1] 
-    elif len(str_value) >= 8:
-        unit = 'jt'
-        show_result = temp_result.split('.')[0]
-    elif len(str_value) >= 5:
-        unit = 'rb'
-        show_result = temp_result.split('.')[0]
-    else:
-        unit = ''
-        show_result = temp_result.split('.')[0] str_value.split(".")
-        
+
+    separate_decimal = str_value.split(".")
     after_decimal = separate_decimal[0]
     before_decimal = separate_decimal[1]
 
@@ -91,7 +79,16 @@ def transform_to_format(value):
 
     temp_result = temp_reverse_value[::-1]
 
-    #return "Rp " + temp_result + "," + before_decimal
-    #print(len(temp_result))
-    #print(temp_result)
-    return temp_result.split('.')[0] + unit
+    if len(str_value) >= 12:
+        unit = 'jt'
+        show_result = temp_result.split('.')[0] + "." + temp_result.split('.')[1] 
+    elif len(str_value) >= 9:
+        unit = 'jt'
+        show_result = temp_result.split('.')[0]
+    elif len(str_value) >= 6:
+        unit = 'rb'
+        show_result = temp_result.split('.')[0]
+    else:
+        unit = ''
+        show_result = temp_result.split('.')[0]
+    return show_result + unit
