@@ -51,22 +51,22 @@ li_row = []
 row_top = [
         dbc.Row(
         [
-          dbc.Col(
-            dbc.Card(
-            [
-              dbc.CardHeader(html.H5("In general stat push notif")),
-              dbc.CardBody(
-                  [
-                      # html.H5("Card title", className="card-title"),
-                      html.P(
-                            dcc.Graph(
-                              figure=g_general_push(),
-                              config=dict(displayModeBar=False),
-               
-                              ),className="card-text",
-                      ),
-                  ]),
-          ]), md=12),
+            dbc.Col(
+                dbc.Card(
+                [
+                  dbc.CardHeader(html.H5("General Push Notification Campaign Growth")),
+                  dbc.CardBody(
+                      [
+                          # html.H5("Card title", className="card-title"),
+                          html.P(
+                                dcc.Graph(
+                                  figure=g_general_push(get_cpn()[0]),
+                                  config=dict(displayModeBar=False),
+                   
+                                  ),className="card-text",
+                          ),
+                      ]),
+                ]), md=12),
         ]),
         dbc.Row(
         [
@@ -128,7 +128,7 @@ for idx, row in general_push.iterrows():
         ],
         className="mb-12",
     )
-    li_row.append(row_y)
+    # li_row.append(row_y)
 
 
 

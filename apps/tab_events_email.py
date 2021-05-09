@@ -125,7 +125,7 @@ for idx, row in general_inapp.iterrows():
         ],
         className="mb-12",
     )
-    li_row.append(row_y)
+    # li_row.append(row_y)
 
 
 
