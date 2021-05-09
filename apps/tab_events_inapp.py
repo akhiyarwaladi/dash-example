@@ -4,7 +4,8 @@ import dash_admin_components as dac
 import dash_bootstrap_components as dbc
 
 from example_plots import (plot_general_inapp, conversion_general_inapp, 
-                        click_general_inapp, g_general_inapp)
+                        click_general_inapp)
+from plots.campaign_report import g_general_inapp, w_general_inapp
 from data_loader import get_cpi
 
 general_inapp = plot_general_inapp()
