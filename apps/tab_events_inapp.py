@@ -98,7 +98,9 @@ row_top = [
         ])
 
 ]
-li_row.append(row_top)
+# li_row.append(row_top)
+li_row = li_row + row_top
+
 
 
 for idx, row in general_inapp.iterrows():
