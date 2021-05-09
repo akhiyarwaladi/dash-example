@@ -25,7 +25,7 @@ from apps.event_view_product import view_product_tab
 
 from example_plots import (plot_plus_minus, plot_oos_time_spend, plot_new_regular, 
     plot_sales_all, plot_table_sales, plot_vp, plot_sp)
-from data_loader import get_vp, get_sp
+from data_loader import get_vp, get_sp, get_cpn, get_cpe, get_cpi
 
 import pandas as pd
 import os
@@ -85,6 +85,10 @@ sales_plot_table = sales_plot_table.rename(columns={'index':'date', 'type':''})
 vp = get_vp()[0]
 sp = get_sp()[0]
 
+
+campaign_push = get_cpn()[0]
+campaign_email = get_cpe()[0]
+campaign_inapp = get_cpi()[0]
 # =============================================================================
 # Dash App and Flask Server
 # =============================================================================
@@ -443,6 +447,36 @@ def update_plot_sp(value):
 
     return fig
 
+@app.callback(
+    Output('cpn_fig', 'figure'),
+    [
+        Input('cpn_dropdown', 'value')
+    ]
+)
+def update_plot_cpn(value):
+    fig = w_general_push(get_cpn()[0], value)
+
+    return fig
+@app.callback(
+    Output('cpe_fig', 'figure'),
+    [
+        Input('cpe_dropdown', 'value')
+    ]
+)
+def update_plot_cpe(value):
+    fig = w_general_email(get_cpe()[0], value)
+
+    return fig
+@app.callback(
+    Output('cpi_fig', 'figure'),
+    [
+        Input('cpi_dropdown', 'value')
+    ]
+)
+def update_plot_cpi(value):
+    fig = w_general_inapp(get_cpi()[0], value)
+
+    return fig
 
 
 # =============================================================================

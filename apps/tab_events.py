@@ -7,7 +7,7 @@ from example_plots import (plot_general_push, conversion_general_push, click_gen
 
 general_push = plot_general_push()
 
-
+from data_loader import get_cpn
 
 def fill_card_content(header, content):
     card_content = [
@@ -70,23 +70,37 @@ row_top = [
         ]),
         dbc.Row(
         [
-          dbc.Col(
-              dbc.Card(
-              [
-                dbc.CardHeader(html.H5("Most click campaign")),
-                dbc.CardBody(
-                    [
-                        # html.H5("Card title", className="card-title"),
-                        html.P(
-                              dcc.Graph(
-                                figure=click_general_push(),
-                                config=dict(displayModeBar=False),
-                 
-                                ),className="card-text",
-                        ),
-                    ]),
-          ]), md=12),
-        ])
+            dbc.Col(
+                dbc.Card(
+                [
+                  
+                    dbc.CardHeader(
+                      [
+                        dbc.Row([
+                          dbc.Col(html.Div("Campaign Performance"), md=4),
+                          dbc.Col(
+                            dcc.Dropdown(
+                                id='cpn_dropdown',
+                                options=get_cpn()[1],
+                                value='2021-04'
+                            ), md=8),
+                        ])
+                      ]
+                    ),
+                  dbc.CardBody(
+                      [
+                          # html.H5("Card title", className="card-title"),
+                          html.P(
+                                dcc.Graph(
+                                  #figure=w_general_push(campaign_push),
+                                  id = 'cpn_fig', 
+                                  config=dict(displayModeBar=False),
+                   
+                                  ),className="card-text",
+                          ),
+                      ]),
+                ]), md=12),
+        ]),
     ]
 # li_row.append(row_top)
 li_row = li_row + row_top
