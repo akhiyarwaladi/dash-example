@@ -8,8 +8,6 @@ from example_plots import (plot_view_product1, plot_view_product2, plot_search_p
 
 from data_loader import get_vp, get_sp
 
-
-
 view_product_tab = dac.TabItem(id='content_view_product', 
                               
     children=[

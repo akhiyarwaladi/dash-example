@@ -65,12 +65,18 @@ def transform_to_format(value):
     #print(len(str_value))
     unit = ''
     if len(str_value) >= 12:
-        unit = 'M'
+        unit = 'jt'
+        show_result = temp_result.split('.')[0] + "." + temp_result.split('.')[1] 
     elif len(str_value) >= 8:
         unit = 'jt'
+        show_result = temp_result.split('.')[0]
     elif len(str_value) >= 5:
         unit = 'rb'
-    separate_decimal = str_value.split(".")
+        show_result = temp_result.split('.')[0]
+    else:
+        unit = ''
+        show_result = temp_result.split('.')[0] str_value.split(".")
+        
     after_decimal = separate_decimal[0]
     before_decimal = separate_decimal[1]
 
