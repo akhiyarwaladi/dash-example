@@ -79,90 +79,90 @@ view_product_tab = dac.TabItem(id='content_view_product',
 
               ]), md=12),
             ]),
-            dbc.Row([
-              dbc.Col(
-                dbc.Card(
-                  [
-                    dbc.CardHeader(""),
-                    dbc.CardBody(
-                        [
-                            html.H5("User view product (total event)", className="card-title"),
-                            html.P(
-                                dcc.Graph(
-                                  figure=plot_uvp()[0],
-                                  config=dict(displayModeBar=False),
+    #         dbc.Row([
+    #           dbc.Col(
+    #             dbc.Card(
+    #               [
+    #                 dbc.CardHeader(""),
+    #                 dbc.CardBody(
+    #                     [
+    #                         html.H5("User view product (total event)", className="card-title"),
+    #                         html.P(
+    #                             dcc.Graph(
+    #                               figure=plot_uvp()[0],
+    #                               config=dict(displayModeBar=False),
                    
-                                  ),className="card-text",
-                            ),
-                        ]),
-                    dbc.CardFooter("Mean view product each user {} times".format(plot_uvp()[1])),
-              ]), md=12),
-            ]),
-            dbc.Row([
-              dbc.Col(
-                dbc.Card(
-                  [
-                    dbc.CardHeader(""),
-                    dbc.CardBody(
-                        [
-                            # html.H5("Card title", className="card-title"),
-                            html.P(
-                                  plot_view_product1(),className="card-text",
-                            ),
-                        ]),
-              ]), md=12),
-            ]),
-            dbc.Row([
-              dbc.Col(
-                dbc.Card(
-                  [
-                    dbc.CardHeader(""),
-                    dbc.CardBody(
-                        [
-                            # html.H5("Card title", className="card-title"),
-                            html.P(
-                                  plot_view_product2(),className="card-text",
-                            ),
-                        ]),
-              ]), md=12),
-            ])
-        ]),
+    #                               ),className="card-text",
+    #                         ),
+    #                     ]),
+    #                 dbc.CardFooter("Mean view product each user {} times".format(plot_uvp()[1])),
+    #           ]), md=12),
+    #         ]),
+    #         dbc.Row([
+    #           dbc.Col(
+    #             dbc.Card(
+    #               [
+    #                 dbc.CardHeader(""),
+    #                 dbc.CardBody(
+    #                     [
+    #                         # html.H5("Card title", className="card-title"),
+    #                         html.P(
+    #                               plot_view_product1(),className="card-text",
+    #                         ),
+    #                     ]),
+    #           ]), md=12),
+    #         ]),
+    #         dbc.Row([
+    #           dbc.Col(
+    #             dbc.Card(
+    #               [
+    #                 dbc.CardHeader(""),
+    #                 dbc.CardBody(
+    #                     [
+    #                         # html.H5("Card title", className="card-title"),
+    #                         html.P(
+    #                               plot_view_product2(),className="card-text",
+    #                         ),
+    #                     ]),
+    #           ]), md=12),
+    #         ])
+    #     ]),
 
-        # html.H5('Search Product Event'),
+    #     # html.H5('Search Product Event'),
 
-        html.Div([
-            dbc.Row([
-              dbc.Col(
-                dbc.Card(
-                  [
-                    dbc.CardHeader(""),
-                    dbc.CardBody(
-                        [
-                            html.H5("User search product (total event)", className="card-title"),
-                            html.P(
-                                dcc.Graph(
-                                  figure=plot_usp()[0],
-                                  config=dict(displayModeBar=False),
+    #     html.Div([
+    #         dbc.Row([
+    #           dbc.Col(
+    #             dbc.Card(
+    #               [
+    #                 dbc.CardHeader(""),
+    #                 dbc.CardBody(
+    #                     [
+    #                         html.H5("User search product (total event)", className="card-title"),
+    #                         html.P(
+    #                             dcc.Graph(
+    #                               figure=plot_usp()[0],
+    #                               config=dict(displayModeBar=False),
                    
-                                  ),className="card-text",
-                            ),
-                        ]),
-                    dbc.CardFooter("Mean search product each user {} times".format(plot_usp()[1])),
-              ]), md=12),
-            ]),
-            dbc.Row([
-              dbc.Col(
-                dbc.Card(
-                  [
-                      dbc.CardHeader(""),
-                      dbc.CardBody(
-                          [
-                              # html.H5("Card title", className="card-title"),
-                              html.P(
-                                    plot_search_product(),className="card-text",
-                              ),
-                          ]),
-                  ]), md=12),
-            ])
-        ])
-    ])
+    #                               ),className="card-text",
+    #                         ),
+    #                     ]),
+    #                 dbc.CardFooter("Mean search product each user {} times".format(plot_usp()[1])),
+    #           ]), md=12),
+    #         ]),
+    #         dbc.Row([
+    #           dbc.Col(
+    #             dbc.Card(
+    #               [
+    #                   dbc.CardHeader(""),
+    #                   dbc.CardBody(
+    #                       [
+    #                           # html.H5("Card title", className="card-title"),
+    #                           html.P(
+    #                                 plot_search_product(),className="card-text",
+    #                           ),
+    #                       ]),
+    #               ]), md=12),
+    #         ])
+    #     ])
+    # ])
