@@ -5,6 +5,8 @@ import dash_bootstrap_components as dbc
 
 from example_plots import (plot_general_inapp, conversion_general_inapp, 
                         click_general_inapp, g_general_inapp)
+from plots.campaign_report import g_general_email, w_general_email
+
 
 general_inapp = plot_general_inapp()
 
@@ -41,64 +43,65 @@ def fill_card(header, content, row):
 
 li_row = []
 
-row_top = dbc.Row(
+row_top = [
+        dbc.Row(
         [
-
             dbc.Col(
                 dbc.Card(
                 [
-                  dbc.CardHeader(html.H5("In general stat mobile inapp")),
+                  dbc.CardHeader(html.H5("General Email Campaign Growth")),
                   dbc.CardBody(
                       [
                           # html.H5("Card title", className="card-title"),
                           html.P(
                                 dcc.Graph(
-                                  figure=g_general_inapp(),
+                                  figure=g_general_email(get_cpe()[0]),
                                   config=dict(displayModeBar=False),
                    
                                   ),className="card-text",
                           ),
                       ]),
-                ])),
+                ]), md=12),
+        ]),
+        dbc.Row(
+        [
             dbc.Col(
                 dbc.Card(
                 [
-                  dbc.CardHeader(html.H5("Most click campaign")),
+                  
+                    dbc.CardHeader(
+                      [
+                        dbc.Row([
+                          dbc.Col(html.Div("Campaign Performance"), md=4),
+                          dbc.Col(
+                            dcc.Dropdown(
+                                id='cpe_dropdown',
+                                options=get_cpe()[1],
+                                value='2021-04'
+                            ), md=4),
+                        ],justify="between",)
+                      ]
+                    ),
                   dbc.CardBody(
                       [
                           # html.H5("Card title", className="card-title"),
                           html.P(
                                 dcc.Graph(
-                                  figure=click_general_inapp(),
+                                  #figure=w_general_push(campaign_push),
+                                  id = 'cpe_fig', 
                                   config=dict(displayModeBar=False),
                    
                                   ),className="card-text",
                           ),
                       ]),
-                ])),
-            dbc.Col(
-                dbc.Card(
-                [
-                  dbc.CardHeader(html.H5("Most conversion campaign")),
-                  dbc.CardBody(
-                      [
-                          # html.H5("Card title", className="card-title"),
-                          html.P(
-                                dcc.Graph(
-                                  figure=conversion_general_inapp(),
-                                  config=dict(displayModeBar=False),
-                   
-                                  ),className="card-text",
-                          ),
-                      ]),
-                ])),
+                ]), md=12),
+        ]),
 
-        ],
-        className="mb-12"
-    )
 
-li_row.append(row_top)
+]
 
+# li_row.append(row_top)
+li_row = li_row + row_top
 
 for idx, row in general_inapp.iterrows():
     campaign_name = row['Campaign Name'].strip()
