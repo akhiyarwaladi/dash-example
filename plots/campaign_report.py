@@ -68,7 +68,8 @@ def w_general_push(campaign_push, value):
     g_push_wide_s = g_push_wide[g_push_wide['Campaign Sent Time'] == value]
 
     # g_push_wide_s['Campaign Name'] = pd.Series(split_label(g_push_wide_s['Campaign Name'].str[10:]))
-    fig = px.bar(g_push_wide_s, x="Campaign Name", y=["Targets", "Impressions", "Clicks", "Conversions"], title="Wide-Form Input")
+    fig = px.bar(g_push_wide_s, x="Campaign Name", y=["Targets", "Impressions", "Clicks", "Conversions"], \
+                    orientation='h', title="Wide-Form Input")
 
     fig.update_layout(font={'size': 16}, width=1000,template='presentation',
                     plot_bgcolor = '#FFFFFF',
