@@ -138,11 +138,12 @@ def w_general_inapp(campaign_inapp, value):
     g_inapp_wide = g_inapp_wide[g_inapp_wide['Date'] == '2021-03']
 
     # g_push_wide_s['Campaign Name'] = pd.Series(split_label(g_push_wide_s['Campaign Name'].str[10:]))
-    fig = px.bar(g_inapp_wide, x="Campaign Name", y=["Impressions", "Clicks", "Conversions"], title="Wide-Form Input")
+    fig = px.bar(g_inapp_wide, y="Campaign Name", x=["Impressions", "Clicks", "Conversions"], \
+                orientation='h', title="Wide-Form Input")
 
     fig.update_layout(font={'size': 16}, width=1000,template='presentation',
                     plot_bgcolor = '#FFFFFF',
-                    xaxis={'showline': True, 'visible': True, 'showticklabels': False, \
+                    xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'automargin': True, 'title':'Campaign'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True,  'automargin': True, 'title':'#Event'},
@@ -207,11 +208,12 @@ def w_general_email(campaign_email, value):
     g_email_wide = g_email_wide[g_email_wide['Date'] == '2021-04']
 
     # g_push_wide_s['Campaign Name'] = pd.Series(split_label(g_push_wide_s['Campaign Name'].str[10:]))
-    fig = px.bar(g_email_wide, x="Campaign Name", y=["Targets", "Impressions", "Clicks"], title="Wide-Form Input")
+    fig = px.bar(g_email_wide, y="Campaign Name", x=["Targets", "Impressions", "Clicks"], \
+                orientation='h', title="Wide-Form Input")
 
     fig.update_layout(font={'size': 16}, width=1000,template='presentation',
                     plot_bgcolor = '#FFFFFF',
-                    xaxis={'showline': True, 'visible': True, 'showticklabels': False, \
+                    xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'automargin': True, 'title':'Campaign'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True,  'automargin': True, 'title':'#Event'},
