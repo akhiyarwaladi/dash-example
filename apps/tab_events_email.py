@@ -79,7 +79,7 @@ row_top = [
                           dbc.Col(
                             dcc.Dropdown(
                                 id='cpe_dropdown',
-                                options=option_email
+                                options=option_email,
                                 value='2021-04'
                             ), md=4),
                         ],justify="between",)
