@@ -72,7 +72,7 @@ def w_general_push(campaign_push, value):
                     orientation='h', title="Wide-Form Input")
 
     fig.update_layout(font={'size': 16}, width=1000,template='presentation',
-                    plot_bgcolor = '#FFFFFF',margin=dict(pad=20),
+                    plot_bgcolor = '#FFFFFF',bargap=0.30,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'automargin': True, 'title':'Campaign'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
