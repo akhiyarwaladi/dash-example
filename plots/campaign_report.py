@@ -70,6 +70,11 @@ def w_general_push(campaign_push, value):
     # g_push_wide_s['Campaign Name'] = pd.Series(split_label(g_push_wide_s['Campaign Name'].str[10:]))
     fig = px.bar(g_push_wide_s, y="Campaign Name", x=["Targets", "Impressions", "Clicks", "Conversions"], \
                     orientation='h', title="Wide-Form Input")
+    fig.update_traces(
+    #     texttemplate='%{text}', 
+    #     textposition='top center', 
+    #     textfont_size=11,
+        hovertemplate='%{x}')
 
     fig.update_layout(font={'size': 16}, width=1000,template='presentation',
                     plot_bgcolor = '#FFFFFF',height=700,
@@ -142,7 +147,7 @@ def w_general_inapp(campaign_inapp, value):
                 orientation='h', title="Wide-Form Input")
 
     fig.update_layout(font={'size': 16}, width=1000,template='presentation',
-                    plot_bgcolor = '#FFFFFF',
+                    plot_bgcolor = '#FFFFFF',height=700,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'automargin': True, 'title':'Campaign'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
@@ -212,7 +217,7 @@ def w_general_email(campaign_email, value):
                 orientation='h', title="Wide-Form Input")
 
     fig.update_layout(font={'size': 16}, width=1000,template='presentation',
-                    plot_bgcolor = '#FFFFFF',
+                    plot_bgcolor = '#FFFFFF',height=700,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'automargin': True, 'title':'Campaign'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
