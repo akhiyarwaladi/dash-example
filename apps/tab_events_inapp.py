@@ -55,7 +55,7 @@ row_top = [
                           # html.H5("Card title", className="card-title"),
                           html.P(
                                 dcc.Graph(
-                                  figure=g_general_inapp(),
+                                  figure=g_general_inapp(campaign_inapp),
                                   config=dict(displayModeBar=False),
                    
                                   ),className="card-text",
