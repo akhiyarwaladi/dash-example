@@ -71,9 +71,6 @@ def w_general_push(campaign_push, value):
     fig = px.bar(g_push_wide_s, y="Campaign Name", x=["Targets", "Impressions", "Clicks", "Conversions"], \
                     orientation='h', title="Wide-Form Input")
     fig.update_traces(
-    #     texttemplate='%{text}', 
-    #     textposition='top center', 
-    #     textfont_size=11,
         hovertemplate='%{x}')
 
     fig.update_layout(font={'size': 16}, width=1000,template='presentation',
@@ -145,7 +142,8 @@ def w_general_inapp(campaign_inapp, value):
     # g_push_wide_s['Campaign Name'] = pd.Series(split_label(g_push_wide_s['Campaign Name'].str[10:]))
     fig = px.bar(g_inapp_wide, y="Campaign Name", x=["Impressions", "Clicks", "Conversions"], \
                 orientation='h', title="Wide-Form Input")
-
+    fig.update_traces(
+        hovertemplate='%{x}')
     fig.update_layout(font={'size': 16}, width=1000,template='presentation',
                     plot_bgcolor = '#FFFFFF',height=700,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
@@ -215,7 +213,8 @@ def w_general_email(campaign_email, value):
     # g_push_wide_s['Campaign Name'] = pd.Series(split_label(g_push_wide_s['Campaign Name'].str[10:]))
     fig = px.bar(g_email_wide, y="Campaign Name", x=["Targets", "Impressions", "Clicks"], \
                 orientation='h', title="Wide-Form Input")
-
+    fig.update_traces(
+        hovertemplate='%{x}')
     fig.update_layout(font={'size': 16}, width=1000,template='presentation',
                     plot_bgcolor = '#FFFFFF',height=700,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
