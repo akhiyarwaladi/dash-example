@@ -9,7 +9,7 @@ from plots.campaign_report import g_general_inapp, w_general_inapp
 from data_loader import get_cpi
 
 general_inapp = plot_general_inapp()
-
+campaign_inapp = get_cpi()[0]
 
 def fill_card_content(header, content):
     card_content = [
@@ -55,7 +55,7 @@ row_top = [
                           # html.H5("Card title", className="card-title"),
                           html.P(
                                 dcc.Graph(
-                                  figure=g_general_inapp(get_cpi()[0]),
+                                  figure=g_general_inapp(),
                                   config=dict(displayModeBar=False),
                    
                                   ),className="card-text",
