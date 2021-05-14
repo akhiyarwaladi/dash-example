@@ -9,7 +9,9 @@ from plots.campaign_report import g_general_inapp, w_general_inapp
 from data_loader import get_cpi
 
 general_inapp = plot_general_inapp()
-campaign_inapp = get_cpi()[0]
+f_inapp = get_cpi()
+campaign_inapp = f_inapp[0]
+option_inapp = f_inapp[1]
 
 def fill_card_content(header, content):
     card_content = [
@@ -76,7 +78,7 @@ row_top = [
                           dbc.Col(
                             dcc.Dropdown(
                                 id='cpi_dropdown',
-                                options=get_cpi()[1],
+                                options=option_inapp,
                                 value='2021-04'
                             ), md=4),
                         ], justify='between')
@@ -127,9 +129,6 @@ for idx, row in general_inapp.iterrows():
     )
     # li_row.append(row_y)
 
-
-
-# li_row = li_row[::-1]
 
 cards = html.Div(li_row)
 events_inapp = dac.TabItem(id='content_inapp_events', 
