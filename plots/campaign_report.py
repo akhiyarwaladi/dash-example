@@ -72,12 +72,12 @@ def w_general_push(campaign_push, value):
                     orientation='h', title="Wide-Form Input")
 
     fig.update_layout(font={'size': 16}, width=1000,template='presentation',
-                    plot_bgcolor = '#FFFFFF',bargap=0.30,
+                    plot_bgcolor = '#FFFFFF',
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'automargin': True, 'title':'Campaign'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True,  'automargin': True, 'title':'#Event'},
-                    bargap=0.3, title="Campaign push notif performance {}".format(value), title_x=0.5)
+                    bargap=0.7, title="Campaign push notif performance {}".format(value), title_x=0.5)
 
     
     return fig
