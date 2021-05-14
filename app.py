@@ -17,9 +17,9 @@ from apps.value_boxes import value_boxes_tab
 from apps.value_behave import value_behave_tab
 from apps.sales import sales_tab
 from apps.oos_boxes import oos_boxes_tab
-from apps.tab_events import events_tab
+from apps.tab_events_notif import events_tab, campaign_push
 from apps.tab_events_inapp import events_inapp, campaign_inapp
-from apps.tab_events_email import events_email
+from apps.tab_events_email import events_email, campaign_email
 from apps.event_view_product import view_product_tab
 
 from example_plots import (plot_plus_minus, plot_oos_time_spend, plot_new_regular, 
@@ -88,8 +88,8 @@ vp = get_vp()[0]
 sp = get_sp()[0]
 
 
-campaign_push = get_cpn()[0]
-campaign_email = get_cpe()[0]
+# campaign_push = get_cpn()[0]
+# campaign_email = get_cpe()[0]
 # campaign_inapp = get_cpi()[0]
 # =============================================================================
 # Dash App and Flask Server

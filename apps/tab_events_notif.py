@@ -9,6 +9,10 @@ general_push = plot_general_push()
 
 from data_loader import get_cpn
 
+f_notif = get_cpn()
+campaign_notif = f_notif[0]
+option_notif = f_notif[1]
+
 def fill_card_content(header, content):
     card_content = [
         dbc.CardHeader(html.Center(header)),
@@ -60,7 +64,7 @@ row_top = [
                           # html.H5("Card title", className="card-title"),
                           html.P(
                                 dcc.Graph(
-                                  figure=g_general_push(get_cpn()[0]),
+                                  figure=g_general_push(campaign_notif),
                                   config=dict(displayModeBar=False),
                    
                                   ),className="card-text",
@@ -81,7 +85,7 @@ row_top = [
                           dbc.Col(
                             dcc.Dropdown(
                                 id='cpn_dropdown',
-                                options=get_cpn()[1],
+                                options=option_notif,
                                 value='2021-04'
                             ), md=4),
                         ],justify="between",)

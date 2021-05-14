@@ -9,6 +9,9 @@ from plots.campaign_report import g_general_email, w_general_email
 from data_loader import get_cpe
 
 general_inapp = plot_general_inapp()
+f_email = get_cpe()
+campaign_email = f_email[0]
+option_email = f_email[1]
 
 
 def fill_card_content(header, content):
@@ -55,7 +58,7 @@ row_top = [
                           # html.H5("Card title", className="card-title"),
                           html.P(
                                 dcc.Graph(
-                                  figure=g_general_email(get_cpe()[0]),
+                                  figure=g_general_email(campaign_email),
                                   config=dict(displayModeBar=False),
                    
                                   ),className="card-text",
@@ -76,7 +79,7 @@ row_top = [
                           dbc.Col(
                             dcc.Dropdown(
                                 id='cpe_dropdown',
-                                options=get_cpe()[1],
+                                options=option_email
                                 value='2021-04'
                             ), md=4),
                         ],justify="between",)
