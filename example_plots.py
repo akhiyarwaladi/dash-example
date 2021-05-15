@@ -110,7 +110,7 @@ usp = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/user_search_pr
 def plot_vp(vp, value):
 	# vp['view_product - product_name'] = pd.to_datetime(vp['view_product - product_name']).dt.strftime('%Y-%m')
 	
-	fig = px.line(vp, x='view_product - product_name', y=vp[str(value)], template='presentation')
+	fig = px.line(vp, x='view_product - product_name', y=vp[str(value)], template='ggplot2')
 	fig.update_traces(
 	#     texttemplate='%{text}', 
 	#     textposition='top center', 
@@ -149,7 +149,7 @@ def plot_vp(vp, value):
 	return fig
 
 def plot_sp(sp, value):
-	fig = px.line(sp, x='search_products - keyword', y=sp[str(value)], template='presentation')
+	fig = px.line(sp, x='search_products - keyword', y=sp[str(value)], template='ggplot2')
 	fig.update_traces(
 	#     texttemplate='%{text}', 
 	#     textposition='top center', 
@@ -189,7 +189,7 @@ def plot_sp(sp, value):
 	return fig
 
 def plot_uvp():
-	fig = px.line(uvp, x='view_product - uid', y=uvp.columns[1:7], template='presentation')
+	fig = px.line(uvp, x='view_product - uid', y=uvp.columns[1:7], template='ggplot2')
 	fig.update_traces(
 	#     texttemplate='%{text}', 
 	#     textposition='top center', 
@@ -229,7 +229,7 @@ def plot_uvp():
 	return fig, round(uvp.mean(axis=1).mean(),2)
 
 def plot_usp():
-	fig = px.line(usp, x='search_products - uid', y=usp.columns[1:7], template='presentation')
+	fig = px.line(usp, x='search_products - uid', y=usp.columns[1:7], template='ggplot2')
 	fig.update_traces(
 	#     texttemplate='%{text}', 
 	#     textposition='top center', 
@@ -387,7 +387,7 @@ def plot_general_push():
 
 def g_general_push():
 
-	fig = px.line(g_push, x='Campaign Sent Time', y='value', template='presentation', \
+	fig = px.line(g_push, x='Campaign Sent Time', y='value', template='ggplot2', \
 	              text='value_format', color='variable')
 	fig.update_traces(texttemplate='%{text}', 
 	    textposition='top center', 
@@ -428,7 +428,7 @@ def g_general_push():
 	return fig
 
 def g_general_email():
-	fig = px.line(g_email, x='Date', y='value', template='presentation', \
+	fig = px.line(g_email, x='Date', y='value', template='ggplot2', \
 	              text='value_format', color='variable')
 	fig.update_traces(texttemplate='%{text}', 
 	    textposition='top center', 
@@ -492,7 +492,7 @@ def click_general_push():
 	            bordercolor="Black",
 	            borderwidth=1
 	        )
-	fig.update_layout(font={'size': 16}, width=1000,template='presentation',
+	fig.update_layout(font={'size': 16}, width=1000,template='ggplot2',
 	                plot_bgcolor = '#FFFFFF', legend = legend_dict,
 	                xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
 	                       'showgrid': True, 'automargin': True, 'title':''},
@@ -526,7 +526,7 @@ def conversion_general_push():
 	            borderwidth=1
 	        )
 
-	fig.update_layout(font={'size': 16}, width=1000,template='presentation',
+	fig.update_layout(font={'size': 16}, width=1000,template='ggplot2',
 	            plot_bgcolor = '#FFFFFF', legend = legend_dict,
 	            xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
 	                   'showgrid': True, 'automargin': True, 'title':''},
@@ -552,7 +552,7 @@ def g_general_inapp():
 	g_inapp['value_format'] = g_inapp['value'].astype('float')\
 								.apply(transform_to_format)
 
-	fig = px.line(g_inapp, x='Created At', y='value', template='presentation', \
+	fig = px.line(g_inapp, x='Created At', y='value', template='ggplot2', \
 	              text='value_format', color='variable')
 	fig.update_traces(texttemplate='%{text}', 
 	    textposition='top center', 
@@ -617,7 +617,7 @@ def click_general_inapp():
 	            borderwidth=1
 	        )
 
-	fig.update_layout(font={'size': 16}, width=1000,template='presentation',
+	fig.update_layout(font={'size': 16}, width=1000,template='ggplot2',
 	                plot_bgcolor = '#FFFFFF', legend=legend_dict,
 	                xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
 	                       'showgrid': True, 'automargin': True, 'title':''},
@@ -653,7 +653,7 @@ def conversion_general_inapp():
 	            borderwidth=1
 	        )
 
-	fig.update_layout(font={'size': 16}, width=1000,template='presentation',
+	fig.update_layout(font={'size': 16}, width=1000,template='ggplot2',
 	                plot_bgcolor = '#FFFFFF', legend=legend_dict,
 	                xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
 	                       'showgrid': True, 'automargin': True, 'title':''},
@@ -732,7 +732,7 @@ def multi_plot(df, addAll = True):
                 color="black"
             ),
             )
-        ], template='presentation', legend=legend)
+        ], template='ggplot2', legend=legend)
     
     return fig
 
@@ -751,7 +751,7 @@ def plot_sales_all(sales_plot, value):
 							.reset_index()
 		sales_plot['index'] = sales_plot['index'].dt.strftime('%Y-%m')
 		
-	fig = px.line(sales_plot, x='index', y='tbtop_amount_final', template='presentation', \
+	fig = px.line(sales_plot, x='index', y='tbtop_amount_final', template='ggplot2', \
 	              color='type')
 	fig.update_traces(
 	#     texttemplate='%{text}', 
@@ -838,7 +838,7 @@ def plot_table_sales(sales_plot_table, value):
 
 def plot_store_type_sales():
 	
-	fig = px.line(store_type_sales, x='tbto_create_date', y='sales_amount', template='presentation', \
+	fig = px.line(store_type_sales, x='tbto_create_date', y='sales_amount', template='ggplot2', \
 	              text='sales_amount_rp', color='store_type')
 	fig.update_traces(texttemplate='%{text}', 
 	    textposition='top center', 
@@ -880,7 +880,7 @@ def plot_store_type_sales():
 
 
 def plot_application_type_sales():
-	fig = px.line(application_type_sales, x='tbto_create_date', y='sales_amount', template='presentation', \
+	fig = px.line(application_type_sales, x='tbto_create_date', y='sales_amount', template='ggplot2', \
 	              text='sales_amount_rp', color='store_type')
 	fig.update_traces(texttemplate='%{text}', 
 	    textposition='top center', 
@@ -917,7 +917,7 @@ def plot_application_type_sales():
 	return fig
 
 def plot_order_status():
-	fig = px.line(order_status, x='tbto_create_date', y='final_stat_count', template='presentation', \
+	fig = px.line(order_status, x='tbto_create_date', y='final_stat_count', template='ggplot2', \
 	              text='final_stat_count_str', color='final_stat')
 	fig.update_traces(texttemplate='%{text}', 
 	    textposition='top center', 
@@ -960,7 +960,7 @@ def plot_order_status():
 def plot_sapa_notsapa():
 	
 	sapa_notsapa['sapa_enable'] = sapa_notsapa['sapa_enable'].replace({'not_sapa':'non_sapa'})
-	fig = px.line(sapa_notsapa, x='tbto_create_date', y='net_amount', template='presentation', \
+	fig = px.line(sapa_notsapa, x='tbto_create_date', y='net_amount', template='ggplot2', \
 	              text='tbto_amount_final_rp', color='sapa_enable')
 	fig.update_traces(texttemplate='%{text}', 
 		textposition='top center', 
@@ -1040,7 +1040,7 @@ def plot_new_regular(new_regular, start_date, end_date):
 
 def plot_plus_minus():
 
-	fig = px.line(plus_minus, x='date', y='count_member', template='presentation', \
+	fig = px.line(plus_minus, x='date', y='count_member', template='ggplot2', \
 	                color='diff_sign', text='count_member_format')
 
 	fig.update_traces(texttemplate='%{text}', 
@@ -1082,7 +1082,7 @@ def plot_plus_minus():
 
 def plot_oos_status():
 
-	fig = px.line(oos_status, x='month', y='value', template='presentation', \
+	fig = px.line(oos_status, x='month', y='value', template='ggplot2', \
 	              text='value', color='variable')
 	fig.update_traces(texttemplate='%{text:.2d}', 
 		textposition='top center', 
@@ -1121,7 +1121,7 @@ def plot_oos_status():
 def plot_oos_count():
 
 
-	fig = px.line(oos_count, x='month', y='value', template='presentation', \
+	fig = px.line(oos_count, x='month', y='value', template='ggplot2', \
 	              text='value_str', color='variable')
 	fig.update_traces(texttemplate='%{text}', 
 		textposition='top center', 
@@ -1157,7 +1157,7 @@ def plot_oos_count():
 	return fig
 
 def plot_oos_consecutive_order():
-	fig = px.line(oos_consecutive_order, x='month', y='value', template='presentation', \
+	fig = px.line(oos_consecutive_order, x='month', y='value', template='ggplot2', \
 	              text='value', color='variable')
 	fig.update_traces(texttemplate='%{text:.2f}', 
 		textposition='top center', 
@@ -1195,7 +1195,7 @@ def plot_oos_consecutive_order():
 
 def plot_oos_time_spend():
 	
-	fig = px.line(oos_time_spend, x='month', y='value', template='presentation', \
+	fig = px.line(oos_time_spend, x='month', y='value', template='ggplot2', \
 	              text='value', color='variable')
 	fig.update_traces(texttemplate='%{text}', 
 		textposition='top center', 
@@ -1287,7 +1287,7 @@ def plot_voucher_refund_status():
 	    tracegroupgap=0
 	)
 	fig.update_layout(
-	    template="presentation",
+	    template="ggplot2",
 	    xaxis=dict(
 	        title_text="Week",title='',
 	        dtick="M1",

@@ -21,7 +21,7 @@ def g_general_push(campaign_push):
     g_push = pd.melt(g_push, ['Campaign Sent Time'])
 
     g_push['value_format'] = g_push['value'].astype('float').apply(transform_to_format)
-    fig = px.line(g_push, x='Campaign Sent Time', y='value', template='presentation', \
+    fig = px.line(g_push, x='Campaign Sent Time', y='value', template='ggplot2', \
                   text='value_format', color='variable')
     fig.update_traces(texttemplate='%{text}', 
         textposition='top center', 
@@ -73,12 +73,12 @@ def w_general_push(campaign_push, value):
     fig.update_traces(
         hovertemplate='%{x}')
 
-    fig.update_layout(font={'size': 16}, width=1000,template='presentation',
+    fig.update_layout(font={'size': 16}, width=1000,template='ggplot2',
                     plot_bgcolor = '#FFFFFF',height=700,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
-                           'showgrid': True, 'automargin': True, 'title':'Campaign'},
+                           'showgrid': True, 'automargin': True, 'title':'#Unique event'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
-                           'showgrid': True,  'automargin': True, 'title':'#Event'},
+                           'showgrid': True,  'automargin': True, 'title':'Campaign Name'},
                     bargap=0.7, title="Campaign push notif performance {}".format(value), title_x=0.5)
 
     
@@ -93,7 +93,7 @@ def g_general_inapp(campaign_inapp):
     g_inapp = pd.melt(g_inapp, ['Date'])
 
     g_inapp['value_format'] = g_inapp['value'].astype('float').apply(transform_to_format)
-    fig = px.line(g_inapp, x='Date', y='value', template='presentation', \
+    fig = px.line(g_inapp, x='Date', y='value', template='ggplot2', \
                   text='value_format', color='variable')
     fig.update_traces(texttemplate='%{text}', 
         textposition='top center', 
@@ -144,12 +144,12 @@ def w_general_inapp(campaign_inapp, value):
                 orientation='h', title="Wide-Form Input")
     fig.update_traces(
         hovertemplate='%{x}')
-    fig.update_layout(font={'size': 16}, width=1000,template='presentation',
+    fig.update_layout(font={'size': 16}, width=1000,template='ggplot2',
                     plot_bgcolor = '#FFFFFF',height=700,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
-                           'showgrid': True, 'automargin': True, 'title':'Campaign'},
+                           'showgrid': True, 'automargin': True, 'title':'#Unique event'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
-                           'showgrid': True,  'automargin': True, 'title':'#Event'},
+                           'showgrid': True,  'automargin': True, 'title':'Campaign Name'},
                     bargap=0.3, title="Campaign inapp performance {}".format(value), title_x=0.5)
 
     
@@ -164,7 +164,7 @@ def g_general_email(campaign_email):
     g_email = pd.melt(g_email, ['Date'])
 
     g_email['value_format'] = g_email['value'].astype('float').apply(transform_to_format)
-    fig = px.line(g_email, x='Date', y='value', template='presentation', \
+    fig = px.line(g_email, x='Date', y='value', template='ggplot2', \
                   text='value_format', color='variable')
     fig.update_traces(texttemplate='%{text}', 
         textposition='top center', 
@@ -215,12 +215,12 @@ def w_general_email(campaign_email, value):
                 orientation='h', title="Wide-Form Input")
     fig.update_traces(
         hovertemplate='%{x}')
-    fig.update_layout(font={'size': 16}, width=1000,template='presentation',
+    fig.update_layout(font={'size': 16}, width=1000,template='ggplot2',
                     plot_bgcolor = '#FFFFFF',height=700,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
-                           'showgrid': True, 'automargin': True, 'title':'Campaign'},
+                           'showgrid': True, 'automargin': True, 'title':'#Unique event'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
-                           'showgrid': True,  'automargin': True, 'title':'#Event'},
+                           'showgrid': True,  'automargin': True, 'title':'Campaign Name'},
                     bargap=0.3, title="Campaign email performance {}".format(value), title_x=0.5)
 
     
