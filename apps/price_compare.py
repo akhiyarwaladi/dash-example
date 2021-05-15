@@ -34,35 +34,30 @@ tab_price_compare = dac.TabItem(id='content_price_compare',
             
           ])
         ]),
-        html.Div([
-            dbc.Row([
-              dbc.Col(
-                dbc.Card(
-                  [
-                      dbc.CardHeader("Detail jan21-feb21"),
-                      dbc.CardBody(
-                          [
-                              # html.H5("Card title", className="card-title"),
-                              html.P(
-                                    fig_,className="card-text",
-                              ),
-                          ]),
-                  ])),
-              dbc.Col(
-                dbc.Card(
-                  [
-                      dbc.CardHeader("Detail dec20-jan21"),
-                      dbc.CardBody(
-                          [
-                              # html.H5("Card title", className="card-title"),
-                              html.P(
-                                    fig_3101,className="card-text",
-                              ),
-                          ]),
-                  ])),
-
-
-            ],className="md-12")
-        ], className='column')
-    ]
-)
+        dbc.Row([
+          dbc.Col(
+            dbc.Card([
+              dbc.CardHeader("Detail jan21-feb21"),
+              dbc.CardBody([
+                  # html.H5("Card title", className="card-title"),
+                  html.P(
+                        fig_,className="card-text",
+                  ),
+              ]),
+            ])
+          ),
+        ]),
+        dbc.Row([
+          dbc.Col(
+            dbc.Card([
+              dbc.CardHeader("Detail dec20-jan21"),
+              dbc.CardBody([
+                  # html.H5("Card title", className="card-title"),
+                  html.P(
+                        fig_3101,className="card-text",
+                  ),
+              ]),
+            ])
+          ),
+        ])
+])
