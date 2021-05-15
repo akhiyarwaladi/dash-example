@@ -52,7 +52,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                             ]),
 
 
-                        ], color="light", style={'font-size': '100%', 'font-family': 'Proxima Nova Bold'})),
+                        ], color="light", style={'font': {'size': 20, 'family': 'Courier'}})),
                     dbc.Col(
                         dbc.Card([
                             dbc.CardHeader(
