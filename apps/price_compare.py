@@ -22,7 +22,7 @@ tab_price_compare = dac.TabItem(id='content_price_compare',
                 value = unique_item_ag,
                 icon = "bookmark"
               ),
-            md=6),
+            ),
             dbc.Col(
               dac.InfoBox(
                 title = "Get voucher but not success delivered",
@@ -30,10 +30,10 @@ tab_price_compare = dac.TabItem(id='content_price_compare',
                 value = change_to_online,
                 icon = "bookmark"
               ),
-            md=6),
+            ),
             
           ])
-        ], className='row'),
+        ]),
         html.Div([
             dbc.Row([
               dbc.Col(
