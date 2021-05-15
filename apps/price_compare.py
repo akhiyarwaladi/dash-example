@@ -29,8 +29,8 @@ tab_price_compare = dac.TabItem(id='content_price_compare',
                 gradient_color = "danger",
                 value = change_to_online,
                 icon = "bookmark"
-              )
-            md=6)
+              ),
+            md=6),
             
           ])
         ], className='row'),
