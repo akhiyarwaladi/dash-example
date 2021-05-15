@@ -86,7 +86,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                                       ),className="card-text",
                                 ),
                             ]),
-                        ], color="light")),
+                        ], color="primary")),
 
                     ],className="mb-12")
                 ], className='column'
