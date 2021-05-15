@@ -21,16 +21,16 @@ tab_price_compare = dac.TabItem(id='content_price_compare',
                 color = "success",
                 value = unique_item_ag,
                 icon = "bookmark"
-              ),
-            ),
+              )
+            , width=6),
             dbc.Col(
               dac.InfoBox(
                 title = "Get voucher but not success delivered",
                 gradient_color = "danger",
                 value = change_to_online,
                 icon = "bookmark"
-              ),
-            ),
+              )
+            , width=6),
             
           ])
         ]),
