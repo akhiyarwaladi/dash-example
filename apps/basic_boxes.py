@@ -52,7 +52,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                             ]),
 
 
-                        ])),
+                        ], color="light")),
                     dbc.Col(
                         dbc.Card([
                             dbc.CardHeader(
@@ -86,7 +86,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                                       ),className="card-text",
                                 ),
                             ]),
-                        ])),
+                        ], color="light")),
 
                     ],className="mb-12")
                 ], className='column'
