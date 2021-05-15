@@ -23,7 +23,7 @@ tab_price_compare = dac.TabItem(id='content_price_compare',
                 icon = "bookmark",
                 width = 12
               )
-            , width=6),
+            , md=6),
             dbc.Col(
               dac.InfoBox(
                 title = "Get voucher but not success delivered",
@@ -32,7 +32,7 @@ tab_price_compare = dac.TabItem(id='content_price_compare',
                 icon = "bookmark",
                 width = 12
               )
-            , width=6),
+            , md=6),
             
           ])
         ]),
