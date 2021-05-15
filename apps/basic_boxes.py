@@ -54,10 +54,8 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                                 dbc.Row([
                                     dbc.Col(html.H5("Increase and Decrease Sales Member"), width=4),
                                     dbc.Col(
-                                        html.Div([
-                                            html.Div(["date range: ",
                                             dcc.DatePickerRange(
-                                                id='increase_decrease_picker',
+                                                id='increase_decrease_date',
                                                 min_date_allowed=dt(2020, 1, 1),
                                                 max_date_allowed=dt(2021, 12, 1),
                                                 start_date_placeholder_text="Start Date",
@@ -65,9 +63,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                                                 display_format='DD-MM-Y',
                                                 start_date=start_picker,
                                                 end_date=end_picker
-                                            )],
-                                        style={'width': '100%', 'display': 'inline-block'}), 
-                                        ])
+                                            )
                                     , width=4),   
                                 ], justify="between",),
                             ),
