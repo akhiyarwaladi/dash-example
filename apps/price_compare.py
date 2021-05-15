@@ -20,7 +20,8 @@ tab_price_compare = dac.TabItem(id='content_price_compare',
                 title = "Success delivered but submit refund",
                 color = "success",
                 value = unique_item_ag,
-                icon = "bookmark"
+                icon = "bookmark",
+                width = 6
               )
             , width=6),
             dbc.Col(
@@ -28,7 +29,8 @@ tab_price_compare = dac.TabItem(id='content_price_compare',
                 title = "Get voucher but not success delivered",
                 gradient_color = "danger",
                 value = change_to_online,
-                icon = "bookmark"
+                icon = "bookmark",
+                width = 6
               )
             , width=6),
             
