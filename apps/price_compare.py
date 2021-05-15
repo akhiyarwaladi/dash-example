@@ -12,20 +12,19 @@ fig_3101, unique_item_ag_3101, change_to_online_3101 = plot_df_m_3101()
 tab_price_compare = dac.TabItem(id='content_price_compare', 
                               
     children=[
-        html.H4('Online-offline switching behavior'),
         html.Div([
-            dac.ValueBox(
-            	value = unique_item_ag,
-              subtitle ='User always buy different item on online (alfagift) transaction',
-              color = "info",
-              icon = "database"
+            dac.InfoBox(
+              title = "Success delivered but submit refund",
+              color = "success",
+              value = unique_item_ag,
+              icon = "bookmark"
             ),
-            dac.ValueBox(
+            dac.InfoBox(
+              title = "Get voucher but not success delivered",
+              gradient_color = "danger",
               value = change_to_online,
-              subtitle = 'User change their item buy from offline to online (alfagift)',
-              color = "info",
-              icon = "database"
-            ),
+              icon = "bookmark"
+            )
         ], className='row'),
         html.Div([
             dbc.Row([
