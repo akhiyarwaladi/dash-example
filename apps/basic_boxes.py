@@ -21,8 +21,6 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                                 dbc.Row([
                                     dbc.Col(html.H5("Existing vs New Member Sales"), width=4),
                                     dbc.Col(
-                                        html.Div([
-                                            html.Div(["date range: ",
                                             dcc.DatePickerRange(
                                                 id='exist_new_picker',
                                                 min_date_allowed=dt(2020, 1, 1),
@@ -32,10 +30,7 @@ basic_boxes_tab = dac.TabItem(id='content_basic_boxes',
                                                 display_format='DD-MM-Y',
                                                 start_date=start_picker,
                                                 end_date=end_picker
-                                            )],
-                                        style={'width': '100%', 'display': 'inline-block'}), 
-                                        html.Div(id='output-container-date-picker-range')
-                                        ])
+                                            )
                                     , width=4),   
                                 ], justify="between",),
                             ),
