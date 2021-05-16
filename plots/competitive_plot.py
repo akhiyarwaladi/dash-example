@@ -1,7 +1,7 @@
 import pandas as pd
 import dash_table
 
-from competitive_load import get_product_competitive
+from loader.competitive_load import get_product_competitive
 competitive_table = get_product_competitive()
 
 
