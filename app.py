@@ -151,7 +151,7 @@ sub_event = [
 sub_monitor = [
             dac.SidebarMenuSubItem(id='tab_general_monitor', label='General monitor', icon='desktop'),
             dac.SidebarMenuSubItem(id='tab_basic_boxes', label='Member growth', icon='desktop'),
-            dac.SidebarMenuSubItem(id='tab_price_compare', label='Price Competitor', icon='desktop'),
+            dac.SidebarMenuSubItem(id='tab_price_compare', label='Price competitor', icon='desktop'),
             dac.SidebarMenuSubItem(id='tab_oos_boxes', label='Out of stock', icon='desktop')
 ]
 
