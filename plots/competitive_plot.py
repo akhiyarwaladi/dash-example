@@ -2,8 +2,11 @@ import pandas as pd
 import dash_table
 
 from loader.competitive_load import get_product_competitive
-competitive_table = get_product_competitive()
 
+product_competitive = get_product_competitive()
+competitive_table = product_competitive[0]
+lower_price = product_competitive[1]
+higher_price = product_competitive[2]
 
 def plot_product_competitive():
 	df_init = pd.DataFrame()
@@ -25,4 +28,4 @@ def plot_product_competitive():
 		    'overflow': 'hidden',
 		    'textOverflow': 'ellipsis',
 		}
-	)
+	), lower_price, higher_price
