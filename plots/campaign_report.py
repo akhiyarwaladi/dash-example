@@ -69,17 +69,17 @@ def w_general_push(campaign_push, value):
 
     # g_push_wide_s['Campaign Name'] = pd.Series(split_label(g_push_wide_s['Campaign Name'].str[10:]))
     fig = px.bar(g_push_wide_s, y="Campaign Name", x=["Targets", "Impressions", "Clicks", "Conversions"], \
-                    orientation='h', title="Wide-Form Input")
+                    orientation='h', title="Wide-Form Input", text=["Targets", "Impressions", "Clicks", "Conversions"])
     fig.update_traces(
         hovertemplate='%{x}')
 
     fig.update_layout(font={'size': 16}, width=1000,template='ggplot2',
-                    plot_bgcolor = '#FFFFFF',height=700,
+                    plot_bgcolor = '#FFFFFF',height=1000,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'automargin': True, 'title':'#Unique event'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True,  'automargin': True, 'title':'Campaign Name'},
-                    bargap=0.7, title="Campaign push notif performance {}".format(value), title_x=0.5)
+                    bargap=0.2, title="Campaign push notif performance {}".format(value), title_x=0.5)
 
     
     return fig
@@ -145,12 +145,12 @@ def w_general_inapp(campaign_inapp, value):
     fig.update_traces(
         hovertemplate='%{x}')
     fig.update_layout(font={'size': 16}, width=1000,template='ggplot2',
-                    plot_bgcolor = '#FFFFFF',height=700,
+                    plot_bgcolor = '#FFFFFF',height=1000,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'automargin': True, 'title':'#Unique event'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True,  'automargin': True, 'title':'Campaign Name'},
-                    bargap=0.3, title="Campaign inapp performance {}".format(value), title_x=0.5)
+                    bargap=0.2, title="Campaign inapp performance {}".format(value), title_x=0.5)
 
     
     return fig
@@ -216,12 +216,12 @@ def w_general_email(campaign_email, value):
     fig.update_traces(
         hovertemplate='%{x}')
     fig.update_layout(font={'size': 16}, width=1000,template='ggplot2',
-                    plot_bgcolor = '#FFFFFF',height=700,
+                    plot_bgcolor = '#FFFFFF',height=1000,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'automargin': True, 'title':'#Unique event'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True,  'automargin': True, 'title':'Campaign Name'},
-                    bargap=0.3, title="Campaign email performance {}".format(value), title_x=0.5)
+                    bargap=0.2, title="Campaign email performance {}".format(value), title_x=0.5)
 
     
     return fig
