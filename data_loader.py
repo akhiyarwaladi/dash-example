@@ -20,7 +20,9 @@ def get_cpn():
     campaign_push = pd.read_csv(os.path.join(parent_path, \
                     'out_plot/campaign_push.csv'), sep='\t')
     campaign_push['Campaign Sent Time'] = pd.to_datetime(campaign_push['Campaign Sent Time'])
- 
+
+    campaign_push = campaign_push[(campaign_push['Targets'] > 0) \
+                            & (campaign_push['Impressions'] > 0)].reset_index(drop=True)
     label = [{'label': x, 'value': x} for x in campaign_push['Campaign Sent Time']\
              .dropna().dt.strftime('%Y-%m').unique()]
 
@@ -30,6 +32,9 @@ def get_cpe():
     campaign_push = pd.read_csv(os.path.join(parent_path, \
                     'out_plot/campaign_email.csv'), sep='\t')
     campaign_push['Date'] = pd.to_datetime(campaign_push['Date'])
+
+    campaign_push = campaign_push[(campaign_push['Targets'] > 0) \
+                            & (campaign_push['Impressions'] > 0)].reset_index(drop=True)
  
     label = [{'label': x, 'value': x} for x in campaign_push['Date']\
              .dropna().dt.strftime('%Y-%m').unique()]
@@ -40,6 +45,9 @@ def get_cpi():
     campaign_push = pd.read_csv(os.path.join(parent_path, \
                     'out_plot/campaign_inapp.csv'), sep='\t')
     campaign_push['Date'] = pd.to_datetime(campaign_push['Date'])
+
+    campaign_push = campaign_push[(campaign_push['Clicks'] > 0) \
+                            & (campaign_push['Impressions'] > 0)].reset_index(drop=True)
  
     label = [{'label': x, 'value': x} for x in campaign_push['Date']\
              .dropna().dt.strftime('%Y-%m').unique()]
