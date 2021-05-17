@@ -69,7 +69,7 @@ def w_general_push(campaign_push, value):
 
     # g_push_wide_s['Campaign Name'] = pd.Series(split_label(g_push_wide_s['Campaign Name'].str[10:]))
     fig = px.bar(g_push_wide_s, y="Campaign Name", x=["Targets", "Impressions", "Clicks", "Conversions"], \
-                    orientation='h', title="Wide-Form Input", text=["Targets", "Impressions", "Clicks", "Conversions"])
+                    orientation='h', title="Wide-Form Input")
     fig.update_traces(
         hovertemplate='%{x}')
 
