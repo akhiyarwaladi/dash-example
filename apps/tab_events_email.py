@@ -8,6 +8,9 @@ from example_plots import (plot_general_inapp, conversion_general_inapp,
 from plots.campaign_report import g_general_email, w_general_email
 from data_loader import get_cpe
 
+from datetime import datetime
+now_str = datetime.now().date().strftime('%Y-%m')
+
 general_inapp = plot_general_inapp()
 f_email = get_cpe()
 campaign_email = f_email[0]
@@ -80,7 +83,7 @@ row_top = [
                             dcc.Dropdown(
                                 id='cpe_dropdown',
                                 options=option_email,
-                                value='2021-04'
+                                value=now_str
                             ), md=4),
                         ],justify="between",)
                       ]

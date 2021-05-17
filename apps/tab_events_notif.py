@@ -9,6 +9,9 @@ general_push = plot_general_push()
 
 from data_loader import get_cpn
 
+from datetime import datetime
+now_str = datetime.now().date().strftime('%Y-%m')
+
 f_push = get_cpn()
 campaign_push = f_push[0]
 option_push = f_push[1]
@@ -86,7 +89,7 @@ row_top = [
                             dcc.Dropdown(
                                 id='cpn_dropdown',
                                 options=option_push,
-                                value='2021-04'
+                                value=now_str
                             ), md=4),
                         ],justify="between",)
                       ]

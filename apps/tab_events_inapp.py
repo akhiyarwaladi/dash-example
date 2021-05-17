@@ -8,6 +8,9 @@ from example_plots import (plot_general_inapp, conversion_general_inapp,
 from plots.campaign_report import g_general_inapp, w_general_inapp
 from data_loader import get_cpi
 
+from datetime import datetime
+now_str = datetime.now().date().strftime('%Y-%m')
+
 general_inapp = plot_general_inapp()
 f_inapp = get_cpi()
 campaign_inapp = f_inapp[0]
@@ -79,7 +82,7 @@ row_top = [
                             dcc.Dropdown(
                                 id='cpi_dropdown',
                                 options=option_inapp,
-                                value='2021-04'
+                                value=now_str
                             ), md=4),
                         ], justify='between')
                       ]
