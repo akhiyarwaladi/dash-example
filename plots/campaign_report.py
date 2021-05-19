@@ -63,16 +63,23 @@ def g_general_push(campaign_push):
 
 def w_general_push(campaign_push, value):
     g_push_wide = campaign_push.groupby([pd.Grouper(key='Campaign Sent Time',freq='M'), 'Campaign Name'])\
-           .agg({'Targets':'sum', 'Impressions':'sum', 'Clicks':'sum', 'Conversions':'sum'}).reset_index()
+           .agg({'Targets':'sum', 'Impressions':'sum', 'Clicks':'sum', 'Conversions_percent':'sum'}).reset_index()
+#     g_push_wide = campaign_push[['Campaign Sent Time', 'Campaign Name', 'Targets', 'Impressions', 'Clicks', 'Conversions_percent']]
     g_push_wide['Campaign Sent Time'] = g_push_wide['Campaign Sent Time'].dt.strftime('%Y-%m')
-    g_push_wide_s = g_push_wide[g_push_wide['Campaign Sent Time'] == value]
+    g_push_wide = g_push_wide[g_push_wide['Campaign Sent Time'] == value]
 
-    # g_push_wide_s['Campaign Name'] = pd.Series(split_label(g_push_wide_s['Campaign Name'].str[10:]))
-    fig = px.bar(g_push_wide_s, y="Campaign Name", x=["Targets", "Impressions", "Clicks", "Conversions"], \
-                    orientation='h', title="Wide-Form Input")
+    g_push_wide = pd.melt(g_push_wide, id_vars=['Campaign Name'], value_vars=list(g_push_wide.columns[2:]))
+    fig = px.bar(g_push_wide, y="Campaign Name", x='value', color='variable', text='value', \
+                orientation='h', title="Wide-Form Input")
+#     fig = px.bar(g_push_wide_s, y="Campaign Name", x=["Targets", "Impressions", "Clicks", "Conversions"], \
+#                     orientation='h', title="Wide-Form Input")
     fig.update_traces(
         hovertemplate='%{x}')
-
+    for ix, trace in enumerate(fig.data):
+        if ix == (len(fig.data) - 1):
+            trace.update(textposition='outside')
+        else:
+            trace.update(text='')
     fig.update_layout(font={'size': 16}, width=1000,template='ggplot2',
                     plot_bgcolor = '#FFFFFF',height=1000,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
@@ -135,15 +142,23 @@ def g_general_inapp(campaign_inapp):
 
 def w_general_inapp(campaign_inapp, value):
     g_inapp_wide = campaign_inapp.groupby([pd.Grouper(key='Date',freq='M'), 'Campaign Name'])\
-           .agg({'Impressions':'sum', 'Clicks':'sum', 'Conversions':'sum'}).reset_index()
+           .agg({'Impressions':'sum', 'Clicks':'sum', 'Conversions_percent':'sum'}).reset_index()
+#     g_inapp_wide = campaign_inapp[['Date', 'Campaign Name',  'Impressions', 'Clicks', 'Conversions_percent']]
     g_inapp_wide['Date'] = g_inapp_wide['Date'].dt.strftime('%Y-%m')
     g_inapp_wide = g_inapp_wide[g_inapp_wide['Date'] == value]
 
-    # g_push_wide_s['Campaign Name'] = pd.Series(split_label(g_push_wide_s['Campaign Name'].str[10:]))
-    fig = px.bar(g_inapp_wide, y="Campaign Name", x=["Impressions", "Clicks", "Conversions"], \
+    g_inapp_wide = pd.melt(g_inapp_wide, id_vars=['Campaign Name'], value_vars=list(g_inapp_wide.columns[2:]))
+    fig = px.bar(g_inapp_wide, y="Campaign Name", x='value', color='variable', text='value', \
                 orientation='h', title="Wide-Form Input")
+#     fig = px.bar(g_inapp_wide, y="Campaign Name", x=["Impressions", "Clicks", "Conversions"], \
+#                 orientation='h', title="Wide-Form Input")
     fig.update_traces(
         hovertemplate='%{x}')
+    for ix, trace in enumerate(fig.data):
+        if ix == (len(fig.data) - 1):
+            trace.update(textposition='outside')
+        else:
+            trace.update(text='')
     fig.update_layout(font={'size': 16}, width=1000,template='ggplot2',
                     plot_bgcolor = '#FFFFFF',height=1000,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
@@ -206,15 +221,21 @@ def g_general_email(campaign_email):
 
 def w_general_email(campaign_email, value):
     g_email_wide = campaign_email.groupby([pd.Grouper(key='Date',freq='M'), 'Campaign Name'])\
-           .agg({'Targets':'sum', 'Impressions':'sum', 'Clicks':'sum', 'Conversions':'sum'}).reset_index()
+           .agg({'Targets':'sum', 'Impressions':'sum', 'Clicks':'sum', 'Conversions_percent':'sum'}).reset_index()
+#     g_email_wide = campaign_email[['Date', 'Campaign Name', 'Targets', 'Impressions', 'Clicks', 'Conversions_percent']]
     g_email_wide['Date'] = g_email_wide['Date'].dt.strftime('%Y-%m')
     g_email_wide = g_email_wide[g_email_wide['Date'] == value]
-
+    g_email_wide = pd.melt(g_email_wide, id_vars=['Campaign Name'], value_vars=list(g_email_wide.columns[2:]))
     # g_push_wide_s['Campaign Name'] = pd.Series(split_label(g_push_wide_s['Campaign Name'].str[10:]))
-    fig = px.bar(g_email_wide, y="Campaign Name", x=["Targets", "Impressions", "Clicks"], \
+    fig = px.bar(g_email_wide, y="Campaign Name", x='value', color='variable', text='value', \
                 orientation='h', title="Wide-Form Input")
     fig.update_traces(
         hovertemplate='%{x}')
+    for ix, trace in enumerate(fig.data):
+        if ix == (len(fig.data) - 1):
+            trace.update(textposition='outside')
+        else:
+            trace.update(text='')
     fig.update_layout(font={'size': 16}, width=1000,template='ggplot2',
                     plot_bgcolor = '#FFFFFF',height=1000,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
