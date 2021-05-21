@@ -43,9 +43,9 @@ children=[
                             gradient_color = "danger",
                             value = higher_price,
                             icon = "bookmark",
-                            width = 4
+                            width = 12
                           )
-                        , width = 12),
+                        , width = 4),
                       ])
                     )
                   ]
