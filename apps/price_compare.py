@@ -25,7 +25,7 @@ children=[
               dbc.Col(
                 dbc.Card(
                   [
-                    dbc.CardHeader(html.P4("Product Competitive Price {}".format(now_str))),
+                    dbc.CardHeader(html.H4("Product Competitive Price {}".format(now_str))),
                     dbc.CardBody(
                       dbc.Row([
                         dbc.Col(
