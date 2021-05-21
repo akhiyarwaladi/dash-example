@@ -95,7 +95,8 @@ def plot_product_competitive():
 	    ],
 	    style_header={
 	        'backgroundColor': 'rgb(230, 230, 230)',
-	        'fontWeight': 'bold', 'fontSize':17, 'font-family':'sans-serif'
+	        'fontWeight': 'bold', 'fontSize':17, 'font-family':'sans-serif',
+	        'textOverflow': 'inherit'
 	    },
 
 		tooltip_data=[
