@@ -48,7 +48,7 @@ def plot_product_competitive():
 	    [
 			{
 			    'if': {'column_id': d},
-			    'testAling': 'center'
+			    'textAlign': 'center'
 			} for d in ['our_price','comp_price']
 		]
 		,
@@ -67,7 +67,7 @@ def plot_product_competitive():
 		    {
 		        column: {'value': str(value), 'type': 'markdown'}
 		        for column, value in row.items()
-		    } for row in df_init.to_dict('records')
+		    } for row in competitive_table.to_dict('records')
 		],
 		tooltip_duration=None
 	), lower_price, higher_price
