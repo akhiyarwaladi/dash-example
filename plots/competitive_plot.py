@@ -62,13 +62,12 @@ def plot_product_competitive():
 	    style_data_conditional=[
 	        {
 	            'if': {'row_index': 'odd'},
-	            'backgroundColor': 'rgb(248, 248, 248)',
-	            'fontSize':20, 'font-family':'sans-serif'
+	            'backgroundColor': 'rgb(248, 248, 248)'
 	        }
 	    ],
 	    style_header={
 	        'backgroundColor': 'rgb(230, 230, 230)',
-	        'fontWeight': 'bold'
+	        'fontWeight': 'bold', 'fontSize':30, 'font-family':'sans-serif'
 	    },
 
 		tooltip_data=[
