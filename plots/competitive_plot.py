@@ -55,7 +55,7 @@ def plot_product_competitive():
 		[
 	        {
 				'if': {'column_id': 'plu'},
-				'width': '50px'
+				'width': '80px'
             }
 		],
 	    style_data_conditional=[
