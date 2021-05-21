@@ -57,6 +57,11 @@ def plot_product_competitive():
 				'if': {'column_id': 'plu'},
 				'width': '80px',
 				'fontSize':13
+            },
+	        {
+				'if': {'column_id': 'price_vs'},
+				'width': '80px',
+				'fontSize':13
             }
 		],
 	    style_data_conditional=[
