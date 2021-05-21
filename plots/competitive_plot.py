@@ -25,7 +25,7 @@ def plot_product_competitive():
 		fixed_rows={'headers': True},
 		style_table={'overflowY': 'scroll', 'overflowX': 'scroll'},
 		style_data={
-		    'minWidth': '50px', 'maxWidth': '150px',
+		    'minWidth': '50px', 'maxWidth': '120px',
 		    'overflow': 'hidden',
 		    'textOverflow': 'ellipsis',
 		},
@@ -62,6 +62,10 @@ def plot_product_competitive():
 				'if': {'column_id': 'price_vs'},
 				'width': '80px',
 				'fontSize':13
+            },
+	        {
+				'if': {'column_id': 'product_name_comp'},
+				'width': '170px'
             }
 		],
 	    style_data_conditional=[
