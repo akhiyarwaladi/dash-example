@@ -19,52 +19,52 @@ higher_price = product_competitive[2]
 
 tab_price_compare = dac.TabItem(id='content_price_compare', 
                               
-  children=[
-      html.Div([
-        dbc.Row([
-          dbc.Col(
-            dbc.Card(
-              [
-                dbc.CardHeader(html.P4("Product Competitive Price {}".format(now_str))),
-                dbc.CardBody(
-                  dbc.Row([
-                    dbc.Col(
+children=[
+  html.Div([
+            dbc.Row([
+              dbc.Col(
+                dbc.Card(
+                  [
+                    dbc.CardHeader(html.P4("Product Competitive Price {}".format(now_str))),
+                    dbc.CardBody(
+                      dbc.Row([
+                        dbc.Col(
 
-                      dac.InfoBox(
-                        title = "Lower than competitor",
-                        color = "success",
-                        value = lower_price,
-                        icon = "bookmark",
-                        width = 8
-                      )
-                    , md=4),
-                    dbc.Col(
-                      dac.InfoBox(
-                        title = "Higher than competitor",
-                        gradient_color = "danger",
-                        value = higher_price,
-                        icon = "bookmark",
-                        width = 8
-                      )
-                    , md=4),
-                  ])
-                )
-              ]
-            ),
-          )
-        ])
-      dbc.Row([
-        dbc.Col(
-          dbc.Card([
-            dbc.CardHeader(""),
-            dbc.CardBody([
-                # html.H5("Card title", className="card-title"),
-                html.P(
-                      table_product_competitive,className="card-text",
+                          dac.InfoBox(
+                            title = "Lower than competitor",
+                            color = "success",
+                            value = lower_price,
+                            icon = "bookmark",
+                            width = 8
+                          )
+                        , md=4),
+                        dbc.Col(
+                          dac.InfoBox(
+                            title = "Higher than competitor",
+                            gradient_color = "danger",
+                            value = higher_price,
+                            icon = "bookmark",
+                            width = 8
+                          )
+                        , md=4),
+                      ])
+                    )
+                  ]
                 ),
+              )
             ]),
-          ])
-        ),
-      ]),
+            dbc.Row([
+              dbc.Col(
+                dbc.Card([
+                  dbc.CardHeader(""),
+                  dbc.CardBody([
+                      # html.H5("Card title", className="card-title"),
+                      html.P(
+                            table_product_competitive,className="card-text",
+                      ),
+                  ]),
+                ])
+              ),
+            ]),
   ])
 ])
