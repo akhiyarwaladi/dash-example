@@ -29,8 +29,8 @@ card1 = dbc.CardGroup(
         dbc.Card(
             dbc.CardBody(
                 [
-                    html.H5("Card 1", className="card-title"),
-                    html.P("This card has some text content", className="card-text",),
+                    html.H5(lower_price, className="card-title"),
+                    html.P("lower than competitor", className="card-text",),
                 ]
             )
         ),
@@ -49,15 +49,15 @@ card2 = dbc.CardGroup(
         dbc.Card(
             dbc.CardBody(
                 [
-                    html.H5("Card 2", className="card-title"),
-                    html.P("This card has some text content", className="card-text",),
+                    html.H5(higher_price, className="card-title"),
+                    html.P("higher than competitor", className="card-text",),
                 ]
             )
         ),
         dbc.Card(
             html.Div(className="fa fa-globe", style=card_icon),
             # className="bg-info",
-            color="primary",
+            color="#f55c47",
             style={"maxWidth": 75},
         ),
     ],className="mt-4 shadow",
