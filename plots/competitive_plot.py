@@ -50,7 +50,7 @@ def plot_product_competitive():
 			{
 			    'if': {'column_id': d},
 			    'textAlign': 'center'
-			} for d in ['plu','our_price','comp_price','price_vs']
+			} for d in ['plu','our_price','comp_price','diff_price','price_vs']
 		] +
 		[
 	        {
