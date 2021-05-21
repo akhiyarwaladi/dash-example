@@ -55,7 +55,7 @@ def plot_product_competitive():
 		[
 	        {
 				'if': {'column_id': 'plu'},
-				'width': '80px'
+				'width': '80px',
 				'fontSize':13
             }
 		],
