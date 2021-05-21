@@ -62,7 +62,8 @@ def plot_product_competitive():
 	    style_data_conditional=[
 	        {
 	            'if': {'row_index': 'odd'},
-	            'backgroundColor': 'rgb(248, 248, 248)'
+	            'backgroundColor': 'rgb(248, 248, 248)',
+	            'fontSize':20, 'font-family':'sans-serif'
 	        }
 	    ],
 	    style_header={
