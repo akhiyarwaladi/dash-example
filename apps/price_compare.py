@@ -19,9 +19,11 @@ higher_price = product_competitive[2]
 
 tab_price_compare = dac.TabItem(id='content_price_compare', 
                               
-    children=[
-        html.Div([
-          dbc.Card(
+  children=[
+      html.Div([
+        dbc.Row([
+          dbc.Col(
+            dbc.Card(
               [
                 dbc.CardHeader(html.P4("Product Competitive Price {}".format(now_str))),
                 dbc.CardBody(
@@ -47,19 +49,22 @@ tab_price_compare = dac.TabItem(id='content_price_compare',
                     , md=4),
                   ])
                 )
-              ]),
-        dbc.Row([
-          dbc.Col(
-            dbc.Card([
-              dbc.CardHeader(""),
-              dbc.CardBody([
-                  # html.H5("Card title", className="card-title"),
-                  html.P(
-                        table_product_competitive,className="card-text",
-                  ),
-              ]),
-            ])
-          ),
-        ]),
-
+              ]
+            ),
+          )
+        ])
+      dbc.Row([
+        dbc.Col(
+          dbc.Card([
+            dbc.CardHeader(""),
+            dbc.CardBody([
+                # html.H5("Card title", className="card-title"),
+                html.P(
+                      table_product_competitive,className="card-text",
+                ),
+            ]),
+          ])
+        ),
+      ]),
+  ])
 ])
