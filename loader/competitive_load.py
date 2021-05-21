@@ -11,4 +11,4 @@ def get_product_competitive():
 
 	pc['price_vs'] = pc['price_vs'].map({True:'lower', False:'higher'})
 
-	return pc
+	return pc, n_lower, n_higher
