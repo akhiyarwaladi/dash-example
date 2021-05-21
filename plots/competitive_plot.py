@@ -43,27 +43,33 @@ def plot_product_competitive():
 	        {
 	            'if': {'column_id': c},
 	            'textAlign': 'left'
-	        } for c in ['plu','product_name_comp', 'url_comp', 'price_vs']
+	        } for c in ['plu','product_name_comp', 'url_comp']
 
 	    ] + 
 	    [
 			{
 			    'if': {'column_id': d},
 			    'textAlign': 'center'
-			} for d in ['our_price','comp_price']
+			} for d in ['our_price','comp_price', 'price_vs']
 		] +
 		[
 	        {
 				'if': {'column_id': 'plu'},
 				'width': '50px'
-            },
-		]
-		,
+            }
+		],
 	    style_data_conditional=[
 	        {
 	            'if': {'row_index': 'odd'},
 	            'backgroundColor': 'rgb(248, 248, 248)'
-	        }
+	        },
+	        {
+	            'if': {
+	                'filter_query': '{price_vs} = lower',  # matching rows of a hidden column with the id, `id`
+	                'column_id': 'plu'
+	            },
+	            'backgroundColor': '#3D9970'
+	        },
 	    ],
 	    style_header={
 	        'backgroundColor': 'rgb(230, 230, 230)',
