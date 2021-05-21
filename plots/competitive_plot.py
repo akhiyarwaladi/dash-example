@@ -25,7 +25,7 @@ def plot_product_competitive():
 		fixed_rows={'headers': True},
 		style_table={'overflowY': 'scroll', 'overflowX': 'scroll'},
 		style_data={
-		    'width': '120px', 'minWidth': '50px', 'maxWidth': '150px',
+		    'minWidth': '50px', 'maxWidth': '150px',
 		    'overflow': 'hidden',
 		    'textOverflow': 'ellipsis',
 		},
