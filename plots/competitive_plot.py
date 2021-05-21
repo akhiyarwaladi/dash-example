@@ -43,17 +43,20 @@ def plot_product_competitive():
 	        {
 	            'if': {'column_id': c},
 	            'textAlign': 'left'
-	        } for c in ['plu','product_name_comp', 'url_comp', 'price_vs'],
-	        {
-				'if': {'column_id': 'plu'},
-				'width': '80px'
-            },
+	        } for c in ['plu','product_name_comp', 'url_comp', 'price_vs']
+
 	    ] + 
 	    [
 			{
 			    'if': {'column_id': d},
 			    'textAlign': 'center'
 			} for d in ['our_price','comp_price']
+		] +
+		[
+	        {
+				'if': {'column_id': 'plu'},
+				'width': '80px'
+            },
 		]
 		,
 	    style_data_conditional=[
