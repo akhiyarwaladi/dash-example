@@ -2,6 +2,7 @@ import pandas as pd
 import dash_table
 
 from loader.competitive_load import get_product_competitive
+from helper import transform_format
 
 product_competitive = get_product_competitive()
 competitive_table = product_competitive[0]
