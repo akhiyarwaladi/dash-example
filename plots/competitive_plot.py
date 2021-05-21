@@ -91,6 +91,23 @@ def plot_product_competitive():
 	            'backgroundColor': '#f55c47',
 	            'color': 'white',
 	        },
+
+	        {
+	            'if': {
+	                'filter_query': '{price_vs} = lower',  # matching rows of a hidden column with the id, `id`
+	                'column_id': 'our'
+	            },
+	            'backgroundColor': '#0074D9',
+	            'color': 'white',
+	        },
+	        {
+	            'if': {
+	                'filter_query': '{price_vs} = higher',  # matching rows of a hidden column with the id, `id`
+	                'column_id': 'comp'
+	            },
+	            'backgroundColor': '#0074D9',
+	            'color': 'white',
+	        },
 	        
 	    ],
 	    style_header={
