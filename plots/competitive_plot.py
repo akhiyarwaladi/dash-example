@@ -25,7 +25,7 @@ def plot_product_competitive():
 		fixed_rows={'headers': True},
 		style_table={'overflowY': 'scroll', 'overflowX': 'scroll'},
 		style_data={
-		    'width': '120px', 'minWidth': '120px', 'maxWidth': '150px',
+		    'width': '120px', 'minWidth': '80px', 'maxWidth': '150px',
 		    'overflow': 'hidden',
 		    'textOverflow': 'ellipsis',
 		},
@@ -43,19 +43,19 @@ def plot_product_competitive():
 	        {
 	            'if': {'column_id': c},
 	            'textAlign': 'left'
-	        } for c in ['plu','product_name_comp', 'url_comp']
+	        } for c in ['product_name_comp', 'url_comp']
 
 	    ] + 
 	    [
 			{
 			    'if': {'column_id': d},
 			    'textAlign': 'center'
-			} for d in ['our_price','comp_price', 'price_vs']
+			} for d in ['plu','our_price','comp_price','price_vs']
 		] +
 		[
 	        {
 				'if': {'column_id': 'plu'},
-				'width': '50px'
+				'width': '80px'
             }
 		],
 	    style_data_conditional=[
@@ -70,6 +70,14 @@ def plot_product_competitive():
 	            },
 	            'backgroundColor': '#3D9970'
 	        },
+	        {
+	            'if': {
+	                'filter_query': '{price_vs} = higher',  # matching rows of a hidden column with the id, `id`
+	                'column_id': 'plu'
+	            },
+	            'backgroundColor': '#f55c47'
+	        },
+	        
 	    ],
 	    style_header={
 	        'backgroundColor': 'rgb(230, 230, 230)',
