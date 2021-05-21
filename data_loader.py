@@ -20,7 +20,7 @@ def get_cpn():
     campaign_push = pd.read_csv(os.path.join(parent_path, \
                     'out_plot/campaign_push.csv'), sep='\t')
     campaign_push['Campaign Sent Time'] = pd.to_datetime(campaign_push['Campaign Sent Time'])
-
+    
     campaign_push = campaign_push[(campaign_push['Targets'] > 0) \
                             & (campaign_push['Impressions'] > 0)].reset_index(drop=True)
     campaign_push['Conversions_percent'] = round((campaign_push['Conversions'] / campaign_push['Targets']) * 100, 2)

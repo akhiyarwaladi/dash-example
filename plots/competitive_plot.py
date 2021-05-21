@@ -27,5 +27,30 @@ def plot_product_competitive():
 		    'width': '120px', 'minWidth': '120px', 'maxWidth': '150px',
 		    'overflow': 'hidden',
 		    'textOverflow': 'ellipsis',
-		}
+		},
+		css=[{
+		    'selector': '.dash-spreadsheet td div',
+		    'rule': '''
+		        line-height: 15px;
+		        max-height: 30px; min-height: 30px; height: 30px;
+		        display: block;
+		        overflow-y: hidden;
+		    '''
+		}],
+	    style_cell_conditional=[
+	        {
+	            'if': {'column_id': c},
+	            'textAlign': 'left'
+	        } for c in ['product_name_comp', 'url_comp', 'price_vs']
+	    ],
+	    style_data_conditional=[
+	        {
+	            'if': {'row_index': 'odd'},
+	            'backgroundColor': 'rgb(248, 248, 248)'
+	        }
+	    ],
+	    style_header={
+	        'backgroundColor': 'rgb(230, 230, 230)',
+	        'fontWeight': 'bold'
+	    }
 	), lower_price, higher_price
