@@ -34,7 +34,7 @@ children=[
                             gradient_color = "success",
                             value = lower_price,
                             icon = "bookmark",
-                            width = 12
+                            width = 16
                           )
                         , width = 4),
                         dbc.Col(
@@ -43,7 +43,7 @@ children=[
                             gradient_color = "danger",
                             value = higher_price,
                             icon = "bookmark",
-                            width = 12
+                            width = 16
                           )
                         , width = 4),
                       ])
