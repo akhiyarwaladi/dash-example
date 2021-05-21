@@ -46,7 +46,7 @@ children=[
                             width = 16
                           )
                         , width = 3),
-                      ])
+                      ], justify="center",)
                     )
                   ]
                 ),
