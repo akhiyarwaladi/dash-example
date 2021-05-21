@@ -78,9 +78,9 @@ def plot_product_competitive():
 	        {
 	            'if': {
 	                'filter_query': '{price_vs} = lower',  # matching rows of a hidden column with the id, `id`
-	                'column_id': ['plu', 'our (Rp.)']
+	                'column_id': 'plu'
 	            },
-	            'backgroundColor': ['#3D9970','#0074D9'],
+	            'backgroundColor': '#3D9970',
 	            'color': 'white',
 	        },
 	        {
@@ -92,22 +92,22 @@ def plot_product_competitive():
 	            'color': 'white',
 	        },
 
-	        # {
-	        #     'if': {
-	        #         'filter_query': '{price_vs} = lower',  # matching rows of a hidden column with the id, `id`
-	        #         'column_id': 'our'
-	        #     },
-	        #     'backgroundColor': '#0074D9',
-	        #     'color': 'white',
-	        # },
-	        # {
-	        #     'if': {
-	        #         'filter_query': '{price_vs} = higher',  # matching rows of a hidden column with the id, `id`
-	        #         'column_id': 'comp'
-	        #     },
-	        #     'backgroundColor': '#0074D9',
-	        #     'color': 'white',
-	        # },
+	        {
+	            'if': {
+	                'filter_query': '{price_vs} = lower',  # matching rows of a hidden column with the id, `id`
+	                'column_id': 'our (Rp.)'
+	            },
+	            'backgroundColor': '#0074D9',
+	            'color': 'white',
+	        },
+	        {
+	            'if': {
+	                'filter_query': '{price_vs} = higher',  # matching rows of a hidden column with the id, `id`
+	                'column_id': 'comp (Rp.)'
+	            },
+	            'backgroundColor': '#0074D9',
+	            'color': 'white',
+	        },
 	        
 	    ],
 	    style_header={
