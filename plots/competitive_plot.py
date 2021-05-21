@@ -21,7 +21,7 @@ def plot_product_competitive():
 		columns=columns,
 		data=competitive_table.to_dict('records'),
 		filter_action='native',
-		page_size=20,
+		page_size=10,
 		fixed_rows={'headers': True},
 		style_table={'overflowY': 'scroll', 'overflowX': 'scroll'},
 		style_data={
@@ -65,7 +65,7 @@ def plot_product_competitive():
             },
 	        {
 				'if': {'column_id': 'product_name_comp'},
-				'width': '170px'
+				'width': '200px'
             }
 		],
 	    style_data_conditional=[
