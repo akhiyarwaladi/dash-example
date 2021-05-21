@@ -38,12 +38,20 @@ def plot_product_competitive():
 		        overflow-y: hidden;
 		    '''
 		}],
-	    style_cell_conditional=[
+	    style_cell_conditional=
+	    [
 	        {
 	            'if': {'column_id': c},
 	            'textAlign': 'left'
-	        } for c in ['product_name_comp', 'url_comp', 'price_vs']
-	    ],
+	        } for c in ['plu','product_name_comp', 'url_comp', 'price_vs']
+	    ] + 
+	    [
+			{
+			    'if': {'column_id': d},
+			    'testAling': 'center'
+			} for d in ['our_price','comp_price']
+		]
+		,
 	    style_data_conditional=[
 	        {
 	            'if': {'row_index': 'odd'},
@@ -53,5 +61,13 @@ def plot_product_competitive():
 	    style_header={
 	        'backgroundColor': 'rgb(230, 230, 230)',
 	        'fontWeight': 'bold'
-	    }
+	    },
+
+		tooltip_data=[
+		    {
+		        column: {'value': str(value), 'type': 'markdown'}
+		        for column, value in row.items()
+		    } for row in df.to_dict('records')
+		],
+		tooltip_duration=None
 	), lower_price, higher_price

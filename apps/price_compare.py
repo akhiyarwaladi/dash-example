@@ -27,18 +27,18 @@ tab_price_compare = dac.TabItem(id='content_price_compare',
                 color = "success",
                 value = lower_price,
                 icon = "bookmark",
-                width = 12
+                width = 8
               )
-            , md=6),
+            , md=4),
             dbc.Col(
               dac.InfoBox(
                 title = "Higher than competitor",
                 gradient_color = "danger",
                 value = higher_price,
                 icon = "bookmark",
-                width = 12
+                width = 8
               )
-            , md=6),
+            , md=4),
             
           ])
         ]),
