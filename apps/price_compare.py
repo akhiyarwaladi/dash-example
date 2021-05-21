@@ -29,22 +29,24 @@ children=[
                     dbc.CardBody(
                       dbc.Row([
                         dbc.Col(
-                          dac.InfoBox(
-                            title = "Lower than competitor",
-                            gradient_color = "success",
-                            value = lower_price,
-                            icon = "bookmark",
-                            width = 16
-                          )
+                          # dac.InfoBox(
+                          #   title = "Lower than competitor",
+                          #   gradient_color = "success",
+                          #   value = lower_price,
+                          #   icon = "bookmark",
+                          #   width = 16
+                          # )
+                          card1
                         , width = 3),
                         dbc.Col(
-                          dac.InfoBox(
-                            title = "Higher than competitor",
-                            gradient_color = "danger",
-                            value = higher_price,
-                            icon = "bookmark",
-                            width = 16
-                          )
+                          # dac.InfoBox(
+                          #   title = "Higher than competitor",
+                          #   gradient_color = "danger",
+                          #   value = higher_price,
+                          #   icon = "bookmark",
+                          #   width = 16
+                          # )
+                          card2
                         , width = 3),
                       ], justify="center",)
                     )
@@ -67,3 +69,47 @@ children=[
             ]),
   ])
 ])
+
+card_icon = {
+    "color": "white",
+    "textAlign": "center",
+    "fontSize": 30,
+    "margin": "auto",
+}
+
+card1 = dbc.CardGroup(
+    [
+        dbc.Card(
+            dbc.CardBody(
+                [
+                    html.H5("Card 1", className="card-title"),
+                    html.P("This card has some text content", className="card-text",),
+                ]
+            )
+        ),
+        dbc.Card(
+            html.Div(className="fa fa-list", style=card_icon),
+            className="bg-primary",
+            style={"maxWidth": 75},
+        ),
+    ],
+    className="mt-4 shadow",
+)
+
+card2 = dbc.CardGroup(
+    [
+        dbc.Card(
+            dbc.CardBody(
+                [
+                    html.H5("Card 2", className="card-title"),
+                    html.P("This card has some text content", className="card-text",),
+                ]
+            )
+        ),
+        dbc.Card(
+            html.Div(className="fa fa-globe", style=card_icon),
+            className="bg-info",
+            style={"maxWidth": 75},
+        ),
+    ],className="mt-4 shadow",
+)
