@@ -36,7 +36,7 @@ children=[
                             icon = "bookmark",
                             width = 16
                           )
-                        , width = 4),
+                        , width = 3),
                         dbc.Col(
                           dac.InfoBox(
                             title = "Higher than competitor",
@@ -45,7 +45,7 @@ children=[
                             icon = "bookmark",
                             width = 16
                           )
-                        , width = 4),
+                        , width = 3),
                       ])
                     )
                   ]
