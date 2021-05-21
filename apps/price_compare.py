@@ -36,7 +36,8 @@ card1 = dbc.CardGroup(
         ),
         dbc.Card(
             html.Div(className="fa fa-list", style=card_icon),
-            className="bg-primary",
+            # className="bg-primary",
+            color="#3D9970",
             style={"maxWidth": 75},
         ),
     ],
@@ -55,7 +56,8 @@ card2 = dbc.CardGroup(
         ),
         dbc.Card(
             html.Div(className="fa fa-globe", style=card_icon),
-            className="bg-info",
+            # className="bg-info",
+            color="primary",
             style={"maxWidth": 75},
         ),
     ],className="mt-4 shadow",
