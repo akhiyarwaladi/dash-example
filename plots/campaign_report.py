@@ -86,7 +86,7 @@ def w_general_push(campaign_push, value):
                            'showgrid': True, 'automargin': True, 'title':'#Unique event'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True,  'automargin': True, 'title':'Campaign Name'},
-                    bargap=0.2, title="Campaign push notif performance {}".format(value), title_x=0.5)
+                    bargap=0.2, title="Campaign Push Notif Performance {}".format(value), title_x=0.5)
 
     
     return fig
@@ -162,10 +162,10 @@ def w_general_inapp(campaign_inapp, value):
     fig.update_layout(font={'size': 16}, width=1000,template='ggplot2',
                     plot_bgcolor = '#FFFFFF',height=1000,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
-                           'showgrid': True, 'automargin': True, 'title':'#Unique event'},
+                           'showgrid': True, 'gridcolor':'LightPink', 'automargin': True, 'title':'#Unique event'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
-                           'showgrid': True,  'automargin': True, 'title':'Campaign Name'},
-                    bargap=0.2, title="Campaign inapp performance {}".format(value), title_x=0.5)
+                           'showgrid': True, 'gridcolor':'LightPink',  'automargin': True, 'title':'Campaign Name'},
+                    bargap=0.2, title="Campaign inApp (banner) Performance {}".format(value), title_x=0.5)
 
     
     return fig
@@ -242,7 +242,7 @@ def w_general_email(campaign_email, value):
                            'showgrid': True, 'automargin': True, 'title':'#Unique event'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True,  'automargin': True, 'title':'Campaign Name'},
-                    bargap=0.2, title="Campaign email performance {}".format(value), title_x=0.5)
+                    bargap=0.2, title="Campaign Email Performance {}".format(value), title_x=0.5)
 
     
     return fig
