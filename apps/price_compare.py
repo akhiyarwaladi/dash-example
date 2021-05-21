@@ -77,7 +77,7 @@ card3 = dbc.CardGroup(
             html.Div(className="fas fa-dollar-sign", style=card_icon),
             # className="bg-info",
             color="#87a7b3",
-            style={"maxWidth": 75},
+            style={"maxWidth": 75, "height":100},
         ),
     ],className="mt-4 shadow",
 )
