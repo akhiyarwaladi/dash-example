@@ -31,21 +31,21 @@ children=[
                         dbc.Col(
                           dac.InfoBox(
                             title = "Lower than competitor",
-                            color = "#3D9970",
+                            gradient_color = "success",
                             value = lower_price,
                             icon = "bookmark",
-                            width = 6
+                            width = 4
                           )
-                        , width = 6),
+                        , width = 4),
                         dbc.Col(
                           dac.InfoBox(
                             title = "Higher than competitor",
                             gradient_color = "danger",
                             value = higher_price,
                             icon = "bookmark",
-                            width = 6
+                            width = 4
                           )
-                        , width = 6),
+                        , width = 4),
                       ])
                     )
                   ]
