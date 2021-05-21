@@ -89,7 +89,13 @@ sp = get_sp()[0]
 # =============================================================================
 # Dash App and Flask Server
 # =============================================================================
-app = dash.Dash(__name__)
+
+import dash_bootstrap_components as dbc
+
+FONT_AWESOME = "https://use.fontawesome.com/releases/v5.10.2/css/all.css"
+
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP, FONT_AWESOME])
+# app = dash.Dash(__name__)
 app.title = "Data Science Dashboard"
 server = app.server 
 
