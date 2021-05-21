@@ -9,7 +9,7 @@ def get_product_competitive():
 	pc['comp_price'] = (pc['comp_price'].astype('float')).apply(transform_format)
 
 	n_lower = pc['price_vs'].value_counts().to_dict()[True]
-	n_higher = pc['price_vs'].value_counts().to_dict()[True]
+	n_higher = pc['price_vs'].value_counts().to_dict()[False]
 
 	pc['price_vs'] = pc['price_vs'].map({True:'lower', False:'higher'})
 	pc = pc[['plu', 'product_name_comp', 'our_price', 'comp_price', 'diff_price', 'url_comp', 'price_vs']]
