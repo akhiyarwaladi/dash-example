@@ -21,11 +21,11 @@ def plot_product_competitive():
 		columns=columns,
 		data=competitive_table.to_dict('records'),
 		filter_action='native',
-		page_size=8,
+		page_size=20,
 		fixed_rows={'headers': True},
 		style_table={'overflowY': 'scroll', 'overflowX': 'scroll'},
 		style_data={
-		    'minWidth': '50px', 'maxWidth': '170px',
+		    'minWidth': '50px', 'maxWidth': '200px',
 		    'overflow': 'hidden',
 		    'textOverflow': 'ellipsis',
 		},
@@ -65,7 +65,7 @@ def plot_product_competitive():
             },
 	        {
 				'if': {'column_id': 'product_name_comp'},
-				'width': '170px'
+				'width': '200px'
             },
 	        {
 				'if': {'column_id': 'url_comp'},
