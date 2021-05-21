@@ -25,7 +25,7 @@ def plot_product_competitive():
 		fixed_rows={'headers': True},
 		style_table={'overflowY': 'scroll', 'overflowX': 'scroll'},
 		style_data={
-		    'width': '120px', 'minWidth': '80px', 'maxWidth': '150px',
+		    'width': '120px', 'minWidth': '50px', 'maxWidth': '150px',
 		    'overflow': 'hidden',
 		    'textOverflow': 'ellipsis',
 		},
@@ -55,7 +55,7 @@ def plot_product_competitive():
 		[
 	        {
 				'if': {'column_id': 'plu'},
-				'width': '80px'
+				'width': '50px'
             }
 		],
 	    style_data_conditional=[
