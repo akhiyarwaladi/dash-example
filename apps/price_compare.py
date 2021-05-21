@@ -63,6 +63,25 @@ card2 = dbc.CardGroup(
     ],className="mt-4 shadow",
 )
 
+card3 = dbc.CardGroup(
+    [
+        dbc.Card(
+            dbc.CardBody(
+                [
+                    html.H5("", className="card-title"),
+                    html.P("minimum price", className="card-text",),
+                ]
+            )
+        ),
+        dbc.Card(
+            html.Div(className="fas fa-dollar-sign", style=card_icon),
+            # className="bg-info",
+            color="#87a7b3",
+            style={"maxWidth": 75},
+        ),
+    ],className="mt-4 shadow",
+)
+
 
 
 tab_price_compare = dac.TabItem(id='content_price_compare', 
@@ -77,24 +96,13 @@ children=[
                     dbc.CardBody(
                       dbc.Row([
                         dbc.Col(
-                          # dac.InfoBox(
-                          #   title = "Lower than competitor",
-                          #   gradient_color = "success",
-                          #   value = lower_price,
-                          #   icon = "bookmark",
-                          #   width = 16
-                          # )
                           card1
                         , width = 3),
                         dbc.Col(
-                          # dac.InfoBox(
-                          #   title = "Higher than competitor",
-                          #   gradient_color = "danger",
-                          #   value = higher_price,
-                          #   icon = "bookmark",
-                          #   width = 16
-                          # )
                           card2
+                        , width = 3),
+                        dbc.Col(
+                          card3
                         , width = 3),
                       ], justify="center",)
                     )
