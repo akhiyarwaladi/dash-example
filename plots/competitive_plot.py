@@ -58,7 +58,7 @@ def plot_product_competitive():
 			{
 				'if': {'column_id': e},
 				'width': '85px',
-			} for e in ['our_price (Rp.)', 'comp_price (Rp.)', 'diff_price (Rp.)']
+			} for e in ['our (Rp.)', 'comp (Rp.)', 'diff (Rp.)']
 		] +
 		[
 	        {
