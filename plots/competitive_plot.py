@@ -67,7 +67,7 @@ def plot_product_competitive():
 		    {
 		        column: {'value': str(value), 'type': 'markdown'}
 		        for column, value in row.items()
-		    } for row in df.to_dict('records')
+		    } for row in df_init.to_dict('records')
 		],
 		tooltip_duration=None
 	), lower_price, higher_price
