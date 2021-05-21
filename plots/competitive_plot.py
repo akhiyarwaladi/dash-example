@@ -74,14 +74,16 @@ def plot_product_competitive():
 	                'filter_query': '{price_vs} = lower',  # matching rows of a hidden column with the id, `id`
 	                'column_id': 'plu'
 	            },
-	            'backgroundColor': '#3D9970'
+	            'backgroundColor': '#3D9970',
+	            'color': 'white',
 	        },
 	        {
 	            'if': {
 	                'filter_query': '{price_vs} = higher',  # matching rows of a hidden column with the id, `id`
 	                'column_id': 'plu'
 	            },
-	            'backgroundColor': '#f55c47'
+	            'backgroundColor': '#f55c47',
+	            'color': 'white',
 	        },
 	        
 	    ],
