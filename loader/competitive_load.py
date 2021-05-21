@@ -14,4 +14,5 @@ def get_product_competitive():
 	pc['price_vs'] = pc['price_vs'].map({True:'lower', False:'higher'})
 	pc = pc[['plu', 'product_name_comp', 'our_price', 'comp_price', 'diff_price', 'url_comp', 'price_vs']]
 
+	pc = pc.rename(columns={'our_price':'our_price (Rp.)', 'comp_price':'comp_price (Rp.)', 'diff_price':'diff_price (Rp.)'})
 	return pc, n_lower, n_higher
