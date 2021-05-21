@@ -17,6 +17,52 @@ lower_price = product_competitive[1]
 higher_price = product_competitive[2]
 
 
+card_icon = {
+    "color": "white",
+    "textAlign": "center",
+    "fontSize": 30,
+    "margin": "auto",
+}
+
+card1 = dbc.CardGroup(
+    [
+        dbc.Card(
+            dbc.CardBody(
+                [
+                    html.H5("Card 1", className="card-title"),
+                    html.P("This card has some text content", className="card-text",),
+                ]
+            )
+        ),
+        dbc.Card(
+            html.Div(className="fa fa-list", style=card_icon),
+            className="bg-primary",
+            style={"maxWidth": 75},
+        ),
+    ],
+    className="mt-4 shadow",
+)
+
+card2 = dbc.CardGroup(
+    [
+        dbc.Card(
+            dbc.CardBody(
+                [
+                    html.H5("Card 2", className="card-title"),
+                    html.P("This card has some text content", className="card-text",),
+                ]
+            )
+        ),
+        dbc.Card(
+            html.Div(className="fa fa-globe", style=card_icon),
+            className="bg-info",
+            style={"maxWidth": 75},
+        ),
+    ],className="mt-4 shadow",
+)
+
+
+
 tab_price_compare = dac.TabItem(id='content_price_compare', 
                               
 children=[
@@ -70,46 +116,4 @@ children=[
   ])
 ])
 
-card_icon = {
-    "color": "white",
-    "textAlign": "center",
-    "fontSize": 30,
-    "margin": "auto",
-}
 
-card1 = dbc.CardGroup(
-    [
-        dbc.Card(
-            dbc.CardBody(
-                [
-                    html.H5("Card 1", className="card-title"),
-                    html.P("This card has some text content", className="card-text",),
-                ]
-            )
-        ),
-        dbc.Card(
-            html.Div(className="fa fa-list", style=card_icon),
-            className="bg-primary",
-            style={"maxWidth": 75},
-        ),
-    ],
-    className="mt-4 shadow",
-)
-
-card2 = dbc.CardGroup(
-    [
-        dbc.Card(
-            dbc.CardBody(
-                [
-                    html.H5("Card 2", className="card-title"),
-                    html.P("This card has some text content", className="card-text",),
-                ]
-            )
-        ),
-        dbc.Card(
-            html.Div(className="fa fa-globe", style=card_icon),
-            className="bg-info",
-            style={"maxWidth": 75},
-        ),
-    ],className="mt-4 shadow",
-)
