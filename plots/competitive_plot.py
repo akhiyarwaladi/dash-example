@@ -43,7 +43,11 @@ def plot_product_competitive():
 	        {
 	            'if': {'column_id': c},
 	            'textAlign': 'left'
-	        } for c in ['plu','product_name_comp', 'url_comp', 'price_vs']
+	        } for c in ['plu','product_name_comp', 'url_comp', 'price_vs'],
+	        {
+				'if': {'column_id': 'plu'},
+				'width': '80px'
+            },
 	    ] + 
 	    [
 			{
