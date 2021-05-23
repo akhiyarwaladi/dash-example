@@ -84,7 +84,7 @@ def w_general_push(campaign_push, value):
         legend=dict(
             orientation="h",
             yanchor="bottom",
-            y=1.02,
+            y=1,
             xanchor="right",
             x=1
         )
@@ -95,7 +95,7 @@ def w_general_push(campaign_push, value):
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True,  'automargin': True, 'title':'Campaign Name'},
                     bargap=0.2, title="Campaign Push Notif Performance {}".format(value), title_x=0.5,\
-                    legend=legend_dict, margin={'l':70, 'r':30, 't':30, 'b':70})
+                    legend=legend_dict, margin={'l':70, 'r':70, 't':30, 'b':70})
 
     
     return fig
@@ -172,7 +172,7 @@ def w_general_inapp(campaign_inapp, value):
         legend=dict(
             orientation="h",
             yanchor="bottom",
-            y=1.02,
+            y=1,
             xanchor="right",
             x=1
         )
@@ -183,7 +183,7 @@ def w_general_inapp(campaign_inapp, value):
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True, 'gridcolor':'LightPink',  'automargin': True, 'title':'Campaign Name'},
                     bargap=0.2, title="Campaign inApp (banner) Performance {}".format(value), title_x=0.5,\
-                    legend=legend_dict, margin={'l':70, 'r':30, 't':30, 'b':70})
+                    legend=legend_dict, margin={'l':70, 'r':70, 't':30, 'b':70})
 
     
     return fig
@@ -258,7 +258,7 @@ def w_general_email(campaign_email, value):
         legend=dict(
             orientation="h",
             yanchor="bottom",
-            y=1.02,
+            y=1,
             xanchor="right",
             x=1
         )
@@ -269,7 +269,7 @@ def w_general_email(campaign_email, value):
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True,  'automargin': True, 'title':'Campaign Name'},
                     bargap=0.2, title="Campaign Email Performance {}".format(value), title_x=0.5,\
-                    legend=legend_dict, margin={'l':70, 'r':30, 't':30, 'b':70})
+                    legend=legend_dict, margin={'l':70, 'r':70, 't':30, 'b':70})
 
     
     return fig
