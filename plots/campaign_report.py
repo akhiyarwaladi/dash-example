@@ -80,13 +80,22 @@ def w_general_push(campaign_push, value):
             trace.update(textposition='outside')
         else:
             trace.update(text='')
+    legend_dict=\
+        legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="right",
+            x=1
+        )
     fig.update_layout(font={'size': 16}, width=1000,template='ggplot2',
                     plot_bgcolor = '#FFFFFF',height=1000,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'automargin': True, 'title':'#Unique event'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True,  'automargin': True, 'title':'Campaign Name'},
-                    bargap=0.2, title="Campaign Push Notif Performance {}".format(value), title_x=0.5)
+                    bargap=0.2, title="Campaign Push Notif Performance {}".format(value), title_x=0.5,\
+                    legend=legend_dict)
 
     
     return fig
@@ -159,13 +168,22 @@ def w_general_inapp(campaign_inapp, value):
             trace.update(textposition='outside')
         else:
             trace.update(text='')
+    legend_dict=\
+        legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="right",
+            x=1
+        )
     fig.update_layout(font={'size': 16}, width=1000,template='ggplot2',
                     plot_bgcolor = '#FFFFFF',height=1000,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'gridcolor':'LightPink', 'automargin': True, 'title':'#Unique event'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True, 'gridcolor':'LightPink',  'automargin': True, 'title':'Campaign Name'},
-                    bargap=0.2, title="Campaign inApp (banner) Performance {}".format(value), title_x=0.5)
+                    bargap=0.2, title="Campaign inApp (banner) Performance {}".format(value), title_x=0.5,\
+                    legend=legend_dict)
 
     
     return fig
@@ -236,13 +254,22 @@ def w_general_email(campaign_email, value):
             trace.update(textposition='outside')
         else:
             trace.update(text='')
+    legend_dict=\
+        legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="right",
+            x=1
+        )
     fig.update_layout(font={'size': 16}, width=1000,template='ggplot2',
                     plot_bgcolor = '#FFFFFF',height=1000,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'automargin': True, 'title':'#Unique event'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True,  'automargin': True, 'title':'Campaign Name'},
-                    bargap=0.2, title="Campaign Email Performance {}".format(value), title_x=0.5)
+                    bargap=0.2, title="Campaign Email Performance {}".format(value), title_x=0.5,\
+                    legend=legend_dict)
 
     
     return fig
