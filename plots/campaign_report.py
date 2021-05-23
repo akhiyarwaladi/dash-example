@@ -66,6 +66,7 @@ def w_general_push(campaign_push, value):
            .agg({'Targets':'sum', 'Impressions':'sum', 'Clicks':'sum', 'Conversions_percent':'sum'}).reset_index()
 
     g_push_wide = g_push_wide.rename(columns={'Conversions_percent':'Conversions'})
+    g_push_wide['Conversions'] = round(g_push_wide['Conversions'],2)
     g_push_wide['Campaign Sent Time'] = g_push_wide['Campaign Sent Time'].dt.strftime('%Y-%m')
     g_push_wide = g_push_wide[g_push_wide['Campaign Sent Time'] == value]
     height_weight = g_push_wide['Campaign Name'].nunique()
@@ -159,6 +160,7 @@ def w_general_inapp(campaign_inapp, value):
 
 
     g_inapp_wide = g_inapp_wide.rename(columns={'Conversions_percent':'Conversions'})
+    g_inapp_wide['Conversions'] = round(g_inapp_wide['Conversions'],2)
     g_inapp_wide['Date'] = g_inapp_wide['Date'].dt.strftime('%Y-%m')
     g_inapp_wide = g_inapp_wide[g_inapp_wide['Date'] == value]
     height_weight = g_inapp_wide['Campaign Name'].nunique()
@@ -251,6 +253,7 @@ def w_general_email(campaign_email, value):
            .agg({'Targets':'sum', 'Impressions':'sum', 'Clicks':'sum', 'Conversions_percent':'sum'}).reset_index()
 
     g_email_wide = g_email_wide.rename(columns={'Conversions_percent':'Conversions'})
+    g_email_wide['Conversions'] = round(g_email_wide['Conversions'],2)
     g_email_wide['Date'] = g_email_wide['Date'].dt.strftime('%Y-%m')
     g_email_wide = g_email_wide[g_email_wide['Date'] == value]
     height_weight = g_email_wide['Campaign Name'].nunique()
