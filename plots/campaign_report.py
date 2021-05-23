@@ -65,6 +65,7 @@ def w_general_push(campaign_push, value):
     g_push_wide = campaign_push.groupby([pd.Grouper(key='Campaign Sent Time',freq='M'), 'Campaign Name'])\
            .agg({'Targets':'sum', 'Impressions':'sum', 'Clicks':'sum', 'Conversions_percent':'sum'}).reset_index()
 #     g_push_wide = campaign_push[['Campaign Sent Time', 'Campaign Name', 'Targets', 'Impressions', 'Clicks', 'Conversions_percent']]
+    g_push_wide = g_push_wide.rename(columns={'Conversions_percent':'Conversions'})
     g_push_wide['Campaign Sent Time'] = g_push_wide['Campaign Sent Time'].dt.strftime('%Y-%m')
     g_push_wide = g_push_wide[g_push_wide['Campaign Sent Time'] == value]
 
@@ -76,15 +77,16 @@ def w_general_push(campaign_push, value):
     fig.update_traces(
         hovertemplate='%{x}')
     for ix, trace in enumerate(fig.data):
-        if ix == (len(fig.data) - 1):
-            trace.update(textposition='outside')
-        else:
-            trace.update(text='')
+        # if ix == (len(fig.data) - 1):
+        #     trace.update(textposition='outside')
+        # else:
+        #     trace.update(text='')
+        trace.update(textposition='outside')
     legend_dict=\
         legend=dict(
             orientation="h",
             yanchor="bottom",
-            y=0.96,
+            y=0.98,
             xanchor="right",
             x=1
         )
@@ -95,7 +97,7 @@ def w_general_push(campaign_push, value):
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True,  'automargin': True, 'title':'Campaign Name'},
                     bargap=0.2, title="Campaign Push Notif Performance {}".format(value), title_x=0.5,\
-                    legend=legend_dict, margin={'l':70, 'r':30, 't':70, 'b':70})
+                    legend=legend_dict, margin={'l':70, 'r':70, 't':70, 'b':70})
 
     
     return fig
@@ -172,18 +174,18 @@ def w_general_inapp(campaign_inapp, value):
         legend=dict(
             orientation="h",
             yanchor="bottom",
-            y=1,
+            y=0.98,
             xanchor="right",
             x=1
         )
-    fig.update_layout(font={'size': 16}, width=1000,template='ggplot2',
+    fig.update_layout(font={'size': 14}, width=1000,template='ggplot2',
                     plot_bgcolor = '#FFFFFF',height=1000,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'gridcolor':'LightPink', 'automargin': True, 'title':'#Unique event'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True, 'gridcolor':'LightPink',  'automargin': True, 'title':'Campaign Name'},
                     bargap=0.2, title="Campaign inApp (banner) Performance {}".format(value), title_x=0.5,\
-                    legend=legend_dict, margin={'l':70, 'r':70, 't':30, 'b':70})
+                    legend=legend_dict, margin={'l':70, 'r':70, 't':70, 'b':70})
 
     
     return fig
@@ -258,18 +260,18 @@ def w_general_email(campaign_email, value):
         legend=dict(
             orientation="h",
             yanchor="bottom",
-            y=1,
+            y=0.98,
             xanchor="right",
             x=1
         )
-    fig.update_layout(font={'size': 16}, width=1000,template='ggplot2',
+    fig.update_layout(font={'size': 14}, width=1000,template='ggplot2',
                     plot_bgcolor = '#FFFFFF',height=1000,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'automargin': True, 'title':'#Unique event'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True,  'automargin': True, 'title':'Campaign Name'},
                     bargap=0.2, title="Campaign Email Performance {}".format(value), title_x=0.5,\
-                    legend=legend_dict, margin={'l':70, 'r':70, 't':30, 'b':70})
+                    legend=legend_dict, margin={'l':70, 'r':70, 't':70, 'b':70})
 
     
     return fig
