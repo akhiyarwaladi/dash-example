@@ -84,18 +84,18 @@ def w_general_push(campaign_push, value):
         legend=dict(
             orientation="h",
             yanchor="bottom",
-            y=0.8,
+            y=0.96,
             xanchor="right",
             x=1
         )
-    fig.update_layout(font={'size': 16}, width=1000,template='ggplot2',
+    fig.update_layout(font={'size': 14}, width=1000,template='ggplot2',
                     plot_bgcolor = '#FFFFFF',height=1000,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'automargin': True, 'title':'#Unique event'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True,  'automargin': True, 'title':'Campaign Name'},
                     bargap=0.2, title="Campaign Push Notif Performance {}".format(value), title_x=0.5,\
-                    legend=legend_dict, margin={'l':70, 'r':30, 't':30, 'b':70})
+                    legend=legend_dict, margin={'l':70, 'r':30, 't':70, 'b':70})
 
     
     return fig
