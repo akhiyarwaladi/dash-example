@@ -95,7 +95,7 @@ def w_general_push(campaign_push, value):
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True,  'automargin': True, 'title':'Campaign Name'},
                     bargap=0.2, title="Campaign Push Notif Performance {}".format(value), title_x=0.5,\
-                    legend=legend_dict)
+                    legend=legend_dict, margin={'l':70, 'r':30, 't':30, 'b':70})
 
     
     return fig
@@ -183,7 +183,7 @@ def w_general_inapp(campaign_inapp, value):
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True, 'gridcolor':'LightPink',  'automargin': True, 'title':'Campaign Name'},
                     bargap=0.2, title="Campaign inApp (banner) Performance {}".format(value), title_x=0.5,\
-                    legend=legend_dict)
+                    legend=legend_dict, margin={'l':70, 'r':30, 't':30, 'b':70})
 
     
     return fig
@@ -269,7 +269,7 @@ def w_general_email(campaign_email, value):
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True,  'automargin': True, 'title':'Campaign Name'},
                     bargap=0.2, title="Campaign Email Performance {}".format(value), title_x=0.5,\
-                    legend=legend_dict)
+                    legend=legend_dict, margin={'l':70, 'r':30, 't':30, 'b':70})
 
     
     return fig
