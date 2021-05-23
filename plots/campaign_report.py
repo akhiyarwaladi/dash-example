@@ -86,9 +86,11 @@ def w_general_push(campaign_push, value):
         legend=dict(
             orientation="h",
             yanchor="bottom",
-            y=0.98,
+            y=1,
             xanchor="right",
-            x=1
+            x=1,
+            borderwidth=1,
+            title=''
         )
     fig.update_layout(font={'size': 14}, width=1000,template='ggplot2',
                     plot_bgcolor = '#FFFFFF',height=1000,
