@@ -77,11 +77,11 @@ def w_general_push(campaign_push, value):
     fig.update_traces(
         hovertemplate='%{x}')
     for ix, trace in enumerate(fig.data):
-        # if ix == (len(fig.data) - 1):
-        #     trace.update(textposition='outside')
+        if ix == (len(fig.data) - 1):
+            trace.update(textposition='outside')
         # else:
         #     trace.update(text='')
-        trace.update(textposition='outside')
+
     legend_dict=\
         legend=dict(
             orientation="h",
@@ -93,7 +93,7 @@ def w_general_push(campaign_push, value):
         )
 
     fig.update_layout(font={'size': 14}, width=1000,template='ggplot2',
-                    plot_bgcolor = '#FFFFFF',height=height_weight*40,
+                    plot_bgcolor = '#FFFFFF',height=height_weight*45,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'automargin': True, 'title':'#Unique event'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
@@ -173,8 +173,9 @@ def w_general_inapp(campaign_inapp, value):
     for ix, trace in enumerate(fig.data):
         if ix == (len(fig.data) - 1):
             trace.update(textposition='outside')
-        else:
-            trace.update(text='')
+        # else:
+        #     trace.update(text='')
+
     legend_dict=\
         legend=dict(
             orientation="h",
@@ -185,7 +186,7 @@ def w_general_inapp(campaign_inapp, value):
             title=''
         )
     fig.update_layout(font={'size': 14}, width=1000,template='ggplot2',
-                    plot_bgcolor = '#FFFFFF',height=height_weight*40,
+                    plot_bgcolor = '#FFFFFF',height=height_weight*45,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'gridcolor':'LightPink', 'automargin': True, 'title':'#Unique event'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
@@ -263,8 +264,8 @@ def w_general_email(campaign_email, value):
     for ix, trace in enumerate(fig.data):
         if ix == (len(fig.data) - 1):
             trace.update(textposition='outside')
-        else:
-            trace.update(text='')
+        # else:
+        #     trace.update(text='')
     legend_dict=\
         legend=dict(
             orientation="h",
@@ -275,7 +276,7 @@ def w_general_email(campaign_email, value):
             title=''
         )
     fig.update_layout(font={'size': 14}, width=1000,template='ggplot2',
-                    plot_bgcolor = '#FFFFFF',height=height_weight*40,
+                    plot_bgcolor = '#FFFFFF',height=height_weight*45,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'automargin': True, 'title':'#Unique event'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
