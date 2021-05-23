@@ -84,7 +84,7 @@ def w_general_push(campaign_push, value):
         legend=dict(
             orientation="h",
             yanchor="bottom",
-            y=1,
+            y=0.8,
             xanchor="right",
             x=1
         )
@@ -95,7 +95,7 @@ def w_general_push(campaign_push, value):
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True,  'automargin': True, 'title':'Campaign Name'},
                     bargap=0.2, title="Campaign Push Notif Performance {}".format(value), title_x=0.5,\
-                    legend=legend_dict, margin={'l':70, 'r':70, 't':30, 'b':70})
+                    legend=legend_dict, margin={'l':70, 'r':100, 't':30, 'b':70})
 
     
     return fig
