@@ -23,7 +23,7 @@ def get_cpn():
     
     campaign_push = campaign_push[(campaign_push['Targets'] > 0) \
                             & (campaign_push['Impressions'] > 0)].reset_index(drop=True)
-    campaign_push['Conversions_percent'] = round((campaign_push['Conversions'] / campaign_push['Targets']) * 100, 2)
+    # campaign_push['Conversions_percent'] = round((campaign_push['Conversions'] / campaign_push['Targets']) * 100, 2)
 #     campaign_push['Conversions_percent'] = campaign_push['Conversions_percent'].astype(str) + \
 #                                             ' ('  + campaign_push['Conversions'].astype(str) + '/' \
 #                                             + campaign_push['Targets'].astype(str) + ')'
@@ -40,7 +40,7 @@ def get_cpe():
     
     campaign_email = campaign_email[(campaign_email['Targets'] > 0) \
                             & (campaign_email['Impressions'] > 0)].reset_index(drop=True)
-    campaign_email['Conversions_percent'] = round((campaign_email['Conversions'] / campaign_email['Targets']) * 100, 2)
+    # campaign_email['Conversions_percent'] = round((campaign_email['Conversions'] / campaign_email['Targets']) * 100, 2)
 #     campaign_email['Conversions_percent'] = campaign_email['Conversions_percent'].astype(str) + \
 #                                             ' ('  + campaign_email['Conversions'].astype(str) + '/' \
 #                                             + campaign_email['Targets'].astype(str) + ')'
@@ -57,7 +57,7 @@ def get_cpi():
     campaign_inapp = campaign_inapp[(campaign_inapp['Clicks'] > 0) \
                             & (campaign_inapp['Impressions'] > 0)].reset_index(drop=True)
     
-    campaign_inapp['Conversions_percent'] = round((campaign_inapp['Conversions'] / campaign_inapp['Impressions']) * 100, 2)
+    # campaign_inapp['Conversions_percent'] = round((campaign_inapp['Conversions'] / campaign_inapp['Impressions']) * 100, 2)
 #     campaign_inapp['Conversions_percent'] = campaign_inapp['Conversions_percent'].astype(str) + \
 #                                             ' ('  + campaign_inapp['Conversions'].astype(str) + '/' \
 #                                             + campaign_inapp['Impressions'].astype(str) + ')'
