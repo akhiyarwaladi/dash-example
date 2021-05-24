@@ -257,7 +257,7 @@ def w_general_inapp(campaign_inapp, value):
                            'showgrid': True, 'gridcolor':'LightPink', 'automargin': True, 'title':'#Unique event'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True, 'gridcolor':'LightPink',  'automargin': True, 'title':'Campaign Name'},
-                    bargap=0.2, title="Campaign inApp (banner) Performance {}".format(value), title_x=0.5,\
+                    bargap=0.2, title="Campaign inApp (pop-up) Performance {}".format(value), title_x=0.5,\
                     legend=legend_dict, margin={'l':70, 'r':70, 't':70, 'b':70}, barmode='stack')
 
     

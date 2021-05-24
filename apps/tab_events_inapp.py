@@ -54,7 +54,7 @@ row_top = [
             dbc.Col(
                 dbc.Card(
                 [
-                  dbc.CardHeader(html.H5("General In-App Campaign Growth")),
+                  dbc.CardHeader(html.H5("General In-App (pop-up) Campaign Growth")),
                   dbc.CardBody(
                       [
                           # html.H5("Card title", className="card-title"),
