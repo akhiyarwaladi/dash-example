@@ -640,7 +640,7 @@ def conversion_general_inapp():
 	    legend=dict(
 	            x=0,
 	            y=1,
-	            	,
+	            traceorder="normal",
 	            title='',
 	            title_font_family="Times New Roman",
 	            font=dict(
