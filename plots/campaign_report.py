@@ -63,29 +63,69 @@ def g_general_push(campaign_push):
 
 def w_general_push(campaign_push, value):
     g_push_wide = campaign_push.groupby([pd.Grouper(key='Campaign Sent Time',freq='M'), 'Campaign Name'])\
-           .agg({'Targets':'sum', 'Impressions':'sum', 'Clicks':'sum', 'Conversions_percent':'sum'}).reset_index()
+           .agg({'Targets':'sum', 'Impressions':'sum', 'Clicks':'sum', 'Conversions':'sum',\
+                'Conversions_percent':'sum', 'Clicks_percent':'sum', 'Impressions_percent':'sum'}).round(2).reset_index()
 
-    g_push_wide = g_push_wide.rename(columns={'Conversions_percent':'Conversions'})
-    g_push_wide['Conversions'] = round(g_push_wide['Conversions'],2)
+    
+    g_push_wide['Conversions_percent'] =  g_push_wide['Conversions_percent'].astype(str) + '%'
+    g_push_wide['Clicks_percent'] =  g_push_wide['Clicks_percent'].astype(str) + '%'
+    g_push_wide['Impressions_percent'] =  g_push_wide['Impressions_percent'].astype(str) + '%'
+    
+    
     g_push_wide['Campaign Sent Time'] = g_push_wide['Campaign Sent Time'].dt.strftime('%Y-%m')
     g_push_wide = g_push_wide[g_push_wide['Campaign Sent Time'] == value]
     height_weight = g_push_wide['Campaign Name'].nunique()
 
-    g_push_wide = pd.melt(g_push_wide, id_vars=['Campaign Name'], value_vars=list(g_push_wide.columns[2:]))
-    fig = px.bar(g_push_wide, y="Campaign Name", x='value', color='variable', text='value', \
-                orientation='h', title="Wide-Form Input")
+#     g_push_wide = pd.melt(g_push_wide, id_vars=['Campaign Name'], value_vars=list(g_push_wide.columns[2:]))
+#     fig = px.bar(g_push_wide, y="Campaign Name", x='value', color='variable', text='value', \
+#                 orientation='h', title="Wide-Form Input")
+    fig = go.Figure()
+    fig.add_trace(go.Bar(
+        x=g_push_wide['Targets'],
+        y=g_push_wide['Campaign Name'],
+        name='Targets',
+        text=g_push_wide['Targets'],
+        textposition='auto',
+        texttemplate='%{text:.2s}',
+        orientation='h'
+    ))
+    fig.add_trace(go.Bar(
+        x=g_push_wide['Impressions'],
+        y=g_push_wide['Campaign Name'],
+        name='Impressions',
+        text=g_push_wide['Impressions_percent'],
+        textposition='auto',
+        orientation='h'
+    ))
+    fig.add_trace(go.Bar(
+        x=g_push_wide['Clicks'],
+        y=g_push_wide['Campaign Name'],
+        name='Clicks',
+        text=g_push_wide['Clicks_percent'],
+        textposition='auto',
+        orientation='h'
+    ))
+    fig.add_trace(go.Bar(
+        x=g_push_wide['Conversions'],
+        y=g_push_wide['Campaign Name'],
+        name='Conversions',
+        text=g_push_wide['Conversions_percent'],
+        textposition='auto',
+        orientation='h'
+    ))
 
     fig.update_traces(
         hovertemplate='%{x}')
-    for ix, trace in enumerate(fig.data):
-        if ix == (len(fig.data) - 1):
-            trace.update(textposition='outside')
-        # else:
-        #     trace.update(text='')
+#     for ix, trace in enumerate(fig.data):
+#         if ix == (len(fig.data) - 1):
+#             trace.update(textposition='outside')
+#         else:
+#             trace.update(text='')
 
     legend_dict=\
         legend=dict(
             orientation="h",
+            traceorder="normal",
             yanchor="bottom",
             y=1,
             xanchor="right",
@@ -93,15 +133,15 @@ def w_general_push(campaign_push, value):
             title=''
         )
 
-    fig.update_layout(font={'size': 14}, width=1000,template='ggplot2',
+    fig.update_layout(font={'size': 13}, width=1000,template='ggplot2',
                     plot_bgcolor = '#FFFFFF',height=height_weight*45,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'automargin': True, 'title':'#Unique event'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True,  'automargin': True, 'title':'Campaign Name'},
                     bargap=0.2, title="Campaign Push Notif Performance {}".format(value), title_x=0.5,\
-                    legend=legend_dict, margin={'l':70, 'r':70, 't':70, 'b':70})
-
+                    legend=legend_dict, margin={'l':70, 'r':70, 't':70, 'b':70}, barmode='stack')
+#     fig.update_xaxes(range=[0, x])
     
     return fig
 
@@ -156,27 +196,51 @@ def g_general_inapp(campaign_inapp):
 
 def w_general_inapp(campaign_inapp, value):
     g_inapp_wide = campaign_inapp.groupby([pd.Grouper(key='Date',freq='M'), 'Campaign Name'])\
-           .agg({'Impressions':'sum', 'Clicks':'sum', 'Conversions_percent':'sum'}).reset_index()
+           .agg({'Impressions':'sum', 'Clicks':'sum', 'Conversions':'sum',\
+                'Conversions_percent':'sum', 'Clicks_percent':'sum'}).round(2).reset_index()
 
+    
+    g_inapp_wide['Conversions_percent'] =  g_inapp_wide['Conversions_percent'].astype(str) + '%'
+    g_inapp_wide['Clicks_percent'] =  g_inapp_wide['Clicks_percent'].astype(str) + '%'
 
-    g_inapp_wide = g_inapp_wide.rename(columns={'Conversions_percent':'Conversions'})
-    g_inapp_wide['Conversions'] = round(g_inapp_wide['Conversions'],2)
+    
     g_inapp_wide['Date'] = g_inapp_wide['Date'].dt.strftime('%Y-%m')
     g_inapp_wide = g_inapp_wide[g_inapp_wide['Date'] == value]
     height_weight = g_inapp_wide['Campaign Name'].nunique()
 
-    g_inapp_wide = pd.melt(g_inapp_wide, id_vars=['Campaign Name'], value_vars=list(g_inapp_wide.columns[2:]))
-    fig = px.bar(g_inapp_wide, y="Campaign Name", x='value', color='variable', text='value', \
-                orientation='h', title="Wide-Form Input")
+#     g_inapp_wide = pd.melt(g_inapp_wide, id_vars=['Campaign Name'], value_vars=list(g_inapp_wide.columns[2:]))
+#     fig = px.bar(g_inapp_wide, y="Campaign Name", x='value', color='variable', text='value', \
+#                 orientation='h', title="Wide-Form Input")
+    fig = go.Figure()
+    fig.add_trace(go.Bar(
+        x=g_inapp_wide['Impressions'],
+        y=g_inapp_wide['Campaign Name'],
+        name='Impressions',
+        text=g_inapp_wide['Impressions'],
+        textposition='auto',
+        texttemplate='%{text:.2s}',
+        orientation='h'
+    ))
+    fig.add_trace(go.Bar(
+        x=g_inapp_wide['Clicks'],
+        y=g_inapp_wide['Campaign Name'],
+        name='Clicks',
+        text=g_inapp_wide['Clicks_percent'],
+        textposition='auto',
+        orientation='h'
+    ))
+    fig.add_trace(go.Bar(
+        x=g_inapp_wide['Conversions'],
+        y=g_inapp_wide['Campaign Name'],
+        name='Conversions',
+        text=g_inapp_wide['Conversions_percent'],
+        textposition='auto',
+        orientation='h'
+    ))
 
 
     fig.update_traces(
         hovertemplate='%{x}')
-    for ix, trace in enumerate(fig.data):
-        if ix == (len(fig.data) - 1):
-            trace.update(textposition='outside')
-        # else:
-        #     trace.update(text='')
 
     legend_dict=\
         legend=dict(
@@ -187,14 +251,14 @@ def w_general_inapp(campaign_inapp, value):
             x=1,
             title=''
         )
-    fig.update_layout(font={'size': 14}, width=1000,template='ggplot2',
+    fig.update_layout(font={'size': 13}, width=1000,template='ggplot2',
                     plot_bgcolor = '#FFFFFF',height=height_weight*45,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'gridcolor':'LightPink', 'automargin': True, 'title':'#Unique event'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True, 'gridcolor':'LightPink',  'automargin': True, 'title':'Campaign Name'},
                     bargap=0.2, title="Campaign inApp (banner) Performance {}".format(value), title_x=0.5,\
-                    legend=legend_dict, margin={'l':70, 'r':70, 't':70, 'b':70})
+                    legend=legend_dict, margin={'l':70, 'r':70, 't':70, 'b':70}, barmode='stack')
 
     
     return fig
@@ -250,25 +314,62 @@ def g_general_email(campaign_email):
 
 def w_general_email(campaign_email, value):
     g_email_wide = campaign_email.groupby([pd.Grouper(key='Date',freq='M'), 'Campaign Name'])\
-           .agg({'Targets':'sum', 'Impressions':'sum', 'Clicks':'sum', 'Conversions_percent':'sum'}).reset_index()
+           .agg({'Targets':'sum', 'Impressions':'sum', 'Clicks':'sum', 'Conversions':'sum',\
+                'Conversions_percent':'sum', 'Clicks_percent':'sum', 'Impressions_percent':'sum'}).round(2).reset_index()
 
-    g_email_wide = g_email_wide.rename(columns={'Conversions_percent':'Conversions'})
-    g_email_wide['Conversions'] = round(g_email_wide['Conversions'],2)
+    
+    g_email_wide['Conversions_percent'] =  g_email_wide['Conversions_percent'].astype(str) + '%'
+    g_email_wide['Clicks_percent'] =  g_email_wide['Clicks_percent'].astype(str) + '%'
+    g_email_wide['Impressions_percent'] =  g_email_wide['Impressions_percent'].astype(str) + '%'
+    
+    
     g_email_wide['Date'] = g_email_wide['Date'].dt.strftime('%Y-%m')
     g_email_wide = g_email_wide[g_email_wide['Date'] == value]
     height_weight = g_email_wide['Campaign Name'].nunique()
 
-    g_email_wide = pd.melt(g_email_wide, id_vars=['Campaign Name'], value_vars=list(g_email_wide.columns[2:]))
+#     g_email_wide = pd.melt(g_email_wide, id_vars=['Campaign Name'], value_vars=list(g_email_wide.columns[2:]))
 
-    fig = px.bar(g_email_wide, y="Campaign Name", x='value', color='variable', text='value', \
-                orientation='h', title="Wide-Form Input")
+#     fig = px.bar(g_email_wide, y="Campaign Name", x='value', color='variable', text='value', \
+#                 orientation='h', title="Wide-Form Input")
+
+    fig = go.Figure()
+    fig.add_trace(go.Bar(
+        x=g_email_wide['Targets'],
+        y=g_email_wide['Campaign Name'],
+        name='Targets',
+        text=g_email_wide['Targets'],
+        textposition='auto',
+        texttemplate='%{text:.2s}',
+        orientation='h'
+    ))
+    fig.add_trace(go.Bar(
+        x=g_email_wide['Impressions'],
+        y=g_email_wide['Campaign Name'],
+        name='Impressions',
+        text=g_email_wide['Impressions_percent'],
+        textposition='auto',
+        orientation='h'
+    ))
+    fig.add_trace(go.Bar(
+        x=g_email_wide['Clicks'],
+        y=g_email_wide['Campaign Name'],
+        name='Clicks',
+        text=g_email_wide['Clicks_percent'],
+        textposition='auto',
+        orientation='h'
+    ))
+    fig.add_trace(go.Bar(
+        x=g_email_wide['Conversions'],
+        y=g_email_wide['Campaign Name'],
+        name='Conversions',
+        text=g_email_wide['Conversions_percent'],
+        textposition='auto',
+        orientation='h'
+    ))
+    
     fig.update_traces(
         hovertemplate='%{x}')
-    for ix, trace in enumerate(fig.data):
-        if ix == (len(fig.data) - 1):
-            trace.update(textposition='outside')
-        # else:
-        #     trace.update(text='')
+
     legend_dict=\
         legend=dict(
             orientation="h",
@@ -278,14 +379,14 @@ def w_general_email(campaign_email, value):
             x=1,
             title=''
         )
-    fig.update_layout(font={'size': 14}, width=1000,template='ggplot2',
+    fig.update_layout(font={'size': 13}, width=1000,template='ggplot2',
                     plot_bgcolor = '#FFFFFF',height=height_weight*45,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'automargin': True, 'title':'#Unique event'},
                     yaxis={'showline': False, 'visible': True, 'showticklabels': True,\
                            'showgrid': True,  'automargin': True, 'title':'Campaign Name'},
                     bargap=0.2, title="Campaign Email Performance {}".format(value), title_x=0.5,\
-                    legend=legend_dict, margin={'l':70, 'r':70, 't':70, 'b':70})
+                    legend=legend_dict, margin={'l':70, 'r':70, 't':70, 'b':70}, barmode='stack')
 
     
     return fig
