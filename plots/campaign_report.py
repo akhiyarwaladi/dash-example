@@ -67,9 +67,9 @@ def w_general_push(campaign_push, value):
                 'Conversions_percent':'mean', 'Clicks_percent':'mean', 'Impressions_percent':'mean'}).round(2).reset_index()
 
     
-    g_push_wide['Conversions_percent'] =  g_push_wide['Conversions_percent'].astype(str) + '<br>%'
-    g_push_wide['Clicks_percent'] =  g_push_wide['Clicks_percent'].astype(str) + '<br>%'
-    g_push_wide['Impressions_percent'] =  g_push_wide['Impressions_percent'].astype(str) + '<br>%'
+    g_push_wide['Conversions_percent'] =  g_push_wide['Conversions_percent'].astype(str) + '%'
+    g_push_wide['Clicks_percent'] =  g_push_wide['Clicks_percent'].astype(str) + '%'
+    g_push_wide['Impressions_percent'] =  g_push_wide['Impressions_percent'].astype(str) + '%'
     
     
     g_push_wide['Campaign Sent Time'] = g_push_wide['Campaign Sent Time'].dt.strftime('%Y-%m')
@@ -133,7 +133,7 @@ def w_general_push(campaign_push, value):
             title=''
         )
 
-    fig.update_layout(font={'size': 11}, width=1000,template='ggplot2',
+    fig.update_layout(font={'size': 11}, width=1000,template='seaborn',
                     plot_bgcolor = '#FFFFFF',height=height_weight*45,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'automargin': True, 'title':'#Unique event'},
