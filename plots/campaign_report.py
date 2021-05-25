@@ -67,9 +67,9 @@ def w_general_push(campaign_push, value):
                 'Conversions_percent':'mean', 'Clicks_percent':'mean', 'Impressions_percent':'mean'}).round(2).reset_index()
 
     
-    g_push_wide['Conversions_percent'] =  g_push_wide['Conversions_percent'].astype(str) + '%'
-    g_push_wide['Clicks_percent'] =  g_push_wide['Clicks_percent'].astype(str) + '%'
-    g_push_wide['Impressions_percent'] =  g_push_wide['Impressions_percent'].astype(str) + '%'
+    g_push_wide['Conversions_percent'] =  g_push_wide['Conversions_percent'].astype(str) + '<br>%'
+    g_push_wide['Clicks_percent'] =  g_push_wide['Clicks_percent'].astype(str) + '<br>%'
+    g_push_wide['Impressions_percent'] =  g_push_wide['Impressions_percent'].astype(str) + '<br>%'
     
     
     g_push_wide['Campaign Sent Time'] = g_push_wide['Campaign Sent Time'].dt.strftime('%Y-%m')
