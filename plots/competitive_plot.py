@@ -3,6 +3,7 @@ import dash_table
 
 from loader.competitive_load import get_product_competitive
 from helper import transform_format
+from dash_table.Format import Format, Group
 
 product_competitive = get_product_competitive()
 competitive_table = product_competitive[0]
@@ -13,7 +14,12 @@ def plot_product_competitive():
 	df_init = pd.DataFrame()
 	df_init['name'] = list(competitive_table)
 	df_init['id'] = list(competitive_table)
-	df_init['type'] = 'text'
+
+	li_type = ['text', 'text', 'numeric', 'numeric', 'numeric', 'text', 'text']
+	li_format = [np.nan, np.nan, Format(group=','), Format(group=','), Format(group=','), np.nan, np.nan]
+	df_init['type'] = li_type
+	df_init['format'] = li_format
+	
 	columns = df_init.to_dict(orient='records')
 	return dash_table.DataTable(
 

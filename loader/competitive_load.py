@@ -4,9 +4,9 @@ def get_product_competitive():
 	pc = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/product_competitive.csv', sep='\t')
 
 	pc['diff_price'] = pc['comp_price'] - pc['our_price']
-	pc['diff_price'] = (pc['diff_price'].astype('float')).apply(transform_format)
-	pc['our_price'] = (pc['our_price'].astype('float')).apply(transform_format)
-	pc['comp_price'] = (pc['comp_price'].astype('float')).apply(transform_format)
+	# pc['diff_price'] = (pc['diff_price'].astype('float')).apply(transform_format)
+	# pc['our_price'] = (pc['our_price'].astype('float')).apply(transform_format)
+	# pc['comp_price'] = (pc['comp_price'].astype('float')).apply(transform_format)
 
 	n_lower = pc['price_vs'].value_counts().to_dict()[True]
 	n_higher = pc['price_vs'].value_counts().to_dict()[False]
