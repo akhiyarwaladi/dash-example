@@ -141,7 +141,7 @@ subitems1 = [dac.SidebarMenuSubItem(id='tab_gallery_1',
 # Sidebar
 sub_event = [
             dac.SidebarMenuSubItem(id='tab_events', 
-                            label='Push notification', 
+                            label='Push Notification', 
                             icon='arrow-circle-right'), 
             dac.SidebarMenuSubItem(id='tab_events_inapp', 
                             label='Mobile in-app (pop-up)', 
@@ -150,21 +150,21 @@ sub_event = [
                             label='Email Campaign', 
                             icon='arrow-circle-right'),
             dac.SidebarMenuSubItem(id='tab_view_product', 
-                            label='Event on product', 
+                            label='Event on Product', 
                             icon='arrow-circle-right')
             ]
 
 sub_monitor = [
-            dac.SidebarMenuSubItem(id='tab_general_monitor', label='General monitor', icon='desktop'),
-            dac.SidebarMenuSubItem(id='tab_basic_boxes', label='Member growth', icon='desktop'),
-            dac.SidebarMenuSubItem(id='tab_price_compare', label='Price competitor', icon='desktop'),
+            dac.SidebarMenuSubItem(id='tab_general_monitor', label='General Monitor', icon='desktop'),
+            dac.SidebarMenuSubItem(id='tab_basic_boxes', label='Member Growth', icon='desktop'),
+            dac.SidebarMenuSubItem(id='tab_price_compare', label='Price Competitor', icon='desktop'),
             dac.SidebarMenuSubItem(id='tab_oos_boxes', label='Out of stock', icon='desktop')
 ]
 
 sub_research = [
-            dac.SidebarMenuSubItem(id='tab_value_boxes', label='Voucher usage', icon='desktop'),
+            dac.SidebarMenuSubItem(id='tab_value_boxes', label='Voucher Usage', icon='desktop'),
             dac.SidebarMenuSubItem(id='tab_value_behave', label='Online-offline trx', icon='desktop'),
-            dac.SidebarMenuSubItem(id='tab_sales', label='Sales prediction', icon='desktop')
+            dac.SidebarMenuSubItem(id='tab_sales', label='Sales Prediction', icon='desktop')
 ]
 
 
@@ -178,9 +178,9 @@ sidebar = dac.Sidebar(
             #dac.SidebarMenuItem(id='tab_tab_cards', label='Tab cards', icon='image'),
 			dac.SidebarHeader(children="Alfagift Insight"),
             dac.SidebarMenuItem(label='Monitoring general', icon='cubes', children=sub_monitor),
-            dac.SidebarMenuItem(label='Research prototype', icon='cubes', children=sub_research),
+            dac.SidebarMenuItem(label='Research Prototype', icon='cubes', children=sub_research),
             dac.SidebarHeader(children="User Behavior"),
-            dac.SidebarMenuItem(label='Moengage exploration', icon='cubes', children=sub_event),
+            dac.SidebarMenuItem(label='Moengage Exploratory', icon='cubes', children=sub_event),
             dac.SidebarHeader(children="Member DNA"),
             dac.SidebarMenuItem(label='Soon ...', icon='cubes', children=subitems1),
 		]
