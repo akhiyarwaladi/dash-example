@@ -187,9 +187,14 @@ def plot_sp(sp, value):
 	title={
 	    'text': value,
 	    'y':1,
-	    'x':1,
+	    'x':0.8,
 	    'xanchor': 'right',
-	    'yanchor': 'top'}
+	    'yanchor': 'top',
+		'font': {
+		    'family':"Courier",
+		    'size':18,
+		    'color':"black"}
+	}
 	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
 	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict, title=title)
 	# Show plot 
