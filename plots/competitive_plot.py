@@ -26,7 +26,7 @@ def plot_product_competitive():
 	columns = df_init.to_dict(orient='records')
 	return dash_table.DataTable(
 
-
+		id='datatable-interactivity',
 		columns=columns,
 		data=competitive_table.to_dict('records'),
 		filter_action='native',

@@ -489,6 +489,13 @@ def update_plot_cpi(value):
 
     return fig
 
+@app.callback(
+    Output('datatable-interactivity-container', "children"),
+    Input('datatable-interactivity', "derived_virtual_data"),
+    Input('datatable-interactivity', "derived_virtual_selected_rows"))
+def update_graphs(rows, derived_virtual_selected_rows):
+    return 'Showing (<b>{}</b>) rows'.format(len(rows))
+
 
 # =============================================================================
 # Run app    
