@@ -144,10 +144,20 @@ def plot_vp(vp, value):
 	            bordercolor="Black",
 	            borderwidth=1
 	        )
+	title={
+	    'text': value,
+	    'y':1,
+	    'x':0.9,
+	    'xanchor': 'right',
+	    'yanchor': 'top',
+		'font': {
+		    'family':"Courier",
+		    'size':20,
+		    'color':"black"}
+	}
 	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
-	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
-	# Show plot 
-	#fig.show()
+	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict,title=title)
+
 	return fig
 
 def plot_sp(sp, value):
@@ -187,12 +197,12 @@ def plot_sp(sp, value):
 	title={
 	    'text': value,
 	    'y':1,
-	    'x':0.8,
+	    'x':0.9,
 	    'xanchor': 'right',
 	    'yanchor': 'top',
 		'font': {
 		    'family':"Courier",
-		    'size':18,
+		    'size':20,
 		    'color':"black"}
 	}
 	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
