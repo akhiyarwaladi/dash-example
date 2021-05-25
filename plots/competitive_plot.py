@@ -50,7 +50,7 @@ def plot_product_competitive():
 	        {
 	            'if': {'column_id': c},
 	            'textAlign': 'left',
-	            'fontSize':16, 'font-family':'sans-serif',
+	            'fontSize':15, 'font-family':'sans-serif',
 	        } for c in ['product_name_comp', 'url_comp']
 
 	    ] + 
