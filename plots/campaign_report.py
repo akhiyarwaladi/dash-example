@@ -27,9 +27,17 @@ def g_general_push(campaign_push):
         textposition='top center', 
         textfont_size=11,
         hovertemplate='%{x}<br>%{text}')
+
     for ix, trace in enumerate(fig.data):
-        if ix == 3:
-            trace.update(textposition='bottom center')
+        print(trace)
+        if trace['legendgroup'] == 'Conversions':
+            trace.update(text=None, texttemplate='')
+    for i, r in g_push[g_push['variable'] == 'Conversions'].iterrows():
+        fig.add_annotation(x=r['Date'], y=r['value'],
+                text=r['value'],
+                showarrow=True,
+                arrowhead=1)
+
     fig.update_xaxes(
         dtick="M1",
         tickformat="%b%y",
@@ -160,9 +168,18 @@ def g_general_inapp(campaign_inapp):
         textposition='top center', 
         textfont_size=11,
         hovertemplate='%{x}<br>%{text}')
+
+
     for ix, trace in enumerate(fig.data):
-        if ix == 3:
-            trace.update(textposition='bottom center')
+        print(trace)
+        if trace['legendgroup'] == 'Conversions':
+            trace.update(text=None, texttemplate='')
+    for i, r in g_inapp[g_inapp['variable'] == 'Conversions'].iterrows():
+        fig.add_annotation(x=r['Date'], y=r['value'],
+                text=r['value'],
+                showarrow=True,
+                arrowhead=1)
+
     fig.update_xaxes(
         dtick="M1",
         tickformat="%b%y",
@@ -172,11 +189,7 @@ def g_general_inapp(campaign_inapp):
 
         showgrid=True, gridwidth=1, gridcolor='LightPink', title='#'
     )
-    for i, r in g_inapp[g_inapp['variable'] == 'Conversions'].iterrows():
-        fig.add_annotation(x=r['Date'], y=r['value'],
-                text=r['value'],
-                showarrow=True,
-                arrowhead=1)
+
 
     legend_dict = \
         legend=dict(
@@ -284,9 +297,17 @@ def g_general_email(campaign_email):
         textposition='top center', 
         textfont_size=11,
         hovertemplate='%{x}<br>%{text}')
+
     for ix, trace in enumerate(fig.data):
-        if ix == 3:
-            trace.update(textposition='bottom center')
+        print(trace)
+        if trace['legendgroup'] == 'Conversions':
+            trace.update(text=None, texttemplate='')
+    for i, r in g_email[g_email['variable'] == 'Conversions'].iterrows():
+        fig.add_annotation(x=r['Date'], y=r['value'],
+                text=r['value'],
+                showarrow=True,
+                arrowhead=1)
+
     fig.update_xaxes(
         dtick="M1",
         tickformat="%b%y",
