@@ -121,7 +121,7 @@ def plot_vp(vp, value):
 
 	fig.update_xaxes(
 	#     dtick="M1",
-	#     tickformat="%b%y",
+	    tickformat="%d%b%y",
 	    showgrid=True, gridwidth=1, gridcolor='LightPink', title=''
 	)
 	fig.update_yaxes(
