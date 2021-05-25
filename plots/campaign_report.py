@@ -36,6 +36,8 @@ def g_general_push(campaign_push):
         fig.add_annotation(x=r['Campaign Sent Time'], y=r['value'],
                 text=r['value_format'],
                 showarrow=True,
+                ax=0,
+                ay=35,
                 arrowhead=1)
 
     fig.update_xaxes(
@@ -174,10 +176,23 @@ def g_general_inapp(campaign_inapp):
         # print(trace)
         if trace['legendgroup'] == 'Conversions':
             trace.update(text=None, texttemplate='', hovertemplate='')
+        if trace['legendgroup'] == 'Clicks':
+            trace.update(text=None, texttemplate='', hovertemplate='')
+
     for i, r in g_inapp[g_inapp['variable'] == 'Conversions'].iterrows():
         fig.add_annotation(x=r['Date'], y=r['value'],
                 text=r['value_format'],
                 showarrow=True,
+                ax=0,
+                ay=35,
+                arrowhead=1)
+
+    for i, r in g_inapp[g_inapp['variable'] == 'Clicks'].iterrows():
+        fig.add_annotation(x=r['Date'], y=r['value'],
+                text=r['value_format'],
+                showarrow=True,
+                ax=0,
+                ay=-30,
                 arrowhead=1)
 
     fig.update_xaxes(
@@ -306,6 +321,8 @@ def g_general_email(campaign_email):
         fig.add_annotation(x=r['Date'], y=r['value'],
                 text=r['value_format'],
                 showarrow=True,
+                ax=0,
+                ay=35,
                 arrowhead=1)
 
     fig.update_xaxes(
