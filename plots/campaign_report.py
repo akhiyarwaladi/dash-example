@@ -245,6 +245,7 @@ def w_general_inapp(campaign_inapp, value):
     legend_dict=\
         legend=dict(
             orientation="h",
+            traceorder="normal",
             yanchor="bottom",
             y=1,
             xanchor="right",
@@ -374,6 +375,7 @@ def w_general_email(campaign_email, value):
         legend=dict(
             orientation="h",
             yanchor="bottom",
+            traceorder="normal",
             y=1,
             xanchor="right",
             x=1,
