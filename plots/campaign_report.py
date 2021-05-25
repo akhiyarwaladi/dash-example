@@ -22,14 +22,14 @@ def g_general_push(campaign_push):
 
     g_push['value_format'] = g_push['value'].astype('float').apply(transform_to_format)
     fig = px.line(g_push, x='Campaign Sent Time', y='value', template='seaborn', \
-                  text='value_format', color='variable')
-    fig.update_traces(texttemplate='%{text}', 
+                  text='value', color='variable')
+    fig.update_traces(texttemplate='%{text:.2s}', 
         textposition='top center', 
         textfont_size=11,
         hovertemplate='%{x}<br>%{text}')
 
     for ix, trace in enumerate(fig.data):
-        print(trace)
+        # print(trace)
         if trace['legendgroup'] == 'Conversions':
             trace.update(text=None, texttemplate='')
     for i, r in g_push[g_push['variable'] == 'Conversions'].iterrows():
@@ -163,15 +163,15 @@ def g_general_inapp(campaign_inapp):
 
     g_inapp['value_format'] = g_inapp['value'].astype('float').apply(transform_to_format)
     fig = px.line(g_inapp, x='Date', y='value', template='seaborn', \
-                  text='value_format', color='variable')
-    fig.update_traces(texttemplate='%{text}', 
+                  text='value', color='variable')
+    fig.update_traces(texttemplate='%{text:.2s}', 
         textposition='top center', 
         textfont_size=11,
         hovertemplate='%{x}<br>%{text}')
 
 
     for ix, trace in enumerate(fig.data):
-        print(trace)
+        # print(trace)
         if trace['legendgroup'] == 'Conversions':
             trace.update(text=None, texttemplate='')
     for i, r in g_inapp[g_inapp['variable'] == 'Conversions'].iterrows():
@@ -292,14 +292,14 @@ def g_general_email(campaign_email):
 
     g_email['value_format'] = g_email['value'].astype('float').apply(transform_to_format)
     fig = px.line(g_email, x='Date', y='value', template='seaborn', \
-                  text='value_format', color='variable')
-    fig.update_traces(texttemplate='%{text}', 
+                  text='value', color='variable')
+    fig.update_traces(texttemplate='%{text:.2s}', 
         textposition='top center', 
         textfont_size=11,
         hovertemplate='%{x}<br>%{text}')
 
     for ix, trace in enumerate(fig.data):
-        print(trace)
+        # print(trace)
         if trace['legendgroup'] == 'Conversions':
             trace.update(text=None, texttemplate='')
     for i, r in g_email[g_email['variable'] == 'Conversions'].iterrows():
