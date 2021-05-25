@@ -125,9 +125,9 @@ def plot_vp(vp, value):
 	    showgrid=True, gridwidth=1, gridcolor='LightPink', title=''
 	)
 	fig.update_yaxes(
-
-	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='total_event'
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='total_view'
 	)
+
 	legend_dict = \
 	    legend=dict(
 	            x=0,
@@ -151,21 +151,22 @@ def plot_vp(vp, value):
 	return fig
 
 def plot_sp(sp, value):
-	fig = px.line(sp, x='search_products - keyword', y=sp[str(value)], template='ggplot2')
+	fig = px.line(sp, x='search_products - keyword', y=sp[str(value)], template='ggplot2',\
+		text=sp[str(value)])
 	fig.update_traces(
-	#     texttemplate='%{text}', 
-	#     textposition='top center', 
-	#     textfont_size=11,
-	    hovertemplate='%{x}<br>%{y}')
+	    texttemplate='%{text:.2s}', 
+	    textposition='top center', 
+	    textfont_size=11,
+	    hovertemplate='%{x}<br>%{y}'
+	)
 
 	fig.update_xaxes(
 	#     dtick="M1",
-	#     tickformat="%b%y",
+	    tickformat="%d%b%y",
 	    showgrid=True, gridwidth=1, gridcolor='LightPink', title=''
 	)
 	fig.update_yaxes(
-
-	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='total_event'
+	    showgrid=True, gridwidth=1, gridcolor='LightPink', title='total_search'
 	)
 	legend_dict = \
 	    legend=dict(
