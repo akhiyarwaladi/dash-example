@@ -133,7 +133,7 @@ def w_general_push(campaign_push, value):
             title=''
         )
 
-    fig.update_layout(font={'size': 12}, width=1000,template='ggplot2',
+    fig.update_layout(font={'size': 11}, width=1000,template='ggplot2',
                     plot_bgcolor = '#FFFFFF',height=height_weight*45,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'automargin': True, 'title':'#Unique event'},
@@ -252,7 +252,7 @@ def w_general_inapp(campaign_inapp, value):
             x=1,
             title=''
         )
-    fig.update_layout(font={'size': 12}, width=1000,template='ggplot2',
+    fig.update_layout(font={'size': 11}, width=1000,template='ggplot2',
                     plot_bgcolor = '#FFFFFF',height=height_weight*55,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'gridcolor':'LightPink', 'automargin': True, 'title':'#Unique event'},
@@ -381,7 +381,7 @@ def w_general_email(campaign_email, value):
             x=1,
             title=''
         )
-    fig.update_layout(font={'size': 12}, width=1000,template='ggplot2',
+    fig.update_layout(font={'size': 11}, width=1000,template='ggplot2',
                     plot_bgcolor = '#FFFFFF',height=height_weight*70,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'automargin': True, 'title':'#Unique event'},
