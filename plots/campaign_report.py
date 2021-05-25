@@ -172,6 +172,11 @@ def g_general_inapp(campaign_inapp):
 
         showgrid=True, gridwidth=1, gridcolor='LightPink', title='#'
     )
+    for i, r in g_inapp[g_inapp['variable'] == 'Conversions'].iterrows():
+        fig.add_annotation(x=r['Date'], y=r['value'],
+                text=r['value'],
+                showarrow=True,
+                arrowhead=1)
 
     legend_dict = \
         legend=dict(
