@@ -61,6 +61,7 @@ def plot_product_competitive():
 	            'if': {'column_id': f},
 	            'textAlign': 'right',
 	            'fontSize':13, 'font-family':'monospace',
+	            'padding':'10px'
 	        } for f in ['url_comp']
 
 	    ] + 
