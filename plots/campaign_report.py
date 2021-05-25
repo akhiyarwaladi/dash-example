@@ -305,7 +305,6 @@ def g_general_email(campaign_email):
     for i, r in g_email[g_email['variable'] == 'Conversions'].iterrows():
         fig.add_annotation(x=r['Date'], y=r['value'],
                 text=r['value_format'],
-                texttemplate='%{text:.2s}',
                 showarrow=True,
                 arrowhead=1)
 
