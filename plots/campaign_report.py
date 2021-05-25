@@ -21,7 +21,7 @@ def g_general_push(campaign_push):
     g_push = pd.melt(g_push, ['Campaign Sent Time'])
 
     g_push['value_format'] = g_push['value'].astype('float').apply(transform_to_format)
-    fig = px.line(g_push, x='Campaign Sent Time', y='value', template='ggplot2', \
+    fig = px.line(g_push, x='Campaign Sent Time', y='value', template='seaborn', \
                   text='value_format', color='variable')
     fig.update_traces(texttemplate='%{text}', 
         textposition='top center', 
@@ -154,7 +154,7 @@ def g_general_inapp(campaign_inapp):
     g_inapp = pd.melt(g_inapp, ['Date'])
 
     g_inapp['value_format'] = g_inapp['value'].astype('float').apply(transform_to_format)
-    fig = px.line(g_inapp, x='Date', y='value', template='ggplot2', \
+    fig = px.line(g_inapp, x='Date', y='value', template='seaborn', \
                   text='value_format', color='variable')
     fig.update_traces(texttemplate='%{text}', 
         textposition='top center', 
@@ -252,7 +252,7 @@ def w_general_inapp(campaign_inapp, value):
             x=1,
             title=''
         )
-    fig.update_layout(font={'size': 11}, width=1000,template='ggplot2',
+    fig.update_layout(font={'size': 11}, width=1000,template='seaborn',
                     plot_bgcolor = '#FFFFFF',height=height_weight*55,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'gridcolor':'LightPink', 'automargin': True, 'title':'#Unique event'},
@@ -273,7 +273,7 @@ def g_general_email(campaign_email):
     g_email = pd.melt(g_email, ['Date'])
 
     g_email['value_format'] = g_email['value'].astype('float').apply(transform_to_format)
-    fig = px.line(g_email, x='Date', y='value', template='ggplot2', \
+    fig = px.line(g_email, x='Date', y='value', template='seaborn', \
                   text='value_format', color='variable')
     fig.update_traces(texttemplate='%{text}', 
         textposition='top center', 
@@ -381,7 +381,7 @@ def w_general_email(campaign_email, value):
             x=1,
             title=''
         )
-    fig.update_layout(font={'size': 11}, width=1000,template='ggplot2',
+    fig.update_layout(font={'size': 11}, width=1000,template='seaborn',
                     plot_bgcolor = '#FFFFFF',height=height_weight*70,
                     xaxis={'showline': True, 'visible': True, 'showticklabels': True, \
                            'showgrid': True, 'automargin': True, 'title':'#Unique event'},
