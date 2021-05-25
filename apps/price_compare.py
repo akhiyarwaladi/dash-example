@@ -77,7 +77,7 @@ card3 = dbc.CardGroup(
             html.Div(className="fas fa-dollar-sign", style=card_icon),
             # className="bg-info",
             color="#87a7b3",
-            style={"maxWidth": 75, "height":40, 'width': 50},
+            style={"maxWidth": 75, "height":30, 'width': 40},
         ),
     ],className="mt-4 shadow",
 )
@@ -101,6 +101,9 @@ children=[
                         dbc.Col(
                           card2
                         , width = 3),
+
+                      ], justify="center",)
+                      dbc.Row([
                         dbc.Col(
                           card3
                         , width = 3),
