@@ -115,7 +115,7 @@ children=[
             dbc.Row([
               dbc.Col(
                 dbc.Card([
-                  dbc.CardHeader("showing {} rows".format(html.H5(html.Div(id='datatable-interactivity-container')))),
+                  dbc.CardHeader(html.H5(html.Div(id='datatable-interactivity-container'))),
                   dbc.CardBody([
                       # html.H5("Card title", className="card-title"),
                       html.P(
