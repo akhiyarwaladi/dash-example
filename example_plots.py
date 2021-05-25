@@ -113,10 +113,11 @@ def plot_vp(vp, value):
 	fig = px.line(vp, x='view_product - product_name', y=vp[str(value)], template='ggplot2',\
 		text=vp[str(value)])
 	fig.update_traces(
-	#     texttemplate='%{text}', 
-	#     textposition='top center', 
-	#     textfont_size=11,
-	    hovertemplate='%{x}<br>%{y}')
+	    texttemplate='%{text:.2s}', 
+	    textposition='top center', 
+	    textfont_size=11,
+	    hovertemplate='%{x}<br>%{y}'
+	)
 
 	fig.update_xaxes(
 	#     dtick="M1",
