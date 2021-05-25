@@ -186,8 +186,8 @@ def plot_sp(sp, value):
 	        )
 	title={
 	    'text': value,
-	    'y':0,
-	    'x':0,
+	    'y':1,
+	    'x':1,
 	    'xanchor': 'right',
 	    'yanchor': 'top'}
 	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
