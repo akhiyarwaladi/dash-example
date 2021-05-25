@@ -21,7 +21,7 @@ view_product_tab = dac.TabItem(id='content_view_product',
                     dbc.CardHeader(
                       [
                         dbc.Row([
-                          dbc.Col(html.H5("View product"), md=4),
+                          dbc.Col(html.H5("View Product"), md=4),
                           dbc.Col(
                             dcc.Dropdown(
                                 id='vp_dropdown',
@@ -53,7 +53,7 @@ view_product_tab = dac.TabItem(id='content_view_product',
                     dbc.CardHeader(
                       [
                         dbc.Row([
-                          dbc.Col(html.Div(""), md=4),
+                          dbc.Col(html.H5("Search Product"), md=4),
                           dbc.Col(
                             dcc.Dropdown(
                                 id='sp_dropdown',
@@ -65,7 +65,7 @@ view_product_tab = dac.TabItem(id='content_view_product',
                     ),
                     dbc.CardBody(
                         [
-                            html.H5("Search product (total event)", className="card-title"),
+                            # html.H5("Search product (total event)", className="card-title"),
                             html.P(
                                 dcc.Graph(
                                   # figure=plot_sp()[0],

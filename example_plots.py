@@ -184,8 +184,14 @@ def plot_sp(sp, value):
 	            bordercolor="Black",
 	            borderwidth=1
 	        )
+    title={
+        'text': value,
+        'y':0.9,
+        'x':0.5,
+        'xanchor': 'right',
+        'yanchor': 'top'}
 	fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', margin=\
-	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict)
+	                  {'l':70, 'r':30, 't':30, 'b':70},legend=legend_dict, title=title)
 	# Show plot 
 	# fig.show()
 
