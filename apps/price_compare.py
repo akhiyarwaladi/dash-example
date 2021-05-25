@@ -104,7 +104,7 @@ children=[
                         dbc.Col(
                           card3
                         , width = 3),
-                      ], justify="center",)
+                      ], justify="center",),
                       dbc.Row([
                         dbc.Col(
                           card1
