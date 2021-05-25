@@ -4,6 +4,7 @@ import dash_table
 from loader.competitive_load import get_product_competitive
 from helper import transform_format
 from dash_table.Format import Format, Group
+import numpy as np
 
 product_competitive = get_product_competitive()
 competitive_table = product_competitive[0]
@@ -19,7 +20,7 @@ def plot_product_competitive():
 	li_format = [np.nan, np.nan, Format(group=','), Format(group=','), Format(group=','), np.nan, np.nan]
 	df_init['type'] = li_type
 	df_init['format'] = li_format
-	
+
 	columns = df_init.to_dict(orient='records')
 	return dash_table.DataTable(
 
