@@ -31,7 +31,7 @@ def g_general_push(campaign_push):
     for ix, trace in enumerate(fig.data):
         # print(trace)
         if trace['legendgroup'] == 'Conversions':
-            trace.update(text=None, texttemplate='')
+            trace.update(text=None, texttemplate='', hovertemplate='')
     for i, r in g_push[g_push['variable'] == 'Conversions'].iterrows():
         fig.add_annotation(x=r['Campaign Sent Time'], y=r['value'],
                 text=r['value_format'],
@@ -173,7 +173,7 @@ def g_general_inapp(campaign_inapp):
     for ix, trace in enumerate(fig.data):
         # print(trace)
         if trace['legendgroup'] == 'Conversions':
-            trace.update(text=None, texttemplate='')
+            trace.update(text=None, texttemplate='', hovertemplate='')
     for i, r in g_inapp[g_inapp['variable'] == 'Conversions'].iterrows():
         fig.add_annotation(x=r['Date'], y=r['value'],
                 text=r['value_format'],
@@ -301,7 +301,7 @@ def g_general_email(campaign_email):
     for ix, trace in enumerate(fig.data):
         # print(trace)
         if trace['legendgroup'] == 'Conversions':
-            trace.update(text=None, texttemplate='')
+            trace.update(text=None, texttemplate='', hovertemplate='')
     for i, r in g_email[g_email['variable'] == 'Conversions'].iterrows():
         fig.add_annotation(x=r['Date'], y=r['value'],
                 text=r['value_format'],
