@@ -17,7 +17,9 @@ def plot_product_competitive():
 	df_init['id'] = list(competitive_table)
 
 	li_type = ['text', 'text', 'numeric', 'numeric', 'numeric', 'text', 'text']
-	li_format = [np.nan, np.nan, Format(group_delimiter='.', group=Group.yes, groups=[3]), Format(group_delimiter='.', group=Group.yes, groups=[3]), Format(group_delimiter='.', group=Group.yes, groups=[2]), np.nan, np.nan]
+	li_format = [np.nan, np.nan, Format(group_delimiter='.', group=Group.yes, groups=[3]),\
+	 Format(group_delimiter='.', group=Group.yes, groups=[3]), \
+	 Format(group_delimiter='.', group=Group.yes, groups=[3]), np.nan, np.nan]
 	df_init['type'] = li_type
 	df_init['format'] = li_format
 
