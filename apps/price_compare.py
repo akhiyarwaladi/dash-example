@@ -79,7 +79,7 @@ card3 = dbc.CardGroup(
             color="#87a7b3",
             style={"maxWidth": 50, "height":50, 'width': 50},
         ),
-    ],className="mt-4 shadow",
+    ],className="mt-3 shadow",
 )
 
 
