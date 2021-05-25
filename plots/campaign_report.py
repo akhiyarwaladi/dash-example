@@ -33,7 +33,7 @@ def g_general_push(campaign_push):
         if trace['legendgroup'] == 'Conversions':
             trace.update(text=None, texttemplate='')
     for i, r in g_push[g_push['variable'] == 'Conversions'].iterrows():
-        fig.add_annotation(x=r['Date'], y=r['value'],
+        fig.add_annotation(x=r['Campaign Sent Time'], y=r['value'],
                 text=r['value'],
                 showarrow=True,
                 arrowhead=1)
