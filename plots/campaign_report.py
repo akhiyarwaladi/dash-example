@@ -64,7 +64,7 @@ def g_general_push(campaign_push):
 def w_general_push(campaign_push, value):
     g_push_wide = campaign_push.groupby([pd.Grouper(key='Campaign Sent Time',freq='M'), 'Campaign Name'])\
            .agg({'Targets':'sum', 'Impressions':'sum', 'Clicks':'sum', 'Conversions':'sum',\
-                'Conversions_percent':'sum', 'Clicks_percent':'sum', 'Impressions_percent':'sum'}).round(2).reset_index()
+                'Conversions_percent':'mean', 'Clicks_percent':'mean', 'Impressions_percent':'mean'}).round(2).reset_index()
 
     
     g_push_wide['Conversions_percent'] =  g_push_wide['Conversions_percent'].astype(str) + '%'
@@ -197,7 +197,7 @@ def g_general_inapp(campaign_inapp):
 def w_general_inapp(campaign_inapp, value):
     g_inapp_wide = campaign_inapp.groupby([pd.Grouper(key='Date',freq='M'), 'Campaign Name'])\
            .agg({'Impressions':'sum', 'Clicks':'sum', 'Conversions':'sum',\
-                'Conversions_percent':'sum', 'Clicks_percent':'sum'}).round(2).reset_index()
+                'Conversions_percent':'mean', 'Clicks_percent':'mean'}).round(2).reset_index()
 
     
     g_inapp_wide['Conversions_percent'] =  g_inapp_wide['Conversions_percent'].astype(str) + '%'
@@ -316,7 +316,7 @@ def g_general_email(campaign_email):
 def w_general_email(campaign_email, value):
     g_email_wide = campaign_email.groupby([pd.Grouper(key='Date',freq='M'), 'Campaign Name'])\
            .agg({'Targets':'sum', 'Impressions':'sum', 'Clicks':'sum', 'Conversions':'sum',\
-                'Conversions_percent':'sum', 'Clicks_percent':'sum', 'Impressions_percent':'sum'}).round(2).reset_index()
+                'Conversions_percent':'mean', 'Clicks_percent':'mean', 'Impressions_percent':'mean'}).round(2).reset_index()
 
     
     g_email_wide['Conversions_percent'] =  g_email_wide['Conversions_percent'].astype(str) + '%'
