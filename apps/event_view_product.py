@@ -88,38 +88,38 @@ view_product_tab = dac.TabItem(id='content_view_product',
 
               ]), md=12),
             ]),
-            dbc.Row([
-              dbc.Col(
-                dbc.Card(
-                  [
-                    dbc.CardHeader(
-                      [
-                        dbc.Row([
-                          dbc.Col(html.H5(""), md=4),
-                          dbc.Col(
-                            dcc.Dropdown(
-                                id='product_date_dropdown',
-                                options=product_date_dropdown_li,
-                                value=now_str
-                            ), md=8),
-                        ])
-                      ]
-                    ),
-                    dbc.CardBody(
-                        [
-                            # html.H5("Search product (total event)", className="card-title"),
-                            html.P(
-                                dcc.Graph(
-                                  # figure=plot_sp()[0],
-                                  id='product_fig',
-                                  config=dict(displayModeBar=False),
+            # dbc.Row([
+            #   dbc.Col(
+            #     dbc.Card(
+            #       [
+            #         dbc.CardHeader(
+            #           [
+            #             dbc.Row([
+            #               dbc.Col(html.H5(""), md=4),
+            #               dbc.Col(
+            #                 dcc.Dropdown(
+            #                     id='product_date_dropdown',
+            #                     options=product_date_dropdown_li,
+            #                     value=now_str
+            #                 ), md=8),
+            #             ])
+            #           ]
+            #         ),
+            #         dbc.CardBody(
+            #             [
+            #                 # html.H5("Search product (total event)", className="card-title"),
+            #                 html.P(
+            #                     dcc.Graph(
+            #                       # figure=plot_sp()[0],
+            #                       id='product_fig',
+            #                       config=dict(displayModeBar=False),
                    
-                                  ),className="card-text",
-                            ),
-                        ]),
+            #                       ),className="card-text",
+            #                 ),
+            #             ]),
                     
 
-              ]), md=12),
+            #   ]), md=12),
             ]),
 
         #     dbc.Row([
