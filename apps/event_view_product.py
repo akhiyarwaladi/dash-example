@@ -7,6 +7,14 @@ from example_plots import (plot_view_product1, plot_view_product2, plot_search_p
   plot_uvp, plot_usp)
 
 from data_loader import get_vp, get_sp
+from loader.product_load import get_product
+
+
+from datetime import datetime
+now_str = datetime.now().date().strftime('%Y-%m')
+
+product_group = get_product()
+product_date_dropdown_li = list(product_group['TRO_DATE_ORDER'].unique())
 
 view_product_tab = dac.TabItem(id='content_view_product', 
                               
@@ -79,6 +87,40 @@ view_product_tab = dac.TabItem(id='content_view_product',
 
               ]), md=12),
             ]),
+            dbc.Row([
+              dbc.Col(
+                dbc.Card(
+                  [
+                    dbc.CardHeader(
+                      [
+                        dbc.Row([
+                          dbc.Col(html.H5(""), md=4),
+                          dbc.Col(
+                            dcc.Dropdown(
+                                id='product_date_dropdown',
+                                options=product_date_dropdown_li,
+                                value=now_str
+                            ), md=8),
+                        ])
+                      ]
+                    ),
+                    dbc.CardBody(
+                        [
+                            # html.H5("Search product (total event)", className="card-title"),
+                            html.P(
+                                dcc.Graph(
+                                  # figure=plot_sp()[0],
+                                  id='product_fig',
+                                  config=dict(displayModeBar=False),
+                   
+                                  ),className="card-text",
+                            ),
+                        ]),
+                    
+
+              ]), md=12),
+            ]),
+
         #     dbc.Row([
         #       dbc.Col(
         #         dbc.Card(
