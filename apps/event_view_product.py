@@ -13,8 +13,9 @@ from loader.product_load import get_product
 from datetime import datetime
 now_str = datetime.now().date().strftime('%Y-%m')
 
-product_group = get_product()
-product_date_dropdown_li = list(product_group['TRO_DATE_ORDER'].unique())
+f_product_group = get_product()
+product_group = f_product_group[0]
+product_date_dropdown_li = f_product_group[1]
 
 view_product_tab = dac.TabItem(id='content_view_product', 
                               

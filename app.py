@@ -466,9 +466,10 @@ def update_plot_sp(value):
     ]
 )
 def update_plot_cpn(value):
-    fig = w_general_push(get_cpn()[0], value)
+    fig = w_general_push(campaign_push, value)
 
     return fig
+
 @app.callback(
     Output('cpe_fig', 'figure'),
     [
@@ -476,9 +477,10 @@ def update_plot_cpn(value):
     ]
 )
 def update_plot_cpe(value):
-    fig = w_general_email(get_cpe()[0], value)
+    fig = w_general_email(campaign_email, value)
 
     return fig
+    
 @app.callback(
     Output('cpi_fig', 'figure'),
     [
@@ -486,7 +488,7 @@ def update_plot_cpe(value):
     ]
 )
 def update_plot_cpi(value):
-    fig = w_general_inapp(get_cpi()[0], value)
+    fig = w_general_inapp(campaign_inapp, value)
 
     return fig
 
