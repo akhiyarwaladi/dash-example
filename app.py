@@ -496,7 +496,7 @@ def update_plot_cpi(value):
         Input('product_date_dropdown', 'value_1')
     ]
 )
-def update_plot_cpi(value_1):
+def update_plot_product(value_1):
     value_2 = 'TRO_NET'
     fig = plot_product(product_group, value_1, value_2)
 
