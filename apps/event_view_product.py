@@ -120,7 +120,7 @@ view_product_tab = dac.TabItem(id='content_view_product',
                     
 
             #   ]), md=12),
-            ]),
+            # ]),
 
         #     dbc.Row([
         #       dbc.Col(
