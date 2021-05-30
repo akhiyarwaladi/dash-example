@@ -17,6 +17,7 @@ from apps.price_compare import tab_price_compare
 from apps.value_boxes import value_boxes_tab
 from apps.value_behave import value_behave_tab
 from apps.sales import sales_tab, sales_plot
+display(sales_plot)
 from apps.oos_boxes import oos_boxes_tab
 from apps.tab_events_notif import events_tab, campaign_push
 from apps.tab_events_inapp import events_inapp, campaign_inapp
