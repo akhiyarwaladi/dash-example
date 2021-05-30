@@ -67,24 +67,24 @@ sales_plot_table_daily['index'] = pd.to_datetime(sales_plot_table_daily['index']
 ## formatting view
 sales_plot_table_daily['index'] = sales_plot_table_daily['index'].dt.strftime('%d%b%y')
 
-sales_plot_table_daily['prediction'] = sales_plot_table_daily['prediction'].astype('float').apply(transform_to_rupiah_format)
-sales_plot_table_daily['actual'] = sales_plot_table_daily['actual'].astype('float').apply(transform_to_rupiah_format)
-sales_plot_table_daily = sales_plot_table_daily.rename(columns={'index':'date', 'type':''})
+sales_plot_table_daily['TRO_NET_PRED'] = sales_plot_table_daily['TRO_NET_PRED'].astype('float').apply(transform_to_rupiah_format)
+sales_plot_table_daily['TRO_NET'] = sales_plot_table_daily['TRO_NET'].astype('float').apply(transform_to_rupiah_format)
+sales_plot_table_daily = sales_plot_table_daily.rename(columns={'index':'date'})
 ############################
 
 
 ############################
 sales_plot_table['index'] = pd.to_datetime(sales_plot_table['index'])
 sales_plot_table = sales_plot_table.groupby([pd.Grouper(key='index',freq='M')])\
-                    .agg({'actual':'sum', 'prediction':'sum'})\
+                    .agg({'TRO_NET':'sum', 'TRO_NET_PRED':'sum'})\
                     .reset_index()
 
 ## formatting view
 sales_plot_table['index'] = sales_plot_table['index'].dt.strftime('%d%b%y')
 
-sales_plot_table['prediction'] = sales_plot_table['prediction'].astype('float').apply(transform_to_rupiah_format)
-sales_plot_table['actual'] = sales_plot_table['actual'].astype('float').apply(transform_to_rupiah_format)
-sales_plot_table = sales_plot_table.rename(columns={'index':'date', 'type':''})
+sales_plot_table['TRO_NET_PRED'] = sales_plot_table['TRO_NET_PRED'].astype('float').apply(transform_to_rupiah_format)
+sales_plot_table['TRO_NET'] = sales_plot_table['TRO_NET'].astype('float').apply(transform_to_rupiah_format)
+sales_plot_table = sales_plot_table.rename(columns={'index':'date'})
 ############################
 
 vp = get_vp()[0]
