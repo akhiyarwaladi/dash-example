@@ -4,7 +4,7 @@ import dash_admin_components as dac
 import dash_bootstrap_components as dbc
 
 from example_plots import (plot_sales_train, plot_sales_test, plot_sales_all, plot_table_sales)
-from data_loader import get_agsales
+from loader.agsales_load import get_agsales
 sales_plot = get_agsales()
 
 fig_sales_train, fig_sales_test = plot_sales_train(), plot_sales_test()
