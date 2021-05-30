@@ -433,12 +433,16 @@ def make_plot_callback(date_start, date_end):
 )
 def update_plot_sales(value):
     fig = plot_sales_all(sales_plot, value)
-    if value == 'Monthly':
 
-        table = plot_table_sales(sales_plot_table, value)
-    else:
-        table = plot_table_sales(sales_plot_table_daily, value)
-    return fig, table
+    return fig
+# def update_plot_sales(value):
+#     fig = plot_sales_all(sales_plot, value)
+#     if value == 'Monthly':
+
+#         table = plot_table_sales(sales_plot_table, value)
+#     else:
+#         table = plot_table_sales(sales_plot_table_daily, value)
+#     return fig, table
 
 @app.callback(
     Output('vp_fig', 'figure'),
