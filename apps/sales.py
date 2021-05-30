@@ -51,20 +51,20 @@ sales_tab = dac.TabItem(id='content_sales',
                                 ),
                             ]),
                     ], style={'height':'120vh'}), md=12),
-              dbc.Col(
-                dbc.Card(
-                  [
-                      # dbc.CardHeader("Detail jan21-feb21"),
-                      dbc.CardBody(
-                          [
-                              # html.H5("Card title", className="card-title"),
-                              html.Div(
+              # dbc.Col(
+              #   dbc.Card(
+              #     [
+              #         # dbc.CardHeader("Detail jan21-feb21"),
+              #         dbc.CardBody(
+              #             [
+              #                 # html.H5("Card title", className="card-title"),
+              #                 html.Div(
                                       
-                                  id='sales_table',
+              #                     id='sales_table',
 
-                              ),
-                          ]),
-                  ], style={'height':'120vh'}), md=4),
+              #                 ),
+              #             ]),
+              #     ], style={'height':'120vh'}), md=4),
 
             ]),
             dbc.Row([
