@@ -4,7 +4,8 @@ import dash_admin_components as dac
 import dash_bootstrap_components as dbc
 
 from example_plots import (plot_sales_train, plot_sales_test, plot_sales_all, plot_table_sales)
-
+from data_loader import get_agsales
+sales_plot = get_agsales()
 
 fig_sales_train, fig_sales_test = plot_sales_train(), plot_sales_test()
 
@@ -49,7 +50,7 @@ sales_tab = dac.TabItem(id='content_sales',
                                         ),className="card-text",
                                 ),
                             ]),
-                    ], style={'height':'120vh'}), md=8),
+                    ], style={'height':'120vh'}), md=12),
               dbc.Col(
                 dbc.Card(
                   [
