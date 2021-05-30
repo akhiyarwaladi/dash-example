@@ -14,7 +14,7 @@ import time
 
 def plot_sales_all(sales_plot, value):
 	gap_anot = 15
-	sales_plot['index'] = pd.to_datetime(sales_plot['index'])
+	
 	if value == 'Monthly':
 	    sales_plot = sales_plot.groupby([pd.Grouper(key='index',freq='M')])\
 	                .agg({'TRO_NET':'sum','TRO_NET_PRED':'sum'}).reset_index()
@@ -22,12 +22,8 @@ def plot_sales_all(sales_plot, value):
 	    gap_anot = 1
 
 
-	lower_bond = datetime.today() - timedelta(days=60)
-	lower_bond = lower_bond.strftime('%Y-%m-%d')
 
-	sales_plot = sales_plot[sales_plot['index'] > lower_bond]
-	sales_plot['index'] = pd.to_datetime(sales_plot['index'])
-
+	
 
 	# fig = px.line(sales_plot, x='index', y='TRO_NET', template='presentation', \
 	#               color='type')
