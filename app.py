@@ -56,8 +56,8 @@ new_regular = pd.read_csv(os.path.join(parent_path, 'out_plot/new_regular.csv'),
 
 ## ploting table
 sales_plot_table = sales_plot.copy()
-sales_plot_table = sales_plot_table.set_index(["index", "type"])['tbtop_amount_final'].unstack(level=1).fillna(0)\
-        .reset_index().sort_values(by='index', ascending=False).reset_index(drop=True)
+# sales_plot_table = sales_plot_table.set_index(["index", "type"])['tbtop_amount_final'].unstack(level=1).fillna(0)\
+#         .reset_index().sort_values(by='index', ascending=False).reset_index(drop=True)
 
 ############################
 sales_plot_table_daily = sales_plot_table.copy()
