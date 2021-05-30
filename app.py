@@ -423,10 +423,7 @@ def make_plot_callback(date_start, date_end):
     return fig
 
 @app.callback(
-    [
-        Output('sales_fig', 'figure'),
-        # Output('sales_table', 'children')
-    ],
+    Output('sales_fig', 'figure'),
     [
         Input('demo-dropdown', 'value')
     ]
@@ -435,6 +432,16 @@ def update_plot_sales(value):
     fig = plot_sales_all(sales_plot, value)
 
     return fig
+
+# @app.callback(
+#     [
+#         Output('sales_fig', 'figure'),
+#         Output('sales_table', 'children')
+#     ],
+#     [
+#         Input('demo-dropdown', 'value')
+#     ]
+# )
 # def update_plot_sales(value):
 #     fig = plot_sales_all(sales_plot, value)
 #     if value == 'Monthly':
