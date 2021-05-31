@@ -16,8 +16,7 @@ from apps.general_monitor import general_monitor_tab
 from apps.price_compare import tab_price_compare
 from apps.value_boxes import value_boxes_tab
 from apps.value_behave import value_behave_tab
-from apps.sales import sales_tab, sales_plot
-print(sales_plot)
+from apps.sales import sales_tab
 from apps.oos_boxes import oos_boxes_tab
 from apps.tab_events_notif import events_tab, campaign_push
 from apps.tab_events_inapp import events_inapp, campaign_inapp
@@ -25,10 +24,9 @@ from apps.tab_events_email import events_email, campaign_email
 from apps.event_view_product import view_product_tab, product_group
 
 from example_plots import (plot_plus_minus, plot_oos_time_spend, plot_new_regular, 
-    plot_table_sales, plot_vp, plot_sp)
+    plot_sales_all, plot_table_sales, plot_vp, plot_sp)
 from plots.campaign_report import w_general_push, w_general_email, w_general_inapp
 from plots.product_plot import plot_product
-from plots.agsales_plot import plot_sales_all
 
 
 from data_loader import get_vp, get_sp, get_cpn, get_cpe, get_cpi
@@ -45,20 +43,18 @@ parent_path = '/home/server/gli-data-science/akhiyar'
 new_regular = pd.read_csv(os.path.join(parent_path, 'out_plot/new_regular.csv'), sep='\t')
 
 ## ploting figure
-# sales_plot = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/sales_plot.csv', \
-#                     sep='\t')
-# lower_bond = datetime.today() - timedelta(days=90)
-# lower_bond = lower_bond.strftime('%Y-%m-%d')
+sales_plot = pd.read_csv('/home/server/gli-data-science/akhiyar/out_plot/sales_plot.csv', \
+                    sep='\t')
+lower_bond = datetime.today() - timedelta(days=90)
+lower_bond = lower_bond.strftime('%Y-%m-%d')
 
-# sales_plot = sales_plot[sales_plot['index'] > lower_bond]
-# sales_plot['index'] = pd.to_datetime(sales_plot['index'])
-
-
+sales_plot = sales_plot[sales_plot['index'] > lower_bond]
+sales_plot['index'] = pd.to_datetime(sales_plot['index'])
 
 ## ploting table
-sales_plot_table = sales_plot.copy().fillna(0)
-# sales_plot_table = sales_plot_table.set_index(["index", "type"])['tbtop_amount_final'].unstack(level=1).fillna(0)\
-#         .reset_index().sort_values(by='index', ascending=False).reset_index(drop=True)
+sales_plot_table = sales_plot.copy()
+sales_plot_table = sales_plot_table.set_index(["index", "type"])['tbtop_amount_final'].unstack(level=1).fillna(0)\
+        .reset_index().sort_values(by='index', ascending=False).reset_index(drop=True)
 
 ############################
 sales_plot_table_daily = sales_plot_table.copy()
@@ -68,24 +64,24 @@ sales_plot_table_daily['index'] = pd.to_datetime(sales_plot_table_daily['index']
 ## formatting view
 sales_plot_table_daily['index'] = sales_plot_table_daily['index'].dt.strftime('%d%b%y')
 
-sales_plot_table_daily['TRO_NET_PRED'] = sales_plot_table_daily['TRO_NET_PRED'].astype('float').apply(transform_to_rupiah_format)
-sales_plot_table_daily['TRO_NET'] = sales_plot_table_daily['TRO_NET'].astype('float').apply(transform_to_rupiah_format)
-sales_plot_table_daily = sales_plot_table_daily.rename(columns={'index':'date'})
+sales_plot_table_daily['prediction'] = sales_plot_table_daily['prediction'].astype('float').apply(transform_to_rupiah_format)
+sales_plot_table_daily['actual'] = sales_plot_table_daily['actual'].astype('float').apply(transform_to_rupiah_format)
+sales_plot_table_daily = sales_plot_table_daily.rename(columns={'index':'date', 'type':''})
 ############################
 
 
 ############################
 sales_plot_table['index'] = pd.to_datetime(sales_plot_table['index'])
 sales_plot_table = sales_plot_table.groupby([pd.Grouper(key='index',freq='M')])\
-                    .agg({'TRO_NET':'sum', 'TRO_NET_PRED':'sum'})\
+                    .agg({'actual':'sum', 'prediction':'sum'})\
                     .reset_index()
 
 ## formatting view
 sales_plot_table['index'] = sales_plot_table['index'].dt.strftime('%d%b%y')
 
-sales_plot_table['TRO_NET_PRED'] = sales_plot_table['TRO_NET_PRED'].astype('float').apply(transform_to_rupiah_format)
-sales_plot_table['TRO_NET'] = sales_plot_table['TRO_NET'].astype('float').apply(transform_to_rupiah_format)
-sales_plot_table = sales_plot_table.rename(columns={'index':'date'})
+sales_plot_table['prediction'] = sales_plot_table['prediction'].astype('float').apply(transform_to_rupiah_format)
+sales_plot_table['actual'] = sales_plot_table['actual'].astype('float').apply(transform_to_rupiah_format)
+sales_plot_table = sales_plot_table.rename(columns={'index':'date', 'type':''})
 ############################
 
 vp = get_vp()[0]
@@ -423,33 +419,22 @@ def make_plot_callback(date_start, date_end):
     return fig
 
 @app.callback(
-    Output('sales_fig', 'figure'),
+    [
+        Output('sales_fig', 'figure'),
+        Output('sales_table', 'children')
+    ],
     [
         Input('demo-dropdown', 'value')
     ]
 )
 def update_plot_sales(value):
     fig = plot_sales_all(sales_plot, value)
+    if value == 'Monthly':
 
-    return fig
-
-# @app.callback(
-#     [
-#         Output('sales_fig', 'figure'),
-#         Output('sales_table', 'children')
-#     ],
-#     [
-#         Input('demo-dropdown', 'value')
-#     ]
-# )
-# def update_plot_sales(value):
-#     fig = plot_sales_all(sales_plot, value)
-#     if value == 'Monthly':
-
-#         table = plot_table_sales(sales_plot_table, value)
-#     else:
-#         table = plot_table_sales(sales_plot_table_daily, value)
-#     return fig, table
+        table = plot_table_sales(sales_plot_table, value)
+    else:
+        table = plot_table_sales(sales_plot_table_daily, value)
+    return fig, table
 
 @app.callback(
     Output('vp_fig', 'figure'),
@@ -495,7 +480,7 @@ def update_plot_cpe(value):
     fig = w_general_email(campaign_email, value)
 
     return fig
-    
+        
 @app.callback(
     Output('cpi_fig', 'figure'),
     [
